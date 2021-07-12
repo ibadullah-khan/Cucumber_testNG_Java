@@ -5,13 +5,12 @@ import cucumber.api.java.Before;
 
 public class Hooks {
 
-    private BrowserFactory browserFactoryInstance = BrowserFactory.getInstance();
+    private final BrowserFactory browserFactoryInstance = BrowserFactory.getInstance();
     public static String Browser;
 
     @Before
     public void beforeScenario(){
         Browser = System.getProperty("browser");
-
         browserFactoryInstance.setDriver(Browser);
     }
 
