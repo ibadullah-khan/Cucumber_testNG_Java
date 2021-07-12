@@ -1,6 +1,7 @@
 Feature: Test Feature
   This is just a test feature file
 
-  Scenario: a few cukes
-    Given User Opens Web Browser
+  @lol
+  Scenario: Lol
+    Given User Setup the Web Browser
     When User Navigate to "shoebacca_home" Url
