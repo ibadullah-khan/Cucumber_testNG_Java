@@ -60,10 +60,10 @@ public class WaitFactory {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
-    public void staticWait(int totalWaitTimeInMilliSeconds) {
+    public void staticWait(int waitTime) {
 
         try {
-            Thread.sleep(totalWaitTimeInMilliSeconds);
+            Thread.sleep(waitTime);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

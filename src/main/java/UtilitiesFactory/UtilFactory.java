@@ -117,4 +117,7 @@ public class UtilFactory {
     protected void waitForPageLoad(){
         waitFactory.waitForPageToFinishLoading(browserFactoryInstance.getDriver());
     }
+    protected void customWait(int waitTime){
+        waitFactory.staticWait(waitTime);
+    }
 }
