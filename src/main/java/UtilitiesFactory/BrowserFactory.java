@@ -34,7 +34,7 @@ public class BrowserFactory {
         return instance;
     }
 
-    protected final void setDriver(String browser)
+    public final void setDriver(String browser)
     {
         switch (browser.toUpperCase())
         {
@@ -58,6 +58,11 @@ public class BrowserFactory {
             case "EDGE":
                 WebDriverManager.edgedriver().setup();
                 driver.set(new EdgeDriver(edgeOptions()));
+                break;
+
+            default:
+                WebDriverManager.chromedriver().setup();
+                driver.set(new ChromeDriver(chromeOptions_desktop()));
                 break;
         }
     }

@@ -1,5 +1,7 @@
 package UtilitiesFactory;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -9,6 +11,14 @@ public class UtilFactory {
     private ElementFactory elementFactory = new ElementFactory();
     protected BrowserFactory browserFactoryInstance = BrowserFactory.getInstance();
     protected WaitFactory waitFactory = new WaitFactory(BrowserFactory.getDriver());
+
+    //For Reporting
+
+    public ExtentReports extent;
+    public static ExtentTest scenarioDef;
+    public static ExtentTest features;
+
+    public static String reportLocation = "target/executionReports/";
 
     public UtilFactory() throws Exception {
     }
