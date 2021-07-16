@@ -76,7 +76,7 @@ public class BrowserFactory {
 
         Map<String, String> mobileEmulation = new HashMap<>();
 
-        mobileEmulation.put("deviceName", "Android Mobile");
+        mobileEmulation.put("deviceName", "Galaxy S5");
 
         // Setup Chrome environment:
         ChromeOptions chromeOptions = new ChromeOptions();
@@ -86,6 +86,7 @@ public class BrowserFactory {
         chromeOptions.addArguments("--disable-extensions-file-access-check");
         chromeOptions.addArguments("--disable-extensions-http-throttling");
         chromeOptions.addArguments("--no-sandbox");
+        chromeOptions.addArguments("--window-size=240,720");
         chromeOptions.setExperimentalOption("useAutomationExtension", false);
         chromeOptions.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
         chromeOptions.addArguments("disable-popup-blocking");

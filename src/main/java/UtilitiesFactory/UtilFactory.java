@@ -2,21 +2,31 @@ package UtilitiesFactory;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
+import com.aventstack.extentreports.Status;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+
+import java.io.File;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Base64;
 
 public class UtilFactory {
 
     private ElementFactory elementFactory = new ElementFactory();
     protected BrowserFactory browserFactoryInstance = BrowserFactory.getInstance();
     protected WaitFactory waitFactory = new WaitFactory(BrowserFactory.getDriver());
+    private static String screenshotFolder = System.getProperty("user.dir") + "target/executionReports/images";
 
     //For Reporting
 
     public ExtentReports extent;
+
     public static ExtentTest scenarioDef;
     public static ExtentTest features;
+    public static String failureException;
 
     public static String reportLocation = "target/executionReports/";
 
@@ -24,8 +34,14 @@ public class UtilFactory {
     }
 
     protected void loadUrl(String url){
-        browserFactoryInstance.getDriver().get(url);
-        waitForPageLoad();
+        try{
+            browserFactoryInstance.getDriver().get(url);
+            waitForPageLoad();
+            features.log(Status.PASS,"Initiated the browser session");
+        }catch (Exception e){
+            features.log(Status.FAIL,"Could not initiate the browser session");
+        }
+
     }
 
     protected void click(String locator){
@@ -129,5 +145,24 @@ public class UtilFactory {
     }
     protected void customWait(int waitTime){
         waitFactory.staticWait(waitTime);
+    }
+
+    public static String getBase64Screenshot(WebDriver driver, String screenshotName) throws IOException {
+
+        String Base64StringofScreenshot="";
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd__HH_mm_ss");
+        LocalDateTime now = LocalDateTime.now();
+
+        TakesScreenshot ts = (TakesScreenshot) driver;
+        File source = ts.getScreenshotAs(OutputType.FILE);
+
+        String dest = screenshotFolder + "/" +dtf.format(now)+  screenshotName + ".png";
+
+        File destination = new File(dest);
+        FileUtils.copyFile(source, destination);
+
+        byte[] fileContent = FileUtils.readFileToByteArray(source);
+        Base64StringofScreenshot = "data:image/png;base64," + Base64.getEncoder().encodeToString(fileContent);
+        return Base64StringofScreenshot;
     }
 }

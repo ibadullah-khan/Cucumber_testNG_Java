@@ -5,7 +5,7 @@ import PageObjectFactory.HeaderPageFactory;
 
 import UtilitiesFactory.PropertyLoaderFactory;
 import UtilitiesFactory.UtilFactory;
-import com.aventstack.extentreports.GherkinKeyword;
+import com.aventstack.extentreports.Status;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
@@ -24,7 +24,7 @@ public class CommonStepsDef extends UtilFactory {
     @Given("User Setup the Web Browser")
     public void user_Setup_the_Web_Browser() throws Exception {
         // General Step Definitions for setting up the browsers config
-        features.createNode(new GherkinKeyword("Given"), "Setup Browser");
+        scenarioDef.log(Status.PASS,"User Setup the Web Browser");
 
     }
 
@@ -32,7 +32,6 @@ public class CommonStepsDef extends UtilFactory {
     public void user_Navigate_to_Url(String urlToLoad) throws Exception {
         url = new PropertyLoaderFactory().getProperty(propFile).getProperty(urlToLoad);
         loadUrl(url);
-        features.createNode(new GherkinKeyword("When"), "User Navigate");
     }
 
     @And("User Click on Account Icon on Header")

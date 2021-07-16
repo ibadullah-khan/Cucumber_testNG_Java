@@ -4,7 +4,9 @@ import EnumFactory.HeaderPageEnum;
 import UtilitiesFactory.BrowserFactory;
 import UtilitiesFactory.UtilFactory;
 import UtilitiesFactory.WaitFactory;
-import com.aventstack.extentreports.GherkinKeyword;
+import com.aventstack.extentreports.Status;
+
+import java.io.IOException;
 
 public class HeaderPageFactory extends UtilFactory {
 
@@ -13,15 +15,16 @@ public class HeaderPageFactory extends UtilFactory {
     public HeaderPageFactory() throws Exception {
     }
 
-    public HeaderPageFactory clickOnAccountIcon() throws ClassNotFoundException {
+    public HeaderPageFactory clickOnAccountIcon() throws ClassNotFoundException, IOException {
         String locator = HeaderPageEnum.XPATH_ACCOUNT_ICON.getValue();
         try{
             waitFactory.waitForElementToBeClickable(locator);
             click(locator);
-            features.createNode("Clicked Account");
+            scenarioDef.log(Status.PASS,"Clicked on Account Homepage Button");
             return this;
         }catch (Exception e){
-            features.fail("Cannot Clicked Account");
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not click on Account Icon on Header");
             throw e;
         }
     }
