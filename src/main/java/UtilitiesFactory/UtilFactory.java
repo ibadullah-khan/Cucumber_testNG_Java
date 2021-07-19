@@ -19,6 +19,7 @@ public class UtilFactory {
     protected BrowserFactory browserFactoryInstance = BrowserFactory.getInstance();
     protected WaitFactory waitFactory = new WaitFactory(BrowserFactory.getDriver());
     private static String screenshotFolder = System.getProperty("user.dir") + "target/executionReports/images";
+    public static String propertiesLocation = "src/test/resources/Properties/";
 
     //For Reporting
 
@@ -37,9 +38,9 @@ public class UtilFactory {
         try{
             browserFactoryInstance.getDriver().get(url);
             waitForPageLoad();
-            features.log(Status.PASS,"Initiated the browser session");
+            scenarioDef.log(Status.PASS,"Initiated the browser session");
         }catch (Exception e){
-            features.log(Status.FAIL,"Could not initiate the browser session");
+            scenarioDef.log(Status.FAIL,"Could not initiate the browser session");
         }
 
     }
@@ -69,6 +70,17 @@ public class UtilFactory {
     {
         JavascriptExecutor executor = (JavascriptExecutor) BrowserFactory.getDriver();
         executor.executeScript("arguments[0].click();", element);
+    }
+
+    protected void enterString(String locatorValue, String fieldValue) throws Exception
+    {
+        WebElement element = elementFactory.getElement(locatorValue);
+        enterString(element,fieldValue);
+    }
+
+    protected void enterString(WebElement element, String fieldValue) throws Exception
+    {
+        element.sendKeys(fieldValue);
     }
 
     protected void hover(String locatorValue) throws Exception

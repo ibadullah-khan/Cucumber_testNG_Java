@@ -13,7 +13,7 @@ import io.cucumber.java.en.When;
 public class CommonStepsDef extends UtilFactory {
 
     protected String url;
-    protected String propFile = "src/test/resources/Properties/run.properties";
+    protected String runPropFile = propertiesLocation + "run.properties";
 
     HeaderPageFactory headerPage;
 
@@ -25,12 +25,11 @@ public class CommonStepsDef extends UtilFactory {
     public void user_Setup_the_Web_Browser() throws Exception {
         // General Step Definitions for setting up the browsers config
         scenarioDef.log(Status.PASS,"User Setup the Web Browser");
-
     }
 
     @When("User Navigate to {string} Url")
     public void user_Navigate_to_Url(String urlToLoad) throws Exception {
-        url = new PropertyLoaderFactory().getProperty(propFile).getProperty(urlToLoad);
+        url = new PropertyLoaderFactory().getPropertyFile(runPropFile).getProperty(urlToLoad);
         loadUrl(url);
     }
 

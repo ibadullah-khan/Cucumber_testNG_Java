@@ -18,7 +18,7 @@ public class PropertyLoaderFactory {
      * @return Returns properties from the pre-defined .properties file
      * @throws Exception Throws exception if .properties file or path is not found
      */
-    public Properties getProperty(String filename) throws Exception {
+    public Properties getPropertyFile(String filename) throws Exception {
 
         String path = null;
 

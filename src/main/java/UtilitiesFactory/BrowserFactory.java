@@ -18,6 +18,7 @@ public class BrowserFactory {
 
     private static ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>();
     private static BrowserFactory instance = null;
+    private static String BROWSER;
 
     // Singleton to make thread safe
     private BrowserFactory()
@@ -170,5 +171,13 @@ public class BrowserFactory {
         edgeOptions.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
 
         return edgeOptions;
+    }
+
+    public void setBrowser(String browser){
+        BROWSER = browser;
+    }
+
+    public String getBrowser(){
+        return BROWSER;
     }
 }

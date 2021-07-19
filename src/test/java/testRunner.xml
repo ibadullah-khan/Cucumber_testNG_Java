@@ -13,11 +13,4 @@
         </classes>
     </test>
 
-    <test name="Test2.Feature">
-        <parameter name="browser" value="firefox" />
-        <classes>
-            <class name="Runner.TestRunner2" />
-        </classes>
-    </test>
-
 </suite>

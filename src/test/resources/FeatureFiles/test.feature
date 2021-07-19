@@ -6,9 +6,3 @@ Feature: Test Feature
     Given User Setup the Web Browser
     When User Navigate to "shoebacca_home" Url
     And User Click on Account Icon on Header
-
-  @Tester
-  Scenario: This is 2nd Test Scenario
-    Given User Setup the Web Browser
-    When User Navigate to "shoebacca_home" Url
-    And User Click on Account Icon on Header

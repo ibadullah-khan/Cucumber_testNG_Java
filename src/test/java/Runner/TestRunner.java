@@ -7,7 +7,8 @@ import io.cucumber.testng.CucumberOptions;
         features ="src/test/resources/FeatureFiles/test.feature",
         monochrome = true,
         plugin = {"json:target/cucumber.json", "pretty"},
-        glue = "com.shoebacca.StepsDefinitions")
+        glue = {"com.shoebacca.StepsDefinitions",
+        "UtilitiesFactory"})
 
 public class TestRunner extends AbstractTestNGCucumberTests {
 

@@ -11,14 +11,12 @@ import org.testng.Reporter;
 import java.io.IOException;
 
 import static UtilitiesFactory.UtilFactory.features;
-import static UtilitiesFactory.UtilFactory.scenarioDef;
 
 
 public class TestRunnerListener implements ITestListener {
 
     ExtentReportFactory extentReport = new ExtentReportFactory();
     private final BrowserFactory browserFactoryInstance = BrowserFactory.getInstance();
-    public static String Browser;
 
     public TestRunnerListener() throws Exception {
         extentReport.ExtentReport();
@@ -26,9 +24,7 @@ public class TestRunnerListener implements ITestListener {
 
     @Override
     public void onTestStart(ITestResult iTestResult) {
-        Browser = getParameterValue("browser");
-        browserFactoryInstance.setDriver(Browser);
-        scenarioDef = features.createNode("My Scenario File");
+          browserFactoryInstance.setBrowser(getParameterValue("browser"));
     }
 
     @Override
