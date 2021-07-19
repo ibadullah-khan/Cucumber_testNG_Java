@@ -161,6 +161,17 @@ public class UtilFactory {
         js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
     }
 
+    protected Boolean isVisible(String locatorValue)
+    {
+        int size = elementFactory.getElementList(locatorValue);
+        if(size > 0 ){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     protected void waitForPageLoad(){
         waitFactory.waitForPageToFinishLoading(browserFactoryInstance.getDriver());
     }

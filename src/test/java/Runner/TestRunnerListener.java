@@ -10,6 +10,7 @@ import org.testng.Reporter;
 
 import java.io.IOException;
 
+import static UtilitiesFactory.BrowserFactory.getDriver;
 import static UtilitiesFactory.UtilFactory.features;
 
 
@@ -31,7 +32,7 @@ public class TestRunnerListener implements ITestListener {
     public void onTestSuccess(ITestResult iTestResult) {
         try{
             extentReport.ExtentPassStep();
-            BrowserFactory.getDriver().close();
+            getDriver().close();
         }catch (IOException e){
             e.printStackTrace();
         }
@@ -41,7 +42,7 @@ public class TestRunnerListener implements ITestListener {
     public void onTestFailure(ITestResult iTestResult) {
         try{
             extentReport.ExtentFailStep();
-            BrowserFactory.getDriver().close();
+            getDriver().close();
         }catch (IOException e){
             e.printStackTrace();
         }
@@ -55,6 +56,10 @@ public class TestRunnerListener implements ITestListener {
     @Override
     public void onFinish(ITestContext iTestContext) {
         extentReport.FlushReport();
+
+        if(getDriver()!=null){
+            getDriver().quit();
+        }
     }
 
     public String getParameterValue(String key){

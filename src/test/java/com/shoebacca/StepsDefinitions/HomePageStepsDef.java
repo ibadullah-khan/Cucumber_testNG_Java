@@ -1,24 +1,23 @@
 package com.shoebacca.StepsDefinitions;
 
-import PageObjectFactory.HeaderPageFactory;
-
-
+import PageObjectFactory.HomePageFactory;
 import UtilitiesFactory.PropertyLoaderFactory;
 import UtilitiesFactory.UtilFactory;
 import com.aventstack.extentreports.Status;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class CommonStepsDef extends UtilFactory {
+public class HomePageStepsDef extends UtilFactory {
 
     protected String url;
     protected String runPropFile = propertiesLocation + "run.properties";
 
-    HeaderPageFactory headerPage;
+    HomePageFactory homePage;
 
-    public CommonStepsDef() throws Exception {
-        headerPage = new HeaderPageFactory();
+    public HomePageStepsDef() throws Exception {
+        homePage = new HomePageFactory();
     }
 
     @Given("User Setup the Web Browser")
@@ -33,10 +32,14 @@ public class CommonStepsDef extends UtilFactory {
         loadUrl(url);
     }
 
-    @And("User Click on Account Icon on Header")
-    public void user_click_on_Account_Icon_on_Header() throws Exception {
-        headerPage
-                .clickOnAccountIcon();
+    @And("User Validate Mini Cart Icon is Visible on Header")
+    public void user_validate_mini_cart_icon_is_visible_on_header() throws Exception {
+        homePage.validateMiniCartIconVisibility(true);
+    }
+
+    @Then("User Clicks the Mini Cart Icon on Header")
+    public void user_clicks_the_mini_cart_icon_on_header() throws Exception {
+        homePage.clickOnMiniCartIcon();
     }
 
 }
