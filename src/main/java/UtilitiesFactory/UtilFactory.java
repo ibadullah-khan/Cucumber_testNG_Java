@@ -18,8 +18,19 @@ public class UtilFactory {
     private ElementFactory elementFactory = new ElementFactory();
     protected BrowserFactory browserFactoryInstance = BrowserFactory.getInstance();
     protected WaitFactory waitFactory = new WaitFactory(BrowserFactory.getDriver());
-    private static String screenshotFolder = System.getProperty("user.dir") + "target/executionReports/images";
     public static String propertiesLocation = "src/test/resources/Properties/";
+    private static String envPropFile = propertiesLocation +"environment.properties";
+    private static String screenshotFolder;
+    public static String reportLocation;
+
+    static {
+        try {
+            screenshotFolder = new PropertyLoaderFactory().getPropertyFile(envPropFile).getProperty("screenshot.folder");
+            reportLocation = new PropertyLoaderFactory().getPropertyFile(envPropFile).getProperty("extent.report.folder");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     //For Reporting
 
@@ -28,8 +39,6 @@ public class UtilFactory {
     public static ExtentTest scenarioDef;
     public static ExtentTest features;
     public static String failureException;
-
-    public static String reportLocation = "target/executionReports/";
 
     public UtilFactory() throws Exception {
     }
