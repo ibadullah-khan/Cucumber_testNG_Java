@@ -6,10 +6,10 @@
         <listener class-name="Runner.TestRunnerListener" />
     </listeners>
 
-    <test name="Test.Feature">
+    <test name="Mini Cart Feature">
         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="Runner.TestRunner" />
+            <class name="Runner.MiniCartTest" />
         </classes>
     </test>
 

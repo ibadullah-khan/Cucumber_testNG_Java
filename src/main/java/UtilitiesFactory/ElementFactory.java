@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+
 public class ElementFactory {
 
     WebDriver driver = BrowserFactory.getDriver();
@@ -33,6 +35,7 @@ public class ElementFactory {
             throw e;
         }
     }
+
     public WebElement getElement(String locatorValue) {
 
         WebElement element = null;
@@ -44,5 +47,12 @@ public class ElementFactory {
 
             throw e;
         }
+    }
+
+    public int getElementList(String locatorValue) {
+
+        List<WebElement> elements = null;
+        elements = driver.findElements(By.xpath(locatorValue));
+        return elements.size();
     }
 }
