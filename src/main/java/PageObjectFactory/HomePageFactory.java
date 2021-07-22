@@ -65,4 +65,28 @@ public class HomePageFactory extends UtilFactory {
             throw e;
         }
     }
+
+    public void validateMiniCartCounterVisibility(Boolean expectedVisibility){
+        String locator = HomePageEnum.XPATH_MINI_CART_COUNTER.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility){
+                scenarioDef.log(Status.PASS,"Validated Mini Cart Counter is Displayed as Expected on Header");
+            }else if (!actualVisibility && !expectedVisibility){
+                scenarioDef.log(Status.PASS,"Validated Mini Cart Counter is not Displayed as Expected on Header");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated Mini Cart Counter is Displayed Unexpected on Header";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated Mini Cart Counter is not Displayed Unexpected on Header";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,errorMsg);
+            throw e;
+        }
+    }
 }

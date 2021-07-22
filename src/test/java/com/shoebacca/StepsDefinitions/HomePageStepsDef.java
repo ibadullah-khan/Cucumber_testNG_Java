@@ -21,25 +21,29 @@ public class HomePageStepsDef extends UtilFactory {
     }
 
     @Given("User Setup the Web Browser")
-    public void user_Setup_the_Web_Browser() throws Exception {
+    public void userSetupTheWebBrowser() throws Exception {
         // General Step Definitions for setting up the browsers config
         scenarioDef.log(Status.PASS,"User Setup the Web Browser");
     }
 
     @When("User Navigate to {string} Url")
-    public void user_Navigate_to_Url(String urlToLoad) throws Exception {
+    public void userNavigateToUrl(String urlToLoad) throws Exception {
         url = new PropertyLoaderFactory().getPropertyFile(runPropFile).getProperty(urlToLoad);
         loadUrl(url);
     }
 
     @And("User Validate Mini Cart Icon is Visible on Header")
-    public void user_validate_mini_cart_icon_is_visible_on_header() throws Exception {
+    public void userValidateMiniCartIconIsVisibleOnHeader() throws Exception {
         homePage.validateMiniCartIconVisibility(true);
     }
 
     @Then("User Clicks the Mini Cart Icon on Header")
-    public void user_clicks_the_mini_cart_icon_on_header() throws Exception {
+    public void userClicksTheMiniCartIconOnHeader() throws Exception {
         homePage.clickOnMiniCartIcon();
     }
 
+    @And("User Validate Mini Cart Counter is not Visible on Header")
+    public void userValidateMiniCartCounterIsNotVisibleOnHeader() {
+        homePage.validateMiniCartCounterVisibility(false);
+    }
 }
