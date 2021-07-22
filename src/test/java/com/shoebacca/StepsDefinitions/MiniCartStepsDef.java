@@ -12,7 +12,7 @@ public class MiniCartStepsDef {
     }
 
     @And("User Validate Mini Cart View is Visible")
-    public void user_validate_mini_cart_view_is_visible() throws Exception {
+    public void userValidateMiniCartViewIsVisible() throws Exception {
         miniCartPage.validateMiniCartViewVisibility(true);
     }
 }
