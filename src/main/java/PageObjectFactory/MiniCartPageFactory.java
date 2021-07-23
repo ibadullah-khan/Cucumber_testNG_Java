@@ -35,4 +35,17 @@ public class MiniCartPageFactory extends UtilFactory {
             throw e;
         }
     }
+
+    public void clickOnLoginLink(){
+        String locator = MiniCartPageEnum.XPATH_MINI_CART_LOGIN_LINK.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS,"Clicked on Login Link on Mini Cart View");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Click on Login Link on Mini Cart View");
+            throw e;
+        }
+    }
 }
