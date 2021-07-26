@@ -34,4 +34,55 @@ public class AccountMenuPageFactory extends UtilFactory{
         }
     }
 
+    public void enterUsername(String username) throws Exception {
+        String locator = AccountMenuPageEnum.XPATH_ACCOUNT_MENU_USERNAME.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            enterString(locator,username);
+            scenarioDef.log(Status.PASS,"Entered Text: "+username+" on Username Field on Account Menu");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Enter Text on Username Field on Account Menu");
+            throw e;
+        }
+    }
+
+    public void enterPassword(String password) throws Exception {
+        String locator = AccountMenuPageEnum.XPATH_ACCOUNT_MENU_PASSWORD.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            enterString(locator,password);
+            scenarioDef.log(Status.PASS,"Entered Text: "+password+" on Password Field on Account Menu");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Enter Text on Password Field on Account Menu");
+            throw e;
+        }
+    }
+
+    public void clickOnLoginButton(){
+        String locator = AccountMenuPageEnum.XPATH_ACCOUNT_MENU_LOGIN_BUTTON.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS,"Clicked on Login Button on Account Menu");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not click on Login Button on Account Menu");
+            throw e;
+        }
+    }
+
+    public void validateLoginSuccess(){
+        String locator = AccountMenuPageEnum.XPATH_ACCOUNT_MENU_GREET_HEADING.getValue();
+        try{
+            waitFactory.waitForElementToBeVisible(locator);
+            scenarioDef.log(Status.PASS,"User Logged In Successfully");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Logged in User");
+            throw e;
+        }
+    }
+
 }

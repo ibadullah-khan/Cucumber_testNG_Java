@@ -21,7 +21,7 @@ public class HomePageFactory extends UtilFactory {
         try{
             waitFactory.waitForElementToBeClickable(locator);
             click(locator);
-            scenarioDef.log(Status.PASS,"Clicked on Account Homepage Button");
+            scenarioDef.log(Status.PASS,"Clicked on Account Icon on Header");
         }catch (Exception e){
             failureException = e.toString();
             scenarioDef.log(Status.FAIL,"Could not click on Account Icon on Header");

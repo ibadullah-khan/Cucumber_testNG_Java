@@ -1,9 +1,6 @@
 package UtilitiesFactory;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.*;
 
 import java.time.Duration;
@@ -38,8 +35,8 @@ public class WaitFactory {
 
     public void waitForElementToBeClickable(String locatorValue) {
 
-        WebElement element = elementFactory.getElement(locatorValue);
-        waitForElementToBeClickable(element);
+        WebDriverWait wait = new WebDriverWait(driver, TimeUnit.MILLISECONDS.toSeconds(timeOutInMilliSeconds));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(locatorValue)));
     }
 
     public void waitForElementToBeClickable(WebElement element) {
@@ -50,8 +47,8 @@ public class WaitFactory {
 
     public void waitForElementToBeVisible(String locatorValue) {
 
-        WebElement element = elementFactory.getElement(locatorValue);
-        waitForElementToBeVisible(element);
+        WebDriverWait wait = new WebDriverWait(driver, TimeUnit.MILLISECONDS.toSeconds(timeOutInMilliSeconds));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locatorValue)));
     }
 
     public void waitForElementToBeVisible(WebElement element) {

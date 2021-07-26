@@ -45,4 +45,9 @@ public class HomePageStepsDef extends HarnessVariables {
     public void userValidateMiniCartCounterIsNotVisibleOnHeader() {
         homePage.validateMiniCartCounterVisibility(false);
     }
+
+    @And("User Clicks the Account Icon on Header")
+    public void userClicksTheAccountIconOnHeader() {
+        homePage.clickOnAccountIcon();
+    }
 }

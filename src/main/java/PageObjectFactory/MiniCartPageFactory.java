@@ -48,4 +48,28 @@ public class MiniCartPageFactory extends UtilFactory {
             throw e;
         }
     }
+
+    public void validateLoginLinkVisibility(Boolean expectedVisibility){
+        String locator = MiniCartPageEnum.XPATH_MINI_CART_LOGIN_LINK.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility){
+                scenarioDef.log(Status.PASS,"Validated Login Link is Displayed as Expected on Mini Cart View");
+            }else if (!actualVisibility && !expectedVisibility){
+                scenarioDef.log(Status.PASS,"Validated Login Link is not Displayed as Expected on Mini Cart View");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated Login Link is Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated Login Link is not Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,errorMsg);
+            throw e;
+        }
+    }
 }

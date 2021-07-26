@@ -21,4 +21,9 @@ public class MiniCartStepsDef extends HarnessVariables{
     public void userClicksTheLoginLinkOnMiniCartView() {
         miniCartPage.clickOnLoginLink();
     }
+
+    @Then("User Validates Login Link Visibility on Mini Cart View")
+    public void userValidatesLoginLinkVisibilityOnMiniCartView() {
+        miniCartPage.validateLoginLinkVisibility(false);
+    }
 }
