@@ -9,14 +9,12 @@ import org.openqa.selenium.support.ui.*;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
-import static UtilitiesFactory.UtilFactory.propertiesLocation;
-
 public class WaitFactory {
 
     private final WebDriver driver;
     private ElementFactory elementFactory = new ElementFactory();
 
-    private String envPropFile = propertiesLocation +"environment.properties";
+    private String envPropFile = "environment.properties";
 
     protected int timeOutInMilliSeconds = Integer.valueOf(new PropertyLoaderFactory().getPropertyFile(envPropFile).getProperty("timeOut"));
     protected int pollingTimeInMilliSeconds = Integer.valueOf(new PropertyLoaderFactory().getPropertyFile(envPropFile).getProperty("pollingTime"));

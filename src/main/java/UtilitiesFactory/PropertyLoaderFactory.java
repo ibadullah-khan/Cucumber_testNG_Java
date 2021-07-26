@@ -24,7 +24,7 @@ public class PropertyLoaderFactory {
 
         try {
 
-            path = System.getProperty("user.dir") + File.separator;
+            path = System.getProperty("user.dir") + File.separator + "src/test/resources/Properties/";
 
         } catch (Exception e) {
 

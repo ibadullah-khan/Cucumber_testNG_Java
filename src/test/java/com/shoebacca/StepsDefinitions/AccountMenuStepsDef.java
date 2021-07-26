@@ -3,7 +3,7 @@ package com.shoebacca.StepsDefinitions;
 import PageObjectFactory.AccountMenuPageFactory;
 import io.cucumber.java.en.And;
 
-public class AccountMenuStepsDef {
+public class AccountMenuStepsDef extends HarnessVariables{
 
     AccountMenuPageFactory accountMenuPage;
 

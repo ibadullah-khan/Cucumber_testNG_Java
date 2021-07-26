@@ -2,17 +2,16 @@ package com.shoebacca.StepsDefinitions;
 
 import PageObjectFactory.HomePageFactory;
 import UtilitiesFactory.PropertyLoaderFactory;
-import UtilitiesFactory.UtilFactory;
 import com.aventstack.extentreports.Status;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class HomePageStepsDef extends UtilFactory {
+public class HomePageStepsDef extends HarnessVariables {
 
     protected String url;
-    protected String runPropFile = propertiesLocation + "run.properties";
+    protected String runPropFile = "run.properties";
 
     HomePageFactory homePage;
 

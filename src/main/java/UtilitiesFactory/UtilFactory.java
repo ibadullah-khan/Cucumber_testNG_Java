@@ -18,8 +18,7 @@ public class UtilFactory {
     private ElementFactory elementFactory = new ElementFactory();
     protected BrowserFactory browserFactoryInstance = BrowserFactory.getInstance();
     protected WaitFactory waitFactory = new WaitFactory(BrowserFactory.getDriver());
-    public static String propertiesLocation = "src/test/resources/Properties/";
-    private static String envPropFile = propertiesLocation +"environment.properties";
+    private static String envPropFile = "environment.properties";
     private static String screenshotFolder;
     public static String reportLocation;
 

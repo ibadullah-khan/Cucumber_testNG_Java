@@ -4,7 +4,7 @@ import PageObjectFactory.MiniCartPageFactory;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 
-public class MiniCartStepsDef {
+public class MiniCartStepsDef extends HarnessVariables{
 
     MiniCartPageFactory miniCartPage;
 
