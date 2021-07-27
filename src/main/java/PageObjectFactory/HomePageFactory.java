@@ -5,6 +5,7 @@ import UtilitiesFactory.BrowserFactory;
 import UtilitiesFactory.UtilFactory;
 import UtilitiesFactory.WaitFactory;
 import com.aventstack.extentreports.Status;
+import org.openqa.selenium.NoSuchContextException;
 import org.openqa.selenium.NoSuchElementException;
 
 import java.io.IOException;
@@ -82,6 +83,26 @@ public class HomePageFactory extends UtilFactory {
             }else if (!actualVisibility && expectedVisibility){
                 errorMsg = "Validated Mini Cart Counter is not Displayed Unexpected on Header";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateMiniCartCounterValue(String expectedValue){
+        String locator = HomePageEnum.XPATH_MINI_CART_COUNTER.getValue();
+        String errorMsg = null;
+        String actualValue;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            actualValue = getText(locator).trim();
+            if (actualValue.contains(expectedValue)){
+                scenarioDef.log(Status.PASS,"Validated Mini Cart Counter Value as Expected: "+expectedValue+" on Header");
+            } else{
+                errorMsg = "Could not validate Mini Cart Counter Value as Expected: "+expectedValue+" on Header, Actual Value: "+actualValue;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
             }
         }catch (Exception e){
             failureException = e.toString();

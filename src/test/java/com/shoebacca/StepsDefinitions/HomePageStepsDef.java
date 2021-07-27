@@ -50,4 +50,9 @@ public class HomePageStepsDef extends HarnessVariables {
     public void userClicksTheAccountIconOnHeader() {
         homePage.clickOnAccountIcon();
     }
+
+    @Then("User Validates Mini Cart Counter Value as {string}")
+    public void userValidatesMiniCartCounterValueAs(String count) {
+        homePage.validateMiniCartCounterValue(count);
+    }
 }

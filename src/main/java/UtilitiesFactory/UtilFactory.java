@@ -16,7 +16,6 @@ import java.util.Base64;
 public class UtilFactory {
 
     private ElementFactory elementFactory = new ElementFactory();
-    protected BrowserFactory browserFactoryInstance = BrowserFactory.getInstance();
     protected WaitFactory waitFactory = new WaitFactory(BrowserFactory.getDriver());
     private static String envPropFile = "environment.properties";
     private static String screenshotFolder;
@@ -44,7 +43,8 @@ public class UtilFactory {
 
     protected void loadUrl(String url){
         try{
-            browserFactoryInstance.getDriver().get(url);
+            BrowserFactory.getDriver().manage().deleteAllCookies();
+            BrowserFactory.getDriver().get(url);
             waitForPageLoad();
             scenarioDef.log(Status.PASS,"Initiated the browser session");
         }catch (Exception e){
@@ -171,8 +171,18 @@ public class UtilFactory {
         }
     }
 
+    protected String getText(String locatorValue)
+    {
+        return getText(elementFactory.getElement(locatorValue));
+    }
+
+    protected String getText(WebElement element)
+    {
+        return element.getText();
+    }
+
     protected void waitForPageLoad(){
-        waitFactory.waitForPageToFinishLoading(browserFactoryInstance.getDriver());
+        waitFactory.waitForPageToFinishLoading(BrowserFactory.getDriver());
     }
     protected void customWait(int waitTime){
         waitFactory.staticWait(waitTime);

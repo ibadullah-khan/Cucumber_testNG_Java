@@ -72,4 +72,29 @@ public class MiniCartPageFactory extends UtilFactory {
             throw e;
         }
     }
+
+    public void clickOnCloseIcon(){
+        String locator = MiniCartPageEnum.XPATH_MINI_CART_CLOSE_ICON.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS,"Clicked on Close Icon on Mini Cart View");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Click on Close Icon on Mini Cart View");
+            throw e;
+        }
+    }
+
+    public void validateMiniCartTriggered(){
+        String locator = MiniCartPageEnum.XPATH_MINI_CART_VIEW.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            scenarioDef.log(Status.PASS,"Product Successfully Triggered Mini Cart");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Product Could not Successfully Trigger Mini Cart");
+            throw e;
+        }
+    }
 }
