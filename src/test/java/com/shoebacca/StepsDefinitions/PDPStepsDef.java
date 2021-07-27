@@ -15,4 +15,14 @@ public class PDPStepsDef extends HarnessVariables{
     public void userClicksAddToCartButtonOnPDP() {
         productDetailsPage.clickOnAddToCart();
     }
+
+    @And("User Fetches Product Name from PDP")
+    public void userFetchesProductNameFromPDP() {
+        PRODUCT_NAME = productDetailsPage.getProductName();
+    }
+
+    @And("User Fetches Product Price from PDP")
+    public void userFetchesProductPriceFromPDP() {
+        PRODUCT_PRICE = productDetailsPage.getProductPrice();
+    }
 }

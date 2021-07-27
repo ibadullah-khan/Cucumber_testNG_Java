@@ -106,7 +106,11 @@ public class HomePageFactory extends UtilFactory {
             }
         }catch (Exception e){
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,errorMsg);
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL,"Unable to get the Mini Cart Counter Element on Header");
+            }else {
+                scenarioDef.log(Status.FAIL,errorMsg);
+            }
             throw e;
         }
     }

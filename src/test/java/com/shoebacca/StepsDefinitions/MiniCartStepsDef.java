@@ -36,4 +36,14 @@ public class MiniCartStepsDef extends HarnessVariables{
     public void userValidatesSuccessfulTriggeredMiniCart() {
         miniCartPage.validateMiniCartTriggered();
     }
+
+    @Then("User Validate Product Name in Mini Cart")
+    public void userValidateProductNameInMiniCart() {
+        miniCartPage.validateProductName(PRODUCT_NAME);
+    }
+
+    @Then("User Validate Product Price in Mini Cart")
+    public void userValidateProductPriceInMiniCart() {
+        miniCartPage.validateProductPrice(PRODUCT_PRICE);
+    }
 }

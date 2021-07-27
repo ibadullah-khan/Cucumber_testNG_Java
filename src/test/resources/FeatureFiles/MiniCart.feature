@@ -52,3 +52,15 @@ Feature: Mini Cart Feature File
     And User Clicks Add to Cart Button on PDP
     And User Validates Successful Triggered Mini Cart
     Then User Validates Mini Cart Counter Value as "2"
+
+  @Regression
+  Scenario: Verify Mini Cart Content When Item is Added in the Cart
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.sports.bag.pdt" Url
+    And User Fetches Product Name from PDP
+    And User Fetches Product Price from PDP
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    Then User Validate Product Name in Mini Cart
+    Then User Validate Product Price in Mini Cart

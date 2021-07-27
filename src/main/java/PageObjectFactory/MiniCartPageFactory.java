@@ -1,10 +1,9 @@
 package PageObjectFactory;
 
 import EnumFactory.MiniCartPageEnum;
-import UtilitiesFactory.BrowserFactory;
 import UtilitiesFactory.UtilFactory;
-import UtilitiesFactory.WaitFactory;
 import com.aventstack.extentreports.Status;
+import org.openqa.selenium.NoSuchContextException;
 import org.openqa.selenium.NoSuchElementException;
 
 public class MiniCartPageFactory extends UtilFactory {
@@ -94,6 +93,54 @@ public class MiniCartPageFactory extends UtilFactory {
         }catch (Exception e){
             failureException = e.toString();
             scenarioDef.log(Status.FAIL,"Product Could not Successfully Trigger Mini Cart");
+            throw e;
+        }
+    }
+
+    public void validateProductName(String expectedText){
+        String locator = MiniCartPageEnum.XPATH_PRODUCT_NAME.getValue();
+        String errorMsg = null;
+        String actualText;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            actualText = getText(locator).trim();
+            if (actualText.contains(expectedText)){
+                scenarioDef.log(Status.PASS,"Validated Product Name on Mini Cart as Expected: "+expectedText);
+            }else {
+                errorMsg = "Could not validate Product Name on Mini Cart as Expected: "+expectedText+" , Actual Value: "+actualText;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        }catch (Exception e){
+            failureException = e.toString();
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL,"Unable to get the Product Name Element on Mini Cart");
+            }else {
+                scenarioDef.log(Status.FAIL,errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void validateProductPrice(String expectedText){
+        String locator = MiniCartPageEnum.XPATH_PRODUCT_PRICE.getValue();
+        String errorMsg = null;
+        String actualText;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            actualText = getText(locator).trim();
+            if (actualText.contains(expectedText)){
+                scenarioDef.log(Status.PASS,"Validated Product Price on Mini Cart as Expected: "+expectedText);
+            }else {
+                errorMsg = "Could not validate Product Price on Mini Cart as Expected: "+expectedText+" , Actual Value: "+actualText;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        }catch (Exception e){
+            failureException = e.toString();
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL,"Unable to get the Product Price Element on Mini Cart");
+            }else {
+                scenarioDef.log(Status.FAIL,errorMsg);
+            }
             throw e;
         }
     }
