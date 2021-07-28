@@ -31,9 +31,13 @@ public class HomePageStepsDef extends HarnessVariables {
         loadUrl(url);
     }
 
-    @And("User Validates Mini Cart Icon is Visible on Header")
-    public void userValidateMiniCartIconIsVisibleOnHeader() throws Exception {
-        homePage.validateMiniCartIconVisibility(true);
+    @And("User Validates Mini Cart Icon Visibility on Header {string}")
+    public void userValidatesMiniCartIconVisibilityOnHeader(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            homePage.validateMiniCartIconVisibility(true);
+        }else {
+            homePage.validateMiniCartIconVisibility(false);
+        }
     }
 
     @Then("User Clicks the Mini Cart Icon on Header")
@@ -41,9 +45,13 @@ public class HomePageStepsDef extends HarnessVariables {
         homePage.clickOnMiniCartIcon();
     }
 
-    @And("User Validates Mini Cart Counter is not Visible on Header")
-    public void userValidateMiniCartCounterIsNotVisibleOnHeader() {
-        homePage.validateMiniCartCounterVisibility(false);
+    @And("User Validates Mini Cart Counter Visibility on Header {string}")
+    public void userValidatesMiniCartCounterVisibilityOnHeader(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            homePage.validateMiniCartCounterVisibility(true);
+        }else {
+            homePage.validateMiniCartCounterVisibility(false);
+        }
     }
 
     @And("User Clicks the Account Icon on Header")
