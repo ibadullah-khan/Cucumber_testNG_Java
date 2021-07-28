@@ -110,3 +110,20 @@ Feature: Mini Cart Feature File
     And User Validates Mini Cart View Visibility "true"
     Then User Clicks the Mini Cart Icon on Header
     And User Validates Mini Cart View Visibility "false"
+
+  @Regression
+  Scenario: Verify View and Click Functionality of View Cart That Present on Mini Cart Menu
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Validates Mini Cart View Visibility "true"
+    Then User Validate Product Image Visibility "true"
+    Then User Validate Product Size Visibility "true"
+    Then User Validate Product Color Visibility "true"
+    Then User Validate Product Remove Visibility "true"
+    Then User Validate Shipping Label Visibility "true"
+    Then User Validate Tax Label Visibility "true"
+    Then User Validate View Cart Button Visibility "true"
+    Then User Click on View Cart Button
