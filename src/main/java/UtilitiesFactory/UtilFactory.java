@@ -49,6 +49,7 @@ public class UtilFactory {
             scenarioDef.log(Status.PASS,"Initiated the browser session");
         }catch (Exception e){
             scenarioDef.log(Status.FAIL,"Could not initiate the browser session");
+            throw e;
         }
 
     }
