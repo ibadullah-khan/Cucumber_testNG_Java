@@ -82,6 +82,6 @@ Feature: Mini Cart Feature File
     When User Navigates to "shoebacca.home" Url
     And User Validates Mini Cart Icon Visibility on Header "true"
     Then User Clicks the Mini Cart Icon on Header
-    And User Validates Mini Cart View Visibilility "true"
+    And User Validates Mini Cart View Visibility "true"
     Then User Clicks the Mini Cart Icon on Header
-    And User Validates Mini Cart View Visibilility "false"
+    And User Validates Mini Cart View Visibility "false"

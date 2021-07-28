@@ -60,13 +60,4 @@ public class MiniCartStepsDef extends HarnessVariables{
             miniCartPage.validateCloseButtonVisibility(false);
         }
     }
-
-    @And("User Validates Mini Cart View Visibilility {string}")
-    public void userValidatesMiniCartViewVisibilility(String expectedConditions) {
-        if(expectedConditions.equals("true")){
-            miniCartPage.validateMiniCartViewVisibility(true);
-        }else{
-            miniCartPage.validateMiniCartViewVisibility(false);
-        }
-    }
 }
