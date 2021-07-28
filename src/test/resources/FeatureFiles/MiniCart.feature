@@ -8,7 +8,7 @@ Feature: Mini Cart Feature File
     When User Navigates to "shoebacca.home" Url
     And User Validates Mini Cart Icon Visibility on Header "true"
     Then User Clicks the Mini Cart Icon on Header
-    And User Validates Mini Cart View is Visible
+    And User Validates Mini Cart View Visibility "true"
 
   @Regression
   Scenario: Verify Mini Cart Counter is not Visible when Mini Cart is Empty
@@ -66,11 +66,21 @@ Feature: Mini Cart Feature File
     Then User Validate Product Price in Mini Cart
 
   @Regression
+  Scenario: Verify Close Button Visibility on Mini Cart View and Close It on Click
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.home" Url
+    Then User Clicks the Mini Cart Icon on Header
+    And User Validates Close Button Visibility "true"
+    Then User Closes Mini Cart View
+    And User Validates Mini Cart View Visibility "false"
+
+  @Regression
   Scenario: Verify Mini Cart Icon Functionality on Header
 
     Given User Setups the Web Browser
     When User Navigates to "shoebacca.home" Url
-    And User Validates Mini Cart Icon is Visible on Header
+    And User Validates Mini Cart Icon Visibility on Header "true"
     Then User Clicks the Mini Cart Icon on Header
     And User Validates Mini Cart View Visibilility "true"
     Then User Clicks the Mini Cart Icon on Header
