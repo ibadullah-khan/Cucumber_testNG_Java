@@ -64,3 +64,14 @@ Feature: Mini Cart Feature File
     And User Validates Successful Triggered Mini Cart
     Then User Validate Product Name in Mini Cart
     Then User Validate Product Price in Mini Cart
+
+  @Regression
+  Scenario: Verify Mini Cart Icon Functionality on Header
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.home" Url
+    And User Validates Mini Cart Icon is Visible on Header
+    Then User Clicks the Mini Cart Icon on Header
+    And User Validates Mini Cart View Visibilility "true"
+    Then User Clicks the Mini Cart Icon on Header
+    And User Validates Mini Cart View Visibilility "false"
