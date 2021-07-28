@@ -6,7 +6,7 @@ Feature: Mini Cart Feature File
 
     Given User Setups the Web Browser
     When User Navigates to "shoebacca.home" Url
-    And User Validates Mini Cart Icon is Visible on Header
+    And User Validates Mini Cart Icon Visibility on Header "true"
     Then User Clicks the Mini Cart Icon on Header
     And User Validates Mini Cart View Visibility "true"
 
@@ -15,17 +15,17 @@ Feature: Mini Cart Feature File
 
     Given User Setups the Web Browser
     When User Navigates to "shoebacca.home" Url
-    And User Validates Mini Cart Counter is not Visible on Header
+    And User Validates Mini Cart Counter Visibility on Header "false"
 
   @Regression
   Scenario: Verify Login Link in Empty Mini Cart Opens Account Menu
 
     Given User Setups the Web Browser
     When User Navigates to "shoebacca.home" Url
-    And User Validates Mini Cart Counter is not Visible on Header
+    And User Validates Mini Cart Counter Visibility on Header "false"
     Then User Clicks the Mini Cart Icon on Header
     Then User Clicks the Login Link On Mini Cart View
-    And User Validates Account Menu is Visible
+    And User Validates Account Menu Visibility "true"
 
   @Regression
   Scenario: Verify Visibility of Login Link in Empty Mini Cart Logged In

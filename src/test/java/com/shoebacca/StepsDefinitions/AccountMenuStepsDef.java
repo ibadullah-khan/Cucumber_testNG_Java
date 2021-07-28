@@ -12,9 +12,13 @@ public class AccountMenuStepsDef extends HarnessVariables{
         accountMenuPage = new AccountMenuPageFactory();
     }
 
-    @And("User Validates Account Menu is Visible")
-    public void userValidateAccountMenuIsVisible() {
-        accountMenuPage.validateAccountMenuVisibility(true);
+    @And("User Validates Account Menu Visibility {string}")
+    public void userValidatesAccountMenuVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            accountMenuPage.validateAccountMenuVisibility(true);
+        }else {
+            accountMenuPage.validateAccountMenuVisibility(false);
+        }
     }
 
     @Then("User Enters Valid Login Username on Account Menu")
