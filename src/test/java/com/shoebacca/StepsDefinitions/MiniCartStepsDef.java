@@ -12,11 +12,6 @@ public class MiniCartStepsDef extends HarnessVariables{
         miniCartPage = new MiniCartPageFactory();
     }
 
-    @And("User Validates Mini Cart View is Visible")
-    public void userValidateMiniCartViewIsVisible() throws Exception {
-        miniCartPage.validateMiniCartViewVisibility(true);
-    }
-
     @Then("User Clicks the Login Link On Mini Cart View")
     public void userClicksTheLoginLinkOnMiniCartView() {
         miniCartPage.clickOnLoginLink();
@@ -45,5 +40,24 @@ public class MiniCartStepsDef extends HarnessVariables{
     @Then("User Validate Product Price in Mini Cart")
     public void userValidateProductPriceInMiniCart() {
         miniCartPage.validateProductPrice(PRODUCT_PRICE);
+    }
+
+    @And("User Validates Mini Cart View Visibility {string}")
+    public void userValidatesMiniCartViewVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")) {
+            miniCartPage.validateMiniCartViewVisibility(true);
+        } else {
+            miniCartPage.validateMiniCartViewVisibility(false);
+        }
+    }
+
+    @And("User Validates Close Button Visibility {string}")
+    public void userValidatesCloseButtonVisibility(String expectedCondition) {
+
+        if(expectedCondition.equals("true")) {
+            miniCartPage.validateCloseButtonVisibility(true);
+        } else {
+            miniCartPage.validateCloseButtonVisibility(false);
+        }
     }
 }
