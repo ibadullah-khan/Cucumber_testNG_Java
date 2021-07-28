@@ -89,3 +89,14 @@ Feature: Mini Cart Feature File
     And User Closes Mini Cart View
     And User Clicks the Mini Cart Icon on Header
     Then User Validates Mini Cart Scrollability "true"
+
+  @Regression
+  Scenario: Verify Mini Cart Icon Functionality on Header
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.home" Url
+    And User Validates Mini Cart Icon Visibility on Header "true"
+    Then User Clicks the Mini Cart Icon on Header
+    And User Validates Mini Cart View Visibility "true"
+    Then User Clicks the Mini Cart Icon on Header
+    And User Validates Mini Cart View Visibility "false"
