@@ -66,10 +66,10 @@ Feature: Mini Cart Feature File
     Then User Validate Product Price in Mini Cart
 
   @Regression
-  Scenario: Verify Cross Button Availability on Top Right of Cart and Close Mini Cart Dropdown
+  Scenario: Verify Close Button Visibility on Mini Cart View and Close It on Click
 
     Given User Setups the Web Browser
-    When User Navigates to "shoebacca_home" Url
+    When User Navigates to "shoebacca.home" Url
     Then User Clicks the Mini Cart Icon on Header
     And User Validates Close Button Visibility "true"
     Then User Closes Mini Cart View
