@@ -17,9 +17,13 @@ public class MiniCartStepsDef extends HarnessVariables{
         miniCartPage.clickOnLoginLink();
     }
 
-    @Then("User Validates Login Link Visibility on Mini Cart View")
-    public void userValidatesLoginLinkVisibilityOnMiniCartView() {
-        miniCartPage.validateLoginLinkVisibility(false);
+    @Then("User Validates Login Link Visibility on Mini Cart View {string}")
+    public void userValidatesLoginLinkVisibilityOnMiniCartView(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            miniCartPage.validateLoginLinkVisibility(true);
+        }else {
+            miniCartPage.validateLoginLinkVisibility(false);
+        }
     }
 
     @And("User Closes Mini Cart View")
@@ -58,6 +62,15 @@ public class MiniCartStepsDef extends HarnessVariables{
             miniCartPage.validateCloseButtonVisibility(true);
         } else {
             miniCartPage.validateCloseButtonVisibility(false);
+        }
+    }
+
+    @Then("User Validates Mini Cart Scrollability {string}")
+    public void userValidatesMiniCartScrollability(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            miniCartPage.validateMiniCartScrollability(true);
+        }else {
+            miniCartPage.validateMiniCartScrollability(false);
         }
     }
 }

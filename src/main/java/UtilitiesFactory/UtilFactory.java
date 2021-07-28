@@ -171,6 +171,28 @@ public class UtilFactory {
         }
     }
 
+    protected Boolean isScrollable(String locatorValue)
+    {
+        Boolean isScrollable = getAttribute(locatorValue,"style").contains("scroll");
+        if(isScrollable){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    protected String getAttribute(String locatorValue,String attributeValue)
+    {
+        WebElement element = elementFactory.getElement(locatorValue);
+        return getAttribute(element,attributeValue);
+    }
+
+    protected String getAttribute(WebElement element,String attributeValue)
+    {
+        return element.getAttribute(attributeValue);
+    }
+
     protected String getText(String locatorValue)
     {
         return getText(elementFactory.getElement(locatorValue));
