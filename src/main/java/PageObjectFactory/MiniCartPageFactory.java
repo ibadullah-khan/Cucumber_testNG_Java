@@ -172,4 +172,29 @@ public class MiniCartPageFactory extends UtilFactory {
         }
 
     }
+
+    public void validateMiniCartScrollability(Boolean expectedCondition){
+        String locator = MiniCartPageEnum.XPATH_PRODUCTS_CONTAINER.getValue();
+        String errorMsg = null;
+        Boolean actualCondition;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            actualCondition = isScrollable(locator);
+            if (actualCondition && expectedCondition){
+                scenarioDef.log(Status.PASS,"Validated Mini Cart View is Scrollable as Expected");
+            }else if (!actualCondition && !expectedCondition){
+                scenarioDef.log(Status.PASS,"Validated Mini Cart View is not Scrollable as Expected");
+            }else if (actualCondition && !expectedCondition){
+                errorMsg = "Validated Mini Cart View is Scrollable Unexpected";
+                throw new NoSuchElementException("Element Scrollable was Unexpected for Element: " +locator);
+            }else if (!actualCondition && expectedCondition){
+                errorMsg = "Validated Mini Cart View is not Scrollable Unexpected";
+                throw new NoSuchElementException("Element Scrollable was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,errorMsg);
+            throw e;
+        }
+    }
 }
