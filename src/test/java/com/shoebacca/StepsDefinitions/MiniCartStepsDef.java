@@ -173,4 +173,9 @@ public class MiniCartStepsDef extends HarnessVariables{
             miniCartPage.validateAllProductsAttributesVisibility(expectedNumber,false);
         }
     }
+
+    @Then("User Click on View Cart Button")
+    public void userClickOnViewCartButton() {
+        miniCartPage.clickOnViewCartButton();
+    }
 }

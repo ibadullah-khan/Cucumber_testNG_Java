@@ -572,4 +572,17 @@ public class MiniCartPageFactory extends UtilFactory {
             throw e;
         }
     }
+
+    public void clickOnViewCartButton(){
+        String locator = MiniCartPageEnum.XPATH_VIEW_CART_BUTTON.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS,"Clicked on View Cart Button on Mini Cart View");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Click on View Cart Button on Mini Cart View");
+            throw e;
+        }
+    }
 }
