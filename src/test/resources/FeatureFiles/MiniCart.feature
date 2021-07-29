@@ -113,6 +113,23 @@ Feature: Mini Cart Feature File
     And User Validates Mini Cart View Visibility "false"
 
   @Regression
+  Scenario: Verify User Shall be able to See Only Last Added Item in the Mini Cart
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Fetches Product Name from PDP
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Closes Mini Cart View
+    And User Keeps Track of Product Name
+    Then User Navigates to "shoebacca.second.bag.pdt" Url
+    And User Fetches Product Name from PDP
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Validate Product Name in Mini Cart
+    And User Validate Previous Product Name in Mini Cart
+
+  @Regression
   Scenario: Verify Each Product has Separate Section in Mini Cart
 
     Given User Setups the Web Browser

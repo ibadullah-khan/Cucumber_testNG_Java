@@ -25,4 +25,11 @@ public class PDPStepsDef extends HarnessVariables{
     public void userFetchesProductPriceFromPDP() {
         PRODUCT_PRICE = productDetailsPage.getProductPrice();
     }
+
+    @And("User Keeps Track of Product Name")
+    public void userKeepsTrackOfProductName() {
+        PREVIOUS_PRODUCT_NAME = PRODUCT_NAME;
+    }
 }
+
+

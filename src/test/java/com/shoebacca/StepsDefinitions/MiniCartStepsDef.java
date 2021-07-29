@@ -155,6 +155,11 @@ public class MiniCartStepsDef extends HarnessVariables{
         }
     }
 
+    @And("User Validate Previous Product Name in Mini Cart")
+    public void userValidatePreviousProductNameInMiniCart() {
+        miniCartPage.validateInvalidProductName(PREVIOUS_PRODUCT_NAME);
+    }
+
     @Then("User Validates {string} Products have Been Added to Mini Cart")
     public void userValidatesProductsHaveBeenAddedToMiniCart(String expectedCount) {
         miniCartPage.validateProductNoAdded(expectedCount);
