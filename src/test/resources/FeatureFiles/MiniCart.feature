@@ -1,7 +1,7 @@
 Feature: Mini Cart Feature File
   Contains All Mini Cart Module Test Cases
 
-  @Regression
+`  @Regression
   Scenario: Verify Mini Cart icon is Visible and Opens Mini Cart View when Clicked
 
     Given User Setups the Web Browser
@@ -89,7 +89,7 @@ Feature: Mini Cart Feature File
     And User Closes Mini Cart View
     And User Clicks the Mini Cart Icon on Header
     Then User Validates Mini Cart Scrollability "true"
-
+`
   @Regression
   Scenario: Verify user shall be able to see only last added item in the Mini Cart
 

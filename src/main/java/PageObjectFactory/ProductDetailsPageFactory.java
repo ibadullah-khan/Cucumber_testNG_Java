@@ -51,7 +51,6 @@ public class ProductDetailsPageFactory extends UtilFactory {
             throw e;
         }
     }
-// //*[@class='item-name-1dB']
     public String assertProductName(){
         String locator = ProductDetailsPageEnum.XPATH_PRODUCT_NAME.getValue();
         String productName;
