@@ -55,4 +55,11 @@ public class ElementFactory {
         elements = driver.findElements(By.xpath(locatorValue));
         return elements.size();
     }
+
+    public List<WebElement> getElementsList(String locatorValue) {
+
+        List<WebElement> elements = null;
+        elements = driver.findElements(By.xpath(locatorValue));
+        return  elements;
+    }
 }

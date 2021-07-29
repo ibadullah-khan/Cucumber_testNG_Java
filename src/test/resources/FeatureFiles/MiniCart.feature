@@ -70,6 +70,7 @@ Feature: Mini Cart Feature File
     Then User Validate Product Size Visibility "true"
     Then User Validate Product Color Visibility "true"
     Then User Validate Product Remove Visibility "true"
+    Then User Validate Product Brand Visibility "true"
     Then User Validate Shipping Label Visibility "true"
     Then User Validate Tax Label Visibility "true"
     Then User Validate View Cart Button Visibility "true"
@@ -110,3 +111,20 @@ Feature: Mini Cart Feature File
     And User Validates Mini Cart View Visibility "true"
     Then User Clicks the Mini Cart Icon on Header
     And User Validates Mini Cart View Visibility "false"
+
+  @Regression
+  Scenario: Verify Each Product has Separate Section in Mini Cart
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Closes Mini Cart View
+    Then User Navigates to "shoebacca.second.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Closes Mini Cart View
+    Then User Validates Mini Cart Counter Value as "2"
+    And User Clicks the Mini Cart Icon on Header
+    Then User Validates "2" Products have Been Added to Mini Cart
+    Then User Validates Mini Cart Has "2" Product's Attributes Visibility "true"
