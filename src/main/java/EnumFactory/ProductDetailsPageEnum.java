@@ -1,7 +1,5 @@
 package EnumFactory;
 
-import javax.xml.xpath.XPath;
-
 public enum ProductDetailsPageEnum {
 
     XPATH_ADD_TO_CART_BUTTON("//*[@id='productFullDetail']//*[@class='button-root_highPriority-3-H']"),

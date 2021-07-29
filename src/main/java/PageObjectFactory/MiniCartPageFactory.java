@@ -187,9 +187,7 @@ public class MiniCartPageFactory extends UtilFactory {
                 errorMsg = "Validated Close Button is not Displayed Unexpected on Mini Cart View";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
             }
-
-
-            }catch (Exception e) {
+        }catch (Exception e) {
             failureException = e.toString();
             scenarioDef.log(Status.FAIL,errorMsg);
             throw e;
@@ -216,6 +214,198 @@ public class MiniCartPageFactory extends UtilFactory {
                 throw new NoSuchElementException("Element Scrollable was Unexpected for Element: " +locator);
             }
         }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateProductSizeVisibility(Boolean expectedVisibility) {
+        String locator = MiniCartPageEnum.XPATH_PRODUCT_SIZE.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Product Size is Displayed as Expected on Mini Cart View");
+            }else if(!actualVisibility&& !expectedVisibility){
+                scenarioDef.log(Status.PASS, "Validated Product Size is Not Displayed as Expected on Mini Cart View");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated Product Size is Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated Product Size is not Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateProductImageVisibility(Boolean expectedVisibility) {
+        String locator = MiniCartPageEnum.XPATH_PRODUCT_IMAGE.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Product Image is Displayed as Expected on Mini Cart View");
+            }else if(!actualVisibility&& !expectedVisibility){
+                scenarioDef.log(Status.PASS, "Validated Product Image is Not Displayed as Expected on Mini Cart View");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated Product Image is Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated Product Image is not Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateProductColorVisibility(Boolean expectedVisibility) {
+        String locator = MiniCartPageEnum.XPATH_PRODUCT_COLOR.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Product Color is Displayed as Expected on Mini Cart View");
+            }else if(!actualVisibility&& !expectedVisibility){
+                scenarioDef.log(Status.PASS, "Validated Product Color is Not Displayed as Expected on Mini Cart View");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated Product Color is Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated Product Color is not Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateProductRemoveVisibility(Boolean expectedVisibility) {
+        String locator = MiniCartPageEnum.XPATH_PRODUCT_REMOVE_LINK.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Product Remove Link is Displayed as Expected on Mini Cart View");
+            }else if(!actualVisibility&& !expectedVisibility){
+                scenarioDef.log(Status.PASS, "Validated Product Remove Link is Not Displayed as Expected on Mini Cart View");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated Product Remove Link is Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated Product Remove Link is not Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateShippingLabelVisibility(Boolean expectedVisibility) {
+        String locator = MiniCartPageEnum.XPATH_SHIPPING_LABEL.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Shipping Label is Displayed as Expected on Mini Cart View");
+            }else if(!actualVisibility&& !expectedVisibility){
+                scenarioDef.log(Status.PASS, "Validated Shipping Label is Not Displayed as Expected on Mini Cart View");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated Shipping Label is Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated Shipping Label is not Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateTaxLabelVisibility(Boolean expectedVisibility) {
+        String locator = MiniCartPageEnum.XPATH_TAX_LABEL.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Tax Label is Displayed as Expected on Mini Cart View");
+            }else if(!actualVisibility&& !expectedVisibility){
+                scenarioDef.log(Status.PASS, "Validated Tax Label is Not Displayed as Expected on Mini Cart View");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated Tax Label is Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated Tax Label is not Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateViewCartButtonVisibility(Boolean expectedVisibility) {
+        String locator = MiniCartPageEnum.XPATH_VIEW_CART_BUTTON.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated View Cart Button is Displayed as Expected on Mini Cart View");
+            }else if(!actualVisibility&& !expectedVisibility){
+                scenarioDef.log(Status.PASS, "Validated View Cart Button is Not Displayed as Expected on Mini Cart View");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated View Cart Button is Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated View Cart Button is not Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateCheckoutButtonVisibility(Boolean expectedVisibility) {
+        String locator = MiniCartPageEnum.XPATH_CHECKOUT_BUTTON.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Checkout Button is Displayed as Expected on Mini Cart View");
+            }else if(!actualVisibility&& !expectedVisibility){
+                scenarioDef.log(Status.PASS, "Validated Checkout Button is Not Displayed as Expected on Mini Cart View");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated Checkout Button is Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated Checkout Button is not Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e) {
             failureException = e.toString();
             scenarioDef.log(Status.FAIL,errorMsg);
             throw e;

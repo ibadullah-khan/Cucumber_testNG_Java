@@ -1,7 +1,7 @@
 Feature: Mini Cart Feature File
   Contains All Mini Cart Module Test Cases
 
-`  @Regression
+  @Regression
   Scenario: Verify Mini Cart icon is Visible and Opens Mini Cart View when Clicked
 
     Given User Setups the Web Browser
@@ -44,7 +44,7 @@ Feature: Mini Cart Feature File
   Scenario: Verify Mini Cart Counter Functionality When Product Added
 
     Given User Setups the Web Browser
-    When User Navigates to "shoebacca.sports.bag.pdt" Url
+    When User Navigates to "shoebacca.first.bag.pdt" Url
     And User Clicks Add to Cart Button on PDP
     And User Validates Successful Triggered Mini Cart
     Then User Validates Mini Cart Counter Value as "1"
@@ -57,13 +57,23 @@ Feature: Mini Cart Feature File
   Scenario: Verify Mini Cart Content When Item is Added in the Cart
 
     Given User Setups the Web Browser
-    When User Navigates to "shoebacca.sports.bag.pdt" Url
+    When User Navigates to "shoebacca.first.bag.pdt" Url
     And User Fetches Product Name from PDP
     And User Fetches Product Price from PDP
     Then User Clicks Add to Cart Button on PDP
     And User Validates Successful Triggered Mini Cart
+    And User Closes Mini Cart View
+    And User Clicks the Mini Cart Icon on Header
     Then User Validate Product Name in Mini Cart
     Then User Validate Product Price in Mini Cart
+    Then User Validate Product Image Visibility "true"
+    Then User Validate Product Size Visibility "true"
+    Then User Validate Product Color Visibility "true"
+    Then User Validate Product Remove Visibility "true"
+    Then User Validate Shipping Label Visibility "true"
+    Then User Validate Tax Label Visibility "true"
+    Then User Validate View Cart Button Visibility "true"
+    Then User Validate Checkout Button Visibility "true"
 
   @Regression
   Scenario: Verify Close Button Visibility on Mini Cart View and Close It on Click
@@ -89,9 +99,20 @@ Feature: Mini Cart Feature File
     And User Closes Mini Cart View
     And User Clicks the Mini Cart Icon on Header
     Then User Validates Mini Cart Scrollability "true"
-`
+
   @Regression
-  Scenario: Verify user shall be able to see only last added item in the Mini Cart
+  Scenario: Verify Mini Cart Icon Functionality on Header
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.home" Url
+    And User Validates Mini Cart Icon Visibility on Header "true"
+    Then User Clicks the Mini Cart Icon on Header
+    And User Validates Mini Cart View Visibility "true"
+    Then User Clicks the Mini Cart Icon on Header
+    And User Validates Mini Cart View Visibility "false"
+
+  @Regression
+  Scenario: Verify User Shall be able to See Only Last Added Item in the Mini Cart
 
     Given User Setups the Web Browser
     When User Navigates to "shoebacca.first.bag.pdt" Url

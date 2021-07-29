@@ -3,7 +3,6 @@ package PageObjectFactory;
 import EnumFactory.ProductDetailsPageEnum;
 import UtilitiesFactory.UtilFactory;
 import com.aventstack.extentreports.Status;
-import org.testng.Assert;
 
 public class ProductDetailsPageFactory extends UtilFactory {
     public ProductDetailsPageFactory() throws Exception {
@@ -48,21 +47,6 @@ public class ProductDetailsPageFactory extends UtilFactory {
         }catch (Exception e){
             failureException = e.toString();
             scenarioDef.log(Status.FAIL,"Could not Fetch Product Price from PDP");
-            throw e;
-        }
-    }
-    public String assertProductName(){
-        String locator = ProductDetailsPageEnum.XPATH_PRODUCT_NAME.getValue();
-        String productName;
-        try{
-            waitFactory.waitForElementToBeClickable(locator);
-            productName = getText(locator);
-            Assert.assertEquals("Edge II Duffle Bag",productName);
-            scenarioDef.log(Status.PASS,"Fetched Product Name: "+ productName +" from PDP");
-            return productName;
-        }catch (Exception e){
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Fetch Product Name from PDP");
             throw e;
         }
     }

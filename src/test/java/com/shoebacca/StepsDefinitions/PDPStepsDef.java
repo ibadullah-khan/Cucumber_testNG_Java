@@ -26,11 +26,6 @@ public class PDPStepsDef extends HarnessVariables{
         PRODUCT_PRICE = productDetailsPage.getProductPrice();
     }
 
-    @And ("User Assert that product name is same as last one")
-    public void assertproductlastnameFromPDP(){
-        PRODUCT_NAME= productDetailsPage.assertProductName();
-    }
-
     @And("User Keeps Track of Product Name")
     public void userKeepsTrackOfProductName() {
         PREVIOUS_PRODUCT_NAME = PRODUCT_NAME;

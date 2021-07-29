@@ -74,6 +74,78 @@ public class MiniCartStepsDef extends HarnessVariables{
         }
     }
 
+    @Then("User Validate Product Image Visibility {string}")
+    public void userValidateProductImageVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            miniCartPage.validateProductImageVisibility(true);
+        }else {
+            miniCartPage.validateProductImageVisibility(false);
+        }
+    }
+
+    @Then("User Validate Product Size Visibility {string}")
+    public void userValidateProductSizeVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            miniCartPage.validateProductSizeVisibility(true);
+        }else {
+            miniCartPage.validateProductSizeVisibility(false);
+        }
+    }
+
+    @Then("User Validate Product Color Visibility {string}")
+    public void userValidateProductColorVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            miniCartPage.validateProductColorVisibility(true);
+        }else {
+            miniCartPage.validateProductColorVisibility(false);
+        }
+    }
+
+    @Then("User Validate Product Remove Visibility {string}")
+    public void userValidateProductRemoveVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            miniCartPage.validateProductRemoveVisibility(true);
+        }else {
+            miniCartPage.validateProductRemoveVisibility(false);
+        }
+    }
+
+    @Then("User Validate Shipping Label Visibility {string}")
+    public void userValidateShippingLabelVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            miniCartPage.validateShippingLabelVisibility(true);
+        }else {
+            miniCartPage.validateShippingLabelVisibility(false);
+        }
+    }
+
+    @Then("User Validate Tax Label Visibility {string}")
+    public void userValidateTaxLabelVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            miniCartPage.validateTaxLabelVisibility(true);
+        }else {
+            miniCartPage.validateTaxLabelVisibility(false);
+        }
+    }
+
+    @Then("User Validate View Cart Button Visibility {string}")
+    public void userValidateViewCartButtonVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            miniCartPage.validateViewCartButtonVisibility(true);
+        }else {
+            miniCartPage.validateViewCartButtonVisibility(false);
+        }
+    }
+
+    @Then("User Validate Checkout Button Visibility {string}")
+    public void userValidateCheckoutButtonVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            miniCartPage.validateCheckoutButtonVisibility(true);
+        }else {
+            miniCartPage.validateCheckoutButtonVisibility(false);
+        }
+    }
+
     @And("User Validate Previous Product Name in Mini Cart")
     public void userValidatePreviousProductNameInMiniCart() {
         miniCartPage.validateInvalidProductName(PREVIOUS_PRODUCT_NAME);
