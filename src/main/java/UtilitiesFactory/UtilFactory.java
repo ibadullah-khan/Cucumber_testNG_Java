@@ -194,6 +194,10 @@ public class UtilFactory {
         }
     }
 
+    protected int getSize(String locatorValue){
+        return elementFactory.getElementList(locatorValue);
+    }
+
     protected Boolean isScrollable(String locatorValue)
     {
         Boolean isScrollable = getAttribute(locatorValue,"style").contains("scroll");
