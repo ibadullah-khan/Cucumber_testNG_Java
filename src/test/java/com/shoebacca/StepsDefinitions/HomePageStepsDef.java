@@ -12,6 +12,7 @@ public class HomePageStepsDef extends HarnessVariables {
 
     protected String url;
     protected String runPropFile = "run.properties";
+    protected String validatePropFile = "validateData.properties";
 
     HomePageFactory homePage;
 
@@ -62,5 +63,11 @@ public class HomePageStepsDef extends HarnessVariables {
     @Then("User Validates Mini Cart Counter Value as {string}")
     public void userValidatesMiniCartCounterValueAs(String count) {
         homePage.validateMiniCartCounterValue(count);
+    }
+
+    @Then("User Should Redirect Toward {string} Page")
+    public void userShouldRedirectTowardPage(String Page) throws Exception {
+        String expectedurl = new PropertyLoaderFactory().getPropertyFile(validatePropFile).getProperty(Page);
+        validateURL(expectedurl);
     }
 }
