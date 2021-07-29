@@ -51,9 +51,29 @@ public class UtilFactory {
             scenarioDef.log(Status.FAIL,"Could not initiate the browser session");
             throw e;
         }
-
     }
 
+    protected void validateURL(String expectedUrl){
+        waitForPageLoad();
+        String errorMsg= null;
+        try{
+            String actualURL=BrowserFactory.getDriver().getCurrentUrl();
+            if (actualURL.contains(expectedUrl)){
+                scenarioDef.log(Status.PASS,"Validated Url as Expected Url: "+expectedUrl);
+            }else {
+                errorMsg = "Could not Validate Url as Expected Url: "+expectedUrl+" , Actual Url: "+actualURL;
+                throw new NoSuchContextException("Actual and Expected Url Differs");
+            }
+        }catch (Exception e){
+            failureException = e.toString();
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL,"Unable to Load the Url");
+            }else {
+                scenarioDef.log(Status.FAIL,errorMsg);
+            }
+            throw e;
+        }
+    }
     protected void click(String locator){
         WebElement element = elementFactory.getElement(locator);
         click(element);

@@ -15,7 +15,8 @@ public enum MiniCartPageEnum {
     XPATH_SHIPPING_LABEL("//*[@class='priceSummary-lineItemLabel-1zJ' and contains(text(),'Shipping')]"),
     XPATH_TAX_LABEL("//*[@class='priceSummary-lineItemLabel-1zJ' and contains(text(),'Tax')]"),
     XPATH_VIEW_CART_BUTTON("//*[@class='miniCart-footerCol-1P_']//*[@class='button-root_highPriority-3-H']"),
-    XPATH_CHECKOUT_BUTTON("//*[@class='miniCart-footerCol-1P_']//*[@class='button-root_normalPriority-1xS']");
+    XPATH_CHECKOUT_BUTTON("//*[@class='miniCart-footerCol-1P_']//*[@class='button-root_normalPriority-1xS']"),
+    XPATH_GUEST_CHECKOUT_BUTTON("//*[@class='guestCheckout']");
 
     private String miniCartPageVariables;
 

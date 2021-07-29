@@ -110,3 +110,15 @@ Feature: Mini Cart Feature File
     And User Validates Mini Cart View Visibility "true"
     Then User Clicks the Mini Cart Icon on Header
     And User Validates Mini Cart View Visibility "false"
+
+  @Regression
+  Scenario: Verify Mini Cart Displays Checkout Button that Navigates to Checkout When Clicked
+
+    Given User Setups the Web Browser
+    Then User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    Then User Validate Checkout Button Visibility "true"
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
