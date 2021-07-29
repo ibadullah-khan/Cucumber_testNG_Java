@@ -120,10 +120,6 @@ Feature: Mini Cart Feature File
     And User Validates Successful Triggered Mini Cart
     And User Validates Mini Cart View Visibility "true"
     Then User Validate Product Image Visibility "true"
-    Then User Validate Product Size Visibility "true"
-    Then User Validate Product Color Visibility "true"
-    Then User Validate Product Remove Visibility "true"
-    Then User Validate Shipping Label Visibility "true"
-    Then User Validate Tax Label Visibility "true"
-    Then User Validate View Cart Button Visibility "true"
     Then User Click on View Cart Button
+    Then User Should Redirect Toward "shopping.cart" Page
+
