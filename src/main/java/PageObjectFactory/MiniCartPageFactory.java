@@ -1,12 +1,18 @@
 package PageObjectFactory;
 
 import EnumFactory.MiniCartPageEnum;
+import UtilitiesFactory.ElementFactory;
 import UtilitiesFactory.UtilFactory;
 import com.aventstack.extentreports.Status;
 import org.openqa.selenium.NoSuchContextException;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class MiniCartPageFactory extends UtilFactory {
+
+    ElementFactory elementFactory = new ElementFactory();
 
     public MiniCartPageFactory() throws Exception {
     }
@@ -220,98 +226,152 @@ public class MiniCartPageFactory extends UtilFactory {
         }
     }
 
-    public void validateProductSizeVisibility(Boolean expectedVisibility) {
+    public void validateProductSizeVisibility(int expectedProductNo,Boolean expectedVisibility) {
         String locator = MiniCartPageEnum.XPATH_PRODUCT_SIZE.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
+        List <WebElement> elements;
         try{
-            actualVisibility = isVisible(locator);
+            elements = elementFactory.getElementsList(locator);
+            actualVisibility = expectedProductNo==elements.size();
             if (actualVisibility && expectedVisibility) {
-                scenarioDef.log(Status.PASS, "Validated Product Size is Displayed as Expected on Mini Cart View");
+                scenarioDef.log(Status.PASS, "Validated "+expectedProductNo+" Product Size is Displayed as Expected on Mini Cart View");
             }else if(!actualVisibility&& !expectedVisibility){
-                scenarioDef.log(Status.PASS, "Validated Product Size is Not Displayed as Expected on Mini Cart View");
+                scenarioDef.log(Status.PASS, "Validated "+expectedProductNo+" Product Size is Not Displayed as Expected on Mini Cart View");
             }else if (actualVisibility && !expectedVisibility){
-                errorMsg = "Validated Product Size is Displayed Unexpected on Mini Cart View";
+                errorMsg = "Validated "+expectedProductNo+" Product Size is Displayed Unexpected on Mini Cart View";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
             }else if (!actualVisibility && expectedVisibility){
-                errorMsg = "Validated Product Size is not Displayed Unexpected on Mini Cart View";
+                errorMsg = "Validated "+expectedProductNo+" Product Size is not Displayed Unexpected on Mini Cart View";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
             }
         }catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,errorMsg);
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL,"Unable to get the Product Size Element on Mini Cart");
+            }else {
+                scenarioDef.log(Status.FAIL,errorMsg);
+            }
             throw e;
         }
     }
 
-    public void validateProductImageVisibility(Boolean expectedVisibility) {
+    public void validateProductBrandVisibility(int expectedProductNo,Boolean expectedVisibility) {
+        String locator = MiniCartPageEnum.XPATH_PRODUCT_BRAND.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        List <WebElement> elements;
+        try{
+            elements = elementFactory.getElementsList(locator);
+            actualVisibility = expectedProductNo==elements.size();
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated "+expectedProductNo+" Product Brand is Displayed as Expected on Mini Cart View");
+            }else if(!actualVisibility&& !expectedVisibility){
+                scenarioDef.log(Status.PASS, "Validated "+expectedProductNo+" Product Brand is Not Displayed as Expected on Mini Cart View");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated "+expectedProductNo+" Product Brand is Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated "+expectedProductNo+" Product Brand is not Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL,"Unable to get the Product Brand Element on Mini Cart");
+            }else {
+                scenarioDef.log(Status.FAIL,errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void validateProductImageVisibility(int expectedProductNo,Boolean expectedVisibility) {
         String locator = MiniCartPageEnum.XPATH_PRODUCT_IMAGE.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
+        List <WebElement> elements;
         try{
-            actualVisibility = isVisible(locator);
+            elements = elementFactory.getElementsList(locator);
+            actualVisibility = expectedProductNo==elements.size();
             if (actualVisibility && expectedVisibility) {
-                scenarioDef.log(Status.PASS, "Validated Product Image is Displayed as Expected on Mini Cart View");
+                scenarioDef.log(Status.PASS, "Validated "+expectedProductNo+" Product Image is Displayed as Expected on Mini Cart View");
             }else if(!actualVisibility&& !expectedVisibility){
-                scenarioDef.log(Status.PASS, "Validated Product Image is Not Displayed as Expected on Mini Cart View");
+                scenarioDef.log(Status.PASS, "Validated "+expectedProductNo+" Product Image is Not Displayed as Expected on Mini Cart View");
             }else if (actualVisibility && !expectedVisibility){
-                errorMsg = "Validated Product Image is Displayed Unexpected on Mini Cart View";
+                errorMsg = "Validated "+expectedProductNo+" Product Image is Displayed Unexpected on Mini Cart View";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
             }else if (!actualVisibility && expectedVisibility){
-                errorMsg = "Validated Product Image is not Displayed Unexpected on Mini Cart View";
+                errorMsg = "Validated "+expectedProductNo+" Product Image is not Displayed Unexpected on Mini Cart View";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
             }
         }catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,errorMsg);
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL,"Unable to get the Product Image Element on Mini Cart");
+            }else {
+                scenarioDef.log(Status.FAIL,errorMsg);
+            }
             throw e;
         }
     }
 
-    public void validateProductColorVisibility(Boolean expectedVisibility) {
+    public void validateProductColorVisibility(int expectedProductNo,Boolean expectedVisibility) {
         String locator = MiniCartPageEnum.XPATH_PRODUCT_COLOR.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
+        List <WebElement> elements;
         try{
-            actualVisibility = isVisible(locator);
+            elements = elementFactory.getElementsList(locator);
+            actualVisibility = expectedProductNo==elements.size();
             if (actualVisibility && expectedVisibility) {
-                scenarioDef.log(Status.PASS, "Validated Product Color is Displayed as Expected on Mini Cart View");
+                scenarioDef.log(Status.PASS, "Validated "+expectedProductNo+" Product Color is Displayed as Expected on Mini Cart View");
             }else if(!actualVisibility&& !expectedVisibility){
-                scenarioDef.log(Status.PASS, "Validated Product Color is Not Displayed as Expected on Mini Cart View");
+                scenarioDef.log(Status.PASS, "Validated "+expectedProductNo+" Product Color is Not Displayed as Expected on Mini Cart View");
             }else if (actualVisibility && !expectedVisibility){
-                errorMsg = "Validated Product Color is Displayed Unexpected on Mini Cart View";
+                errorMsg = "Validated "+expectedProductNo+" Product Color is Displayed Unexpected on Mini Cart View";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
             }else if (!actualVisibility && expectedVisibility){
-                errorMsg = "Validated Product Color is not Displayed Unexpected on Mini Cart View";
+                errorMsg = "Validated "+expectedProductNo+" Product Color is not Displayed Unexpected on Mini Cart View";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
             }
         }catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,errorMsg);
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL,"Unable to get the Product Color Element on Mini Cart");
+            }else {
+                scenarioDef.log(Status.FAIL,errorMsg);
+            }
             throw e;
         }
     }
 
-    public void validateProductRemoveVisibility(Boolean expectedVisibility) {
+    public void validateProductRemoveVisibility(int expectedProductNo,Boolean expectedVisibility) {
         String locator = MiniCartPageEnum.XPATH_PRODUCT_REMOVE_LINK.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
+        List <WebElement> elements;
         try{
-            actualVisibility = isVisible(locator);
+            elements = elementFactory.getElementsList(locator);
+            actualVisibility = expectedProductNo==elements.size();
             if (actualVisibility && expectedVisibility) {
-                scenarioDef.log(Status.PASS, "Validated Product Remove Link is Displayed as Expected on Mini Cart View");
+                scenarioDef.log(Status.PASS, "Validated "+expectedProductNo+" Product Remove Link is Displayed as Expected on Mini Cart View");
             }else if(!actualVisibility&& !expectedVisibility){
-                scenarioDef.log(Status.PASS, "Validated Product Remove Link is Not Displayed as Expected on Mini Cart View");
+                scenarioDef.log(Status.PASS, "Validated "+expectedProductNo+" Product Remove Link is Not Displayed as Expected on Mini Cart View");
             }else if (actualVisibility && !expectedVisibility){
-                errorMsg = "Validated Product Remove Link is Displayed Unexpected on Mini Cart View";
+                errorMsg = "Validated "+expectedProductNo+" Product Remove Link is Displayed Unexpected on Mini Cart View";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
             }else if (!actualVisibility && expectedVisibility){
-                errorMsg = "Validated Product Remove Link is not Displayed Unexpected on Mini Cart View";
+                errorMsg = "Validated "+expectedProductNo+" Product Remove Link is not Displayed Unexpected on Mini Cart View";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
             }
         }catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,errorMsg);
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL,"Unable to get the Product Remove Link Element on Mini Cart");
+            }else {
+                scenarioDef.log(Status.FAIL,errorMsg);
+            }
             throw e;
         }
     }
@@ -408,6 +468,107 @@ public class MiniCartPageFactory extends UtilFactory {
         }catch (Exception e) {
             failureException = e.toString();
             scenarioDef.log(Status.FAIL,errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateProductNoAdded(String expectedCount) {
+        String locator = MiniCartPageEnum.XPATH_PRODUCT_SECTION.getValue();
+        String errorMsg = null;
+        String actualCount;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            actualCount = String.valueOf(getSize(locator));
+            if (expectedCount.equals(actualCount)) {
+                scenarioDef.log(Status.PASS, "Validated "+expectedCount+" products are added as Expected on Mini Cart");
+            }else {
+                errorMsg = "Could not validate "+expectedCount+" products are added as Expected on Mini Cart, Actual: "+actualCount;
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL,"Unable to get the Product Section Element on Mini Cart");
+            }else {
+                scenarioDef.log(Status.FAIL,errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void validateProductNameVisibility(int expectedProductNo,Boolean expectedVisibility){
+        String locator = MiniCartPageEnum.XPATH_PRODUCT_NAME.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        List <WebElement> elements;
+        try{
+            elements = elementFactory.getElementsList(locator);
+            actualVisibility = expectedProductNo==elements.size();
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated "+expectedProductNo+" Product Name is Displayed as Expected on Mini Cart View");
+            }else if(!actualVisibility&& !expectedVisibility){
+                scenarioDef.log(Status.PASS, "Validated "+expectedProductNo+" Product Name is Not Displayed as Expected on Mini Cart View");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated "+expectedProductNo+" Product Name is Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated "+expectedProductNo+" Product Name is not Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL,"Unable to get the Product Name Element on Mini Cart");
+            }else {
+                scenarioDef.log(Status.FAIL,errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void validateProductPriceVisibility(int expectedProductNo,Boolean expectedVisibility){
+        String locator = MiniCartPageEnum.XPATH_PRODUCT_PRICE.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        List <WebElement> elements;
+        try{
+            elements = elementFactory.getElementsList(locator);
+            actualVisibility = expectedProductNo==elements.size();
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated "+expectedProductNo+" Product Price is Displayed as Expected on Mini Cart View");
+            }else if(!actualVisibility&& !expectedVisibility){
+                scenarioDef.log(Status.PASS, "Validated "+expectedProductNo+" Product Price is Not Displayed as Expected on Mini Cart View");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated "+expectedProductNo+" Product Price is Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated "+expectedProductNo+" Product Price is not Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL,"Unable to get the Product Price Element on Mini Cart");
+            }else {
+                scenarioDef.log(Status.FAIL,errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void validateAllProductsAttributesVisibility(String expectedCount,Boolean expectedVisibility) {
+        try{
+            validateProductNameVisibility(Integer.parseInt(expectedCount),expectedVisibility);
+            validateProductPriceVisibility(Integer.parseInt(expectedCount),expectedVisibility);
+            validateProductImageVisibility(Integer.parseInt(expectedCount),expectedVisibility);
+            validateProductRemoveVisibility(Integer.parseInt(expectedCount),expectedVisibility);
+            validateProductColorVisibility(Integer.parseInt(expectedCount),expectedVisibility);
+            validateProductSizeVisibility(Integer.parseInt(expectedCount),expectedVisibility);
+            validateProductBrandVisibility(Integer.parseInt(expectedCount),expectedVisibility);
+           scenarioDef.log(Status.PASS, "Validated All Attributes are Displayed on Mini Cart");
+        }catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Validate All Attributes are Displayed on Mini Cart");
             throw e;
         }
     }
