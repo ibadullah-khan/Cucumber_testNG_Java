@@ -145,4 +145,9 @@ public class MiniCartStepsDef extends HarnessVariables{
             miniCartPage.validateCheckoutButtonVisibility(false);
         }
     }
+
+    @And("User Validate Previous Product Name in Mini Cart")
+    public void userValidatePreviousProductNameInMiniCart() {
+        miniCartPage.validateInvalidProductName(PREVIOUS_PRODUCT_NAME);
+    }
 }
