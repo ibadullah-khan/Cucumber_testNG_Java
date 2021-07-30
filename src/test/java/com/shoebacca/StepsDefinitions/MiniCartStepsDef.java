@@ -179,9 +179,19 @@ public class MiniCartStepsDef extends HarnessVariables{
         miniCartPage.clickOnViewCartButton();
     }
 
+    @And("User Clicks Checkout Button on Mini Cart View")
+    public void userClicksCheckoutButtonOnMiniCartView() {
+        miniCartPage.clickOnCheckoutButton();
+    }
+
+    @Then("User Clicks on Guest Checkout Button")
+    public void userClicksOnGuestCheckoutButton() {
+        miniCartPage.clickOnGuestCheckoutButton();
+    }
+
     @Then("User Click on Remove Link on Mini Cart View")
     public void userClickOnRemoveLinkOnMiniCartView() {
-        miniCartPage.clickOnViewRemoveLink();
+        miniCartPage.clickOnProductRemoveLink();
     }
 
     @Then("User Validate Product Section Visibility {string} on Mini Cart View")

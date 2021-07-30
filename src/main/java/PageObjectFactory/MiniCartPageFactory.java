@@ -586,7 +586,34 @@ public class MiniCartPageFactory extends UtilFactory {
         }
     }
 
-    public void clickOnViewRemoveLink(){
+    public void clickOnCheckoutButton() {
+        String locator = MiniCartPageEnum.XPATH_CHECKOUT_BUTTON.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS,"Clicked on Checkout Button on Mini Cart View");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Click on Checkout Button on Mini Cart View");
+            throw e;
+        }
+
+    }
+
+    public void clickOnGuestCheckoutButton() {
+        String locator = MiniCartPageEnum.XPATH_GUEST_CHECKOUT_BUTTON.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS,"Clicked on Guest Checkout Button on Mini Cart View");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Click on Guest Checkout Button on Mini Cart View");
+            throw e;
+        }
+    }
+
+    public void clickOnProductRemoveLink(){
         String locator = MiniCartPageEnum.XPATH_PRODUCT_REMOVE_LINK.getValue();
         try{
             waitFactory.waitForElementToBeClickable(locator);
