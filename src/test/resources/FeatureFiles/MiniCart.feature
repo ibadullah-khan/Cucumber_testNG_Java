@@ -156,7 +156,10 @@ Feature: Mini Cart Feature File
     And User Validates Successful Triggered Mini Cart
     And User Closes Mini Cart View
     Then User Clicks the Mini Cart Icon on Header
+    Then User Validates "1" Products have Been Added to Mini Cart
+    Then User Validates Mini Cart Has "1" Product's Attributes Visibility "true"
     And User Validates Mini Cart View Visibility "true"
+
 
 
   @Regression
