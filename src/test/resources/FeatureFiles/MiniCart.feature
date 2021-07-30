@@ -158,16 +158,7 @@ Feature: Mini Cart Feature File
     And User Closes Mini Cart View
     And User Clicks the Mini Cart Icon on Header
     Then User Validate Product Name in Mini Cart
-    Then User Validate Product Price in Mini Cart
-    Then User Validate Product Image Visibility "true"
-    Then User Validate Product Size Visibility "true"
-    Then User Validate Product Color Visibility "true"
-    Then User Validate Product Remove Visibility "true"
-    Then User Validate Product Brand Visibility "true"
-    Then User Validate Shipping Label Visibility "true"
-    Then User Validate Tax Label Visibility "true"
-    Then User Validate View Cart Button Visibility "true"
-    Then User Validate Checkout Button Visibility "true"
+    Then User Validate Edit Product Quantity "false"
 
 
 
