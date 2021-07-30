@@ -159,16 +159,6 @@ Feature: Mini Cart Feature File
     Then User Should Redirect Toward "shopping.cart" Page
 
   @Regression
-  Scenario: Verify Product is Added to Cart Without Page Refresh
-
-    Given User Setups the Web Browser
-    When User Navigates to "shoebacca.first.bag.pdt" Url
-    And User Fetches Product Name from PDP
-    Then User Clicks Add to Cart Button on PDP
-    And User Validates Successful Triggered Mini Cart
-    And User Validate Product Name in Mini Cart
-
-  @Regression
   Scenario: Verify Mini Cart Displays Checkout Button that Navigates to Checkout When Clicked
 
     Given User Setups the Web Browser
@@ -179,3 +169,13 @@ Feature: Mini Cart Feature File
     And User Clicks Checkout Button on Mini Cart View
     Then User Clicks on Guest Checkout Button
     Then User Should Redirect Toward "shopping.checkout" Page
+
+  @Regression
+  Scenario: Verify Product is Added to Cart Without Page Refresh
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Fetches Product Name from PDP
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Validate Product Name in Mini Cart
