@@ -55,14 +55,13 @@ public class UtilFactory {
 
     protected void validateURL(String expectedUrl){
         waitForPageLoad();
-        String errorMsg = null;
+        String errorMsg= null;
         try{
             String actualURL=BrowserFactory.getDriver().getCurrentUrl();
-
             if (actualURL.contains(expectedUrl)){
-                scenarioDef.log(Status.PASS,"Validated Actual Url as Expected Url: "+expectedUrl);
+                scenarioDef.log(Status.PASS,"Validated Url as Expected Url: "+expectedUrl);
             }else {
-                errorMsg = "Could not Validate Actual Url as Expected Url: "+expectedUrl+" , Actual Url: "+actualURL;
+                errorMsg = "Could not Validate Url as Expected Url: "+expectedUrl+" , Actual Url: "+actualURL;
                 throw new NoSuchContextException("Actual and Expected Url Differs");
             }
         }catch (Exception e){
@@ -75,7 +74,6 @@ public class UtilFactory {
             throw e;
         }
     }
-
     protected void click(String locator){
         WebElement element = elementFactory.getElement(locator);
         click(element);

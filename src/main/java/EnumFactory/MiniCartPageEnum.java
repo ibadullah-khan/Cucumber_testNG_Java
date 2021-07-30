@@ -17,7 +17,8 @@ public enum MiniCartPageEnum {
     XPATH_VIEW_CART_BUTTON("//*[@class='miniCart-footerCol-1P_']//*[@class='button-root_highPriority-3-H']"),
     XPATH_CHECKOUT_BUTTON("//*[@class='miniCart-footerCol-1P_']//*[@class='button-root_normalPriority-1xS']"),
     XPATH_PRODUCT_SECTION("//*[@class='item-root-18B']"),
-    XPATH_PRODUCT_BRAND("//*[@class='item-brandName-1JN']");
+    XPATH_PRODUCT_BRAND("//*[@class='item-brandName-1JN']"),
+    XPATH_GUEST_CHECKOUT_BUTTON("//*[@class='guestCheckout']");
 
     private String miniCartPageVariables;
 
