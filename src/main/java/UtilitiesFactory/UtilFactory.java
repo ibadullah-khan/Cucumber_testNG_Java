@@ -60,9 +60,9 @@ public class UtilFactory {
             String actualURL=BrowserFactory.getDriver().getCurrentUrl();
 
             if (actualURL.contains(expectedUrl)){
-                scenarioDef.log(Status.PASS,"Validated Actual Url as Expected Url: "+expectedUrl);
+                scenarioDef.log(Status.PASS,"Validated Url as Expected Url: "+expectedUrl);
             }else {
-                errorMsg = "Could not Validate Actual Url as Expected Url: "+expectedUrl+" , Actual Url: "+actualURL;
+                errorMsg = "Could not Validate Url as Expected Url: "+expectedUrl+" , Actual Url: "+actualURL;
                 throw new NoSuchContextException("Actual and Expected Url Differs");
             }
         }catch (Exception e){
