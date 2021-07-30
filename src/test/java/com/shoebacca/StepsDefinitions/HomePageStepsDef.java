@@ -13,6 +13,7 @@ public class HomePageStepsDef extends HarnessVariables {
     protected String url;
     protected String runPropFile = "run.properties";
     protected String validatePropFile = "validateData.properties";
+
     HomePageFactory homePage;
 
     public HomePageStepsDef() throws Exception {
