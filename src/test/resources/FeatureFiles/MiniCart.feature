@@ -158,7 +158,7 @@ Feature: Mini Cart Feature File
     And User Closes Mini Cart View
     And User Clicks the Mini Cart Icon on Header
     Then User Validate Product Name in Mini Cart
-    Then User Validate Edit Product Quantity "false"
+    Then User Validate Edit Product Quantity Button Visibility "false"
 
 
 
