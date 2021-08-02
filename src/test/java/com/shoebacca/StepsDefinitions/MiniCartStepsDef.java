@@ -36,13 +36,13 @@ public class MiniCartStepsDef extends HarnessVariables{
         miniCartPage.validateMiniCartTriggered();
     }
 
-    @Then("User Validate Product Name in Mini Cart")
-    public void userValidateProductNameInMiniCart() {
+    @Then("User Validates Product Name in Mini Cart")
+    public void userValidatesProductNameInMiniCart() {
         miniCartPage.validateProductName(PRODUCT_NAME);
     }
 
-    @Then("User Validate Product Price in Mini Cart")
-    public void userValidateProductPriceInMiniCart() {
+    @Then("User Validates Product Price in Mini Cart")
+    public void userValidatesProductPriceInMiniCart() {
         miniCartPage.validateProductPrice(PRODUCT_PRICE);
     }
 
@@ -74,8 +74,8 @@ public class MiniCartStepsDef extends HarnessVariables{
         }
     }
 
-    @Then("User Validate Product Image Visibility {string}")
-    public void userValidateProductImageVisibility(String expectedCondition) {
+    @Then("User Validates Product Image Visibility {string}")
+    public void userValidatesProductImageVisibility(String expectedCondition) {
         if(expectedCondition.equals("true")){
             miniCartPage.validateProductImageVisibility(1,true);
         }else {
@@ -83,8 +83,8 @@ public class MiniCartStepsDef extends HarnessVariables{
         }
     }
 
-    @Then("User Validate Product Size Visibility {string}")
-    public void userValidateProductSizeVisibility(String expectedCondition) {
+    @Then("User Validates Product Size Visibility {string}")
+    public void userValidatesProductSizeVisibility(String expectedCondition) {
         if(expectedCondition.equals("true")){
             miniCartPage.validateProductSizeVisibility(1,true);
         }else {
@@ -92,8 +92,8 @@ public class MiniCartStepsDef extends HarnessVariables{
         }
     }
 
-    @Then("User Validate Product Color Visibility {string}")
-    public void userValidateProductColorVisibility(String expectedCondition) {
+    @Then("User Validates Product Color Visibility {string}")
+    public void userValidatesProductColorVisibility(String expectedCondition) {
         if(expectedCondition.equals("true")){
             miniCartPage.validateProductColorVisibility(1,true);
         }else {
@@ -101,8 +101,8 @@ public class MiniCartStepsDef extends HarnessVariables{
         }
     }
 
-    @Then("User Validate Product Remove Visibility {string}")
-    public void userValidateProductRemoveVisibility(String expectedCondition) {
+    @Then("User Validates Product Remove Visibility {string}")
+    public void userValidatesProductRemoveVisibility(String expectedCondition) {
         if(expectedCondition.equals("true")){
             miniCartPage.validateProductRemoveVisibility(1,true);
         }else {
@@ -110,8 +110,8 @@ public class MiniCartStepsDef extends HarnessVariables{
         }
     }
 
-    @Then("User Validate Product Brand Visibility {string}")
-    public void userValidateProductBrandVisibility(String expectedCondition) {
+    @Then("User Validates Product Brand Visibility {string}")
+    public void userValidatesProductBrandVisibility(String expectedCondition) {
         if(expectedCondition.equals("true")){
             miniCartPage.validateProductBrandVisibility(1,true);
         }else {
@@ -119,8 +119,8 @@ public class MiniCartStepsDef extends HarnessVariables{
         }
     }
 
-    @Then("User Validate Shipping Label Visibility {string}")
-    public void userValidateShippingLabelVisibility(String expectedCondition) {
+    @Then("User Validates Shipping Label Visibility {string}")
+    public void userValidatesShippingLabelVisibility(String expectedCondition) {
         if(expectedCondition.equals("true")){
             miniCartPage.validateShippingLabelVisibility(true);
         }else {
@@ -128,8 +128,8 @@ public class MiniCartStepsDef extends HarnessVariables{
         }
     }
 
-    @Then("User Validate Tax Label Visibility {string}")
-    public void userValidateTaxLabelVisibility(String expectedCondition) {
+    @Then("User Validates Tax Label Visibility {string}")
+    public void userValidatesTaxLabelVisibility(String expectedCondition) {
         if(expectedCondition.equals("true")){
             miniCartPage.validateTaxLabelVisibility(true);
         }else {
@@ -137,8 +137,8 @@ public class MiniCartStepsDef extends HarnessVariables{
         }
     }
 
-    @Then("User Validate View Cart Button Visibility {string}")
-    public void userValidateViewCartButtonVisibility(String expectedCondition) {
+    @Then("User Validates View Cart Button Visibility {string}")
+    public void userValidatesViewCartButtonVisibility(String expectedCondition) {
         if(expectedCondition.equals("true")){
             miniCartPage.validateViewCartButtonVisibility(true);
         }else {
@@ -146,8 +146,8 @@ public class MiniCartStepsDef extends HarnessVariables{
         }
     }
 
-    @Then("User Validate Checkout Button Visibility {string}")
-    public void userValidateCheckoutButtonVisibility(String expectedCondition) {
+    @Then("User Validates Checkout Button Visibility {string}")
+    public void userValidatesCheckoutButtonVisibility(String expectedCondition) {
         if(expectedCondition.equals("true")){
             miniCartPage.validateCheckoutButtonVisibility(true);
         }else {
@@ -155,8 +155,8 @@ public class MiniCartStepsDef extends HarnessVariables{
         }
     }
 
-    @And("User Validate Previous Product Name in Mini Cart")
-    public void userValidatePreviousProductNameInMiniCart() {
+    @And("User Validates Previous Product Name in Mini Cart")
+    public void userValidatesPreviousProductNameInMiniCart() {
         miniCartPage.validateInvalidProductName(PREVIOUS_PRODUCT_NAME);
     }
 
@@ -194,8 +194,8 @@ public class MiniCartStepsDef extends HarnessVariables{
         miniCartPage.clickOnProductRemoveLink();
     }
 
-    @Then("User Validate Product Section Visibility {string} on Mini Cart View")
-    public void userValidateProductSectionVisibilityOnMiniCartView(String expectedCondition) {
+    @Then("User Validates Product Section Visibility {string} on Mini Cart View")
+    public void userValidatesProductSectionVisibilityOnMiniCartView(String expectedCondition) {
         if(expectedCondition.equals("true")){
             miniCartPage.validateProductSectionVisibility(true);
         }else {
