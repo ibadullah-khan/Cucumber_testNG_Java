@@ -54,7 +54,7 @@ Feature: Mini Cart Feature File
     Then User Validates Mini Cart Counter Value as "2"
 
   @Regression
-  Scenario: Verify Product Quantity Cannot be Added in Mini Cart
+  Scenario: Verify Mini Cart Content When Item is Added in the Cart
 
     Given User Setups the Web Browser
     When User Navigates to "shoebacca.first.bag.pdt" Url
@@ -147,7 +147,7 @@ Feature: Mini Cart Feature File
     Then User Validates Mini Cart Has "2" Product's Attributes Visibility "true"
 
   @Regression
-  Scenario: Verify Product Quantity Cannot be Added in Mini Cart
+  Scenario: Verify Product Quantity Cannot be Edit in Mini Cart
 
     Given User Setups the Web Browser
     When User Navigates to "shoebacca.first.bag.pdt" Url
