@@ -197,7 +197,7 @@ public class MiniCartStepsDef extends HarnessVariables{
             miniCartPage.validateEditQuantityVisibility(false);
         }
     }
-    }
+
 
 
     @Then("User Click on Remove Link on Mini Cart View")
