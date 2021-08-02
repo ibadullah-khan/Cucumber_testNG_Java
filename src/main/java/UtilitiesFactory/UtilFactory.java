@@ -55,9 +55,10 @@ public class UtilFactory {
 
     protected void validateURL(String expectedUrl){
         waitForPageLoad();
-        String errorMsg= null;
+        String errorMsg = null;
         try{
             String actualURL=BrowserFactory.getDriver().getCurrentUrl();
+
             if (actualURL.contains(expectedUrl)){
                 scenarioDef.log(Status.PASS,"Validated Url as Expected Url: "+expectedUrl);
             }else {
@@ -74,6 +75,7 @@ public class UtilFactory {
             throw e;
         }
     }
+
     protected void click(String locator){
         WebElement element = elementFactory.getElement(locator);
         click(element);

@@ -185,3 +185,29 @@ Feature: Mini Cart Feature File
     And User Clicks Checkout Button on Mini Cart View
     Then User Clicks on Guest Checkout Button
     Then User Should Redirect Toward "shopping.checkout" Page
+
+  @Regression
+  Scenario: Verify Product is Added to Cart Without Page Refresh
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Fetches Product Name from PDP
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Validate Product Name in Mini Cart
+
+  @Regression
+    Scenario: Verify Delete Product Functionality on Mini Cart Menu
+
+      Given User Setups the Web Browser
+      When User Navigates to "shoebacca.first.bag.pdt" Url
+      Then User Clicks Add to Cart Button on PDP
+      And User Validates Successful Triggered Mini Cart
+      Then User Validate Product Remove Visibility "false"
+      And User Closes Mini Cart View
+      Then User Clicks the Mini Cart Icon on Header
+      Then User Validate Product Section Visibility "true" on Mini Cart View
+      Then User Validate Product Remove Visibility "true"
+      Then User Click on Remove Link on Mini Cart View
+      Then User Validate Product Section Visibility "false" on Mini Cart View
+

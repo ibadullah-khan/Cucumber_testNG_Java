@@ -199,3 +199,18 @@ public class MiniCartStepsDef extends HarnessVariables{
     }
     }
 
+
+    @Then("User Click on Remove Link on Mini Cart View")
+    public void userClickOnRemoveLinkOnMiniCartView() {
+        miniCartPage.clickOnProductRemoveLink();
+    }
+
+    @Then("User Validate Product Section Visibility {string} on Mini Cart View")
+    public void userValidateProductSectionVisibilityOnMiniCartView(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            miniCartPage.validateProductSectionVisibility(true);
+        }else {
+            miniCartPage.validateProductSectionVisibility(false);
+        }
+    }
+}
