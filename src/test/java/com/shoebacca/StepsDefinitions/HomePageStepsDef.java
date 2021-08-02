@@ -71,4 +71,3 @@ public class HomePageStepsDef extends HarnessVariables {
         validateURL(expectedurl);
     }
 }
-

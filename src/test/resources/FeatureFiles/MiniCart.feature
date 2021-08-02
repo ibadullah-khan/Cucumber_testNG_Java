@@ -179,3 +179,19 @@ Feature: Mini Cart Feature File
     Then User Clicks Add to Cart Button on PDP
     And User Validates Successful Triggered Mini Cart
     And User Validate Product Name in Mini Cart
+
+  @Regression
+    Scenario: Verify Delete Product Functionality on Mini Cart Menu
+
+      Given User Setups the Web Browser
+      When User Navigates to "shoebacca.first.bag.pdt" Url
+      Then User Clicks Add to Cart Button on PDP
+      And User Validates Successful Triggered Mini Cart
+      Then User Validate Product Remove Visibility "false"
+      And User Closes Mini Cart View
+      Then User Clicks the Mini Cart Icon on Header
+      Then User Validate Product Section Visibility "true" on Mini Cart View
+      Then User Validate Product Remove Visibility "true"
+      Then User Click on Remove Link on Mini Cart View
+      Then User Validate Product Section Visibility "false" on Mini Cart View
+
