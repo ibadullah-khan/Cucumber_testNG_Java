@@ -2,6 +2,7 @@ package com.shoebacca.StepsDefinitions;
 
 import UtilitiesFactory.UtilFactory;
 import com.shoebacca.Enums.CheckoutEnumVariables;
+import com.shoebacca.Enums.CartEnumVariables;
 import com.shoebacca.Enums.GlobalEnumVariables;
 
 public class HarnessVariables extends UtilFactory {
@@ -23,4 +24,12 @@ public class HarnessVariables extends UtilFactory {
     protected final String VALID_CC_NUM = CheckoutEnumVariables.VALID_CC_NUM.getValue();
     protected final String VALID_CC_EXPIRY = CheckoutEnumVariables.VALID_CC_EXPIRY.getValue();
     protected final String VALID_CC_CVV = CheckoutEnumVariables.VALID_CC_CVV.getValue();
+    protected final String ITEM_HEADING=CartEnumVariables.ITEM_HEADING.getValue();
+    protected final String DESCRIPTION_HEADING=CartEnumVariables.DESCRIPTION_HEADING.getValue();
+    protected final String QUANTITY_HEADING=CartEnumVariables.QUANTITY_HEADING.getValue();
+    protected final String ITEM_TOTAL_HEADING= CartEnumVariables.ITEM_TOTAL_HEADING.getValue();
+    protected final String ITEM_CONTENT=CartEnumVariables.ITEM_CONTENT.getValue();
+    protected final String DESCRIPTION_CONTENT=CartEnumVariables.DESCRIPTION_CONTENT.getValue();
+    protected final String QUANTITY_CONTENT=CartEnumVariables.QUANTITY_CONTENT.getValue();
+    protected final String ITEM_TOTAL_CONTENT=CartEnumVariables.ITEM_TOTAL_CONTENT.getValue();
 }
