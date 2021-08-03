@@ -147,6 +147,22 @@ Feature: Mini Cart Feature File
     Then User Validates Mini Cart Has "2" Product's Attributes Visibility "true"
 
   @Regression
+  Scenario: Verify Product Quantity Cannot be Edit in Mini Cart
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Fetches Product Name from PDP
+    And User Fetches Product Price from PDP
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Closes Mini Cart View
+    And User Clicks the Mini Cart Icon on Header
+    Then User Validate Product Name in Mini Cart
+    Then User Validate Edit Product Quantity Button Visibility "false"
+
+
+
+  @Regression
   Scenario: Verify View and Click Functionality of View Cart That Present on Mini Cart Menu
 
     Given User Setups the Web Browser

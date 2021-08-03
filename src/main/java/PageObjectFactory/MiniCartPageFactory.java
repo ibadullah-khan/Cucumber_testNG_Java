@@ -201,6 +201,32 @@ public class MiniCartPageFactory extends UtilFactory {
 
     }
 
+    public void validateEditQuantityVisibility(Boolean expectedVisibility) {
+
+        String locator = MiniCartPageEnum.XPATH_EDIT_BUTTON.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Edit Button is Displayed as Expected on Mini Cart View");
+            }else if(!actualVisibility&& !expectedVisibility){
+                scenarioDef.log(Status.PASS, "Validated Edit Button is Not Displayed as Expected on Mini Cart View");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated Edit Button is Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated Edit Button is not Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,errorMsg);
+            throw e;
+        }
+
+    }
+
     public void validateMiniCartScrollability(Boolean expectedCondition){
         String locator = MiniCartPageEnum.XPATH_PRODUCTS_CONTAINER.getValue();
         String errorMsg = null;
