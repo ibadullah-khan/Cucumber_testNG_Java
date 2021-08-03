@@ -6,7 +6,6 @@ public enum CartEnum {
     XPATH_PRODUCT_COLOUR("//*[@class='product-color-196']"),
     XPATH_PRODUCT_SIZE("//*[@class='product-variations-tXu']/dl"),
     XPATH_SECOND_PRODUCT_SIZE("(//*[@class='product-variations-tXu']/dl)[2]"),
-//    XPATH_SECOND_PRODUCT_PRICE("(//*[@class='product-pricebox-3qU']/span)[5]"),
     XPATH_SECOND_PRODUCT_PRICE("//*[@class='product-productListing-2Gh'][2]//span[@class='product-price-Nq8']"),
     XPATH_PRODUCT_PRICE("//*[@class='product-pricebox-3qU']/span");
 
