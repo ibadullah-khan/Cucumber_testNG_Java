@@ -17,6 +17,55 @@ public class CartPageFactory extends UtilFactory {
     public CartPageFactory() throws Exception {
     }
 
+    public void validateItemContainerHeadingVisibility(String expectedLocator,Boolean expectedVisibility){
+        String locator = CartPageEnum.XPATH_ITEM_CONTAINER_HEADING_START.getValue()
+                + expectedLocator + CartPageEnum.XPATH_ITEM_CONTAINER_HEADING_END.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility){
+                scenarioDef.log(Status.PASS,"Validated Item Container have "+expectedLocator+" Heading Displayed on Cart Page");
+            }else if (!actualVisibility && !expectedVisibility){
+                scenarioDef.log(Status.PASS,"Validated Item Container does not have "+expectedLocator+" Heading Displayed as Expected on Cart Page");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated Item Container have "+expectedLocator+" Heading Displayed Unexpectedly on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated Item Container does not have "+expectedLocator+" Heading Displayed Unexpectedly on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateItemContainerContentVisibility(String expectedLocator,Boolean expectedVisibility){
+        String locator = CartPageEnum.XPATH_ITEM_CONTAINER_CONTENT_START.getValue()
+                + expectedLocator + CartPageEnum.XPATH_ITEM_CONTAINER_CONTENT_END.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility){
+                scenarioDef.log(Status.PASS,"Validated Item Container have "+expectedLocator+" Content Displayed on Cart Page");
+            }else if (!actualVisibility && !expectedVisibility){
+                scenarioDef.log(Status.PASS,"Validated Item Container does not have "+expectedLocator+" Content Displayed as Expected on Cart Page");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated Item Container have "+expectedLocator+" Content Displayed Unexpectedly on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated Item Container does not have "+expectedLocator+" Content Displayed Unexpectedly on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
+        }
+    }
+
     public void validateRemoveLinkVisibility(int expectedRemoveLink){
 
         String locator = CartPageEnum.XPATH_REMOVE_LINK.getValue();
@@ -41,7 +90,6 @@ public class CartPageFactory extends UtilFactory {
             throw e;
         }
     }
-
     public void clickonRemoveLink(String expectedProductName){
         String locator = CartPageEnum.XPATH_REMOVE_START.getValue() + expectedProductName+ CartPageEnum.XPATH_REMOVE_END.getValue();try{
             waitFactory.waitForElementToBeClickable(locator);
@@ -55,14 +103,47 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
-    public void validateRemoveLinkTriggered(){
-        String locator = CartPageEnum.XPATH_CHECKOUT_BUTTON.getValue();
+    public void validateCartItemQuantity(String expectedValue){
+        String locator = CartPageEnum.XPATH_ITEM_QUANTITY_COUNTER.getValue();
+        String errorMsg = null;
+        String actualValue;
         try{
             waitFactory.waitForElementToBeClickable(locator);
-            scenarioDef.log(Status.PASS,"Product Remove from Cart Page");
+            actualValue = getText(locator);
+            if (actualValue.contains(expectedValue)){
+                scenarioDef.log(Status.PASS,"Validated Cart has "+expectedValue+" Items Added");
+            }else{
+                errorMsg = "Could not validate Cart has as Expected Item Count: "+expectedValue+", Actual Value is: "+actualValue;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
+        }
+    }
+
+    public void validateQuantityOfProductAdded(String expectedValue){
+        String locator = CartPageEnum.XPATH_PRODUCT_QUANTITY.getValue();
+        String errorMsg = null;
+        String actualValue;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            actualValue = getAttribute(locator,"value");
+            if (actualValue.contains(expectedValue)){
+                scenarioDef.log(Status.PASS,"Validated Product Quantity is "+expectedValue+" on Cart Page");
+            }else{
+                errorMsg = "Could not validate Product Quantity is: "+expectedValue+" on Cart Page, Actual Value is: "+actualValue;
+                errorMsg = "Could not validate Product Price on Mini Cart as Expected: "+expectedValue+" , Actual Value: "+actualValue;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
         }catch (Exception e){
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Product Could not Remove from Cart Page");
+            scenarioDef.log(Status.FAIL,errorMsg);
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL,"Unable to get the Product Price Element on Mini Cart");
+            }else {
+                scenarioDef.log(Status.FAIL,errorMsg);
+            }
             throw e;
         }
     }
@@ -82,6 +163,7 @@ public class CartPageFactory extends UtilFactory {
             }
         }catch (Exception e){
             failureException = e.toString();
+            scenarioDef.log(Status.FAIL,errorMsg);
             if (errorMsg == null){
                 scenarioDef.log(Status.FAIL,"Unable to get the Product Price Element on Mini Cart");
             }else {
@@ -91,6 +173,28 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
+    public void validateSummarySectionVisibility(Boolean expectedVisibility){
+        String locator = CartPageEnum.XPATH_SUMMARY_SECTION.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility){
+                scenarioDef.log(Status.PASS,"Validated Summary Section is Displayed on Cart Page");
+            }else if (!actualVisibility && !expectedVisibility){
+                scenarioDef.log(Status.PASS,"Validated Summary Section is not Displayed as Expected on Cart Page");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated Summary Section is Displayed Unexpectedly on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated Summary Section is not Displayed Unexpectedly on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
+        }
+    }
     public void validateAmount(){
         String locator = CartPageEnum.XPATH_PRODUCT_PRICE.getValue();
         String locator2 =CartPageEnum.XPATH_TOTAL_AMOUNT.getValue();

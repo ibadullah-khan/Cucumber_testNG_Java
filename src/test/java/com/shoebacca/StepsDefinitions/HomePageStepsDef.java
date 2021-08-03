@@ -67,7 +67,7 @@ public class HomePageStepsDef extends HarnessVariables {
 
     @Then("User Should Redirect Toward {string} Page")
     public void userShouldRedirectTowardPage(String Page) throws Exception {
-        String expectedurl = new PropertyLoaderFactory().getPropertyFile(validatePropFile).getProperty(Page);
-        validateURL(expectedurl);
+        String expectedUrl = new PropertyLoaderFactory().getPropertyFile(validatePropFile).getProperty(Page);
+        validateURL(expectedUrl);
     }
 }
