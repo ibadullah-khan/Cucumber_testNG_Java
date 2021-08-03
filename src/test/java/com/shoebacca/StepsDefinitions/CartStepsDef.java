@@ -111,8 +111,8 @@ public class CartStepsDef extends HarnessVariables{
         cartPage.clickonRemoveLink(removeProductName);
     }
 
-    @Then("User Validates Price Between Product Item Section and Account Detail")
-    public void userValidatesPriceBetweenProductItemSectionAndAccountDetail() {
+    @Then("User Validates Price Between Product Item Section and Account Detail Section")
+    public void userValidatesPriceBetweenProductItemSectionAndAccountDetailSection() {
         cartPage.validateAmount();
     }
 

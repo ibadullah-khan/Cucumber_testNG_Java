@@ -36,8 +36,8 @@ Feature: Cart Feature File
     Then User Should Redirect Toward "shopping.cart" Page
     Then User Validates Product Quantity "2" in Counter Section on Cart Page
     Then User Validates Cart Page Has "2" Remove Product Link
-    Then User Validates Price Between Product Item Section and Account Detail
+    Then User Validates Price Between Product Item Section and Account Detail Section
     Then User Click on Remove Link on  "shoebacca.first.bag.name" Product on Cart Page
     Then User Validates Cart Page Has "1" Remove Product Link
     Then User Validates Product Quantity "1" in Counter Section on Cart Page
-    Then User Validates Price Between Product Item Section and Account Detail
+    Then User Validates Price Between Product Item Section and Account Detail Section
