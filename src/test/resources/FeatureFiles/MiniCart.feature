@@ -157,10 +157,8 @@ Feature: Mini Cart Feature File
     And User Validates Successful Triggered Mini Cart
     And User Closes Mini Cart View
     And User Clicks the Mini Cart Icon on Header
-    Then User Validate Product Name in Mini Cart
-    Then User Validate Edit Product Quantity Button Visibility "false"
-
-
+    Then User Validates Product Name in Mini Cart
+    Then User Validates Edit Product Quantity Button Visibility "false"
 
   @Regression
   Scenario: Verify View and Click Functionality of View Cart That Present on Mini Cart Menu

@@ -85,12 +85,8 @@ public class CartStepsDef extends HarnessVariables{
     }
 
     @And("User Validates {string} Quantity is Displayed on Quantity Text Field")
-    public void userValidatesQuantityIsDisplayedOnQuantityTextField(String expectedCondition) {
-        if(expectedCondition.equals("true")){
-            cartPage.validateProductColorVisibility(1,true);
-        }else {
-            cartPage.validateProductColorVisibility(1,false);
-        }
+    public void userValidatesQuantityIsDisplayedOnQuantityTextField(String expectedValue) {
+        cartPage.validateQuantityOfProductAdded(expectedValue);
     }
 
     @And("User Validates Cart Items Quantity {string} on Cart Page")
@@ -101,9 +97,9 @@ public class CartStepsDef extends HarnessVariables{
     @Then("User Validates Summary Section Visibility {string}")
     public void userValidatesSummarySectionVisibility(String expectedCondition) {
         if(expectedCondition.equals("true")){
-            cartPage.validateProductColorVisibility(1,true);
+            cartPage.validateSummarySectionVisibility(true);
         }else {
-            cartPage.validateProductColorVisibility(1,false);
+            cartPage.validateSummarySectionVisibility(false);
         }
     }
 }
