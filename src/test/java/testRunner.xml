@@ -12,5 +12,10 @@
             <class name="Runner.MiniCartTest" />
         </classes>
     </test>
-
+    <test name="Cart Page Feature">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="Runner.CartPageTest" />
+        </classes>
+    </test>
 </suite>
