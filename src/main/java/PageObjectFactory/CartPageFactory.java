@@ -66,43 +66,6 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
-    public void validateRemoveLinkVisibility(int expectedRemoveLink){
-
-        String locator = CartPageEnum.XPATH_REMOVE_LINK.getValue();
-        waitFactory.waitForElementToBeVisible(locator);
-        String errorMsg = null;
-        Boolean actualVisibility;
-        List<WebElement> elements;
-        try{
-            elements = elementFactory.getElementsList(locator);
-            if (expectedRemoveLink==elements.size()) {
-                scenarioDef.log(Status.PASS, "Validated "+expectedRemoveLink+" Remove Link is Displayed as Expected on Cart Page");
-            }else {
-                scenarioDef.log(Status.FAIL, "Validated "+expectedRemoveLink+" Remove Link is Not Displayed as Expected on Cart Page");
-            }
-        }catch (Exception e) {
-            failureException = e.toString();
-            if (errorMsg == null){
-                scenarioDef.log(Status.FAIL,"Unable to get the Remove Link on Cart Page");
-            }else {
-                scenarioDef.log(Status.FAIL,errorMsg);
-            }
-            throw e;
-        }
-    }
-    public void clickonRemoveLink(String expectedProductName){
-        String locator = CartPageEnum.XPATH_REMOVE_START.getValue() + expectedProductName+ CartPageEnum.XPATH_REMOVE_END.getValue();try{
-            waitFactory.waitForElementToBeClickable(locator);
-            click(locator);
-            customWait(3000);
-            scenarioDef.log(Status.PASS,"Clicked on Remove Product Link on Cart Page");
-        }catch (Exception e){
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Click on Product Link on Cart Page"+expectedProductName);
-            throw e;
-        }
-    }
-
     public void validateCartItemQuantity(String expectedValue){
         String locator = CartPageEnum.XPATH_ITEM_QUANTITY_COUNTER.getValue();
         String errorMsg = null;
@@ -116,9 +79,10 @@ public class CartPageFactory extends UtilFactory {
                 errorMsg = "Could not validate Cart has as Expected Item Count: "+expectedValue+", Actual Value is: "+actualValue;
                 throw new NoSuchContextException("Actual and Expected Value Differs");
             }
-        }catch (Exception e) {
+        }catch (Exception e){
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL, errorMsg);
+            scenarioDef.log(Status.FAIL,errorMsg);
+            throw e;
         }
     }
 
@@ -136,39 +100,9 @@ public class CartPageFactory extends UtilFactory {
                 errorMsg = "Could not validate Product Price on Mini Cart as Expected: "+expectedValue+" , Actual Value: "+actualValue;
                 throw new NoSuchContextException("Actual and Expected Value Differs");
             }
-        }catch (Exception e){
+        }catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,errorMsg);
-            if (errorMsg == null){
-                scenarioDef.log(Status.FAIL,"Unable to get the Product Price Element on Mini Cart");
-            }else {
-                scenarioDef.log(Status.FAIL,errorMsg);
-            }
-            throw e;
-        }
-    }
-
-    public void validateProductQuantityInCounterSection(String expectedQuantity){
-        String locator = CartPageEnum.XPATH_Product_QUANTITY_COUNTER.getValue();
-        String errorMsg = null;
-        String actualText;
-        try{
-            waitFactory.waitForElementToBeClickable(locator);
-            actualText = getText(locator).trim();
-            if (actualText.contains(expectedQuantity)){
-                scenarioDef.log(Status.PASS,"Validated Product Quantity on Mini Cart as Expected: "+expectedQuantity);
-            }else {
-                errorMsg = "Could not validate Product Price on Mini Cart as Expected: "+expectedQuantity+" , Actual Value: "+actualText;
-                throw new NoSuchContextException("Actual and Expected Value Differs");
-            }
-        }catch (Exception e){
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL,errorMsg);
-            if (errorMsg == null){
-                scenarioDef.log(Status.FAIL,"Unable to get the Product Price Element on Mini Cart");
-            }else {
-                scenarioDef.log(Status.FAIL,errorMsg);
-            }
+            scenarioDef.log(Status.FAIL, errorMsg);
             throw e;
         }
     }
@@ -195,21 +129,56 @@ public class CartPageFactory extends UtilFactory {
             scenarioDef.log(Status.FAIL, errorMsg);
         }
     }
+    public void validateRemoveLinkVisibility(int expectedRemoveLink){
+
+        String locator = CartPageEnum.XPATH_REMOVE_LINK.getValue();
+        waitFactory.waitForElementToBeVisible(locator);
+        String errorMsg = null;
+        List<WebElement> elements;
+        try{
+            elements = elementFactory.getElementsList(locator);
+            if (expectedRemoveLink==elements.size()) {
+                scenarioDef.log(Status.PASS, "Validated "+expectedRemoveLink+" Remove Link is Displayed as Expected on Cart Page");
+            }else {
+                scenarioDef.log(Status.FAIL, "Validated "+expectedRemoveLink+" Remove Link is not Displayed as Expected on Cart Page");
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL,"Unable to get the Remove Link on Cart Page");
+            }else {
+                scenarioDef.log(Status.FAIL,errorMsg);
+            }
+            throw e;
+        }
+    }
+    public void clickonRemoveLink(String expectedProductName){
+        String locator = CartPageEnum.XPATH_REMOVE_START.getValue() + expectedProductName+ CartPageEnum.XPATH_REMOVE_END.getValue();try{
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            customWait(3000);
+            scenarioDef.log(Status.PASS,"Clicked on Remove Product Link on Cart Page");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Click on Product Link on Cart Page"+expectedProductName);
+            throw e;
+        }
+    }
     public void validateAmount(){
-        String locator = CartPageEnum.XPATH_PRODUCT_PRICE.getValue();
-        String locator2 =CartPageEnum.XPATH_TOTAL_AMOUNT.getValue();
+        String individualAmountLocator = CartPageEnum.XPATH_PRODUCT_PRICE.getValue();
+        String totalAmountLocator =CartPageEnum.XPATH_TOTAL_AMOUNT.getValue();
         String errorMsg = null;
         double totalPriceOfProductSection=0;
         double totalSummaryAmount=0;
         List <WebElement> elements;
         try{
-            elements = elementFactory.getElementsList(locator);
+            elements = elementFactory.getElementsList(individualAmountLocator);
             for(int i=0;i<elements.size();i++){
                 WebElement element = elements.get(i);
                 totalPriceOfProductSection = totalPriceOfProductSection + Double.parseDouble(getText(element).trim().substring(1));
             }
 
-            totalSummaryAmount = Double.parseDouble(getText(locator2).trim().substring(1));
+            totalSummaryAmount = Double.parseDouble(getText(totalAmountLocator).trim().substring(1));
 
             if(totalSummaryAmount==totalPriceOfProductSection){
                 scenarioDef.log(Status.PASS,"Validate Summary Total Amount $"+totalSummaryAmount+" is Equal to Sum of  Product Prices $"+totalPriceOfProductSection);

@@ -118,7 +118,7 @@ public class CartStepsDef extends HarnessVariables{
 
     @Then("User Validates Product Quantity {string} in Counter Section on Cart Page")
     public void userValidatesProductQuantityInCounterSectionOnCartPage(String expectedQuantity)  {
-        cartPage.validateProductQuantityInCounterSection(expectedQuantity);
+        cartPage.validateCartItemQuantity(expectedQuantity);
     }
 
     @Then("User Validates Cart Page Has {string} Remove Product Link")
