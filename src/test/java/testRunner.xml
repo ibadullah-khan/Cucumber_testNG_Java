@@ -13,4 +13,18 @@
         </classes>
     </test>
 
+    <test name="Cart Feature">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="Runner.CartTest" />
+        </classes>
+    </test>
+
+    <test name="User Journey Feature">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="Runner.UserJourneyTest" />
+        </classes>
+    </test>
+
 </suite>

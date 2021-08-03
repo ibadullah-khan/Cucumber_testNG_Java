@@ -36,7 +36,7 @@ Feature: Mini Cart Feature File
     Then User Enters Valid Login Username on Account Menu
     And User Enters Valid Login Password on Account Menu
     Then User Clicks the Login Button on Account Menu
-    Then User Validate Successful Login on Account Menu
+    Then User Validates Successful Login on Account Menu
     And User Clicks the Mini Cart Icon on Header
     Then User Validates Mini Cart Scrollability "false"
 
@@ -64,17 +64,17 @@ Feature: Mini Cart Feature File
     And User Validates Successful Triggered Mini Cart
     And User Closes Mini Cart View
     And User Clicks the Mini Cart Icon on Header
-    Then User Validate Product Name in Mini Cart
-    Then User Validate Product Price in Mini Cart
-    Then User Validate Product Image Visibility "true"
-    Then User Validate Product Size Visibility "true"
-    Then User Validate Product Color Visibility "true"
-    Then User Validate Product Remove Visibility "true"
-    Then User Validate Product Brand Visibility "true"
-    Then User Validate Shipping Label Visibility "true"
-    Then User Validate Tax Label Visibility "true"
-    Then User Validate View Cart Button Visibility "true"
-    Then User Validate Checkout Button Visibility "true"
+    Then User Validates Product Name in Mini Cart
+    Then User Validates Product Price in Mini Cart
+    Then User Validates Product Image Visibility "true"
+    Then User Validates Product Size Visibility "true"
+    Then User Validates Product Color Visibility "true"
+    Then User Validates Product Remove Visibility "true"
+    Then User Validates Product Brand Visibility "true"
+    Then User Validates Shipping Label Visibility "true"
+    Then User Validates Tax Label Visibility "true"
+    Then User Validates View Cart Button Visibility "true"
+    Then User Validates Checkout Button Visibility "true"
 
   @Regression
   Scenario: Verify Close Button Visibility on Mini Cart View and Close It on Click
@@ -126,8 +126,8 @@ Feature: Mini Cart Feature File
     And User Fetches Product Name from PDP
     And User Clicks Add to Cart Button on PDP
     And User Validates Successful Triggered Mini Cart
-    And User Validate Product Name in Mini Cart
-    And User Validate Previous Product Name in Mini Cart
+    And User Validates Product Name in Mini Cart
+    And User Validates Previous Product Name in Mini Cart
 
   @Regression
   Scenario: Verify Each Product has Separate Section in Mini Cart
@@ -147,6 +147,20 @@ Feature: Mini Cart Feature File
     Then User Validates Mini Cart Has "2" Product's Attributes Visibility "true"
 
   @Regression
+  Scenario: Verify Product Quantity Cannot be Edit in Mini Cart
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Fetches Product Name from PDP
+    And User Fetches Product Price from PDP
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Closes Mini Cart View
+    And User Clicks the Mini Cart Icon on Header
+    Then User Validates Product Name in Mini Cart
+    Then User Validates Edit Product Quantity Button Visibility "false"
+
+  @Regression
   Scenario: Verify View and Click Functionality of View Cart That Present on Mini Cart Menu
 
     Given User Setups the Web Browser
@@ -154,7 +168,7 @@ Feature: Mini Cart Feature File
     Then User Clicks Add to Cart Button on PDP
     And User Validates Successful Triggered Mini Cart
     And User Validates Mini Cart View Visibility "true"
-    Then User Validate Product Image Visibility "true"
+    Then User Validates Product Image Visibility "true"
     Then User Click on View Cart Button
     Then User Should Redirect Toward "shopping.cart" Page
 
@@ -165,7 +179,7 @@ Feature: Mini Cart Feature File
     Then User Navigates to "shoebacca.first.bag.pdt" Url
     Then User Clicks Add to Cart Button on PDP
     And User Validates Successful Triggered Mini Cart
-    Then User Validate Checkout Button Visibility "true"
+    Then User Validates Checkout Button Visibility "true"
     And User Clicks Checkout Button on Mini Cart View
     Then User Clicks on Guest Checkout Button
     Then User Should Redirect Toward "shopping.checkout" Page
@@ -178,7 +192,7 @@ Feature: Mini Cart Feature File
     And User Fetches Product Name from PDP
     Then User Clicks Add to Cart Button on PDP
     And User Validates Successful Triggered Mini Cart
-    And User Validate Product Name in Mini Cart
+    And User Validates Product Name in Mini Cart
 
   @Regression
     Scenario: Verify Delete Product Functionality on Mini Cart Menu
@@ -187,13 +201,13 @@ Feature: Mini Cart Feature File
       When User Navigates to "shoebacca.first.bag.pdt" Url
       Then User Clicks Add to Cart Button on PDP
       And User Validates Successful Triggered Mini Cart
-      Then User Validate Product Remove Visibility "false"
+      Then User Validates Product Remove Visibility "false"
       And User Closes Mini Cart View
       Then User Clicks the Mini Cart Icon on Header
-      Then User Validate Product Section Visibility "true" on Mini Cart View
-      Then User Validate Product Remove Visibility "true"
+      Then User Validates Product Section Visibility "true" on Mini Cart View
+      Then User Validates Product Remove Visibility "true"
       Then User Click on Remove Link on Mini Cart View
-      Then User Validate Product Section Visibility "false" on Mini Cart View
+      Then User Validates Product Section Visibility "false" on Mini Cart View
 
   @Regression
     Scenario: Verify Adding Multiple Items of Different Types
