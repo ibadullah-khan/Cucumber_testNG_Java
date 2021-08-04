@@ -413,6 +413,19 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
+    public void clickOnProductName(){
+        String locator = CartPageEnum.XPATH_PRODUCT_NAME.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS,"Clicked on Product Name on Cart View");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Click on Product Name on Mini Cart View");
+            throw e;
+        }
+    }
+
     public void validateProductName(String expectedText) {
         String locator = CartPageEnum.XPATH_PRODUCT_NAME.getValue();
         String errorMsg = null;

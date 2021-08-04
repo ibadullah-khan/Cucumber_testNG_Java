@@ -42,6 +42,19 @@ Feature: Cart Feature File
     Then User Validates Cart Has "2" Product's Attributes Visibility "true"
 
   @Regression
+  Scenario:  Verify on Clicking Product Name Page is Redirected to Relevant PDP
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Click on View Cart Button
+    Then User Should Redirect Toward "shopping.cart" Page
+    And User Validates Cart Items Quantity "1" on Cart Page
+    And User Click on Product Name on Cart Page
+    Then User Should Redirect Toward "shoebacca.first.bag.pdt" Page
+
+  @Regression
   Scenario: Verify Same Product Multiple Times Added in Cart
 
     Given User Setups the Web Browser
