@@ -116,11 +116,6 @@ public class CartStepsDef extends HarnessVariables{
         cartPage.validateAmount();
     }
 
-    @Then("User Validates Product Quantity {string} in Counter Section on Cart Page")
-    public void userValidatesProductQuantityInCounterSectionOnCartPage(String expectedQuantity)  {
-        cartPage.validateCartItemQuantity(expectedQuantity);
-    }
-
     @Then("User Validates Cart Page Has {string} Remove Product Link")
     public void userValidatesCartPageHasRemoveProductLink(String expectedRemoveLink) {
         cartPage.validateRemoveLinkVisibility((Integer.parseInt(expectedRemoveLink)));
