@@ -1,10 +1,13 @@
 package com.shoebacca.StepsDefinitions;
 
 import PageObjectFactory.CartPageFactory;
+import UtilitiesFactory.PropertyLoaderFactory;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 
 public class CartStepsDef extends HarnessVariables{
+
+    protected String runPropFile = "run.properties";
 
     CartPageFactory cartPage;
 
@@ -101,6 +104,21 @@ public class CartStepsDef extends HarnessVariables{
         }else {
             cartPage.validateSummarySectionVisibility(false);
         }
+    }
+    @Then("User Click on Remove Link on {string} Product on Cart Page")
+    public void userClickOnRemoveLinkOnProductOnCartPage(String productName) throws Exception {
+        String removeProductName = new PropertyLoaderFactory().getPropertyFile(runPropFile).getProperty(productName);
+        cartPage.clickonRemoveLink(removeProductName);
+    }
+
+    @Then("User Validates Price Between Product Item Section and Account Detail Section")
+    public void userValidatesPriceBetweenProductItemSectionAndAccountDetailSection() {
+        cartPage.validateAmount();
+    }
+
+    @Then("User Validates Cart Page Has {string} Remove Product Link")
+    public void userValidatesCartPageHasRemoveProductLink(String expectedRemoveLink) {
+        cartPage.validateRemoveLinkVisibility((Integer.parseInt(expectedRemoveLink)));
     }
 
     @Then("User Validates {string} Products have Been Added to Cart")
