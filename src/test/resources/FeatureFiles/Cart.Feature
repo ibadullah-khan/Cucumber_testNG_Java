@@ -23,6 +23,25 @@ Feature: Cart Feature File
     Then User Validates Summary Section Visibility "true"
 
   @Regression
+  Scenario: Verify Adding Multiple Items of Different Types in Cart
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Click on View Cart Button
+    Then User Should Redirect Toward "shopping.cart" Page
+    And User Validates Cart Items Quantity "1" on Cart Page
+    Then User Navigates to "shoebacca.second.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Click on View Cart Button
+    Then User Should Redirect Toward "shopping.cart" Page
+    And User Validates Cart Items Quantity "2" on Cart Page
+    Then User Validates "2" Products have Been Added to Cart
+    Then User Validates Cart Has "2" Product's Attributes Visibility "true"
+
+  @Regression
   Scenario: Verify Remove Some Item Functionality on Cart Page
 
     Given User Setups the Web Browser
