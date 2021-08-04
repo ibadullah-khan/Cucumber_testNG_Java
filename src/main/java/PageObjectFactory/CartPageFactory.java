@@ -1,6 +1,7 @@
 package PageObjectFactory;
 
 import EnumFactory.CartPageEnum;
+import EnumFactory.MiniCartPageEnum;
 import UtilitiesFactory.ElementFactory;
 import UtilitiesFactory.UtilFactory;
 import com.aventstack.extentreports.Status;
@@ -409,6 +410,19 @@ public class CartPageFactory extends UtilFactory {
         } catch (Exception e) {
             failureException = e.toString();
             scenarioDef.log(Status.FAIL, "Could not Validate All Attributes are Displayed on Cart");
+            throw e;
+        }
+    }
+
+    public void clickOnProductName(){
+        String locator = CartPageEnum.XPATH_PRODUCT_NAME.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS,"Clicked on Product Name on Cart View");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Click on Product Name on Mini Cart View");
             throw e;
         }
     }

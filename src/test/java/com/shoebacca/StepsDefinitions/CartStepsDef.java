@@ -116,4 +116,9 @@ public class CartStepsDef extends HarnessVariables{
             cartPage.validateAllProductsAttributesVisibility(expectedNumber,false);
         }
     }
+
+    @And("User Click on Product Name on Cart Page")
+    public void userClickOnProductNameOnCartPage() {
+        cartPage.clickOnProductName();
+    }
 }
