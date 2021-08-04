@@ -105,7 +105,7 @@ public class CartStepsDef extends HarnessVariables{
 
     @Then("User Validates {string} Products have Been Added to Cart")
     public void userValidatesProductsHaveBeenAddedToCart(String expectedCount) {
-        cartPage.validateProductNoAdded(expectedCount);
+        cartPage.validateDifferentProductNoAdded(expectedCount);
     }
 
     @Then("User Validates Cart Has {string} Product's Attributes Visibility {string}")

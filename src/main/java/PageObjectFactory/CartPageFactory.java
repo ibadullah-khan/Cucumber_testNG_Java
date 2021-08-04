@@ -131,13 +131,12 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
-    public void validateProductNoAdded(String expectedCount) {
+    public void validateDifferentProductNoAdded(String expectedCount) {
         String locator = CartPageEnum.XPATH_PRODUCT_SECTION.getValue();
         String errorMsg = null;
         String actualCount;
         try {
-            for (int i = 1; i <= expectedCount.length(); i++) {
-                waitFactory.waitForElementToBeClickable(locator + "[" + i + "]");
+                waitFactory.waitForElementToBeClickable(locator);
                 actualCount = String.valueOf(getSize(locator));
                 if (expectedCount.equals(actualCount)) {
                     scenarioDef.log(Status.PASS, "Validated " + expectedCount + " products are added as Expected on Cart");
@@ -145,7 +144,6 @@ public class CartPageFactory extends UtilFactory {
                     errorMsg = "Could not validate " + expectedCount + " products are added as Expected on Cart, Actual: " + actualCount;
                     throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
                 }
-            }
         } catch (Exception e) {
             failureException = e.toString();
             if (errorMsg == null) {
