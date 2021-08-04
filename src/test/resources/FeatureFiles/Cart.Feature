@@ -108,5 +108,4 @@ Feature: Cart Feature File
     Then User Click on Remove Link on "shoebacca.first.bag.name" Product on Cart Page
     Then User Validates Cart Page Has "1" Remove Product Link
     Then User Click on Remove Link on "shoebacca.second.bag.name" Product on Cart Page
-    Then User Validates Cart Page Has "0" Remove Product Link
     Then User Validates Your Card is Empty Section Visibility "true"
