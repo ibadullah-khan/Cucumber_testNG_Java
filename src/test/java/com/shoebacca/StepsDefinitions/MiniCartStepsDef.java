@@ -211,4 +211,9 @@ public class MiniCartStepsDef extends HarnessVariables{
             miniCartPage.validateProductSectionVisibility(false);
         }
     }
+
+    @And("User Validates Product Count {string} on Mini Cart")
+    public void userValidatesProductCountOnMiniCart(String expectedValue) {
+        miniCartPage.validateProductCountText(expectedValue);
+    }
 }

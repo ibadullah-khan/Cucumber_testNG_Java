@@ -102,4 +102,9 @@ public class CartStepsDef extends HarnessVariables{
             cartPage.validateSummarySectionVisibility(false);
         }
     }
+
+    @Then("User Validates Product Name in Cart Page")
+    public void userValidatesProductNameInCartPage() {
+        cartPage.validateProductName(PRODUCT_NAME);
+    }
 }

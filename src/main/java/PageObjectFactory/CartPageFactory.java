@@ -124,4 +124,28 @@ public class CartPageFactory extends UtilFactory {
             throw e;
         }
     }
+
+    public void validateProductName(String expectedText) {
+        String locator = CartPageEnum.XPATH_PRODUCT_NAME.getValue();
+        String errorMsg = null;
+        String actualText;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            actualText = getText(locator).trim();
+            if (actualText.contains(expectedText)){
+                scenarioDef.log(Status.PASS,"Validated Product Name on Mini Cart as Expected: "+expectedText);
+            }else {
+                errorMsg = "Could not validate Product Name on Mini Cart as Expected: "+expectedText+" , Actual Value: "+actualText;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        }catch (Exception e){
+            failureException = e.toString();
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL,"Unable to get the Product Name Element on Mini Cart");
+            }else {
+                scenarioDef.log(Status.FAIL,errorMsg);
+            }
+            throw e;
+        }
+    }
 }
