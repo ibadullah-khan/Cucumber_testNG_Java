@@ -407,10 +407,10 @@ public class CartPageFactory extends UtilFactory {
             validateProductSizeVisibility(Integer.parseInt(expectedCount), expectedVisibility);
             validateProductBrandVisibility(Integer.parseInt(expectedCount), expectedVisibility);
             validateProductEstDateVisibility(Integer.parseInt(expectedCount), expectedVisibility);
-            scenarioDef.log(Status.PASS, "Validated All Attributes are Displayed on Mini Cart");
+            scenarioDef.log(Status.PASS, "Validated All Attributes are Displayed on Cart");
         } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL, "Could not Validate All Attributes are Displayed on Mini Cart");
+            scenarioDef.log(Status.FAIL, "Could not Validate All Attributes are Displayed on Cart");
             throw e;
         }
     }
