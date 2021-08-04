@@ -102,4 +102,18 @@ public class CartStepsDef extends HarnessVariables{
             cartPage.validateSummarySectionVisibility(false);
         }
     }
+
+    @Then("User Validates {string} Products have Been Added to Cart")
+    public void userValidatesProductsHaveBeenAddedToCart(String expectedCount) {
+        cartPage.validateDifferentProductNoAdded(expectedCount);
+    }
+
+    @Then("User Validates Cart Has {string} Product's Attributes Visibility {string}")
+    public void userValidatesCartHasProductSAttributesVisibility(String expectedNumber, String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            cartPage.validateAllProductsAttributesVisibility(expectedNumber,true);
+        }else {
+            cartPage.validateAllProductsAttributesVisibility(expectedNumber,false);
+        }
+    }
 }
