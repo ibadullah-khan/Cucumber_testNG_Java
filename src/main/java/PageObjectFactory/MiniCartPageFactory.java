@@ -675,4 +675,28 @@ public class MiniCartPageFactory extends UtilFactory {
             throw e;
         }
     }
+
+    public void validateProductCountText(String expectedText) {
+        String locator = MiniCartPageEnum.XPATH_PRODUCT_COUNT_TEXT.getValue();
+        String errorMsg = null;
+        String actualText;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            actualText = getText(locator).trim();
+            if (actualText.contains(expectedText)){
+                scenarioDef.log(Status.PASS,"Validated Product Count on Cart as Expected: "+expectedText);
+            }else {
+                errorMsg = "Could not validate Product Count on Cart as Expected: "+expectedText+" , Actual Value: "+actualText;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        }catch (Exception e){
+            failureException = e.toString();
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL,"Unable to get the Product Count Element on Cart Page");
+            }else {
+                scenarioDef.log(Status.FAIL,errorMsg);
+            }
+            throw e;
+        }
+    }
 }

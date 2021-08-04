@@ -131,6 +131,11 @@ public class CartStepsDef extends HarnessVariables{
         cartPage.validateDifferentProductNoAdded(expectedCount);
     }
 
+    @Then("User Validates Product Name in Cart Page")
+    public void userValidatesProductNameInCartPage() {
+        cartPage.validateProductName(PRODUCT_NAME);
+    }
+
     @Then("User Validates Cart Has {string} Product's Attributes Visibility {string}")
     public void userValidatesCartHasProductSAttributesVisibility(String expectedNumber, String expectedCondition) {
         if(expectedCondition.equals("true")){
