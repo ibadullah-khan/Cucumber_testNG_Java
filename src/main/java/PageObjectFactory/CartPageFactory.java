@@ -157,10 +157,10 @@ public class CartPageFactory extends UtilFactory {
             waitFactory.waitForElementToBeClickable(locator);
             click(locator);
             customWait(3000);
-            scenarioDef.log(Status.PASS,"Clicked on Remove Product Link on Cart Page");
+            scenarioDef.log(Status.PASS,"Clicked on Remove Link of "+expectedProductName+ " Product on Cart Page");
         }catch (Exception e){
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Click on Product Link on Cart Page"+expectedProductName);
+            scenarioDef.log(Status.FAIL,"Could not Click on Remove Link of "+expectedProductName+" Product on Cart Page");
             throw e;
         }
     }
@@ -171,10 +171,11 @@ public class CartPageFactory extends UtilFactory {
         double totalPriceOfProductSection=0;
         double totalSummaryAmount=0;
         List <WebElement> elements;
+        WebElement element;
         try{
             elements = elementFactory.getElementsList(individualAmountLocator);
             for(int i=0;i<elements.size();i++){
-                WebElement element = elements.get(i);
+                element = elements.get(i);
                 totalPriceOfProductSection = totalPriceOfProductSection + Double.parseDouble(getText(element).trim().substring(1));
             }
 

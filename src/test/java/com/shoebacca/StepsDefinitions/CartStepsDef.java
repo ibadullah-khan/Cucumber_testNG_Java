@@ -105,7 +105,7 @@ public class CartStepsDef extends HarnessVariables{
             cartPage.validateSummarySectionVisibility(false);
         }
     }
-    @Then("User Click on Remove Link on  {string} Product on Cart Page")
+    @Then("User Click on Remove Link on {string} Product on Cart Page")
     public void userClickOnRemoveLinkOnProductOnCartPage(String productName) throws Exception {
         String removeProductName = new PropertyLoaderFactory().getPropertyFile(runPropFile).getProperty(productName);
         cartPage.clickonRemoveLink(removeProductName);
