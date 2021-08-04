@@ -30,6 +30,16 @@ public class PDPStepsDef extends HarnessVariables{
     public void userKeepsTrackOfProductName() {
         PREVIOUS_PRODUCT_NAME = PRODUCT_NAME;
     }
+
+    @And("User Fetches Product Colour from PDP")
+    public void userFetchesProductColourFromPDP() {
+        PRODUCT_COLOUR=productDetailsPage.getProductColour();
+    }
+
+    @And("User Fetches Product Size from PDP")
+    public void userFetchesProductSizeFromPDP() {
+        PRODUCT_SIZE=productDetailsPage.getProductSize();
+    }
 }
 
 

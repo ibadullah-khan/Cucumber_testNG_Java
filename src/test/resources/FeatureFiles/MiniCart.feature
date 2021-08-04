@@ -208,4 +208,3 @@ Feature: Mini Cart Feature File
       Then User Validates Product Remove Visibility "true"
       Then User Click on Remove Link on Mini Cart View
       Then User Validates Product Section Visibility "false" on Mini Cart View
-
