@@ -53,3 +53,21 @@ Feature: Cart Feature File
     And User Validates Cart Items Quantity "1" on Cart Page
     And User Click on Product Name on Cart Page
     Then User Should Redirect Toward "shoebacca.first.bag.pdt" Page
+
+  @Regression
+  Scenario: Verify Same Product Multiple Times Added in Cart
+
+    Given User Setups the Web Browser
+    Then User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Fetches Product Name from PDP
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Closes Mini Cart View
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Closes Mini Cart View
+    And User Clicks the Mini Cart Icon on Header
+    And User Validates Product Count "2" on Mini Cart
+    Then User Click on View Cart Button
+    Then User Validates Product Name in Cart Page
+    And User Validates "2" Quantity is Displayed on Quantity Text Field
