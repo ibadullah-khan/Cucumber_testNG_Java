@@ -38,6 +38,7 @@ public class MiniCartStepsDef extends HarnessVariables{
 
     @Then("User Validates Product Name in Mini Cart")
     public void userValidatesProductNameInMiniCart() {
+
         miniCartPage.validateProductName(PRODUCT_NAME);
     }
 
@@ -184,11 +185,6 @@ public class MiniCartStepsDef extends HarnessVariables{
         miniCartPage.clickOnCheckoutButton();
     }
 
-    @Then("User Clicks on Guest Checkout Button")
-    public void userClicksOnGuestCheckoutButton() {
-        miniCartPage.clickOnGuestCheckoutButton();
-    }
-
     @Then("User Validates Edit Product Quantity Button Visibility {string}")
     public void userValidatesEditProductVisibility(String expectedCondition) {
         if(expectedCondition.equals("true")){
@@ -215,5 +211,14 @@ public class MiniCartStepsDef extends HarnessVariables{
     @And("User Validates Product Count {string} on Mini Cart")
     public void userValidatesProductCountOnMiniCart(String expectedValue) {
         miniCartPage.validateProductCountText(expectedValue);
+    }
+
+    @Then("User Validates Sub Total Label Visibility {string}")
+    public void userValidatesTotalAmountLabelVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            miniCartPage.validateSubTotalLabelVisibility(true);
+        }else {
+            miniCartPage.validateSubTotalLabelVisibility(false);
+        }
     }
 }

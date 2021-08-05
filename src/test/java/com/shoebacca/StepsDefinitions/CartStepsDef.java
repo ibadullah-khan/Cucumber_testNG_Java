@@ -144,4 +144,52 @@ public class CartStepsDef extends HarnessVariables{
     public void userClickOnProductNameOnCartPage() {
         cartPage.clickOnProductName();
     }
+
+    @Then("User Clicks Checkout Button on Cart View")
+    public void userClicksCheckoutButtonOnCartView() {
+        cartPage.clickOnCheckoutButton();
+    }
+
+    @Then("User Fetches Sub Total Price on Cart")
+    public void userFetchesSubTotalPriceOnCart() {
+        SUB_TOTAL = cartPage.getSubTotalPrice();
+    }
+
+    @Then("User Fetches Tax Value on Cart")
+    public void userFetchesTaxValueOnCart() {
+        TAX_VALUE=cartPage.getTaxValue();
+    }
+
+    @Then("User Validates Sub Total Value from Cart")
+    public void userValidatesSubTotalValueFromCart() {
+        cartPage.validateSubTotalValue(SUB_TOTAL);
+    }
+
+    @Then("User Validates Tax Value from Cart")
+    public void userValidatesTaxValueFromCart() {
+        cartPage.validateTaxValue(TAX_VALUE);
+    }
+
+    @Then("User Validates Sub Total Value Visibility {string}")
+    public void userValidatesSubTotalValueVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            cartPage.validateSubTotalValueVisibility(true);
+        }else {
+            cartPage.validateSubTotalValueVisibility(false);
+        }
+    }
+
+    @Then("User Validates Tax Value Visibility {string}")
+    public void userValidatesTaxValueVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            cartPage.validateTaxValueVisibility(true);
+        }else {
+            cartPage.validateTaxValueVisibility(false);
+        }
+    }
+
+    @Then("User Clicks on Guest Checkout Button")
+    public void userClicksOnGuestCheckoutButton() {
+        cartPage.clickOnGuestCheckoutButton();
+    }
 }

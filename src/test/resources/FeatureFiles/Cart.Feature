@@ -91,3 +91,39 @@ Feature: Cart Feature File
     Then User Validates Cart Page Has "1" Remove Product Link
     Then User Validates Cart Items Quantity "1" on Cart Page
     Then User Validates Price Between Product Item Section and Account Detail Section
+
+  @Regression
+  Scenario: Verify Cart Total When Tax Applied for Specific Areas and Customer Returns to Shopping Cart from Checkout
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Click on View Cart Button
+    Then User Validates Sub Total Label Visibility "true"
+    Then User Validates Sub Total Value Visibility "true"
+    Then User Validates Tax Label Visibility "true"
+    Then User Validates Tax Value Visibility "true"
+    Then User Fetches Sub Total Price on Cart
+    Then User Fetches Tax Value on Cart
+    Then User Validates Sub Total Value from Cart
+    Then User Validates Tax Value from Cart
+    Then User Clicks Checkout Button on Cart View
+    Then User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
+    And User Enters Valid Email Address on Checkout Page
+    And User Enters Valid First Name on Checkout Page
+    And User Enters Valid Last Name on Checkout Page
+    And User Enters Valid Address on Checkout Page
+    And User Enters Valid City on Checkout Page
+    And User Selects Valid State on Checkout Page
+    And User Enters Valid Zip Code on Checkout Page
+    And User Enters Valid Phone No on Checkout Page
+    Then User Clicks Save and Continue Button on Checkout Page
+    Then User Fetches Tax Value on Checkout
+    Then User Navigates to "shoebacca.home" Url
+    Then User Clicks the Mini Cart Icon on Header
+    And User Click on View Cart Button
+    And User Validates Tax Value from Cart
+    Then User Navigates to "shoebacca.checkout" Url
+    Then User Validates Tax Value from Checkout

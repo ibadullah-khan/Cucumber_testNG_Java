@@ -1,6 +1,7 @@
 package PageObjectFactory;
 
 import EnumFactory.MiniCartPageEnum;
+import EnumFactory.ProductDetailsPageEnum;
 import UtilitiesFactory.ElementFactory;
 import UtilitiesFactory.UtilFactory;
 import com.aventstack.extentreports.Status;
@@ -450,6 +451,29 @@ public class MiniCartPageFactory extends UtilFactory {
         }
     }
 
+    public void validateSubTotalLabelVisibility(Boolean expectedVisibility) {
+        String locator = MiniCartPageEnum.XPATH_TOTAL_AMOUNT_LABEL.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Total Amount Label is Displayed as Expected on Mini Cart View");
+            }else if(!actualVisibility&& !expectedVisibility){
+                scenarioDef.log(Status.PASS, "Validated Total Amount Label is Not Displayed as Expected on Mini Cart View");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated Total Amount Label is Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated Total Amount Label is not Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,errorMsg);
+            throw e;
+        }
+    }
     public void validateViewCartButtonVisibility(Boolean expectedVisibility) {
         String locator = MiniCartPageEnum.XPATH_VIEW_CART_BUTTON.getValue();
         String errorMsg = null;
@@ -624,19 +648,6 @@ public class MiniCartPageFactory extends UtilFactory {
             throw e;
         }
 
-    }
-
-    public void clickOnGuestCheckoutButton() {
-        String locator = MiniCartPageEnum.XPATH_GUEST_CHECKOUT_BUTTON.getValue();
-        try{
-            waitFactory.waitForElementToBeClickable(locator);
-            click(locator);
-            scenarioDef.log(Status.PASS,"Clicked on Guest Checkout Button on Mini Cart View");
-        }catch (Exception e){
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Click on Guest Checkout Button on Mini Cart View");
-            throw e;
-        }
     }
 
     public void clickOnProductRemoveLink(){

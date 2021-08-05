@@ -426,6 +426,20 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
+    public void clickOnCheckoutButton() {
+        String locator = CartPageEnum.XPATH_CHECKOUT_CART.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS,"Clicked on Checkout Button on Cart View");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Click on Checkout Button on Cart View");
+            throw e;
+        }
+
+    }
+
     public void validateProductName(String expectedText) {
         String locator = CartPageEnum.XPATH_PRODUCT_NAME.getValue();
         String errorMsg = null;
@@ -520,4 +534,144 @@ public class CartPageFactory extends UtilFactory {
             throw e;
         }
     }
+
+    public String getSubTotalPrice(){
+        String locator = CartPageEnum. XPATH_TOTAL_AMOUNT.getValue();
+        String subtotal;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            subtotal = getText(locator);
+            scenarioDef.log(Status.PASS,"Fetched Sub Total Price: "+ subtotal +" from Cart");
+            return subtotal;
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Fetch Sub Total Price from Cart");
+            throw e;
+        }
+    }
+
+    public String getTaxValue(){
+        String locator = CartPageEnum.XPATH_PRODUCT_TAX.getValue();
+        String taxvalue;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            taxvalue = getText(locator);
+            scenarioDef.log(Status.PASS,"Fetched Tax Value: "+ taxvalue +" from Cart");
+            return taxvalue;
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Fetch Tax Value from Cart");
+            throw e;
+        }
+    }
+
+    public void validateSubTotalValue(String expectedText){
+        String locator = CartPageEnum.XPATH_TOTAL_AMOUNT.getValue();
+        String errorMsg = null;
+        String actualText;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            actualText = getText(locator).trim();
+            if (actualText.contains(expectedText)){
+                scenarioDef.log(Status.PASS,"Validated Sub Total on Cart as Expected: "+expectedText);
+            }else {
+                errorMsg = "Could not validate Sub Total on Cart as Expected: "+expectedText+" , Actual Value: "+actualText;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        }catch (Exception e){
+            failureException = e.toString();
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL,"Unable to get the Sub Total Element on Cart");
+            }else {
+                scenarioDef.log(Status.FAIL,errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void validateTaxValue(String expectedText){
+        String locator = CartPageEnum.XPATH_PRODUCT_TAX.getValue();
+        String errorMsg = null;
+        String actualText;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            actualText = getText(locator).trim();
+            if (actualText.contains(expectedText)){
+                scenarioDef.log(Status.PASS,"Validated Tax on Cart as Expected: "+expectedText);
+            }else {
+                errorMsg = "Could not validate Tax on Cart as Expected: "+expectedText+" , Actual Value: "+actualText;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        }catch (Exception e){
+            failureException = e.toString();
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL,"Unable to get the Tax Element on Cart");
+            }else {
+                scenarioDef.log(Status.FAIL,errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void validateSubTotalValueVisibility(Boolean expectedVisibility) {
+        String locator = CartPageEnum.XPATH_SUB_TOTAL_VALUE.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Sub Total Value is Displayed as Expected on Mini Cart View");
+            }else if(!actualVisibility&& !expectedVisibility){
+                scenarioDef.log(Status.PASS, "Validated Sub Total Value is Not Displayed as Expected on Mini Cart View");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated Sub Total Value is Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated Sub Total Value is not Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateTaxValueVisibility(Boolean expectedVisibility) {
+        String locator = CartPageEnum.XPATH_TAX_VALUE.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Tax Value is Displayed as Expected on Mini Cart View");
+            }else if(!actualVisibility&& !expectedVisibility){
+                scenarioDef.log(Status.PASS, "Validated Tax Value is Not Displayed as Expected on Mini Cart View");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated Tax Value is Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated Tax Value is not Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,errorMsg);
+            throw e;
+        }
+    }
+
+    public void clickOnGuestCheckoutButton() {
+        String locator = CartPageEnum.XPATH_GUEST_CHECKOUT_BUTTON.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS,"Clicked on Guest Checkout Button on Cart View");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Click on Guest Checkout Button on Cart View");
+            throw e;
+        }
+    }
+
 }
