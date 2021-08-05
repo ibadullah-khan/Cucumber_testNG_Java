@@ -31,6 +31,7 @@ public enum CartPageEnum {
     }
 
     public String getValue() {
+
         return this.cartPageVariables;
     }
 }

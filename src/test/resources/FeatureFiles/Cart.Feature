@@ -109,3 +109,15 @@ Feature: Cart Feature File
     Then User Validates Cart Page Has "1" Remove Product Link
     Then User Click on Remove Link on "shoebacca.second.bag.name" Product on Cart Page
     Then User Validates Your Card is Empty Section Visibility "true"
+
+  @Regression
+  Scenario: Verify Decimal Value Cannot be Added in Quantity Text Field
+    Given User Setups the Web Browser
+    Then User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Closes Mini Cart View
+    And User Clicks the Mini Cart Icon on Header
+    Then User Click on View Cart Button
+    And User Enters "0.5" on Quantity Text Field on Cart
+    Then User Validates "5" Quantity is Displayed on Quantity Text Field
