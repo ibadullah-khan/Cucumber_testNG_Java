@@ -21,7 +21,8 @@ public enum CartPageEnum {
     XPATH_TOTAL_AMOUNT("(//*[@class='priceSummary-priceValues-1EF']//*[@class='priceSummary-price-2my'])[1]"),
     XPATH_REMOVE_LINK("//button[@class='product-btnRemove-16L' and contains(text(),'Remove')]"),
     XPATH_REMOVE_START("//*[@class='product-name-3mh']/*[text()='"),
-    XPATH_REMOVE_END("']//ancestor::div[@class='product-details-3HQ']//button[@class='product-btnRemove-16L']");
+    XPATH_REMOVE_END("']//ancestor::div[@class='product-details-3HQ']//button[@class='product-btnRemove-16L']"),
+    XPATH_CART_IS_EMPTY("//*[@class='cartPage-title-ISm' and text()='YOUR CART IS EMPTY']");
 
     private String cartPageVariables;
 

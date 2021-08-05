@@ -144,4 +144,13 @@ public class CartStepsDef extends HarnessVariables{
     public void userClickOnProductNameOnCartPage() {
         cartPage.clickOnProductName();
     }
+
+    @Then("User Validates Your Card is Empty Section Visibility {string}")
+    public void userValidatesYourCardIsEmptySectionVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            cartPage.validateCartIsEmptySectionVisibility(true);
+        }else {
+            cartPage.validateCartIsEmptySectionVisibility(false);
+        }
+    }
 }
