@@ -121,4 +121,9 @@ public class CartStepsDef extends HarnessVariables{
             cartPage.validateAllProductsAttributesVisibility(expectedNumber,false);
         }
     }
+
+    @And("User Enters {string} on Quantity Text Field on Cart")
+    public void userEntersOnQuantityTextFieldOnCart(String quantityValue) throws Exception {
+        cartPage.enterProductQuantity(quantityValue);
+    }
 }

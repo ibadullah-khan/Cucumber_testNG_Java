@@ -432,4 +432,18 @@ public class CartPageFactory extends UtilFactory {
             throw e;
         }
     }
+
+    public void enterProductQuantity(String textToEnter)throws Exception {
+        String locator = CartPageEnum.XPATH_PRODUCT_QUANTITY.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            removeOneSpace(locator);
+            enterString(locator,textToEnter);
+            scenarioDef.log(Status.PASS,"Entered Text: "+textToEnter+" on Quantity");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Enter Value on Quantity Field");
+            throw e;
+        }
+    }
 }

@@ -102,6 +102,26 @@ public class UtilFactory {
         JavascriptExecutor executor = (JavascriptExecutor) BrowserFactory.getDriver();
         executor.executeScript("arguments[0].click();", element);
     }
+    protected void clearField(String locatorValue) throws Exception
+    {
+        WebElement element = elementFactory.getElement(locatorValue);
+        clearField(element);
+    }
+    protected void clearField(WebElement element) throws Exception
+    {
+        element.clear();
+    }
+
+    protected void removeOneSpace(String locatorValue) throws Exception
+    {
+        WebElement element = elementFactory.getElement(locatorValue);
+        removeOneSpace(element);
+    }
+
+    protected void removeOneSpace(WebElement element) throws Exception
+    {
+        element.sendKeys(Keys.BACK_SPACE);
+    }
 
     protected void enterString(String locatorValue, String fieldValue) throws Exception
     {
