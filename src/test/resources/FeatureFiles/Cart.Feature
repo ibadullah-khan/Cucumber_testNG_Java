@@ -127,3 +127,33 @@ Feature: Cart Feature File
     And User Validates Tax Value from Cart
     Then User Navigates to "shoebacca.checkout" Url
     Then User Validates Tax Value from Checkout
+
+  @Regression
+  Scenario: Verify Remove All Item Functionality from  Cart
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    Then User Navigates to "shoebacca.second.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    Then User Click on View Cart Button
+    Then User Should Redirect Toward "shopping.cart" Page
+    Then User Validates Cart Page Has "2" Remove Product Link
+    Then User Click on Remove Link on "shoebacca.first.bag.name" Product on Cart Page
+    Then User Validates Cart Page Has "1" Remove Product Link
+    Then User Click on Remove Link on "shoebacca.second.bag.name" Product on Cart Page
+    Then User Validates Your Card is Empty Section Visibility "true"
+
+  @Regression
+  Scenario: Verify Decimal Value Cannot be Added in Quantity Text Field
+    Given User Setups the Web Browser
+    Then User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Closes Mini Cart View
+    And User Clicks the Mini Cart Icon on Header
+    Then User Click on View Cart Button
+    And User Enters "0.5" on Quantity Text Field on Cart
+    Then User Validates "5" Quantity is Displayed on Quantity Text Field

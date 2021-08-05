@@ -674,4 +674,42 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
+
+    public void validateCartIsEmptySectionVisibility(Boolean expectedVisibility) {
+        String locator = CartPageEnum.XPATH_CART_IS_EMPTY.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Cart Is Empty Section is Displayed as Expected on Cart Page");
+            }else if(!actualVisibility&& !expectedVisibility){
+                scenarioDef.log(Status.PASS, "Validated Cart Is Empty Section is Not Displayed as Expected on Cart Page");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated Cart Is Empty Section is Displayed Unexpected on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated Cart Is Empty Section is not Displayed Unexpected on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,errorMsg);
+            throw e;
+        }
+    }
+
+    public void enterProductQuantity(String textToEnter)throws Exception {
+        String locator = CartPageEnum.XPATH_PRODUCT_QUANTITY.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            removeOneSpace(locator);
+            enterString(locator,textToEnter);
+            scenarioDef.log(Status.PASS,"Entered Text: "+textToEnter+" on Quantity");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Enter Value on Quantity Field");
+            throw e;
+        }
+    }
 }

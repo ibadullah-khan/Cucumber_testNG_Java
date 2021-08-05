@@ -192,4 +192,18 @@ public class CartStepsDef extends HarnessVariables{
     public void userClicksOnGuestCheckoutButton() {
         cartPage.clickOnGuestCheckoutButton();
     }
+
+    @Then("User Validates Your Card is Empty Section Visibility {string}")
+    public void userValidatesYourCardIsEmptySectionVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            cartPage.validateCartIsEmptySectionVisibility(true);
+        }else {
+            cartPage.validateCartIsEmptySectionVisibility(false);
+        }
+    }
+
+    @And("User Enters {string} on Quantity Text Field on Cart")
+    public void userEntersOnQuantityTextFieldOnCart(String quantityValue) throws Exception {
+        cartPage.enterProductQuantity(quantityValue);
+    }
 }
