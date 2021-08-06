@@ -679,6 +679,27 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
+    public void validateShippingMethodNameOnSummarySection(String expectedShippingMethod){
+        String locator = CartPageEnum.XPATH_SHIPPING_METHOD_SUMMARY_SECTION.getValue();
+        String actualPrice = getText(locator);
+        String errorMsg =null;
+        try{
+            if(actualPrice.equalsIgnoreCase(expectedShippingMethod)){
+                scenarioDef.log(Status.PASS," Validated Shipping Method "+expectedShippingMethod+" Same as Expected on Summary Section of Cart Page");
+            }
+            else{
+                scenarioDef.log(Status.FAIL,actualPrice+"Validate Shipping Method "+expectedShippingMethod+"Not Same as Expected Same as Expected on Summary Section of Cart Page");
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL,"Unable to get the  Shipping Method Element Summary Section of  Cart Page");
+            }else {
+                scenarioDef.log(Status.FAIL,errorMsg);
+            }
+            throw e;
+        }
+    }
     public double getShippingAmount(){
         String locator = CartPageEnum.XPATH_SHIPPING_PRICE_SUMMARY_SECTION.getValue();
         double shippingAmount;
@@ -717,6 +738,17 @@ public class CartPageFactory extends UtilFactory {
             throw e;
         }
 
-
+    public void enterProductQuantity(String textToEnter)throws Exception {
+        String locator = CartPageEnum.XPATH_PRODUCT_QUANTITY.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            removeOneSpace(locator);
+            enterString(locator,textToEnter);
+            scenarioDef.log(Status.PASS,"Entered Text: "+textToEnter+" on Quantity");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Enter Value on Quantity Field");
+            throw e;
+        }
     }
 }

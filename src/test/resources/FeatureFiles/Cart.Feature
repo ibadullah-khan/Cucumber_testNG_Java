@@ -111,6 +111,18 @@ Feature: Cart Feature File
     Then User Validates Your Card is Empty Section Visibility "true"
 
   @Regression
+  Scenario: Verify Decimal Value Cannot be Added in Quantity Text Field
+    Given User Setups the Web Browser
+    Then User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Closes Mini Cart View
+    And User Clicks the Mini Cart Icon on Header
+    Then User Click on View Cart Button
+    And User Enters "0.5" on Quantity Text Field on Cart
+    Then User Validates "5" Quantity is Displayed on Quantity Text Field
+
+  @Regression
   Scenario: Verify Shipping Method And their Prices
 
     Given User Setups the Web Browser
@@ -119,24 +131,27 @@ Feature: Cart Feature File
     And User Validates Successful Triggered Mini Cart
     Then User Click on View Cart Button
     Then User Should Redirect Toward "shopping.cart" Page
-    Then User Clicks on Change Shipping Option
-    Then User Validates "standard.shipping" Shipping Method Visibility "true" on dropdown
-    Then User Validates "standard.shipping" Shipping Price Visibility "true" on dropdown
-    Then User Validates "standard.shipping" Method Price "standard.shipping.price" on dropdown
-    Then User Validates "expedited.shipping" Shipping Method Visibility "true" on dropdown
-    Then User Validates "expedited.shipping" Shipping Price Visibility "true" on dropdown
-    Then User Validates "expedited.shipping" Method Price "expedited.shipping.price" on dropdown
-    Then User Validates "rush.shipping" Shipping Method Visibility "true" on dropdown
-    Then User Validates "rush.shipping" Shipping Price Visibility "true" on dropdown
-    Then User Validates "rush.shipping" Method Price "rush.shipping.price" on dropdown
-    Then User Clicks on "expedited.shipping" Shipping Method
-    Then User Validates "expedited.shipping" Method Price "expedited.shipping.price" on Summary Section
+    Then User Clicks on Change Shipping Option of Cart Page
+    Then User Validates "standard.shipping" Shipping Method Visibility "true" on Dropdown of Cart Page
+    Then User Validates "standard.shipping" Shipping Price Visibility "true" on Dropdown of Cart Page
+    Then User Validates "standard.shipping" Method Price "standard.shipping.price" on Dropdown of Cart Page
+    Then User Validates "expedited.shipping" Shipping Method Visibility "true" on Dropdown of Cart Page
+    Then User Validates "expedited.shipping" Shipping Price Visibility "true" on Dropdown of Cart Page
+    Then User Validates "expedited.shipping" Method Price "expedited.shipping.price" on Dropdown of Cart Page
+    Then User Validates "rush.shipping" Shipping Method Visibility "true" on Dropdown of Cart Page
+    Then User Validates "rush.shipping" Shipping Price Visibility "true" on Dropdown of Cart Page
+    Then User Validates "rush.shipping" Method Price "rush.shipping.price" on Dropdown of Cart Page
+    Then User Clicks on "expedited.shipping" Shipping Method on Dropdown of Cart Page
+    Then User Validated "expedited.shipping" Shipping Method Name on Summary Section of Cart Page
+    Then User Validates "expedited.shipping.price" Shipping Price on Summary Section of Cart Page
     Then User Validates total Amount on Summary Section of Cart Page
-    Then User Clicks on Change Shipping Option
-    Then User Clicks on "rush.shipping" Shipping Method
-    Then User Validates "rush.shipping" Method Price "rush.shipping.price" on Summary Section
+    Then User Clicks on Change Shipping Option of Cart Page
+    Then User Clicks on "rush.shipping" Shipping Method on Dropdown of Cart Page
+    Then User Validated "rush.shipping" Shipping Method Name on Summary Section of Cart Page
+    Then User Validates "rush.shipping.price" Shipping Price on Summary Section of Cart Page
     Then User Validates total Amount on Summary Section of Cart Page
-    Then User Clicks on Change Shipping Option
-    Then User Clicks on "standard.shipping" Shipping Method
-    Then User Validates "standard.shipping" Method Price "standard.shipping.price" on Summary Section
+    Then User Clicks on Change Shipping Option of Cart Page
+    Then User Clicks on "standard.shipping" Shipping Method on Dropdown of Cart Page
+    Then User Validated "standard.shipping" Shipping Method Name on Summary Section of Cart Page
+    Then User Validates "standard.shipping.price" Shipping Price on Summary Section of Cart Page
     Then User Validates total Amount on Summary Section of Cart Page
