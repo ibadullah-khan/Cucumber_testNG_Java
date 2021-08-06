@@ -712,31 +712,31 @@ public class CartPageFactory extends UtilFactory {
         return shippingAmount;
     }
 
-    public void validateTotalAmount(){
+    public void validateTotalAmount() {
 
-        String subAmountLocator =CartPageEnum.XPATH_SUB_TOTAL_AMOUNT.getValue();
-        String totalAmountLocator =CartPageEnum.XPATH_TOTAL_AMOUNT.getValue();
-        String errorMsg =null;
+        String subAmountLocator = CartPageEnum.XPATH_SUB_TOTAL_AMOUNT.getValue();
+        String totalAmountLocator = CartPageEnum.XPATH_TOTAL_AMOUNT.getValue();
+        String errorMsg = null;
 
-        try{
+        try {
             double subAmount = Double.parseDouble(getText(subAmountLocator).trim().substring(1));
             double shippingAmount = getShippingAmount();
             double totalAmount = Double.parseDouble(getText(totalAmountLocator).trim().substring(1));
-            if(totalAmount==subAmount+shippingAmount){
-                scenarioDef.log(Status.PASS,"Validate Total Amount $"+totalAmount+" is Same as Expected on Summary Section of Cart Page");
+            if (totalAmount == subAmount + shippingAmount) {
+                scenarioDef.log(Status.PASS, "Validate Total Amount $" + totalAmount + " is Same as Expected on Summary Section of Cart Page");
+            } else {
+                scenarioDef.log(Status.FAIL, "Validate Summary Total Amount $" + totalAmount + " is not Same as Expected on Summary Section of Cart Page");
             }
-            else{
-                scenarioDef.log(Status.FAIL,"Validate Summary Total Amount $"+totalAmount+" is not Same as Expected on Summary Section of Cart Page");
-            }
-        }catch (Exception e) {
+        } catch (Exception e) {
             failureException = e.toString();
-            if (errorMsg == null){
-                scenarioDef.log(Status.FAIL,"Unable to get the  Price Element on Summary Section of  Cart Page");
-            }else {
-                scenarioDef.log(Status.FAIL,errorMsg);
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the  Price Element on Summary Section of  Cart Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
             }
             throw e;
         }
+    }
 
     public void enterProductQuantity(String textToEnter)throws Exception {
         String locator = CartPageEnum.XPATH_PRODUCT_QUANTITY.getValue();
