@@ -497,12 +497,13 @@ public class CartPageFactory extends UtilFactory {
         List <WebElement> elements;
         WebElement element;
         try{
+            waitFactory.waitForElementToBeClickable(individualAmountLocator);
             elements = elementFactory.getElementsList(individualAmountLocator);
             for(int i=0;i<elements.size();i++){
                 element = elements.get(i);
                 totalPriceOfProductSection = totalPriceOfProductSection + Double.parseDouble(getText(element).trim().substring(1));
             }
-
+            waitFactory.waitForElementToBeClickable(totalAmountLocator);
             totalSummaryAmount = Double.parseDouble(getText(totalAmountLocator).trim().substring(1));
 
             if(totalSummaryAmount==totalPriceOfProductSection){
