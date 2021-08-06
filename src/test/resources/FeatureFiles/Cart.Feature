@@ -109,3 +109,34 @@ Feature: Cart Feature File
     Then User Validates Cart Page Has "1" Remove Product Link
     Then User Click on Remove Link on "shoebacca.second.bag.name" Product on Cart Page
     Then User Validates Your Card is Empty Section Visibility "true"
+
+  @Regression
+  Scenario: Verify Shipping Method And their Prices
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    Then User Click on View Cart Button
+    Then User Should Redirect Toward "shopping.cart" Page
+    Then User Clicks on Change Shipping Option
+    Then User Validates "standard.shipping" Shipping Method Visibility "true" on dropdown
+    Then User Validates "standard.shipping" Shipping Price Visibility "true" on dropdown
+    Then User Validates "standard.shipping" Method Price "standard.shipping.price" on dropdown
+    Then User Validates "expedited.shipping" Shipping Method Visibility "true" on dropdown
+    Then User Validates "expedited.shipping" Shipping Price Visibility "true" on dropdown
+    Then User Validates "expedited.shipping" Method Price "expedited.shipping.price" on dropdown
+    Then User Validates "rush.shipping" Shipping Method Visibility "true" on dropdown
+    Then User Validates "rush.shipping" Shipping Price Visibility "true" on dropdown
+    Then User Validates "rush.shipping" Method Price "rush.shipping.price" on dropdown
+    Then User Clicks on "expedited.shipping" Shipping Method
+    Then User Validates "expedited.shipping" Method Price "expedited.shipping.price" on Summary Section
+    Then User Validates total Amount on Summary Section of Cart Page
+    Then User Clicks on Change Shipping Option
+    Then User Clicks on "rush.shipping" Shipping Method
+    Then User Validates "rush.shipping" Method Price "rush.shipping.price" on Summary Section
+    Then User Validates total Amount on Summary Section of Cart Page
+    Then User Clicks on Change Shipping Option
+    Then User Clicks on "standard.shipping" Shipping Method
+    Then User Validates "standard.shipping" Method Price "standard.shipping.price" on Summary Section
+    Then User Validates total Amount on Summary Section of Cart Page

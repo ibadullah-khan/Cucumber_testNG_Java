@@ -474,8 +474,9 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
-    public void clickonRemoveLink(String expectedProductName){
-        String locator = CartPageEnum.XPATH_REMOVE_START.getValue() + expectedProductName+ CartPageEnum.XPATH_REMOVE_END.getValue();try{
+    public void clickOnRemoveLink(String expectedProductName){
+        String locator = CartPageEnum.XPATH_REMOVE_START.getValue() + expectedProductName+ CartPageEnum.XPATH_REMOVE_END.getValue();
+        try{
             waitFactory.waitForElementToBeClickable(locator);
             click(locator);
             customWait(3000);
@@ -487,9 +488,9 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
-    public void validateAmount(){
+    public void validateSubAmount(){
         String individualAmountLocator = CartPageEnum.XPATH_PRODUCT_PRICE.getValue();
-        String totalAmountLocator =CartPageEnum.XPATH_TOTAL_AMOUNT.getValue();
+        String totalAmountLocator =CartPageEnum.XPATH_SUB_TOTAL_AMOUNT.getValue();
         String errorMsg = null;
         double totalPriceOfProductSection=0;
         double totalSummaryAmount=0;
@@ -543,5 +544,179 @@ public class CartPageFactory extends UtilFactory {
             scenarioDef.log(Status.FAIL,errorMsg);
             throw e;
         }
+    }
+    public void clickOnChangeShippingOption(){
+        String locator = CartPageEnum.XPATH_CHANGE_SHIPPING_LINK.getValue() ;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            customWait(3000);
+            scenarioDef.log(Status.PASS,"Clicked on Change Shipping Option on Summary Section of Cart Page");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Click on Change Shipping Option on Summary Section of Cart Page");
+            throw e;
+        }
+    }
+
+    public void clickOnShippingMethod(String expecetedShippingMethodName){
+        String locator = CartPageEnum.XPATH_SHIPPING_METHOD_START.getValue() + expecetedShippingMethodName+ CartPageEnum.XPATH_SHIPPING_METHOD_END.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            customWait(3000);
+            scenarioDef.log(Status.PASS,"Clicked on "+expecetedShippingMethodName+ " Method on Summary Section of Cart Page");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Click "+expecetedShippingMethodName+ " Method on Summary Section of Cart Page");
+            throw e;
+        }
+    }
+
+    public void getPrice(String expecetedShippingMethodName){
+        String locator = CartPageEnum.XPATH_SHIPPING_PRICE_START.getValue() + expecetedShippingMethodName+ CartPageEnum.XPATH_SHIPPING_PRICE_END.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            getText(locator);
+            scenarioDef.log(Status.PASS,"Clicked on "+getText(locator)+ "Method on Summary Section of Cart Page");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Click "+getText(locator)+ " Method on Summary Section of Cart Page");
+            throw e;
+        }
+    }
+
+    public void validateShippingMethodVisibilityOnDropDown(String expecetedShippingMethodName,Boolean expectedVisibility) {
+        String locator = CartPageEnum.XPATH_SHIPPING_METHOD_START.getValue() + expecetedShippingMethodName+ CartPageEnum.XPATH_SHIPPING_METHOD_END.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated "+expecetedShippingMethodName +" Method is Displayed on Shipping Method Drop Down of Summary Section of Cart Page");
+            }else if(!actualVisibility&& !expectedVisibility){
+                scenarioDef.log(Status.PASS, "Validated "+expecetedShippingMethodName +" Method is not Displayed on Shipping Method Drop Down of Summary Section of Cart Page");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated "+expecetedShippingMethodName +" Method is Displayed on Shipping Method Drop Down of Summary Section of Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated "+expecetedShippingMethodName +" Method is not Displayed on Shipping Method Drop Down of Summary Section of Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateShippingPriceVisibilityOnDropDown(String expectedShippingMethod,Boolean expectedVisibility) {
+        String locator = CartPageEnum.XPATH_SHIPPING_PRICE_START.getValue() + expectedShippingMethod+ CartPageEnum.XPATH_SHIPPING_PRICE_END.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated  Shipping Price "+expectedShippingMethod +" is Displayed on Shipping Method Drop Down of Summary Section of Cart Page");
+            }else if(!actualVisibility&& !expectedVisibility){
+                scenarioDef.log(Status.PASS, "Validated  Shipping Price "+expectedShippingMethod+" is not Displayed on Shipping Method Drop Down of Summary Section of Cart Page");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated  Shipping Price "+expectedShippingMethod +" is Displayed on Shipping Method Drop Down of Summary Section of Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated  Shipping Price "+expectedShippingMethod+" is not Displayed on Shipping Method Drop Down of Summary Section of Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateShippingPriceAmountOnDropDown(String expectedShippingMethod,String expectedShippingPrice){
+        String locator = CartPageEnum.XPATH_SHIPPING_PRICE_START.getValue() + expectedShippingMethod+ CartPageEnum.XPATH_SHIPPING_PRICE_END.getValue();
+        String actualPrice = getText(locator).trim();
+        String errorMsg =null;
+
+        try{
+            if(actualPrice.equalsIgnoreCase(expectedShippingPrice)){
+                scenarioDef.log(Status.PASS,"Validated Shipping Price "+expectedShippingPrice+" Same as Expected on Shipping Method Drop of Summary Section of Cart Page");
+            }
+            else{
+                scenarioDef.log(Status.FAIL,"Validate Shipping Price "+expectedShippingPrice+" Not Same as Expected on Shipping Method Drop of Summary Section of Cart Page");
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL,"Unable to get the  Shipping Price Element on Drop Down Summary Section of  Cart Page");
+            }else {
+                scenarioDef.log(Status.FAIL,errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void validateShippingPriceAmountOnSummarySection(String expectedShippingPrice){
+        String locator = CartPageEnum.XPATH_SHIPPING_PRICE_SUMMARY_SECTION.getValue();
+        String actualPrice = getText(locator).replace(".00","");
+        String errorMsg =null;
+        try{
+            if(actualPrice.equalsIgnoreCase(expectedShippingPrice)){
+                scenarioDef.log(Status.PASS," Validated Shipping Price "+expectedShippingPrice+" Same as Expected on Summary Section of Cart Page");
+            }
+            else{
+                scenarioDef.log(Status.FAIL,actualPrice+"Validate Shipping Price "+expectedShippingPrice+"Not Same as Expected Same as Expected on Summary Section of Cart Page");
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL,"Unable to get the  Shipping Price Element Summary Section of  Cart Page");
+            }else {
+                scenarioDef.log(Status.FAIL,errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public double getShippingAmount(){
+        String locator = CartPageEnum.XPATH_SHIPPING_PRICE_SUMMARY_SECTION.getValue();
+        double shippingAmount;
+        if(getText(locator).equalsIgnoreCase("free")){
+            shippingAmount=0;
+        }
+        else{
+            shippingAmount= Double.parseDouble(getText(locator).trim().substring(1));
+        }
+        return shippingAmount;
+    }
+
+    public void validateTotalAmount(){
+
+        String subAmountLocator =CartPageEnum.XPATH_SUB_TOTAL_AMOUNT.getValue();
+        String totalAmountLocator =CartPageEnum.XPATH_TOTAL_AMOUNT.getValue();
+        String errorMsg =null;
+
+        try{
+            double subAmount = Double.parseDouble(getText(subAmountLocator).trim().substring(1));
+            double shippingAmount = getShippingAmount();
+            double totalAmount = Double.parseDouble(getText(totalAmountLocator).trim().substring(1));
+            if(totalAmount==subAmount+shippingAmount){
+                scenarioDef.log(Status.PASS,"Validate Total Amount $"+totalAmount+" is Same as Expected on Summary Section of Cart Page");
+            }
+            else{
+                scenarioDef.log(Status.FAIL,"Validate Summary Total Amount $"+totalAmount+" is not Same as Expected on Summary Section of Cart Page");
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL,"Unable to get the  Price Element on Summary Section of  Cart Page");
+            }else {
+                scenarioDef.log(Status.FAIL,errorMsg);
+            }
+            throw e;
+        }
+
+
     }
 }

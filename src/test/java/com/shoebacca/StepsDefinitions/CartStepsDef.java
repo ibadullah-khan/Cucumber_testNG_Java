@@ -108,12 +108,12 @@ public class CartStepsDef extends HarnessVariables{
     @Then("User Click on Remove Link on {string} Product on Cart Page")
     public void userClickOnRemoveLinkOnProductOnCartPage(String productName) throws Exception {
         String removeProductName = new PropertyLoaderFactory().getPropertyFile(runPropFile).getProperty(productName);
-        cartPage.clickonRemoveLink(removeProductName);
+        cartPage.clickOnRemoveLink(removeProductName);
     }
 
     @Then("User Validates Price Between Product Item Section and Account Detail Section")
     public void userValidatesPriceBetweenProductItemSectionAndAccountDetailSection() {
-        cartPage.validateAmount();
+        cartPage.validateSubAmount();
     }
 
     @Then("User Validates Cart Page Has {string} Remove Product Link")
@@ -152,5 +152,61 @@ public class CartStepsDef extends HarnessVariables{
         }else {
             cartPage.validateCartIsEmptySectionVisibility(false);
         }
+    }
+
+    @Then("User Clicks on Change Shipping Option")
+    public void userClicksOnChangeShippingOption() {
+        cartPage.clickOnChangeShippingOption();
+    }
+
+    @Then("User Clicks on {string} Shipping Method")
+    public void userClicksOnShippingMethod(String shippingMethod) throws Exception {
+        String shippingMethodName = new PropertyLoaderFactory().getPropertyFile(runPropFile).getProperty(shippingMethod);
+        cartPage.clickOnShippingMethod(shippingMethodName);
+    }
+
+    @Then("User Validates {string} Shipping Method and their Price {string} Visibility {string}")
+    public void userValidatesShippingMethodAndTheirPriceVisibility(String shippingMethod, String shippingPrice, String expectedCondition) throws Exception {
+        String shippingMethodName = new PropertyLoaderFactory().getPropertyFile(runPropFile).getProperty(shippingMethod);
+        cartPage.getPrice(shippingMethodName);
+    }
+
+    @Then("User Validates {string} Shipping Method Visibility {string} on dropdown")
+    public void userValidatesMethodVisibilityOnDropdown(String shippingMethod, String expectedCondition) throws Exception {
+        String shippingMethodName = new PropertyLoaderFactory().getPropertyFile(runPropFile).getProperty(shippingMethod);
+        if(expectedCondition.equals("true")){
+            cartPage.validateShippingMethodVisibilityOnDropDown(shippingMethodName,true);
+        }else {
+            cartPage.validateShippingMethodVisibilityOnDropDown(shippingMethodName,false);
+        }
+    }
+
+    @Then("User Validates {string} Shipping Price Visibility {string} on dropdown")
+    public void userValidatesShippingPriceVisibilityOnDropdown(String shippingMethod, String expectedCondition) throws Exception {
+        String shippingMethodName= new PropertyLoaderFactory().getPropertyFile(runPropFile).getProperty(shippingMethod);
+        if(expectedCondition.equals("true")){
+            cartPage.validateShippingPriceVisibilityOnDropDown(shippingMethodName,true);
+        }else {
+            cartPage.validateShippingPriceVisibilityOnDropDown(shippingMethodName,false);
+        }
+    }
+
+    @Then("User Validates total Amount on Summary Section of Cart Page")
+    public void userValidatesTotalAmountOnSummarySectionOfCartPage() {
+        cartPage.validateTotalAmount();
+    }
+
+    @Then("User Validates {string} Method Price {string} on dropdown")
+    public void userValidatesShippingPriceAmountOnDropdown(String shippingMethod, String shippingPrice) throws Exception {
+        String shippingMethodName= new PropertyLoaderFactory().getPropertyFile(runPropFile).getProperty(shippingMethod);
+        String shippingPriceValue= new PropertyLoaderFactory().getPropertyFile(runPropFile).getProperty(shippingPrice);
+        cartPage.validateShippingPriceAmountOnDropDown(shippingMethodName,shippingPriceValue);
+
+    }
+
+    @Then("User Validates {string} Method Price {string} on Summary Section")
+    public void userValidatesMethodPriceOnSummarySection(String shippingMethod, String shippingPrice) throws Exception {
+        String shippingPriceValue= new PropertyLoaderFactory().getPropertyFile(runPropFile).getProperty(shippingPrice);
+        cartPage.validateShippingPriceAmountOnSummarySection(shippingPriceValue);
     }
 }
