@@ -461,7 +461,8 @@ public class CartPageFactory extends UtilFactory {
             if (expectedRemoveLink==elements.size()) {
                 scenarioDef.log(Status.PASS, "Validated "+expectedRemoveLink+" Remove Link is Displayed as Expected on Cart Page");
             }else {
-                scenarioDef.log(Status.FAIL, "Validated "+expectedRemoveLink+" Remove Link is not Displayed as Expected on Cart Page");
+                errorMsg ="Validated "+expectedRemoveLink+" Remove Link is not Displayed as Expected on Cart Page";
+                throw new NoSuchContextException("Actual and Expected Value Differs");
             }
         }catch (Exception e) {
             failureException = e.toString();
@@ -510,7 +511,8 @@ public class CartPageFactory extends UtilFactory {
                 scenarioDef.log(Status.PASS,"Validate Summary Total Amount $"+totalSummaryAmount+" is Equal to Sum of  Product Prices $"+totalPriceOfProductSection);
             }
             else{
-                scenarioDef.log(Status.FAIL,"Validate Summary Total Amount $"+totalSummaryAmount+"is not Equal to Sum of  Product Prices $"+totalPriceOfProductSection);
+                errorMsg="Validate Summary Total Amount $"+totalSummaryAmount+"is not Equal to Sum of  Product Prices $"+totalPriceOfProductSection;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
             }
         }catch (Exception e) {
             failureException = e.toString();
@@ -551,7 +553,6 @@ public class CartPageFactory extends UtilFactory {
         try{
             waitFactory.waitForElementToBeClickable(locator);
             click(locator);
-            customWait(3000);
             scenarioDef.log(Status.PASS,"Clicked on Change Shipping Option on Summary Section of Cart Page");
         }catch (Exception e){
             failureException = e.toString();
@@ -570,19 +571,6 @@ public class CartPageFactory extends UtilFactory {
         }catch (Exception e){
             failureException = e.toString();
             scenarioDef.log(Status.FAIL,"Could not Click "+expecetedShippingMethodName+ " Method on Summary Section of Cart Page");
-            throw e;
-        }
-    }
-
-    public void getPrice(String expecetedShippingMethodName){
-        String locator = CartPageEnum.XPATH_SHIPPING_PRICE_START.getValue() + expecetedShippingMethodName+ CartPageEnum.XPATH_SHIPPING_PRICE_END.getValue();
-        try{
-            waitFactory.waitForElementToBeClickable(locator);
-            getText(locator);
-            scenarioDef.log(Status.PASS,"Clicked on "+getText(locator)+ "Method on Summary Section of Cart Page");
-        }catch (Exception e){
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Click "+getText(locator)+ " Method on Summary Section of Cart Page");
             throw e;
         }
     }
@@ -645,7 +633,8 @@ public class CartPageFactory extends UtilFactory {
                 scenarioDef.log(Status.PASS,"Validated Shipping Price "+expectedShippingPrice+" Same as Expected on Shipping Method Drop of Summary Section of Cart Page");
             }
             else{
-                scenarioDef.log(Status.FAIL,"Validate Shipping Price "+expectedShippingPrice+" Not Same as Expected on Shipping Method Drop of Summary Section of Cart Page");
+                errorMsg ="Validate Shipping Price "+expectedShippingPrice+" Not Same as Expected on Shipping Method Drop of Summary Section of Cart Page" ;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
             }
         }catch (Exception e) {
             failureException = e.toString();
@@ -667,7 +656,8 @@ public class CartPageFactory extends UtilFactory {
                 scenarioDef.log(Status.PASS," Validated Shipping Price "+expectedShippingPrice+" Same as Expected on Summary Section of Cart Page");
             }
             else{
-                scenarioDef.log(Status.FAIL,actualPrice+"Validate Shipping Price "+expectedShippingPrice+"Not Same as Expected Same as Expected on Summary Section of Cart Page");
+                errorMsg="Validate Shipping Price "+expectedShippingPrice+" Not Same as Expected Same as Expected on Summary Section of Cart Page";
+                throw new NoSuchContextException("Actual and Expected Value Differs");
             }
         }catch (Exception e) {
             failureException = e.toString();
@@ -689,7 +679,8 @@ public class CartPageFactory extends UtilFactory {
                 scenarioDef.log(Status.PASS," Validated Shipping Method "+expectedShippingMethod+" Same as Expected on Summary Section of Cart Page");
             }
             else{
-                scenarioDef.log(Status.FAIL," Validate Shipping Method "+expectedShippingMethod+" Not Same as Expected Same as Expected on Summary Section of Cart Page");
+                errorMsg=" Validate Shipping Method "+expectedShippingMethod+" Not Same as Expected Same as Expected on Summary Section of Cart Page";
+                throw new NoSuchContextException("Actual and Expected Value Differs");
             }
         }catch (Exception e) {
             failureException = e.toString();
@@ -718,7 +709,6 @@ public class CartPageFactory extends UtilFactory {
         String subAmountLocator = CartPageEnum.XPATH_SUB_TOTAL_AMOUNT.getValue();
         String totalAmountLocator = CartPageEnum.XPATH_TOTAL_AMOUNT.getValue();
         String errorMsg = null;
-
         try {
             double subAmount = Double.parseDouble(getText(subAmountLocator).trim().substring(1));
             double shippingAmount = getShippingAmount();
@@ -726,7 +716,8 @@ public class CartPageFactory extends UtilFactory {
             if (totalAmount == subAmount + shippingAmount) {
                 scenarioDef.log(Status.PASS, "Validate Total Amount $" + totalAmount + " is Same as Expected on Summary Section of Cart Page");
             } else {
-                scenarioDef.log(Status.FAIL, "Validate Summary Total Amount $" + totalAmount + " is not Same as Expected on Summary Section of Cart Page");
+                errorMsg="Validate Summary Total Amount $" + totalAmount + " is not Same as Expected on Summary Section of Cart Page";
+                throw new NoSuchContextException("Actual and Expected Value Differs");
             }
         } catch (Exception e) {
             failureException = e.toString();

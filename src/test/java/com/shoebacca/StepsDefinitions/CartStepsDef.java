@@ -9,6 +9,7 @@ public class CartStepsDef extends HarnessVariables{
 
     protected String runPropFile = "run.properties";
     protected String cartPropFile = "cartData.properties";
+
     CartPageFactory cartPage;
 
     public CartStepsDef() throws Exception {
@@ -168,12 +169,6 @@ public class CartStepsDef extends HarnessVariables{
     public void userClicksOnShippingMethod(String shippingMethod) throws Exception {
         String shippingMethodName = new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(shippingMethod);
         cartPage.clickOnShippingMethod(shippingMethodName);
-    }
-
-    @Then("User Validates {string} Shipping Method and their Price {string} Visibility {string}")
-    public void userValidatesShippingMethodAndTheirPriceVisibility(String shippingMethod, String shippingPrice, String expectedCondition) throws Exception {
-        String shippingMethodName = new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(shippingMethod);
-        cartPage.getPrice(shippingMethodName);
     }
 
     @Then("User Validates {string} Shipping Method Visibility {string} on Dropdown of Cart Page")
