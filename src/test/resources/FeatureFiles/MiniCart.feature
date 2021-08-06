@@ -38,7 +38,7 @@ Feature: Mini Cart Feature File
     Then User Clicks the Login Button on Account Menu
     Then User Validates Successful Login on Account Menu
     And User Clicks the Mini Cart Icon on Header
-    Then User Validates Mini Cart Scrollability "false"
+    Then User Validates Login Link Visibility on Mini Cart View "false"
 
   @Regression
   Scenario: Verify Mini Cart Counter Functionality When Product Added
