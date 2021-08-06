@@ -121,3 +121,37 @@ Feature: Cart Feature File
     Then User Click on View Cart Button
     And User Enters "0.5" on Quantity Text Field on Cart
     Then User Validates "5" Quantity is Displayed on Quantity Text Field
+
+  @Regression
+  Scenario: Verify Shipping Method And their Prices
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    Then User Click on View Cart Button
+    Then User Should Redirect Toward "shopping.cart" Page
+    Then User Clicks on Change Shipping Option of Cart Page
+    Then User Validates "standard.shipping" Shipping Method Visibility "true" on Dropdown of Cart Page
+    Then User Validates "standard.shipping" Shipping Price Visibility "true" on Dropdown of Cart Page
+    Then User Validates "standard.shipping" Method Price "standard.shipping.price" on Dropdown of Cart Page
+    Then User Validates "expedited.shipping" Shipping Method Visibility "true" on Dropdown of Cart Page
+    Then User Validates "expedited.shipping" Shipping Price Visibility "true" on Dropdown of Cart Page
+    Then User Validates "expedited.shipping" Method Price "expedited.shipping.price" on Dropdown of Cart Page
+    Then User Validates "rush.shipping" Shipping Method Visibility "true" on Dropdown of Cart Page
+    Then User Validates "rush.shipping" Shipping Price Visibility "true" on Dropdown of Cart Page
+    Then User Validates "rush.shipping" Method Price "rush.shipping.price" on Dropdown of Cart Page
+    Then User Clicks on "expedited.shipping" Shipping Method on Dropdown of Cart Page
+    Then User Validates "expedited.shipping" Shipping Method Name on Summary Section of Cart Page
+    Then User Validates "expedited.shipping.price" Shipping Price on Summary Section of Cart Page
+    Then User Validates total Amount on Summary Section of Cart Page
+    Then User Clicks on Change Shipping Option of Cart Page
+    Then User Clicks on "rush.shipping" Shipping Method on Dropdown of Cart Page
+    Then User Validates "rush.shipping" Shipping Method Name on Summary Section of Cart Page
+    Then User Validates "rush.shipping.price" Shipping Price on Summary Section of Cart Page
+    Then User Validates total Amount on Summary Section of Cart Page
+    Then User Clicks on Change Shipping Option of Cart Page
+    Then User Clicks on "standard.shipping" Shipping Method on Dropdown of Cart Page
+    Then User Validates "standard.shipping" Shipping Method Name on Summary Section of Cart Page
+    Then User Validates "standard.shipping.price" Shipping Price on Summary Section of Cart Page
+    Then User Validates total Amount on Summary Section of Cart Page
