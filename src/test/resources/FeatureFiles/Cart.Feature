@@ -142,16 +142,16 @@ Feature: Cart Feature File
     Then User Validates "rush.shipping" Shipping Price Visibility "true" on Dropdown of Cart Page
     Then User Validates "rush.shipping" Method Price "rush.shipping.price" on Dropdown of Cart Page
     Then User Clicks on "expedited.shipping" Shipping Method on Dropdown of Cart Page
-    Then User Validated "expedited.shipping" Shipping Method Name on Summary Section of Cart Page
+    Then User Validates "expedited.shipping" Shipping Method Name on Summary Section of Cart Page
     Then User Validates "expedited.shipping.price" Shipping Price on Summary Section of Cart Page
     Then User Validates total Amount on Summary Section of Cart Page
     Then User Clicks on Change Shipping Option of Cart Page
     Then User Clicks on "rush.shipping" Shipping Method on Dropdown of Cart Page
-    Then User Validated "rush.shipping" Shipping Method Name on Summary Section of Cart Page
+    Then User Validates "rush.shipping" Shipping Method Name on Summary Section of Cart Page
     Then User Validates "rush.shipping.price" Shipping Price on Summary Section of Cart Page
     Then User Validates total Amount on Summary Section of Cart Page
     Then User Clicks on Change Shipping Option of Cart Page
     Then User Clicks on "standard.shipping" Shipping Method on Dropdown of Cart Page
-    Then User Validated "standard.shipping" Shipping Method Name on Summary Section of Cart Page
+    Then User Validates "standard.shipping" Shipping Method Name on Summary Section of Cart Page
     Then User Validates "standard.shipping.price" Shipping Price on Summary Section of Cart Page
     Then User Validates total Amount on Summary Section of Cart Page

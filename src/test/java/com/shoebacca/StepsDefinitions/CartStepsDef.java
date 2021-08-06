@@ -7,8 +7,8 @@ import io.cucumber.java.en.Then;
 
 public class CartStepsDef extends HarnessVariables{
 
-    protected String runPropFile = "cartData.properties";
-
+    protected String runPropFile = "run.properties";
+    protected String cartPropFile = "cartData.properties";
     CartPageFactory cartPage;
 
     public CartStepsDef() throws Exception {
@@ -166,19 +166,19 @@ public class CartStepsDef extends HarnessVariables{
 
     @Then("User Clicks on {string} Shipping Method on Dropdown of Cart Page")
     public void userClicksOnShippingMethod(String shippingMethod) throws Exception {
-        String shippingMethodName = new PropertyLoaderFactory().getPropertyFile(runPropFile).getProperty(shippingMethod);
+        String shippingMethodName = new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(shippingMethod);
         cartPage.clickOnShippingMethod(shippingMethodName);
     }
 
     @Then("User Validates {string} Shipping Method and their Price {string} Visibility {string}")
     public void userValidatesShippingMethodAndTheirPriceVisibility(String shippingMethod, String shippingPrice, String expectedCondition) throws Exception {
-        String shippingMethodName = new PropertyLoaderFactory().getPropertyFile(runPropFile).getProperty(shippingMethod);
+        String shippingMethodName = new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(shippingMethod);
         cartPage.getPrice(shippingMethodName);
     }
 
     @Then("User Validates {string} Shipping Method Visibility {string} on Dropdown of Cart Page")
     public void userValidatesMethodVisibilityOnDropdownofCartPage(String shippingMethod, String expectedCondition) throws Exception {
-        String shippingMethodName = new PropertyLoaderFactory().getPropertyFile(runPropFile).getProperty(shippingMethod);
+        String shippingMethodName = new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(shippingMethod);
         if(expectedCondition.equals("true")){
             cartPage.validateShippingMethodVisibilityOnDropDown(shippingMethodName,true);
         }else {
@@ -188,7 +188,7 @@ public class CartStepsDef extends HarnessVariables{
 
     @Then("User Validates {string} Shipping Price Visibility {string} on Dropdown of Cart Page")
     public void userValidatesShippingPriceVisibilityOnDropdownofCartPage(String shippingMethod, String expectedCondition) throws Exception {
-        String shippingMethodName= new PropertyLoaderFactory().getPropertyFile(runPropFile).getProperty(shippingMethod);
+        String shippingMethodName= new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(shippingMethod);
         if(expectedCondition.equals("true")){
             cartPage.validateShippingPriceVisibilityOnDropDown(shippingMethodName,true);
         }else {
@@ -203,21 +203,21 @@ public class CartStepsDef extends HarnessVariables{
 
     @Then("User Validates {string} Method Price {string} on Dropdown of Cart Page")
     public void userValidatesShippingPriceAmountOnDropdownofCartPage(String shippingMethod, String shippingPrice) throws Exception {
-        String shippingMethodName= new PropertyLoaderFactory().getPropertyFile(runPropFile).getProperty(shippingMethod);
-        String shippingPriceValue= new PropertyLoaderFactory().getPropertyFile(runPropFile).getProperty(shippingPrice);
+        String shippingMethodName= new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(shippingMethod);
+        String shippingPriceValue= new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(shippingPrice);
         cartPage.validateShippingPriceAmountOnDropDown(shippingMethodName,shippingPriceValue);
 
     }
 
     @Then("User Validates {string} Shipping Price on Summary Section of Cart Page")
     public void userValidatesShippingPriceOnSummarySectionOfCartPage(String shippingPrice) throws Exception{
-        String shippingPriceValue= new PropertyLoaderFactory().getPropertyFile(runPropFile).getProperty(shippingPrice);
+        String shippingPriceValue= new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(shippingPrice);
         cartPage.validateShippingPriceAmountOnSummarySection(shippingPriceValue);
     }
 
-    @Then("User Validated {string} Shipping Method Name on Summary Section of Cart Page")
-    public void userValidatedShippingMethodNameOnSummarySectionOfCartPage(String shippingMethod) throws Exception{
-        String shippingMethodName= new PropertyLoaderFactory().getPropertyFile(runPropFile).getProperty(shippingMethod);
+    @Then("User Validates {string} Shipping Method Name on Summary Section of Cart Page")
+    public void userValidatesShippingMethodNameOnSummarySectionOfCartPage(String shippingMethod) throws Exception{
+        String shippingMethodName= new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(shippingMethod);
         cartPage.validateShippingMethodNameOnSummarySection(shippingMethodName);
     }
 }

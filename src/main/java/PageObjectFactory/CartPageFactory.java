@@ -681,14 +681,14 @@ public class CartPageFactory extends UtilFactory {
 
     public void validateShippingMethodNameOnSummarySection(String expectedShippingMethod){
         String locator = CartPageEnum.XPATH_SHIPPING_METHOD_SUMMARY_SECTION.getValue();
-        String actualPrice = getText(locator);
+        String shippingMethod = getText(locator);
         String errorMsg =null;
         try{
-            if(actualPrice.equalsIgnoreCase(expectedShippingMethod)){
+            if(shippingMethod.contains(expectedShippingMethod)){
                 scenarioDef.log(Status.PASS," Validated Shipping Method "+expectedShippingMethod+" Same as Expected on Summary Section of Cart Page");
             }
             else{
-                scenarioDef.log(Status.FAIL,actualPrice+"Validate Shipping Method "+expectedShippingMethod+"Not Same as Expected Same as Expected on Summary Section of Cart Page");
+                scenarioDef.log(Status.FAIL," Validate Shipping Method "+expectedShippingMethod+" Not Same as Expected Same as Expected on Summary Section of Cart Page");
             }
         }catch (Exception e) {
             failureException = e.toString();
