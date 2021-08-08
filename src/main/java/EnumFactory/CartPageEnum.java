@@ -18,14 +18,22 @@ public enum CartPageEnum {
     XPATH_PRODUCT_REMOVE_LINK("//*[@class='product-btnRemove-16L']"),
     XPATH_PRODUCT_BRAND("//*[@class='product-brand-3xv']"),
     XPATH_PRODUCT_DATE("//*[@class='product-estimatedDate-1uX']"),
-    XPATH_TOTAL_AMOUNT("(//*[text()='Subtotal']//following-sibling::*[@class='priceSummary-price-2my'])[1]"),
+    XPATH_SUB_TOTAL_AMOUNT("(//*[text()='Subtotal']//following-sibling::*[@class='priceSummary-price-2my'])[1]"),
     XPATH_REMOVE_LINK("//button[@class='product-btnRemove-16L' and contains(text(),'Remove')]"),
     XPATH_REMOVE_START("//*[@class='product-name-3mh']/*[text()='"),
     XPATH_REMOVE_END("']//ancestor::div[@class='product-details-3HQ']//button[@class='product-btnRemove-16L']"),
     XPATH_CHECKOUT_CART("//*[contains(text(),'Go to')]"),
     XPATH_GUEST_CHECKOUT_BUTTON("(//*[@class='checkoutProcess-body-2hF']//button[@class='guestCheckout']//span[@class='button-content-XZ3'])[2]"),
     XPATH_PRODUCT_TAX("//*[text()='Tax']//following-sibling::*[@class='priceSummary-price-2my']"),
-    XPATH_CART_IS_EMPTY("//*[@class='cartPage-title-ISm' and text()='YOUR CART IS EMPTY']");
+    XPATH_CART_IS_EMPTY("//*[@class='cartPage-title-ISm' and text()='YOUR CART IS EMPTY']"),
+    XPATH_CHANGE_SHIPPING_LINK("//*[@class='shippingSummary-btnChange-28W']"),
+    XPATH_SHIPPING_METHOD_START("//*[@class='shippingRadios-radioContents-GH8']/span[text()='"),
+    XPATH_SHIPPING_METHOD_END("']"),
+    XPATH_SHIPPING_PRICE_START("//*[@class='shippingRadios-radioContents-GH8']/span[text()='"),
+    XPATH_SHIPPING_PRICE_END("']/following-sibling::span"),
+    XPATH_SHIPPING_PRICE_SUMMARY_SECTION("//*[@class='shippingSummary-shippingBar-11G']//*[@class='priceSummary-price-2my']"),
+    XPATH_SHIPPING_METHOD_SUMMARY_SECTION("//*[@class='shippingSummary-shippingBar-11G']//*[@class='priceSummary-lineItemLabel-122']"),
+    XPATH_TOTAL_AMOUNT("//*[@class='priceSummary-summaryOpener-YIL']//*[@class='priceSummary-totalPrice---h priceSummary-price-2my']");
 
     private String cartPageVariables;
 
@@ -34,7 +42,6 @@ public enum CartPageEnum {
     }
 
     public String getValue() {
-
         return this.cartPageVariables;
     }
 }
