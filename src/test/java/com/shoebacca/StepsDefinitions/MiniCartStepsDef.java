@@ -129,15 +129,6 @@ public class MiniCartStepsDef extends HarnessVariables{
         }
     }
 
-    @Then("User Validates Tax Label Visibility {string}")
-    public void userValidatesTaxLabelVisibility(String expectedCondition) {
-        if(expectedCondition.equals("true")){
-            miniCartPage.validateTaxLabelVisibility(true);
-        }else {
-            miniCartPage.validateTaxLabelVisibility(false);
-        }
-    }
-
     @Then("User Validates View Cart Button Visibility {string}")
     public void userValidatesViewCartButtonVisibility(String expectedCondition) {
         if(expectedCondition.equals("true")){
@@ -213,12 +204,8 @@ public class MiniCartStepsDef extends HarnessVariables{
         miniCartPage.validateProductCountText(expectedValue);
     }
 
-    @Then("User Validates Sub Total Label Visibility {string}")
-    public void userValidatesTotalAmountLabelVisibility(String expectedCondition) {
-        if(expectedCondition.equals("true")){
-            miniCartPage.validateSubTotalLabelVisibility(true);
-        }else {
-            miniCartPage.validateSubTotalLabelVisibility(false);
-        }
+    @Then("User Validates Tax Value from Mini Cart")
+    public void userValidatesTaxValueFromMinicart() {
+        miniCartPage.validateTaxValue(TAX_VALUE);
     }
 }

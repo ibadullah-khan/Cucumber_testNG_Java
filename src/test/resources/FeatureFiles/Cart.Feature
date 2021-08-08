@@ -100,12 +100,7 @@ Feature: Cart Feature File
     Then User Clicks Add to Cart Button on PDP
     And User Validates Successful Triggered Mini Cart
     And User Click on View Cart Button
-    Then User Validates Sub Total Label Visibility "true"
-    Then User Validates Sub Total Value Visibility "true"
-    Then User Validates Tax Label Visibility "true"
-    Then User Validates Tax Value Visibility "true"
-    Then User Fetches Sub Total Price on Cart
-    Then User Fetches Tax Value on Cart
+    Then User Validate Tax Value from Cart
     Then User Clicks Checkout Button on Cart View
     Then User Clicks on Guest Checkout Button
     Then User Should Redirect Toward "shopping.checkout" Page
@@ -121,8 +116,8 @@ Feature: Cart Feature File
     Then User Fetches Tax Value on Checkout
     Then User Navigates to "shoebacca.home" Url
     Then User Clicks the Mini Cart Icon on Header
+    Then User Validates Tax Value from Mini Cart
     And User Click on View Cart Button
-    Then User Validates Sub Total Value from Cart
     And User Validates Tax Value from Cart
     Then User Clicks Checkout Button on Cart View
     Then User Clicks on Guest Checkout Button

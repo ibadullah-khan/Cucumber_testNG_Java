@@ -2,6 +2,7 @@ package PageObjectFactory;
 
 import EnumFactory.CartPageEnum;
 import UtilitiesFactory.ElementFactory;
+import UtilitiesFactory.PropertyLoaderFactory;
 import UtilitiesFactory.UtilFactory;
 import com.aventstack.extentreports.Status;
 import org.openqa.selenium.NoSuchContextException;
@@ -13,6 +14,7 @@ import java.util.List;
 public class CartPageFactory extends UtilFactory {
 
     ElementFactory elementFactory = new ElementFactory();
+    protected String cartPropFile = "cartData.properties";
 
     public CartPageFactory() throws Exception {
     }
@@ -536,24 +538,9 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
-    public String getSubTotalPrice(){
-        String locator = CartPageEnum. XPATH_TOTAL_AMOUNT.getValue();
-        String subtotal;
-        try{
-            waitFactory.waitForElementToBeClickable(locator);
-            subtotal = getText(locator);
-            scenarioDef.log(Status.PASS,"Fetched Sub Total Price: "+ subtotal +" from Cart");
-            return subtotal;
-        }catch (Exception e){
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Fetch Sub Total Price from Cart");
-            throw e;
-        }
-    }
-
     public String getTaxValue(){
-        String locator = CartPageEnum.XPATH_PRODUCT_TAX.getValue();
         String taxvalue;
+        String locator = CartPageEnum.XPATH_PRODUCT_TAX.getValue();
         try{
             waitFactory.waitForElementToBeClickable(locator);
             taxvalue = getText(locator);
@@ -566,28 +553,32 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
-    public void validateSubTotalValue(String expectedText){
-        String locator = CartPageEnum.XPATH_TOTAL_AMOUNT.getValue();
+    public void validateCartTaxValue() throws Exception {
+        String locator = CartPageEnum.XPATH_PRODUCT_TAX.getValue();
+        String expectedText= new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty("cart.tax.value");
         String errorMsg = null;
         String actualText;
+
+
         try{
             waitFactory.waitForElementToBeClickable(locator);
             actualText = getText(locator).trim();
             if (actualText.contains(expectedText)){
-                scenarioDef.log(Status.PASS,"Validated Sub Total on Cart as Expected: "+expectedText);
+                scenarioDef.log(Status.PASS,"Validated Tax on Cart as Expected: "+expectedText);
             }else {
-                errorMsg = "Could not validate Sub Total on Cart as Expected: "+expectedText+" , Actual Value: "+actualText;
+                errorMsg = "Could not validate Tax on Cart as Expected: "+expectedText+" , Actual Value: "+actualText;
                 throw new NoSuchContextException("Actual and Expected Value Differs");
             }
         }catch (Exception e){
             failureException = e.toString();
             if (errorMsg == null){
-                scenarioDef.log(Status.FAIL,"Unable to get the Sub Total Element on Cart");
+                scenarioDef.log(Status.FAIL,"Unable to get the Tax Element on Cart");
             }else {
                 scenarioDef.log(Status.FAIL,errorMsg);
             }
             throw e;
         }
+
     }
 
     public void validateTaxValue(String expectedText){
@@ -610,54 +601,6 @@ public class CartPageFactory extends UtilFactory {
             }else {
                 scenarioDef.log(Status.FAIL,errorMsg);
             }
-            throw e;
-        }
-    }
-
-    public void validateSubTotalValueVisibility(Boolean expectedVisibility) {
-        String locator = CartPageEnum.XPATH_SUB_TOTAL_VALUE.getValue();
-        String errorMsg = null;
-        Boolean actualVisibility;
-        try{
-            actualVisibility = isVisible(locator);
-            if (actualVisibility && expectedVisibility) {
-                scenarioDef.log(Status.PASS, "Validated Sub Total Value is Displayed as Expected on Mini Cart View");
-            }else if(!actualVisibility&& !expectedVisibility){
-                scenarioDef.log(Status.PASS, "Validated Sub Total Value is Not Displayed as Expected on Mini Cart View");
-            }else if (actualVisibility && !expectedVisibility){
-                errorMsg = "Validated Sub Total Value is Displayed Unexpected on Mini Cart View";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
-            }else if (!actualVisibility && expectedVisibility){
-                errorMsg = "Validated Sub Total Value is not Displayed Unexpected on Mini Cart View";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
-            }
-        }catch (Exception e) {
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL,errorMsg);
-            throw e;
-        }
-    }
-
-    public void validateTaxValueVisibility(Boolean expectedVisibility) {
-        String locator = CartPageEnum.XPATH_TAX_VALUE.getValue();
-        String errorMsg = null;
-        Boolean actualVisibility;
-        try{
-            actualVisibility = isVisible(locator);
-            if (actualVisibility && expectedVisibility) {
-                scenarioDef.log(Status.PASS, "Validated Tax Value is Displayed as Expected on Mini Cart View");
-            }else if(!actualVisibility&& !expectedVisibility){
-                scenarioDef.log(Status.PASS, "Validated Tax Value is Not Displayed as Expected on Mini Cart View");
-            }else if (actualVisibility && !expectedVisibility){
-                errorMsg = "Validated Tax Value is Displayed Unexpected on Mini Cart View";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
-            }else if (!actualVisibility && expectedVisibility){
-                errorMsg = "Validated Tax Value is not Displayed Unexpected on Mini Cart View";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
-            }
-        }catch (Exception e) {
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL,errorMsg);
             throw e;
         }
     }

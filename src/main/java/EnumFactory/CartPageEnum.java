@@ -19,13 +19,11 @@ public enum CartPageEnum {
     XPATH_PRODUCT_BRAND("//*[@class='product-brand-3xv']"),
     XPATH_PRODUCT_DATE("//*[@class='product-estimatedDate-1uX']"),
     XPATH_TOTAL_AMOUNT("(//*[text()='Subtotal']//following-sibling::*[@class='priceSummary-price-2my'])[1]"),
-    XPATH_SUB_TOTAL_VALUE("//*[@class='priceSummary-price-12K']//span[contains(text(),'$')]"),
     XPATH_REMOVE_LINK("//button[@class='product-btnRemove-16L' and contains(text(),'Remove')]"),
     XPATH_REMOVE_START("//*[@class='product-name-3mh']/*[text()='"),
     XPATH_REMOVE_END("']//ancestor::div[@class='product-details-3HQ']//button[@class='product-btnRemove-16L']"),
-    XPATH_CHECKOUT_CART("//*[@class='priceSummary-checkoutButton_container-1e7']//span[@class='button-content-XZ3']"),
+    XPATH_CHECKOUT_CART("//*[contains(text(),'Go to')]"),
     XPATH_GUEST_CHECKOUT_BUTTON("(//*[@class='checkoutProcess-body-2hF']//button[@class='guestCheckout']//span[@class='button-content-XZ3'])[2]"),
-    XPATH_TAX_VALUE("//*[@class='priceSummary-price-12K' and contains(text(),'Calculated')]"),
     XPATH_PRODUCT_TAX("//*[text()='Tax']//following-sibling::*[@class='priceSummary-price-2my']"),
     XPATH_CART_IS_EMPTY("//*[@class='cartPage-title-ISm' and text()='YOUR CART IS EMPTY']");
 
