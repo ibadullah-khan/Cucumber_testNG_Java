@@ -143,6 +143,7 @@ Feature: Cart Feature File
 
   @Regression
   Scenario: Verify Decimal Value Cannot be Added in Quantity Text Field
+
     Given User Setups the Web Browser
     Then User Navigates to "shoebacca.first.bag.pdt" Url
     Then User Clicks Add to Cart Button on PDP
