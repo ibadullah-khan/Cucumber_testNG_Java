@@ -234,6 +234,6 @@ public class CartStepsDef extends HarnessVariables{
     @Then("User Validates Tax Value {string} on Cart Page")
     public void userValidatesTaxValueOnCartPage(String taxValue) throws Exception {
         String productTaxValue= new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(taxValue);
-        cartPage.validateProductTaxValue(productTaxValue);
+        cartPage.validateTaxValue(productTaxValue);
     }
 }

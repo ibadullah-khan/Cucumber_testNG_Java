@@ -555,32 +555,6 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
-    public void validateProductTaxValue(String expectedTaxValue) throws Exception {
-        String locator = CartPageEnum.XPATH_PRODUCT_TAX.getValue();
-        String taxValue;
-        String errorMsg = null;
-
-        try{
-            waitFactory.waitForElementToBeClickable(locator);
-            taxValue = getText(locator);
-            if (taxValue.contains(expectedTaxValue)){
-                scenarioDef.log(Status.PASS,"Validated Tax on Cart as Expected: "+expectedTaxValue);
-            }else {
-                errorMsg = "Could not validate Tax on Cart as Expected: "+expectedTaxValue+" " ;
-                throw new NoSuchContextException("Actual and Expected Value Differs");
-            }
-        }catch (Exception e){
-            failureException = e.toString();
-            if (errorMsg == null){
-                scenarioDef.log(Status.FAIL,"Unable to get the Tax Element on Cart");
-            }else {
-                scenarioDef.log(Status.FAIL,errorMsg);
-            }
-            throw e;
-        }
-
-    }
-
     public void validateTaxValue(String expectedText){
         String locator = CartPageEnum.XPATH_PRODUCT_TAX.getValue();
         String errorMsg = null;
