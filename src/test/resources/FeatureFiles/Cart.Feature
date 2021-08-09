@@ -189,7 +189,7 @@ Feature: Cart Feature File
     Then User Validates total Amount on Summary Section of Cart Page
 
   @Regression
-  Scenario: Verify the product information
+  Scenario: Verify the Product Information on Cart Page
 
     Given User Setups the Web Browser
     When User Navigates to "shoebacca.first.bag.pdt" Url
@@ -201,7 +201,7 @@ Feature: Cart Feature File
     Then User Clicks Add to Cart Button on PDP
     And User Validates Successful Triggered Mini Cart
     Then User Clicks on View Cart Button
-    Then User Validates Product Name in Cart
+    Then User Validates Product Name in Cart Page
     Then User Validates Product Price in Cart
     Then User Validates Product Size in Cart
     Then User Validates Product Colour in Cart
