@@ -296,7 +296,6 @@ public class MiniCartPageFactory extends UtilFactory {
     }
 
     public void validateTaxLabelVisibility(Boolean expectedVisibility) {
-
         String locator = MiniCartPageEnum.XPATH_TAX_LABEL.getValue();
         String errorMsg = null;
         Boolean actualVisibility;

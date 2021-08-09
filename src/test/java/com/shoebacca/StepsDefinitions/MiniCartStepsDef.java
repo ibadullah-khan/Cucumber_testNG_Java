@@ -41,9 +41,7 @@ public class MiniCartStepsDef extends HarnessVariables{
     }
 
     @Then("User Validates Tax Label Visibility {string}")
-
     public void userValidatesTaxLabelVisibility(String expectedCondition) {
-
         if(expectedCondition.equals("true")){
             miniCartPage.validateTaxLabelVisibility(true);
         }else {
@@ -180,8 +178,8 @@ public class MiniCartStepsDef extends HarnessVariables{
         }
     }
 
-    @Then("User Click on View Cart Button")
-    public void userClickOnViewCartButton() {
+    @Then("User Clicks on View Cart Button")
+    public void userClicksOnViewCartButton() {
         miniCartPage.clickOnViewCartButton();
     }
 
