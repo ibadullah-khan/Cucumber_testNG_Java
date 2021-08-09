@@ -215,4 +215,29 @@ public class CartStepsDef extends HarnessVariables{
         String shippingMethodName= new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(shippingMethod);
         cartPage.validateShippingMethodNameOnSummarySection(shippingMethodName);
     }
+
+    @Then("User Validates Product Name in Cart")
+    public void userValidatesProductNameInCart() {
+        cartPage.validateProductName(PRODUCT_NAME);
+    }
+
+    @Then("User Validates Product Price in Cart")
+    public void userValidatesProductPriceInCart() {
+        cartPage.validateProductPrice(PRODUCT_PRICE);
+    }
+
+    @Then("User Validates Product Size in Cart")
+    public void userValidatesProductSizeInCart() {
+        cartPage.validateProductSize(PRODUCT_SIZE);
+    }
+
+    @Then("User Validates Product Colour in Cart")
+    public void userValidatesProductColourInCart() {
+        cartPage.validateProductColour(PRODUCT_COLOUR);
+    }
+
+    @Then("User Validates Product Brand in Cart")
+    public void userValidatesProductBrandInCart() {
+        cartPage.validateProductBrand(PRODUCT_BRAND);
+    }
 }

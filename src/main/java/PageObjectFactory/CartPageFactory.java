@@ -434,15 +434,15 @@ public class CartPageFactory extends UtilFactory {
             waitFactory.waitForElementToBeClickable(locator);
             actualText = getText(locator).trim();
             if (actualText.contains(expectedText)){
-                scenarioDef.log(Status.PASS,"Validated Product Name on Mini Cart as Expected: "+expectedText);
+                scenarioDef.log(Status.PASS,"Validated Product Name on Cart as Expected: "+expectedText);
             }else {
-                errorMsg = "Could not validate Product Name on Mini Cart as Expected: "+expectedText+" , Actual Value: "+actualText;
+                errorMsg = "Could not validate Product Name on Cart as Expected: "+expectedText+" , Actual Value: "+actualText;
                 throw new NoSuchContextException("Actual and Expected Value Differs");
             }
         }catch (Exception e){
             failureException = e.toString();
             if (errorMsg == null){
-                scenarioDef.log(Status.FAIL,"Unable to get the Product Name Element on Mini Cart");
+                scenarioDef.log(Status.FAIL,"Unable to get the Product Name Element on Cart");
             }else {
                 scenarioDef.log(Status.FAIL,errorMsg);
             }
@@ -450,6 +450,101 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
+    public void validateProductPrice(String expectedText) {
+        String locator = CartPageEnum.XPATH_PRODUCT_PRICE.getValue();
+        String errorMsg = null;
+        String actualText;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            actualText = getText(locator).trim();
+            if (actualText.contains(expectedText)){
+                scenarioDef.log(Status.PASS,"Validated Product Price on Cart as Expected: "+expectedText);
+            }else {
+                errorMsg = "Could not validate Product Price on Cart as Expected: "+expectedText+" , Actual Value: "+actualText;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        }catch (Exception e){
+            failureException = e.toString();
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL,"Unable to get the Product Price Element on Cart");
+            }else {
+                scenarioDef.log(Status.FAIL,errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void validateProductSize(String expectedText) {
+        String locator = CartPageEnum.XPATH_PRODUCT_SIZE.getValue();
+        String errorMsg = null;
+        String actualText;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            actualText = getText(locator).trim();
+            if (actualText.contains(expectedText)){
+                scenarioDef.log(Status.PASS,"Validated Product Size on Cart as Expected: "+expectedText);
+            }else {
+                errorMsg = "Could not validate Product Size on Cart as Expected: "+expectedText+" , Actual Value: "+actualText;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        }catch (Exception e){
+            failureException = e.toString();
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL,"Unable to get the Product Size Element on Cart");
+            }else {
+                scenarioDef.log(Status.FAIL,errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void validateProductColour(String expectedText) {
+        String locator = CartPageEnum.XPATH_PRODUCT_COLOUR.getValue();
+        String errorMsg = null;
+        String actualText;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            actualText = getText(locator).trim();
+            if (actualText.contains(expectedText)){
+                scenarioDef.log(Status.PASS,"Validated Product Colour on Cart as Expected: "+expectedText);
+            }else {
+                errorMsg = "Could not validate Product Colour on Cart as Expected: "+expectedText+" , Actual Value: "+actualText;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        }catch (Exception e){
+            failureException = e.toString();
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL,"Unable to get the Product Colour Element on Cart");
+            }else {
+                scenarioDef.log(Status.FAIL,errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void validateProductBrand(String expectedText) {
+        String locator = CartPageEnum.XPATH_PRODUCT_BRAND.getValue();
+        String errorMsg = null;
+        String actualText;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            actualText = getText(locator).trim();
+            if (actualText.contains(expectedText)){
+                scenarioDef.log(Status.PASS,"Validated Product Brand on Cart as Expected: "+expectedText);
+            }else {
+                errorMsg = "Could not validate Product Brand on Cart as Expected: "+expectedText+" , Actual Value: "+actualText;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        }catch (Exception e){
+            failureException = e.toString();
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL,"Unable to get the Product Brand Element on Cart");
+            }else {
+                scenarioDef.log(Status.FAIL,errorMsg);
+            }
+            throw e;
+        }
+    }
     public void validateRemoveLinkVisibility(int expectedRemoveLink){
 
         String locator = CartPageEnum.XPATH_REMOVE_LINK.getValue();
