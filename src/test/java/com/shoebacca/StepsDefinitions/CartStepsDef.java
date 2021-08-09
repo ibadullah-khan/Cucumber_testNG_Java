@@ -146,8 +146,23 @@ public class CartStepsDef extends HarnessVariables{
         cartPage.clickOnProductName();
     }
 
-    @Then("User Validates Your Card is Empty Section Visibility {string}")
-    public void userValidatesYourCardIsEmptySectionVisibility(String expectedCondition) {
+    @Then("User Clicks Checkout Button on Cart View")
+    public void userClicksCheckoutButtonOnCartView() {
+        cartPage.clickOnCheckoutButton();
+    }
+
+    @Then("User Fetches Tax Value on Cart")
+    public void userFetchesTaxValueOnCart() {
+        TAX_VALUE=cartPage.getTaxValue();
+    }
+
+    @Then("User Validates Tax Value from Cart")
+    public void userValidatesTaxValueFromCart() {
+        cartPage.validateTaxValue(TAX_VALUE);
+    }
+
+    @Then("User Validates Your Cart is Empty Section Visibility {string}")
+    public void userValidatesYourCartIsEmptySectionVisibility(String expectedCondition) {
         if(expectedCondition.equals("true")){
             cartPage.validateCartIsEmptySectionVisibility(true);
         }else {
@@ -214,6 +229,12 @@ public class CartStepsDef extends HarnessVariables{
     public void userValidatesShippingMethodNameOnSummarySectionOfCartPage(String shippingMethod) throws Exception{
         String shippingMethodName= new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(shippingMethod);
         cartPage.validateShippingMethodNameOnSummarySection(shippingMethodName);
+    }
+
+    @Then("User Validates Tax Value {string} on Cart Page")
+    public void userValidatesTaxValueOnCartPage(String taxValue) throws Exception {
+        String productTaxValue= new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(taxValue);
+        cartPage.validateTaxValue(productTaxValue);
     }
 
     @Then("User Enter {string} in Promo Code on Cart Page")

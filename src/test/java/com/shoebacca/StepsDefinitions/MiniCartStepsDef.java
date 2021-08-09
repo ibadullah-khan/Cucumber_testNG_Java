@@ -35,6 +35,19 @@ public class MiniCartStepsDef extends HarnessVariables{
     public void userValidatesSuccessfulTriggeredMiniCart() {
         miniCartPage.validateMiniCartTriggered();
     }
+    @Then("User Clicks on Guest Checkout Button")
+    public void userClicksOnGuestCheckoutButton() {
+        miniCartPage.clickOnGuestCheckoutButton();
+    }
+
+    @Then("User Validates Tax Label Visibility {string}")
+    public void userValidatesTaxLabelVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            miniCartPage.validateTaxLabelVisibility(true);
+        }else {
+            miniCartPage.validateTaxLabelVisibility(false);
+        }
+    }
 
     @Then("User Validates Product Name in Mini Cart")
     public void userValidatesProductNameInMiniCart() {
@@ -128,15 +141,6 @@ public class MiniCartStepsDef extends HarnessVariables{
         }
     }
 
-    @Then("User Validates Tax Label Visibility {string}")
-    public void userValidatesTaxLabelVisibility(String expectedCondition) {
-        if(expectedCondition.equals("true")){
-            miniCartPage.validateTaxLabelVisibility(true);
-        }else {
-            miniCartPage.validateTaxLabelVisibility(false);
-        }
-    }
-
     @Then("User Validates View Cart Button Visibility {string}")
     public void userValidatesViewCartButtonVisibility(String expectedCondition) {
         if(expectedCondition.equals("true")){
@@ -174,19 +178,14 @@ public class MiniCartStepsDef extends HarnessVariables{
         }
     }
 
-    @Then("User Click on View Cart Button")
-    public void userClickOnViewCartButton() {
+    @Then("User Clicks on View Cart Button")
+    public void userClicksOnViewCartButton() {
         miniCartPage.clickOnViewCartButton();
     }
 
     @And("User Clicks Checkout Button on Mini Cart View")
     public void userClicksCheckoutButtonOnMiniCartView() {
         miniCartPage.clickOnCheckoutButton();
-    }
-
-    @Then("User Clicks on Guest Checkout Button")
-    public void userClicksOnGuestCheckoutButton() {
-        miniCartPage.clickOnGuestCheckoutButton();
     }
 
     @Then("User Validates Edit Product Quantity Button Visibility {string}")
@@ -215,5 +214,10 @@ public class MiniCartStepsDef extends HarnessVariables{
     @And("User Validates Product Count {string} on Mini Cart")
     public void userValidatesProductCountOnMiniCart(String expectedValue) {
         miniCartPage.validateProductCountText(expectedValue);
+    }
+
+    @Then("User Validates Tax Value from Mini Cart")
+    public void userValidatesTaxValueFromMinicart() {
+        miniCartPage.validateTaxValue(TAX_VALUE);
     }
 }

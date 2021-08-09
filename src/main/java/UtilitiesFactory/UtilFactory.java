@@ -4,7 +4,14 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.*;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.NoSuchContextException;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.html5.WebStorage;
 import org.openqa.selenium.interactions.Actions;
 
 import java.io.File;
@@ -274,5 +281,33 @@ public class UtilFactory {
         byte[] fileContent = FileUtils.readFileToByteArray(source);
         Base64StringofScreenshot = "data:image/png;base64," + Base64.getEncoder().encodeToString(fileContent);
         return Base64StringofScreenshot;
+    }
+
+    protected void clearSession(){
+        try{
+            WebDriver driver = BrowserFactory.getDriver();
+            driver.manage().deleteAllCookies();
+            ((WebStorage)driver).getSessionStorage().clear();
+            ((WebStorage)driver).getLocalStorage().clear();
+            customWait(3000);
+            scenarioDef.log(Status.PASS,"Successfully Clear Browser Session");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Unable to Clear Browser Session");
+            throw e;
+        }
+    }
+
+    protected void refreshPage(){
+        try{
+            BrowserFactory.getDriver().navigate().refresh();
+            waitForPageLoad();
+            customWait(3000);
+            scenarioDef.log(Status.PASS,"Successfully Refresh Browser Page");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Unable to Refresh Browser Page");
+            throw e;
+        }
     }
 }
