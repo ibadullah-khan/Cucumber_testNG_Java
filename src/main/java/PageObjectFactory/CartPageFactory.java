@@ -617,10 +617,11 @@ public class CartPageFactory extends UtilFactory {
 
     public void clickOnShippingMethod(String expecetedShippingMethodName){
         String locator = CartPageEnum.XPATH_SHIPPING_METHOD_START.getValue() + expecetedShippingMethodName+ CartPageEnum.XPATH_SHIPPING_METHOD_END.getValue();
+        String checkoutLocator = CartPageEnum.XPATH_CHECKOUT_CART.getValue();
         try{
             waitFactory.waitForElementToBeClickable(locator);
             click(locator);
-            customWait(3000);
+            waitFactory.waitForElementToBeClickable(checkoutLocator);
             scenarioDef.log(Status.PASS,"Clicked on "+expecetedShippingMethodName+ " Method on Summary Section of Cart Page");
         }catch (Exception e){
             failureException = e.toString();
@@ -813,11 +814,12 @@ public class CartPageFactory extends UtilFactory {
     }
 
     public void clickOnAddPromoCodeButton(){
-        String locator = CartPageEnum.XPATH_ADD_COUPON_BUTTON.getValue() ;
+        String locator = CartPageEnum.XPATH_ADD_COUPON_BUTTON.getValue();
+        String checkoutLocator = CartPageEnum.XPATH_CHECKOUT_CART.getValue();
         try{
             waitFactory.waitForElementToBeClickable(locator);
             click(locator);
-            customWait(3000);
+            waitFactory.waitForElementToBeClickable(checkoutLocator);
             scenarioDef.log(Status.PASS,"Clicked on Add Promo Code Button on Summary Section of Cart Page");
         }catch (Exception e){
             failureException = e.toString();

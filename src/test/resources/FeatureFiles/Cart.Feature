@@ -201,7 +201,6 @@ Feature: Cart Feature File
     Then User Refresh the Page
     Then User Validates Your Cart is Empty Section Visibility "true"
 
-
   @Regression
   Scenario: Verify Price is not Discounted When Invalid Coupon is Entered
 
