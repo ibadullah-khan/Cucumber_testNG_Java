@@ -227,13 +227,4 @@ public class MiniCartStepsDef extends HarnessVariables{
         miniCartPage.clickOnMemberoutButton();
     }
 
-    @Then("User Validates UnSuccessful Login Error Visibility on Mini Cart Page")
-    public void userValidatesUnSuccessfulLoginErrorVisibilityOnMiniCartPage(String expectedCondition)
-    {
-            if(expectedCondition.equals("true")){
-                miniCartPage.validateErrorMessageVisibility(true);
-            }else {
-                miniCartPage.validateErrorMessageVisibility(false);
-            }
-        }
     }

@@ -23,6 +23,8 @@ public enum CartPageEnum {
     XPATH_REMOVE_START("//*[@class='product-name-3mh']/*[text()='"),
     XPATH_REMOVE_END("']//ancestor::div[@class='product-details-3HQ']//button[@class='product-btnRemove-16L']"),
     XPATH_CHECKOUT_CART("//*[contains(text(),'Go to')]"),
+    XPATH_INVALID_LOGIN_ERROR("//*[@class='main-loginError-2FL']"),
+    XPATH_CART_TEXT("//*[@class='cartPage-heading-1Q0']"),
     XPATH_MEMBER_CHECKOUT_CART("//button[@class='memberCheckout memberCheckoutBtn']//*[text()='Member Checkout']"),
     XPATH_PRODUCT_TAX("//*[text()='Tax']//following-sibling::*[@class='priceSummary-price-2my']"),
     XPATH_CART_IS_EMPTY("//*[@class='cartPage-title-ISm' and text()='YOUR CART IS EMPTY']"),

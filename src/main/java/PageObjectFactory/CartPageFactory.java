@@ -799,15 +799,42 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
-    public void clickOnMemberCheckoutButton() {
-        String locator = CartPageEnum.XPATH_MEMBER_CHECKOUT_CART.getValue();
+    public String validatePageLoad() {
+        String locator = CartPageEnum.XPATH_CART_TEXT.getValue();
+        String cartText;
         try{
             waitFactory.waitForElementToBeClickable(locator);
-            click(locator);
-            scenarioDef.log(Status.PASS,"Clicked on Guest Checkout Button on Cart View");
+            cartText = getText(locator);
+            scenarioDef.log(Status.PASS,"Fetched Error Text: "+ cartText +" from Cart Page");
+            return cartText;
         }catch (Exception e){
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Click on Guest Checkout Button on Cart View");
+            scenarioDef.log(Status.FAIL,"Could not Fetch Error Text from Cart Page");
+            throw e;
+
+        }
+    }
+
+    public void validateErrorMessageVisibility(boolean expectedVisibility) {
+        String locator = CartPageEnum.XPATH_INVALID_LOGIN_ERROR.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility){
+                scenarioDef.log(Status.PASS,"Validated Account Menu is Displayed as Expected on Header");
+            }else if (!actualVisibility && !expectedVisibility){
+                scenarioDef.log(Status.PASS,"Validated Account Menu is not Displayed as Expected on Header");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated Account Menu is Displayed Unexpected on Header";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated Account Menu is not Displayed Unexpected on Header";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,errorMsg);
             throw e;
         }
     }

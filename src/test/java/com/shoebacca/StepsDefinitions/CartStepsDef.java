@@ -236,4 +236,19 @@ public class CartStepsDef extends HarnessVariables{
         String productTaxValue= new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(taxValue);
         cartPage.validateTaxValue(productTaxValue);
     }
+
+    @Then("User Validates Successful Page Loading CheckOut Page")
+    public void userValidatesSuccessfulPageLoadingCheckOutPage(String expectedCondition) {
+        //CART_PAGE_TEXT = cartPage.validatePageLoad();
+
+    }
+
+    @Then("User Validates UnSuccessful Login Error Visibility on Cart Page")
+    public void userValidatesUnSuccessfulLoginErrorVisibilityOnCartPage(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            cartPage.validateErrorMessageVisibility(true);
+        }else {
+            cartPage.validateErrorMessageVisibility(false);
+        }
+    }
 }

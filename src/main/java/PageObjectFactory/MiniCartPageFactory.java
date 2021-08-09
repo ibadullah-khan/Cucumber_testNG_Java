@@ -753,28 +753,4 @@ public class MiniCartPageFactory extends UtilFactory {
             throw e;
         }
     }
-
-    public void validateErrorMessageVisibility(boolean expectedVisibility) {
-        String locator = MiniCartPageEnum.XPATH_INVALID_LOGIN_ERROR.getValue();
-        String errorMsg = null;
-        Boolean actualVisibility;
-        try{
-            actualVisibility = isVisible(locator);
-            if (actualVisibility && expectedVisibility){
-                scenarioDef.log(Status.PASS,"Validated Account Menu is Displayed as Expected on Header");
-            }else if (!actualVisibility && !expectedVisibility){
-                scenarioDef.log(Status.PASS,"Validated Account Menu is not Displayed as Expected on Header");
-            }else if (actualVisibility && !expectedVisibility){
-                errorMsg = "Validated Account Menu is Displayed Unexpected on Header";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
-            }else if (!actualVisibility && expectedVisibility){
-                errorMsg = "Validated Account Menu is not Displayed Unexpected on Header";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
-            }
-        }catch (Exception e){
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL,errorMsg);
-            throw e;
-        }
-    }
 }
