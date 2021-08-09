@@ -76,4 +76,14 @@ public class CheckoutStepsDef extends HarnessVariables{
     public void userClicksPlaceOrderButtonOnCheckoutPage() throws Exception {
         checkoutPage.clickPlaceOrderButton();
     }
+
+    @Then("User Fetches Tax Value on Checkout")
+    public void userFetchesTaxValueOnCheckout() {
+        TAX_VALUE=checkoutPage.getTaxValue();
+    }
+
+    @Then("User Validates Tax Value from Checkout")
+    public void userValidatesTaxValueFromCheckout() {
+        checkoutPage.validateTaxValue(TAX_VALUE);
+    }
 }
