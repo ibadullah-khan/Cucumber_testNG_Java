@@ -19,7 +19,9 @@ public enum CheckoutPageEnum {
     XPATH_CREDIT_CARD_NUMBER_FIELD("//input[@id='credit-card-number']"),
     XPATH_CREDIT_CARD_EXPIRY_FIELD("//input[@id='expiration']"),
     XPATH_CREDIT_CARD_CVV_FIELD("//input[@id='cvv']"),
-    XPATH_PLACE_ORDER_BUTTON("//span[text()='Place Order']");
+    XPATH_PLACE_ORDER_BUTTON("//span[text()='Place Order']"),
+    XPATH_TAX_VALUE("//*[text()='Tax']//following-sibling::*[@class='priceSummary-price-12K']");
+
 
     private String checkoutPageVariables;
 
