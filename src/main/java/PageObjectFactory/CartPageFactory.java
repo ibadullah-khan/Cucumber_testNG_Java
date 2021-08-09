@@ -602,6 +602,31 @@ public class CartPageFactory extends UtilFactory {
             throw e;
         }
     }
+
+    public void validateRelatedProductSectionVisibility(Boolean expectedVisibility) {
+        String locator = CartPageEnum.XPATH_RELATED_PRODUCT.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Related Product Section is Displayed as Expected on Cart Page");
+            }else if(!actualVisibility&& !expectedVisibility){
+                scenarioDef.log(Status.PASS, "Validated Related Product Section is Not Displayed as Expected on Cart Page");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated Related Producty Section is Displayed Unexpected on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated Related Product Section is not Displayed Unexpected on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,errorMsg);
+            throw e;
+        }
+    }
+
     public void clickOnChangeShippingOption(){
         String locator = CartPageEnum.XPATH_CHANGE_SHIPPING_LINK.getValue() ;
         try{

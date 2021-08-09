@@ -30,6 +30,7 @@ public enum CartPageEnum {
     XPATH_SHIPPING_METHOD_END("']"),
     XPATH_SHIPPING_PRICE_START("//*[@class='shippingRadios-radioContents-GH8']/span[text()='"),
     XPATH_SHIPPING_PRICE_END("']/following-sibling::span"),
+    XPATH_RELATED_PRODUCT("//*[@class='cartPage-price_adjustments_container-aL-']"),
     XPATH_SHIPPING_PRICE_SUMMARY_SECTION("//*[@class='shippingSummary-shippingBar-11G']//*[@class='priceSummary-price-2my']"),
     XPATH_SHIPPING_METHOD_SUMMARY_SECTION("//*[@class='shippingSummary-shippingBar-11G']//*[@class='priceSummary-lineItemLabel-122']"),
     XPATH_TOTAL_AMOUNT("//*[@class='priceSummary-summaryOpener-YIL']//*[@class='priceSummary-totalPrice---h priceSummary-price-2my']");
