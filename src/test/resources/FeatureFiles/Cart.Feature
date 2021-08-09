@@ -99,7 +99,7 @@ Feature: Cart Feature File
     When User Navigates to "shoebacca.first.bag.pdt" Url
     Then User Clicks Add to Cart Button on PDP
     And User Validates Successful Triggered Mini Cart
-    And User Click on View Cart Button
+    And User Clicks on View Cart Button
     Then User Validates Tax Value "cart.notax.value" on Cart Page
     Then User Clicks Checkout Button on Cart View
     Then User Clicks on Guest Checkout Button
@@ -117,7 +117,7 @@ Feature: Cart Feature File
     Then User Navigates to "shoebacca.home" Url
     Then User Clicks the Mini Cart Icon on Header
     Then User Validates Tax Value from Mini Cart
-    And User Click on View Cart Button
+    And User Clicks on View Cart Button
     And User Validates Tax Value from Cart
     Then User Clicks Checkout Button on Cart View
     Then User Clicks on Guest Checkout Button

@@ -35,6 +35,7 @@ public class MiniCartStepsDef extends HarnessVariables{
     public void userValidatesSuccessfulTriggeredMiniCart() {
         miniCartPage.validateMiniCartTriggered();
     }
+
     @Then("User Clicks on Guest Checkout Button")
     public void userClicksOnGuestCheckoutButton() {
         miniCartPage.clickOnGuestCheckoutButton();
@@ -227,7 +228,12 @@ public class MiniCartStepsDef extends HarnessVariables{
     }
 
     @Then("User Validates UnSuccessful Login Error Visibility on Mini Cart Page")
-    public void userValidatesUnSuccessfulLoginErrorOnMiniCartPage() {
-        INVALID_ERROR_TEXT = miniCartPage.validateLoginErrorVisibility();
+    public void userValidatesUnSuccessfulLoginErrorVisibilityOnMiniCartPage(String expectedCondition)
+    {
+            if(expectedCondition.equals("true")){
+                miniCartPage.validateErrorMessageVisibility(true);
+            }else {
+                miniCartPage.validateErrorMessageVisibility(false);
+            }
+        }
     }
-}

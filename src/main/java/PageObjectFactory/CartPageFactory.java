@@ -1,6 +1,7 @@
 package PageObjectFactory;
 
 import EnumFactory.CartPageEnum;
+import EnumFactory.MiniCartPageEnum;
 import UtilitiesFactory.ElementFactory;
 import UtilitiesFactory.UtilFactory;
 import com.aventstack.extentreports.Status;
@@ -794,6 +795,19 @@ public class CartPageFactory extends UtilFactory {
         }catch (Exception e){
             failureException = e.toString();
             scenarioDef.log(Status.FAIL,"Could not Enter Value on Quantity Field");
+            throw e;
+        }
+    }
+
+    public void clickOnMemberCheckoutButton() {
+        String locator = CartPageEnum.XPATH_MEMBER_CHECKOUT_CART.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS,"Clicked on Guest Checkout Button on Cart View");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Click on Guest Checkout Button on Cart View");
             throw e;
         }
     }
