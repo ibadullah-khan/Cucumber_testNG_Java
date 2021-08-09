@@ -30,7 +30,11 @@ public enum CartPageEnum {
     XPATH_SHIPPING_PRICE_END("']/following-sibling::span"),
     XPATH_SHIPPING_PRICE_SUMMARY_SECTION("//*[@class='shippingSummary-shippingBar-11G']//*[@class='priceSummary-price-2my']"),
     XPATH_SHIPPING_METHOD_SUMMARY_SECTION("//*[@class='shippingSummary-shippingBar-11G']//*[@class='priceSummary-lineItemLabel-122']"),
-    XPATH_TOTAL_AMOUNT("//*[@class='priceSummary-summaryOpener-YIL']//*[@class='priceSummary-totalPrice---h priceSummary-price-2my']");
+    XPATH_TOTAL_AMOUNT("//*[@class='priceSummary-summaryOpener-YIL']//*[@class='priceSummary-totalPrice---h priceSummary-price-2my']"),
+    XPATH_PROMO_CODE_FIELD("//*[@id='couponCode']"),
+    XPATH_ADD_COUPON_BUTTON("//*[@class='button-content-XZ3' and text()='Add']"),
+    XPATH_DISCOUNT_LABEL("//*[text()='Discount (CS20)']"),
+    XPATH_DISCOUNT_AMOUNT("(//*[text()='Discount (CS20)']//following-sibling::*[@class='priceSummary-price-2my'])[1]");
 
     private String cartPageVariables;
 

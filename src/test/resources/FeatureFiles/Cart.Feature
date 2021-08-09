@@ -155,3 +155,17 @@ Feature: Cart Feature File
     Then User Validates "standard.shipping" Shipping Method Name on Summary Section of Cart Page
     Then User Validates "standard.shipping.price" Shipping Price on Summary Section of Cart Page
     Then User Validates total Amount on Summary Section of Cart Page
+
+  @Regression
+  Scenario: Verify Shipping Method And their Prices
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    Then User Click on View Cart Button
+    Then User Should Redirect Toward "shopping.cart" Page
+    Then User Enter "invalid.coupon" in Promo Code on Cart Page
+    Then User Clicks on Add Promo Code Button
+    Then User Validates Discount Details Visibility "false" on Summary Section of Cart Page
+    Then User Validates Total Amount using "invalid" Coupon
