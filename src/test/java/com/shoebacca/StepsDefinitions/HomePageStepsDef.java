@@ -69,4 +69,14 @@ public class HomePageStepsDef extends HarnessVariables {
         String expectedUrl = new PropertyLoaderFactory().getPropertyFile(runPropFile).getProperty(Page);
         validateURL(expectedUrl);
     }
+
+    @And("User Clears the Session")
+    public void userClearsTheSession() {
+        clearSession();
+    }
+
+    @Then("User Refresh the Page")
+    public void userRefreshThePage() {
+        refreshPage();
+    }
 }

@@ -169,7 +169,7 @@ Feature: Mini Cart Feature File
     And User Validates Successful Triggered Mini Cart
     And User Validates Mini Cart View Visibility "true"
     Then User Validates Product Image Visibility "true"
-    Then User Click on View Cart Button
+    Then User Clicks on View Cart Button
     Then User Should Redirect Toward "shopping.cart" Page
 
   @Regression
