@@ -6,6 +6,7 @@ public enum ProductDetailsPageEnum {
     XPATH_PRODUCT_NAME("//*[@id='productFullDetail']//*[@class='productFullDetail-productName-2Ax']"),
     XPATH_PRODUCT_COLOUR("//*[@id='productFullDetail']//*[@class='productFullDetail-colorSwatchName-2by']"),
     XPATH_PRODUCT_SIZE("//*[@class='tile-root_selected-1uw']/span"),
+    XPATH_PRODUCT_BRAND("//*[@id='productFullDetail']//*[@class='productFullDetail-brandName-38D']"),
     XPATH_PRODUCT_PRICE("//*[@id='productFullDetail']//*[@class='productFullDetail-price-hNW']");
     private String pdpVariables;
 
