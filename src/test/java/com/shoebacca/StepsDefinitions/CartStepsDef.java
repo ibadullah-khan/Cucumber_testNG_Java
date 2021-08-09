@@ -261,4 +261,22 @@ public class CartStepsDef extends HarnessVariables{
     public void userValidatesProductBrandInCart() {
         cartPage.validateProductBrand(PRODUCT_BRAND);
     }
+
+    @Then("User Validates Product Image Visibility on Cart {string}")
+    public void userValidatesProductImageVisibilityOnCart(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            cartPage.validateProductImageVisibility(1,true);
+        }else {
+            cartPage.validateProductImageVisibility(1,false);
+        }
+    }
+
+    @Then("User Validates Expected Date Visibility on Cart {string}")
+    public void userValidatesExpectedDateVisibilityOnCart(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            cartPage.validateExpectedDateVisibility(1,true);
+        }else {
+            cartPage.validateExpectedDateVisibility(1,false);
+        }
+    }
 }

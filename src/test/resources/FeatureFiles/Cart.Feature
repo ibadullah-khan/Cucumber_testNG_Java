@@ -205,3 +205,6 @@ Feature: Cart Feature File
     Then User Validates Product Size in Cart
     Then User Validates Product Colour in Cart
     Then User Validates Product Brand in Cart
+    Then User Validates Product Image Visibility on Cart "true"
+    Then User Validates Expected Date Visibility on Cart "true"
+    Then User Validates Cart Items Quantity "1" on Cart Page

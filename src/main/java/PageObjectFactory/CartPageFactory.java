@@ -246,6 +246,36 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
+    public void validateExpectedDateVisibility(int expectedProductNo, Boolean expectedVisibility) {
+        String locator = CartPageEnum.XPATH_PRODUCT_DATE.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        List<WebElement> elements;
+        try {
+            elements = elementFactory.getElementsList(locator);
+            actualVisibility = expectedProductNo == elements.size();
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated " + expectedProductNo + " Product Expected Date is Displayed as Expected on Cart View");
+            } else if (!actualVisibility && !expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated " + expectedProductNo + " Product Expected Date is Not Displayed as Expected on Cart View");
+            } else if (actualVisibility && !expectedVisibility) {
+                errorMsg = "Validated " + expectedProductNo + " Product Expected Date is Displayed Unexpected on Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
+                errorMsg = "Validated " + expectedProductNo + " Product Expected Date is not Displayed Unexpected on Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Product Expected Date Element on Cart");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
+
     public void validateProductRemoveVisibility(int expectedProductNo, Boolean expectedVisibility) {
         String locator = CartPageEnum.XPATH_PRODUCT_REMOVE_LINK.getValue();
         String errorMsg = null;
