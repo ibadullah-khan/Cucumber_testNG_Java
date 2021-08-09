@@ -161,8 +161,8 @@ public class CartStepsDef extends HarnessVariables{
         cartPage.validateTaxValue(TAX_VALUE);
     }
 
-    @Then("User Validates Your Card is Empty Section Visibility {string}")
-    public void userValidatesYourCardIsEmptySectionVisibility(String expectedCondition) {
+    @Then("User Validates Your Cart is Empty Section Visibility {string}")
+    public void userValidatesYourCartIsEmptySectionVisibility(String expectedCondition) {
         if(expectedCondition.equals("true")){
             cartPage.validateCartIsEmptySectionVisibility(true);
         }else {
