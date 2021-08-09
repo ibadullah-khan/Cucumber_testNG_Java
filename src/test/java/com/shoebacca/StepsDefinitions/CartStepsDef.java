@@ -274,4 +274,29 @@ public class CartStepsDef extends HarnessVariables{
             cartPage.validateExpectedDateVisibility(1,false);
         }
     }
+
+    @Then("User Enter {string} in Promo Code on Cart Page")
+    public void userEnterInPromoCodeOnCartPage(String coupon)throws Exception {
+        String couponValue= new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(coupon);
+        cartPage.enterCouponCode(couponValue);
+    }
+
+    @Then("User Clicks on Add Promo Code Button")
+    public void userClicksOnAddPromoCodeButton() {
+        cartPage.clickOnAddPromoCodeButton();
+    }
+
+    @Then("User Validates Discount Details Visibility {string} on Summary Section of Cart Page")
+    public void userValidatesDiscountDetailVisibilityOnSummarySectionOfCartPage(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            cartPage.validateDiscountOptionVisibility(true);
+        }else {
+            cartPage.validateDiscountOptionVisibility(false);
+        }
+    }
+
+    @Then("User Validates Total Amount using {string} Coupon")
+    public void userValidatesTotalAmountUsingCoupon(String couponStatus) {
+        cartPage.validateTotalAmountAfterUsingCoupon(couponStatus);
+    }
 }

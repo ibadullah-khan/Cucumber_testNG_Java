@@ -234,5 +234,4 @@ public class CheckoutPageFactory extends UtilFactory {
             throw e;
         }
     }
-
 }

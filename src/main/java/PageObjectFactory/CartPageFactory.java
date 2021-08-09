@@ -590,6 +590,7 @@ public class CartPageFactory extends UtilFactory {
             throw e;
         }
     }
+
     public void validateRemoveLinkVisibility(int expectedRemoveLink){
 
         String locator = CartPageEnum.XPATH_REMOVE_LINK.getValue();
@@ -742,10 +743,11 @@ public class CartPageFactory extends UtilFactory {
 
     public void clickOnShippingMethod(String expecetedShippingMethodName){
         String locator = CartPageEnum.XPATH_SHIPPING_METHOD_START.getValue() + expecetedShippingMethodName+ CartPageEnum.XPATH_SHIPPING_METHOD_END.getValue();
+        String checkoutLocator = CartPageEnum.XPATH_CHECKOUT_CART.getValue();
         try{
             waitFactory.waitForElementToBeClickable(locator);
             click(locator);
-            customWait(3000);
+            waitFactory.waitForElementToBeClickable(checkoutLocator);
             scenarioDef.log(Status.PASS,"Clicked on "+expecetedShippingMethodName+ " Method on Summary Section of Cart Page");
         }catch (Exception e){
             failureException = e.toString();
@@ -889,6 +891,7 @@ public class CartPageFactory extends UtilFactory {
         String totalAmountLocator = CartPageEnum.XPATH_TOTAL_AMOUNT.getValue();
         String errorMsg = null;
         try {
+            waitFactory.waitForElementToBeClickable(subAmountLocator);
             double subAmount = Double.parseDouble(getText(subAmountLocator).trim().substring(1));
             double shippingAmount = getShippingAmount();
             double totalAmount = Double.parseDouble(getText(totalAmountLocator).trim().substring(1));
@@ -919,6 +922,95 @@ public class CartPageFactory extends UtilFactory {
         }catch (Exception e){
             failureException = e.toString();
             scenarioDef.log(Status.FAIL,"Could not Enter Value on Quantity Field");
+            throw e;
+        }
+    }
+
+    public void enterCouponCode(String expectedCoupon)throws Exception {
+        String locator = CartPageEnum.XPATH_PROMO_CODE_FIELD.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            enterString(locator,expectedCoupon);
+            scenarioDef.log(Status.PASS,"Entered Coupon "+expectedCoupon+" on Promo Code Field on Cart Page");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Enter Coupon on Promo Code Field on Cart Page");
+            throw e;
+        }
+    }
+
+    public void clickOnAddPromoCodeButton(){
+        String locator = CartPageEnum.XPATH_ADD_COUPON_BUTTON.getValue();
+        String checkoutLocator = CartPageEnum.XPATH_CHECKOUT_CART.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            waitFactory.waitForElementToBeClickable(checkoutLocator);
+            scenarioDef.log(Status.PASS,"Clicked on Add Promo Code Button on Summary Section of Cart Page");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Click on Add Promo Code Button on Summary Section of Cart Page");
+            throw e;
+        }
+    }
+
+    public void validateDiscountOptionVisibility(Boolean expectedVisibility) {
+        String locator = CartPageEnum.XPATH_DISCOUNT_LABEL.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Discount Details is Displayed as Expected on Cart Page");
+            }else if(!actualVisibility&& !expectedVisibility){
+                scenarioDef.log(Status.PASS, "Validated Discount Details is Not Displayed as Expected on Cart Page");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated Discount Details is Displayed Unexpected on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated Discount Details is not Displayed Unexpected on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateTotalAmountAfterUsingCoupon(String expectedCouponStatus) {
+        String subAmountLocator = CartPageEnum.XPATH_SUB_TOTAL_AMOUNT.getValue();
+        String totalAmountLocator = CartPageEnum.XPATH_TOTAL_AMOUNT.getValue();
+        String discountLocator =CartPageEnum.XPATH_DISCOUNT_AMOUNT.getValue();
+        String errorMsg = null;
+        try {
+            waitFactory.waitForElementToBeClickable(subAmountLocator);
+            double subAmount = Double.parseDouble(getText(subAmountLocator).trim().substring(1));
+            double totalAmount = Double.parseDouble(getText(totalAmountLocator).trim().substring(1));
+            if(expectedCouponStatus.equalsIgnoreCase("valid")){
+                double discountAmount = Double.parseDouble(getText(discountLocator).trim().substring(1));
+                if (totalAmount == subAmount - discountAmount) {
+                    scenarioDef.log(Status.PASS, "Validate Total Amount $" + totalAmount + " is Same as Expected on Summary Section of Cart Page");
+                } else {
+                    errorMsg = "Validate Summary Total Amount $" + totalAmount + " is not Same as Expected on Summary Section of Cart Page";
+                    throw new NoSuchContextException("Actual and Expected Value Differs");
+                }
+            } else{
+                double discountAmount = 0;
+                if (totalAmount == subAmount - discountAmount) {
+                    scenarioDef.log(Status.PASS, "Validate Total Amount $" + totalAmount + " is Same as Expected on Summary Section of Cart Page");
+                } else {
+                    errorMsg = "Validate Summary Total Amount $" + totalAmount + " is not Same as Expected on Summary Section of Cart Page";
+                    throw new NoSuchContextException("Actual and Expected Value Differs");
+                }
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the  Price Element on Summary Section of  Cart Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
             throw e;
         }
     }

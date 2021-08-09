@@ -99,7 +99,7 @@ Feature: Cart Feature File
     When User Navigates to "shoebacca.first.bag.pdt" Url
     Then User Clicks Add to Cart Button on PDP
     And User Validates Successful Triggered Mini Cart
-    And User Click on View Cart Button
+    And User Clicks on View Cart Button
     Then User Validates Tax Value "cart.notax.value" on Cart Page
     Then User Clicks Checkout Button on Cart View
     Then User Clicks on Guest Checkout Button
@@ -117,7 +117,7 @@ Feature: Cart Feature File
     Then User Navigates to "shoebacca.home" Url
     Then User Clicks the Mini Cart Icon on Header
     Then User Validates Tax Value from Mini Cart
-    And User Click on View Cart Button
+    And User Clicks on View Cart Button
     And User Validates Tax Value from Cart
     Then User Clicks Checkout Button on Cart View
     Then User Clicks on Guest Checkout Button
@@ -210,7 +210,6 @@ Feature: Cart Feature File
     Then User Validates Expected Date Visibility on Cart "true"
     Then User Validates Cart Items Quantity "1" on Cart Page
 
-
   @Regression
   Scenario: Verify User can not Proceed to Checkout if Session Expires
 
@@ -223,3 +222,17 @@ Feature: Cart Feature File
     And User Clears the Session
     Then User Refresh the Page
     Then User Validates Your Cart is Empty Section Visibility "true"
+
+  @Regression
+  Scenario: Verify Price is not Discounted When Invalid Coupon is Entered
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    Then User Clicks on View Cart Button
+    Then User Should Redirect Toward "shopping.cart" Page
+    Then User Enter "invalid.coupon" in Promo Code on Cart Page
+    Then User Clicks on Add Promo Code Button
+    Then User Validates Discount Details Visibility "false" on Summary Section of Cart Page
+    Then User Validates Total Amount using "invalid" Coupon
