@@ -237,11 +237,6 @@ public class CartStepsDef extends HarnessVariables{
         cartPage.validateTaxValue(productTaxValue);
     }
 
-    @Then("User Validates Product Name in Cart")
-    public void userValidatesProductNameInCart() {
-        cartPage.validateProductName(PRODUCT_NAME);
-    }
-
     @Then("User Validates Product Price in Cart")
     public void userValidatesProductPriceInCart() {
         cartPage.validateProductPrice(PRODUCT_PRICE);
