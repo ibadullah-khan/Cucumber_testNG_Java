@@ -237,6 +237,44 @@ public class CartStepsDef extends HarnessVariables{
         cartPage.validateTaxValue(productTaxValue);
     }
 
+    @Then("User Validates Product Price in Cart")
+    public void userValidatesProductPriceInCart() {
+        cartPage.validateProductPrice(PRODUCT_PRICE);
+    }
+
+    @Then("User Validates Product Size in Cart")
+    public void userValidatesProductSizeInCart() {
+        cartPage.validateProductSize(PRODUCT_SIZE);
+    }
+
+    @Then("User Validates Product Colour in Cart")
+    public void userValidatesProductColourInCart() {
+        cartPage.validateProductColour(PRODUCT_COLOUR);
+    }
+
+    @Then("User Validates Product Brand in Cart")
+    public void userValidatesProductBrandInCart() {
+        cartPage.validateProductBrand(PRODUCT_BRAND);
+    }
+
+    @Then("User Validates Product Image Visibility on Cart {string}")
+    public void userValidatesProductImageVisibilityOnCart(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            cartPage.validateProductImageVisibility(1,true);
+        }else {
+            cartPage.validateProductImageVisibility(1,false);
+        }
+    }
+
+    @Then("User Validates Expected Date Visibility on Cart {string}")
+    public void userValidatesExpectedDateVisibilityOnCart(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            cartPage.validateExpectedDateVisibility(1,true);
+        }else {
+            cartPage.validateExpectedDateVisibility(1,false);
+        }
+    }
+
     @Then("User Enter {string} in Promo Code on Cart Page")
     public void userEnterInPromoCodeOnCartPage(String coupon)throws Exception {
         String couponValue= new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(coupon);
