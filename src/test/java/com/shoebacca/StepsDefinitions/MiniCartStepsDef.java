@@ -216,4 +216,14 @@ public class MiniCartStepsDef extends HarnessVariables{
     public void userValidatesProductCountOnMiniCart(String expectedValue) {
         miniCartPage.validateProductCountText(expectedValue);
     }
+
+    @Then("User Clicks on Member Checkout Button")
+    public void userClicksOnMemberCheckoutButton() {
+        miniCartPage.clickOnMemberoutButton();
+    }
+
+    @Then("User Validates UnSuccessful Login Error Visibility on Mini Cart Page")
+    public void userValidatesUnSuccessfulLoginErrorOnMiniCartPage() {
+        INVALID_ERROR_TEXT = miniCartPage.validateLoginErrorVisibility();
+    }
 }
