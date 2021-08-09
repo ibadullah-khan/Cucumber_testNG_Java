@@ -35,6 +35,26 @@ public class MiniCartStepsDef extends HarnessVariables{
     public void userValidatesSuccessfulTriggeredMiniCart() {
         miniCartPage.validateMiniCartTriggered();
     }
+    @Then("User Clicks on Guest Checkout Button")
+    public void userClicksOnGuestCheckoutButton() {
+        miniCartPage.clickOnGuestCheckoutButton();
+    }
+
+    @Then("User Validates Tax Label Visibility {string}")
+
+    public void userValidatesTaxLabelVisibility(String expectedCondition) {
+
+        if(expectedCondition.equals("true")){
+
+            miniCartPage.validateTaxLabelVisibility(true);
+
+        }else {
+
+            miniCartPage.validateTaxLabelVisibility(false);
+
+        }
+
+    }
 
     @Then("User Validates Product Name in Mini Cart")
     public void userValidatesProductNameInMiniCart() {

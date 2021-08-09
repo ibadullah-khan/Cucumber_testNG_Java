@@ -282,6 +282,65 @@ public class MiniCartPageFactory extends UtilFactory {
         }
     }
 
+    public void clickOnGuestCheckoutButton() {
+        String locator = MiniCartPageEnum.XPATH_GUEST_CHECKOUT_BUTTON.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS,"Clicked on Guest Checkout Button on Cart View");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Click on Guest Checkout Button on Cart View");
+            throw e;
+        }
+    }
+
+    public void validateTaxLabelVisibility(Boolean expectedVisibility) {
+
+        String locator = MiniCartPageEnum.XPATH_TAX_LABEL.getValue();
+
+        String errorMsg = null;
+
+        Boolean actualVisibility;
+
+        try{
+
+            actualVisibility = isVisible(locator);
+
+            if (actualVisibility && expectedVisibility) {
+
+                scenarioDef.log(Status.PASS, "Validated Tax Label is Displayed as Expected on Mini Cart View");
+
+            }else if(!actualVisibility&& !expectedVisibility){
+
+                scenarioDef.log(Status.PASS, "Validated Tax Label is Not Displayed as Expected on Mini Cart View");
+
+            }else if (actualVisibility && !expectedVisibility){
+
+                errorMsg = "Validated Tax Label is Displayed Unexpected on Mini Cart View";
+
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+
+            }else if (!actualVisibility && expectedVisibility){
+
+                errorMsg = "Validated Tax Label is not Displayed Unexpected on Mini Cart View";
+
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+
+            }
+
+        }catch (Exception e) {
+
+            failureException = e.toString();
+
+            scenarioDef.log(Status.FAIL,errorMsg);
+
+            throw e;
+
+        }
+
+    }
+
     public void validateProductBrandVisibility(int expectedProductNo,Boolean expectedVisibility) {
         String locator = MiniCartPageEnum.XPATH_PRODUCT_BRAND.getValue();
         String errorMsg = null;

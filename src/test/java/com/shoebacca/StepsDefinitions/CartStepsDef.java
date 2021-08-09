@@ -161,11 +161,6 @@ public class CartStepsDef extends HarnessVariables{
         cartPage.validateTaxValue(TAX_VALUE);
     }
 
-    @Then("User Clicks on Guest Checkout Button")
-    public void userClicksOnGuestCheckoutButton() {
-        cartPage.clickOnGuestCheckoutButton();
-    }
-
     @Then("User Validates Your Card is Empty Section Visibility {string}")
     public void userValidatesYourCardIsEmptySectionVisibility(String expectedCondition) {
         if(expectedCondition.equals("true")){
@@ -236,8 +231,9 @@ public class CartStepsDef extends HarnessVariables{
         cartPage.validateShippingMethodNameOnSummarySection(shippingMethodName);
     }
 
-    @Then("User Validate Tax Value from Cart")
-    public void userValidateTaxValueFromCart() throws Exception {
-        cartPage.validateCartTaxValue();
+    @Then("User Validates Tax Value {string} on Cart Page")
+    public void userValidatesTaxValueOnCartPage(String taxValue) throws Exception {
+        String productTaxValue= new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(taxValue);
+        cartPage.validateProductTaxValue(productTaxValue);
     }
 }

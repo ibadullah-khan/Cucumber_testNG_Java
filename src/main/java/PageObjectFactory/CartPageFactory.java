@@ -2,7 +2,6 @@ package PageObjectFactory;
 
 import EnumFactory.CartPageEnum;
 import UtilitiesFactory.ElementFactory;
-import UtilitiesFactory.PropertyLoaderFactory;
 import UtilitiesFactory.UtilFactory;
 import com.aventstack.extentreports.Status;
 import org.openqa.selenium.NoSuchContextException;
@@ -556,20 +555,18 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
-    public void validateCartTaxValue() throws Exception {
+    public void validateProductTaxValue(String expectedTaxValue) throws Exception {
         String locator = CartPageEnum.XPATH_PRODUCT_TAX.getValue();
-        String expectedText= new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty("cart.tax.value");
+        String taxValue;
         String errorMsg = null;
-        String actualText;
-
 
         try{
             waitFactory.waitForElementToBeClickable(locator);
-            actualText = getText(locator).trim();
-            if (actualText.contains(expectedText)){
-                scenarioDef.log(Status.PASS,"Validated Tax on Cart as Expected: "+expectedText);
+            taxValue = getText(locator);
+            if (taxValue.contains(expectedTaxValue)){
+                scenarioDef.log(Status.PASS,"Validated Tax on Cart as Expected: "+expectedTaxValue);
             }else {
-                errorMsg = "Could not validate Tax on Cart as Expected: "+expectedText+" , Actual Value: "+actualText;
+                errorMsg = "Could not validate Tax on Cart as Expected: "+expectedTaxValue+" " ;
                 throw new NoSuchContextException("Actual and Expected Value Differs");
             }
         }catch (Exception e){
@@ -607,20 +604,6 @@ public class CartPageFactory extends UtilFactory {
             throw e;
         }
     }
-
-    public void clickOnGuestCheckoutButton() {
-        String locator = CartPageEnum.XPATH_GUEST_CHECKOUT_BUTTON.getValue();
-        try{
-            waitFactory.waitForElementToBeClickable(locator);
-            click(locator);
-            scenarioDef.log(Status.PASS,"Clicked on Guest Checkout Button on Cart View");
-        }catch (Exception e){
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Click on Guest Checkout Button on Cart View");
-            throw e;
-        }
-    }
-
 
     public void validateCartIsEmptySectionVisibility(Boolean expectedVisibility) {
         String locator = CartPageEnum.XPATH_CART_IS_EMPTY.getValue();

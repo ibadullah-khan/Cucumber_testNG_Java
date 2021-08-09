@@ -9,7 +9,6 @@ public class HarnessVariables extends UtilFactory {
     public HarnessVariables() throws Exception {
     }
     protected static String PRODUCT_NAME;
-    protected static String SUB_TOTAL;
     protected static String TAX_VALUE;
     protected static String PRODUCT_PRICE;
     protected static String PRODUCT_COLOUR;

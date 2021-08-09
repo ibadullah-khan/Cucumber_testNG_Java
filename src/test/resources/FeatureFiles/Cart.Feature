@@ -100,7 +100,7 @@ Feature: Cart Feature File
     Then User Clicks Add to Cart Button on PDP
     And User Validates Successful Triggered Mini Cart
     And User Click on View Cart Button
-    Then User Validate Tax Value from Cart
+    Then User Validates Tax Value "cart.notax.value" on Cart Page
     Then User Clicks Checkout Button on Cart View
     Then User Clicks on Guest Checkout Button
     Then User Should Redirect Toward "shopping.checkout" Page
