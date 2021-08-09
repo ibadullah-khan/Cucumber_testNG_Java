@@ -13,6 +13,7 @@ import java.util.List;
 public class CartPageFactory extends UtilFactory {
 
     ElementFactory elementFactory = new ElementFactory();
+    protected String cartPropFile = "cartData.properties";
 
     public CartPageFactory() throws Exception {
     }
@@ -426,6 +427,20 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
+    public void clickOnCheckoutButton() {
+        String locator = CartPageEnum.XPATH_CHECKOUT_CART.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS,"Clicked on Checkout Button on Cart View");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Click on Checkout Button on Cart View");
+            throw e;
+        }
+
+    }
+
     public void validateProductName(String expectedText) {
         String locator = CartPageEnum.XPATH_PRODUCT_NAME.getValue();
         String errorMsg = null;
@@ -613,6 +628,45 @@ public class CartPageFactory extends UtilFactory {
             failureException = e.toString();
             if (errorMsg == null){
                 scenarioDef.log(Status.FAIL,"Unable to get the Product Price Element on Cart Page");
+            }else {
+                scenarioDef.log(Status.FAIL,errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public String getTaxValue(){
+        String taxvalue;
+        String locator = CartPageEnum.XPATH_PRODUCT_TAX.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            taxvalue = getText(locator);
+            scenarioDef.log(Status.PASS,"Fetched Tax Value: "+ taxvalue +" from Cart");
+            return taxvalue;
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Fetch Tax Value from Cart");
+            throw e;
+        }
+    }
+
+    public void validateTaxValue(String expectedText){
+        String locator = CartPageEnum.XPATH_PRODUCT_TAX.getValue();
+        String errorMsg = null;
+        String actualText;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            actualText = getText(locator).trim();
+            if (actualText.contains(expectedText)){
+                scenarioDef.log(Status.PASS,"Validated Tax on Cart as Expected: "+expectedText);
+            }else {
+                errorMsg = "Could not validate Tax on Cart as Expected: "+expectedText+" , Actual Value: "+actualText;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        }catch (Exception e){
+            failureException = e.toString();
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL,"Unable to get the Tax Element on Cart");
             }else {
                 scenarioDef.log(Status.FAIL,errorMsg);
             }
