@@ -86,4 +86,5 @@ public class CheckoutStepsDef extends HarnessVariables{
     public void userValidatesTaxValueFromCheckout() {
         checkoutPage.validateTaxValue(TAX_VALUE);
     }
+
 }

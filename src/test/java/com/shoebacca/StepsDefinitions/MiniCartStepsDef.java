@@ -35,6 +35,7 @@ public class MiniCartStepsDef extends HarnessVariables{
     public void userValidatesSuccessfulTriggeredMiniCart() {
         miniCartPage.validateMiniCartTriggered();
     }
+
     @Then("User Clicks on Guest Checkout Button")
     public void userClicksOnGuestCheckoutButton() {
         miniCartPage.clickOnGuestCheckoutButton();
@@ -220,4 +221,10 @@ public class MiniCartStepsDef extends HarnessVariables{
     public void userValidatesTaxValueFromMinicart() {
         miniCartPage.validateTaxValue(TAX_VALUE);
     }
+
+    @Then("User Clicks on Member Checkout Button")
+    public void userClicksOnMemberCheckoutButton() {
+        miniCartPage.clickOnMemberCheckoutButton();
+    }
 }
+

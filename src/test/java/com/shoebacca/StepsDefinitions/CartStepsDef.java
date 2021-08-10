@@ -305,4 +305,13 @@ public class CartStepsDef extends HarnessVariables{
         String expectedErrorMsgText= new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(errorMsgText);
         cartPage.validateErrorMsgText(expectedErrorMsgText);
     }
+
+    @Then("User Validates UnSuccessful Login Error Visibility {string} on Cart Page")
+    public void userValidatesUnSuccessfulLoginErrorVisibilityOnCartPage(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            cartPage.validateErrorMessageVisibility(true);
+        }else {
+            cartPage.validateErrorMessageVisibility(false);
+        }
+    }
 }

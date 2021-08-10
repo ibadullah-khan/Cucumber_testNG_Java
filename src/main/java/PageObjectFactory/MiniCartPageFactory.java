@@ -701,6 +701,19 @@ public class MiniCartPageFactory extends UtilFactory {
         }
     }
 
+    public void clickOnMemberCheckoutButton() {
+        String locator = MiniCartPageEnum.XPATH_MEMBER_CHECKOUT.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS,"Clicked on Member Checkout Button on Mini Cart View");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Click on Member Checkout Button on Mini Cart View");
+            throw e;
+        }
+    }
+
     public void validateTaxValue(String expectedText){
         String locator = MiniCartPageEnum.XPATH_PRODUCT_TAX.getValue();
         String errorMsg = null;
