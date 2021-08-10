@@ -94,5 +94,6 @@ public class ProductDetailsPageFactory extends UtilFactory {
             scenarioDef.log(Status.FAIL,"Could not Fetch Product Brand from PDP");
             throw e;
         }
+
     }
 }

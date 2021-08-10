@@ -9,14 +9,18 @@ public class HarnessVariables extends UtilFactory {
     public HarnessVariables() throws Exception {
     }
     protected static String PRODUCT_NAME;
+    protected static String CART_PAGE_TEXT;
     protected static String TAX_VALUE;
+    protected static String INVALID_ERROR_TEXT;
     protected static String PRODUCT_PRICE;
     protected static String PRODUCT_COLOUR;
     protected static String PRODUCT_SIZE;
     protected static String PRODUCT_BRAND;
     protected static String PREVIOUS_PRODUCT_NAME;
     protected final String VALID_USERNAME = GlobalEnumVariables.VALID_LOGIN_USERNAME.getValue();
+    protected final String INVALID_USERNAME = GlobalEnumVariables.INVALID_LOGIN_USERNAME.getValue();
     protected final String VALID_PASSWORD = GlobalEnumVariables.VALID_LOGIN_PASSWORD.getValue();
+    protected final String INVALID_PASSWORD = GlobalEnumVariables.INVALID_LOGIN_PASSWORD.getValue();
     protected final String VALID_EMAIL_ADDRESS = CheckoutEnumVariables.VALID_EMAIL_ADDRESS.getValue();
     protected final String VALID_FIRSTNAME = CheckoutEnumVariables.VALID_FIRSTNAME.getValue();
     protected final String VALID_LASTNAME = CheckoutEnumVariables.VALID_LASTNAME.getValue();
