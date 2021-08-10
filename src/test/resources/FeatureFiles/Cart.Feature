@@ -238,6 +238,19 @@ Feature: Cart Feature File
     Then User Validates Total Amount using "invalid" Coupon
 
   @Regression
+  Scenario: Verify Relevant Message Should Display When Coupon is Invalid
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    Then User Clicks on View Cart Button
+    Then User Should Redirect Toward "shopping.cart" Page
+    Then User Enter "invalid.coupon" in Promo Code on Cart Page
+    Then User Clicks on Add Promo Code Button
+    Then User Validated "invalid.coupon.error.msg" Coupon Error Message Text
+
+  @Regression
   Scenario: Verify After Clicking on Checkout User is Redirected to Checkout Page
 
     Given User Setups the Web Browser
