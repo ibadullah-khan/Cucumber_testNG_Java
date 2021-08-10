@@ -300,6 +300,12 @@ public class CartStepsDef extends HarnessVariables{
         cartPage.validateTotalAmountAfterUsingCoupon(couponStatus);
     }
 
+    @Then("User Validated {string} Coupon Error Message Text")
+    public void userValidatedCouponErrorMessageText(String errorMsgText) throws Exception {
+        String expectedErrorMsgText= new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(errorMsgText);
+        cartPage.validateErrorMsgText(expectedErrorMsgText);
+    }
+
 
     @Then("User Validates Related Product Section Visibility on Cart Page {string}")
     public void userValidatesRelatedProductSectionVisibilityOnCartPage(String expectedCondition) {
@@ -310,39 +316,39 @@ public class CartStepsDef extends HarnessVariables{
         }
     }
 
-    @Then("User Validates Related Products Visibility on Cart Page {string}")
-    public void userValidatesRelatedProductsVisibility(String expectedCondition) {
-        if(expectedCondition.equals("true")){
-            cartPage.validateRelatedProductsVisibility(true);
-        }else {
-            cartPage.validateRelatedProductsVisibility(false);
-        }
-    }
-
-    @Then("User Validates Related Product Brand Visibility on Cart Page {string}")
+    @Then("User Validates Second Related Product Visibility on Cart Page {string}")
     public void userValidatesRelatedProductBrandVisibility(String expectedCondition) {
         if(expectedCondition.equals("true")){
-            cartPage.validateRelatedProductBrandVisibility(true);
+            cartPage.validateSecondRelatedProductVisibility(true);
         }else {
-            cartPage.validateRelatedProductBrandVisibility(false);
+            cartPage.validateSecondRelatedProductVisibility(false);
         }
     }
 
-    @Then("User Validates Related Product Name Visibility on Cart Page {string}")
+    @Then("User Validates Third Related Product Visibility on Cart Page {string}")
     public void userValidatesRelatedProductNameVisibility(String expectedCondition) {
         if(expectedCondition.equals("true")){
-            cartPage.validateRelatedProductNameVisibility(true);
+            cartPage.validateThirdRelatedProductVisibility(true);
         }else {
-            cartPage.validateRelatedProductNameVisibility(false);
+            cartPage.validateThirdRelatedProductVisibility(false);
         }
     }
 
-    @Then("User Validates Related Product Price Visibility on Cart Page {string}")
+    @Then("User Validates Fourth Related Product Visibility on Cart Page {string}")
     public void userValidatesRelatedProductPriceVisibility(String expectedCondition) {
         if(expectedCondition.equals("true")){
-            cartPage.validateRelatedProductPriceVisibility(true);
+            cartPage.validateFourthRelatedProductVisibility(true);
         }else {
-            cartPage.validateRelatedProductPriceVisibility(false);
+            cartPage.validateFourthRelatedProductVisibility(false);
+        }
+    }
+
+    @Then("User Validates First Related Product Visibility on Cart Page {string}")
+    public void userValidatesFirstRelatedProductVisibilityOnCartPage(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            cartPage.validateFirstRelatedProductVisibility(true);
+        }else {
+            cartPage.validateFirstRelatedProductVisibility(false);
         }
     }
 }

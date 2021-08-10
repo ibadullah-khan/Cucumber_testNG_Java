@@ -233,12 +233,10 @@ Feature: Cart Feature File
     And User Clicks on View Cart Button
     Then User Should Redirect Toward "shopping.cart" Page
     Then User Validates Related Product Section Visibility on Cart Page "true"
-    Then User Validates Related Products Visibility on Cart Page "true"
-    Then User Validates Related Product Brand Visibility on Cart Page "true"
-    Then User Validates Related Product Name Visibility on Cart Page "true"
-    Then User Validates Related Product Price Visibility on Cart Page "true"
-
-
+    Then User Validates First Related Product Visibility on Cart Page "true"
+    Then User Validates Second Related Product Visibility on Cart Page "true"
+    Then User Validates Third Related Product Visibility on Cart Page "true"
+    Then User Validates Fourth Related Product Visibility on Cart Page "true"
 
   @Regression
   Scenario: Verify Price is not Discounted When Invalid Coupon is Entered
