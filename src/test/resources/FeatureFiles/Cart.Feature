@@ -189,6 +189,28 @@ Feature: Cart Feature File
     Then User Validates total Amount on Summary Section of Cart Page
 
   @Regression
+  Scenario: Verify the Product Information on Cart Page
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Fetches Product Name from PDP
+    And User Fetches Product Price from PDP
+    And User Fetches Product Size from PDP
+    And User Fetches Product Colour from PDP
+    And User Fetches Product Brand from PDP
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    Then User Clicks on View Cart Button
+    Then User Validates Product Name in Cart Page
+    Then User Validates Product Price in Cart
+    Then User Validates Product Size in Cart
+    Then User Validates Product Colour in Cart
+    Then User Validates Product Brand in Cart
+    Then User Validates Product Image Visibility on Cart "true"
+    Then User Validates Expected Date Visibility on Cart "true"
+    Then User Validates Cart Items Quantity "1" on Cart Page
+
+  @Regression
   Scenario: Verify User can not Proceed to Checkout if Session Expires
 
     Given User Setups the Web Browser
@@ -200,3 +222,17 @@ Feature: Cart Feature File
     And User Clears the Session
     Then User Refresh the Page
     Then User Validates Your Cart is Empty Section Visibility "true"
+
+  @Regression
+  Scenario: Verify Price is not Discounted When Invalid Coupon is Entered
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    Then User Clicks on View Cart Button
+    Then User Should Redirect Toward "shopping.cart" Page
+    Then User Enter "invalid.coupon" in Promo Code on Cart Page
+    Then User Clicks on Add Promo Code Button
+    Then User Validates Discount Details Visibility "false" on Summary Section of Cart Page
+    Then User Validates Total Amount using "invalid" Coupon
