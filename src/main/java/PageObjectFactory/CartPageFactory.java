@@ -1,7 +1,9 @@
 package PageObjectFactory;
 
 import EnumFactory.CartPageEnum;
+import EnumFactory.HomePageEnum;
 import EnumFactory.MiniCartPageEnum;
+import EnumFactory.ProductDetailsPageEnum;
 import UtilitiesFactory.ElementFactory;
 import UtilitiesFactory.UtilFactory;
 import com.aventstack.extentreports.Status;
@@ -817,16 +819,18 @@ public class CartPageFactory extends UtilFactory {
 
     public void validateErrorMessageVisibility(boolean expectedVisibility) {
         String locator = CartPageEnum.XPATH_INVALID_LOGIN_ERROR.getValue();
+        String ProductDetailslocator = ProductDetailsPageEnum.XPATH_ADD_TO_CART_BUTTON.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
+        waitFactory.waitForElementToBeClickable(ProductDetailslocator);
         try{
             actualVisibility = isVisible(locator);
             if (actualVisibility && expectedVisibility){
-                scenarioDef.log(Status.PASS,"Validated Account Menu is Displayed as Expected on Header");
+                scenarioDef.log(Status.PASS,"Validated Error Message is Displayed as Expected on Cart");
             }else if (!actualVisibility && !expectedVisibility){
-                scenarioDef.log(Status.PASS,"Validated Account Menu is not Displayed as Expected on Header");
+                scenarioDef.log(Status.PASS,"Validated Error Message is not Displayed as Expected on Cart");
             }else if (actualVisibility && !expectedVisibility){
-                errorMsg = "Validated Account Menu is Displayed Unexpected on Header";
+                errorMsg = "Validated Account Menu is Displayed Unexpected on Cart";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
             }else if (!actualVisibility && expectedVisibility){
                 errorMsg = "Validated Account Menu is not Displayed Unexpected on Header";

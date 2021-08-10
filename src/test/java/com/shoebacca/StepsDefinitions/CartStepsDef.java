@@ -239,11 +239,11 @@ public class CartStepsDef extends HarnessVariables{
 
     @Then("User Validates Successful Page Loading CheckOut Page")
     public void userValidatesSuccessfulPageLoadingCheckOutPage(String expectedCondition) {
-        //CART_PAGE_TEXT = cartPage.validatePageLoad();
+        cartPage.validatePageLoad();
 
     }
 
-    @Then("User Validates UnSuccessful Login Error Visibility on Cart Page")
+    @Then("User Validates UnSuccessful Login Error Visibility {string} on Cart Page")
     public void userValidatesUnSuccessfulLoginErrorVisibilityOnCartPage(String expectedCondition) {
         if(expectedCondition.equals("true")){
             cartPage.validateErrorMessageVisibility(true);
