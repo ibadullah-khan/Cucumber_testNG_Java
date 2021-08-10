@@ -1140,4 +1140,28 @@ public class CartPageFactory extends UtilFactory {
             throw e;
         }
     }
+
+    public void validateErrorMsgText(String expectedErrorMsgText){
+        String locator = CartPageEnum.XPATH_INVALID_COUPON_ERROR_MESSAGE.getValue();
+        String errorMsg = null;
+        String actualText;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            actualText = getText(locator).trim();
+            if (actualText.contains(expectedErrorMsgText)){
+                scenarioDef.log(Status.PASS,"Validated Error Message on Summary Section of Cart Page as Expected: "+expectedErrorMsgText);
+            }else {
+                errorMsg = "Could not validate Error Message on Summary Section of Cart Page as Expected: "+expectedErrorMsgText+" , Actual Value: "+actualText;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        }catch (Exception e){
+            failureException = e.toString();
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL,"Unable to get the Error Message Element on Summary Section of Cart Page");
+            }else {
+                scenarioDef.log(Status.FAIL,errorMsg);
+            }
+            throw e;
+        }
+    }
 }
