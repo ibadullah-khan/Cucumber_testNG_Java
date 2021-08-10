@@ -226,5 +226,5 @@ public class MiniCartStepsDef extends HarnessVariables{
     public void userClicksOnMemberCheckoutButton() {
         miniCartPage.clickOnMemberCheckoutButton();
     }
+}
 
-    }

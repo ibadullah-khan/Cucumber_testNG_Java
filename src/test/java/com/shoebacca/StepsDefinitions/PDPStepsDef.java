@@ -19,7 +19,6 @@ public class PDPStepsDef extends HarnessVariables{
     @And("User Fetches Product Name from PDP")
     public void userFetchesProductNameFromPDP() {
         PRODUCT_NAME = productDetailsPage.getProductName();
-        CART_PAGE_TEXT = productDetailsPage.getProductName();
     }
 
     @And("User Fetches Product Price from PDP")
