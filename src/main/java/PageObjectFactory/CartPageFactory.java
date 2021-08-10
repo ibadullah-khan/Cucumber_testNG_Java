@@ -1038,4 +1038,42 @@ public class CartPageFactory extends UtilFactory {
             throw e;
         }
     }
+
+    public void validateCategorySectionVisibility(Boolean expectedVisibility) {
+        String locator = CartPageEnum.XPATH_CATEGORY_SECTION.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Category Section is Displayed as Expected on Cart Page");
+            }else if(!actualVisibility&& !expectedVisibility){
+                scenarioDef.log(Status.PASS, "Validated Category Section is Not Displayed as Expected on Cart Page");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated Category Section is Displayed Unexpected on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated Category Section is not Displayed Unexpected on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,errorMsg);
+            throw e;
+        }
+    }
+
+    public void clickOnCategory(String expectedCategory){
+        String locator = CartPageEnum.XPATH_INDIVIDUAL_CATEGORY_START.getValue() + expectedCategory + CartPageEnum.XPATH_INDIVIDUAL_CATEGORY_END.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            customWait(3000);
+            scenarioDef.log(Status.PASS,"Clicked on "+expectedCategory+ " of Cart Page");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not on "+expectedCategory+" of Cart Page");
+            throw e;
+        }
+    }
 }

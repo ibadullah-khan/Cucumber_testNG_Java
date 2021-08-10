@@ -249,3 +249,14 @@ Feature: Cart Feature File
     Then User Enter "invalid.coupon" in Promo Code on Cart Page
     Then User Clicks on Add Promo Code Button
     Then User Validated "invalid.coupon.error.msg" Coupon Error Message Text
+
+  @Regression
+  Scenario: Verify Categories Section and its Redirect Toward Relevant Category
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.cart" Url
+    Then User Should Redirect Toward "shopping.cart" Page
+    Then User Validates Your Cart is Empty Section Visibility "true"
+    Then User Validates Category Section Visibility "true"
+    Then User Clicks on "running.shoes.category" Category
+    Then User Should Redirect Toward "shoebacca.running.shoes.category" Page
