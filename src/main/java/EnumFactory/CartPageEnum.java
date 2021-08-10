@@ -25,7 +25,6 @@ public enum CartPageEnum {
     XPATH_CHECKOUT_CART("//span[text()='Go to Checkout']//parent::button[not(@disabled)]"),
     XPATH_INVALID_LOGIN_ERROR("//*[@class='main-loginError-2FL']"),
     XPATH_CART_TEXT("//*[@class='cartPage-heading-1Q0']"),
-    XPATH_MEMBER_CHECKOUT_CART("//button[@class='memberCheckout memberCheckoutBtn']//*[text()='Member Checkout']"),
     XPATH_PRODUCT_TAX("//*[text()='Tax']//following-sibling::*[@class='priceSummary-price-2my']"),
     XPATH_CART_IS_EMPTY("//*[@class='cartPage-title-ISm' and text()='YOUR CART IS EMPTY']"),
     XPATH_CHANGE_SHIPPING_LINK("//*[@class='shippingSummary-btnChange-28W']"),

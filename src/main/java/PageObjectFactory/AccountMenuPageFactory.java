@@ -84,31 +84,4 @@ public class AccountMenuPageFactory extends UtilFactory{
             throw e;
         }
     }
-
-    public void eneterInvalidUsername(String username)throws Exception {
-        String locator = AccountMenuPageEnum.XPATH_ACCOUNT_MENU_USERNAME.getValue();
-        try{
-            waitFactory.waitForElementToBeClickable(locator);
-            enterString(locator,username);
-            scenarioDef.log(Status.PASS,"Entered Text: "+username+" on Username Field on Account Menu");
-        }catch (Exception e){
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Enter Text on Username Field on Account Menu");
-            throw e;
-        }
-
-    }
-
-    public void enterInvalidPassword(String password) throws Exception {
-        String locator = AccountMenuPageEnum.XPATH_ACCOUNT_MENU_PASSWORD.getValue();
-        try {
-            waitFactory.waitForElementToBeClickable(locator);
-            enterString(locator, password);
-            scenarioDef.log(Status.PASS, "Entered Text: " + password + " on Password Field on Account Menu");
-        } catch (Exception e) {
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL, "Could not Enter Text on Password Field on Account Menu");
-            throw e;
-        }
-    }
 }

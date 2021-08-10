@@ -701,7 +701,7 @@ public class MiniCartPageFactory extends UtilFactory {
         }
     }
 
-    public void clickOnMemberoutButton() {
+    public void clickOnMemberCheckoutButton() {
         String locator = MiniCartPageEnum.XPATH_MEMBER_CHECKOUT.getValue();
         try{
             waitFactory.waitForElementToBeClickable(locator);
@@ -711,22 +711,6 @@ public class MiniCartPageFactory extends UtilFactory {
             failureException = e.toString();
             scenarioDef.log(Status.FAIL,"Could not Click on Member Checkout Button on Mini Cart View");
             throw e;
-        }
-    }
-
-    public String validateLoginErrorVisibility() {
-        String locator = MiniCartPageEnum.XPATH_INVALID_LOGIN_ERROR.getValue();
-        String errorText;
-        try{
-            waitFactory.waitForElementToBeClickable(locator);
-            errorText = getText(locator);
-            scenarioDef.log(Status.PASS,"Fetched Error Text: "+ errorText +" from Mini Cart Page");
-            return errorText;
-        }catch (Exception e){
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Fetch Error Text from Mini Cart Page");
-            throw e;
-
         }
     }
 

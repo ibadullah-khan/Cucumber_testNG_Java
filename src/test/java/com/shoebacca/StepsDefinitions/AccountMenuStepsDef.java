@@ -43,11 +43,11 @@ public class AccountMenuStepsDef extends HarnessVariables{
 
     @Then("User Enters Invalid Login Username on Account Menu")
     public void userEntersInvalidLoginUsernameOnAccountMenu()throws Exception {
-        accountMenuPage.eneterInvalidUsername(INVALID_USERNAME);
+        accountMenuPage.enterUsername(INVALID_USERNAME);
     }
 
     @And("User Enters Invalid Login Password on Account Menu")
     public void userEntersInvalidLoginPasswordOnAccountMenu()throws Exception {
-        accountMenuPage.enterInvalidPassword(INVALID_PASSWORD);
+        accountMenuPage.enterPassword(INVALID_PASSWORD);
     }
 }

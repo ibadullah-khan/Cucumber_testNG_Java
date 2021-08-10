@@ -80,4 +80,20 @@ public class ProductDetailsPageFactory extends UtilFactory {
             throw e;
         }
     }
+
+    public String getProductBrand(){
+        String locator = ProductDetailsPageEnum.XPATH_PRODUCT_BRAND.getValue();
+        String productBrand;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            productBrand = getText(locator);
+            scenarioDef.log(Status.PASS,"Fetched Product Brand: "+ productBrand +" from PDP");
+            return productBrand;
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Fetch Product Brand from PDP");
+            throw e;
+        }
+
+    }
 }
