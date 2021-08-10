@@ -705,7 +705,7 @@ public class CartPageFactory extends UtilFactory {
     }
 
     public void validateCartIsEmptySectionVisibility(Boolean expectedVisibility) {
-        String locator = CartPageEnum.XPATH_CART_IS_EMPTY.getValue();
+        String locator = CartPageEnum.XPATH_CART_IS_EMPTY_TEXT.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
         try {

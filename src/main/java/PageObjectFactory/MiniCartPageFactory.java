@@ -737,4 +737,28 @@ public class MiniCartPageFactory extends UtilFactory {
             throw e;
         }
     }
+
+    public void ValidatesYourCartIsEmptyImageVisibility(boolean expectedVisibility) {
+        String locator = MiniCartPageEnum.XPATH_CART_EMPTY_IMAGE.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try {
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Cart Image Section is Displayed as Expected on Cart Page");
+            } else if (!actualVisibility && !expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Cart Image Is Empty Section is Not Displayed as Expected on Cart Page");
+            } else if (actualVisibility && !expectedVisibility) {
+                errorMsg = "Validated Cart Image Is Empty Section is Displayed Unexpected on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
+                errorMsg = "Validated Cart Image Is Empty Section is not Displayed Unexpected on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
+    }
 }
