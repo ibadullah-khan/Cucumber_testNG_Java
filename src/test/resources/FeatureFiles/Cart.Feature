@@ -236,3 +236,16 @@ Feature: Cart Feature File
     Then User Clicks on Add Promo Code Button
     Then User Validates Discount Details Visibility "false" on Summary Section of Cart Page
     Then User Validates Total Amount using "invalid" Coupon
+
+  @Regression
+  Scenario: Verify After Clicking on Checkout User is Redirected to Checkout Page
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    Then User Clicks on View Cart Button
+    Then User Should Redirect Toward "shopping.cart" Page
+    Then User Clicks Checkout Button on Cart View
+    Then User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
