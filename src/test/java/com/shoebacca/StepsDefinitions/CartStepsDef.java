@@ -246,4 +246,40 @@ public class CartStepsDef extends HarnessVariables{
             cartPage.validateRelatedProductSectionVisibility(false);
         }
     }
+
+    @Then("User Validates Related Products Visibility on Cart Page {string}")
+    public void userValidatesRelatedProductsVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            cartPage.validateRelatedProductsVisibility(true);
+        }else {
+            cartPage.validateRelatedProductsVisibility(false);
+        }
+    }
+
+    @Then("User Validates Related Product Brand Visibility on Cart Page {string}")
+    public void userValidatesRelatedProductBrandVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            cartPage.validateRelatedProductBrandVisibility(true);
+        }else {
+            cartPage.validateRelatedProductBrandVisibility(false);
+        }
+    }
+
+    @Then("User Validates Related Product Name Visibility on Cart Page {string}")
+    public void userValidatesRelatedProductNameVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            cartPage.validateRelatedProductNameVisibility(true);
+        }else {
+            cartPage.validateRelatedProductNameVisibility(false);
+        }
+    }
+
+    @Then("User Validates Related Product Price Visibility on Cart Page {string}")
+    public void userValidatesRelatedProductPriceVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            cartPage.validateRelatedProductPriceVisibility(true);
+        }else {
+            cartPage.validateRelatedProductPriceVisibility(false);
+        }
+    }
 }

@@ -604,20 +604,121 @@ public class CartPageFactory extends UtilFactory {
     }
 
     public void validateRelatedProductSectionVisibility(Boolean expectedVisibility) {
-        String locator = CartPageEnum.XPATH_RELATED_PRODUCT.getValue();
+        String locator = CartPageEnum.XPATH_RELATED_PRODUCT_SECTION.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
         try{
+            waitFactory.waitForElementToBeClickable(locator);
             actualVisibility = isVisible(locator);
             if (actualVisibility && expectedVisibility) {
                 scenarioDef.log(Status.PASS, "Validated Related Product Section is Displayed as Expected on Cart Page");
             }else if(!actualVisibility&& !expectedVisibility){
                 scenarioDef.log(Status.PASS, "Validated Related Product Section is Not Displayed as Expected on Cart Page");
             }else if (actualVisibility && !expectedVisibility){
-                errorMsg = "Validated Related Producty Section is Displayed Unexpected on Cart Page";
+                errorMsg = "Validated Related Product Section is Displayed Unexpected on Cart Page";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
             }else if (!actualVisibility && expectedVisibility){
                 errorMsg = "Validated Related Product Section is not Displayed Unexpected on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateRelatedProductsVisibility(Boolean expectedVisibility) {
+        String locator = CartPageEnum.XPATH_RELATED_PRODUCTS.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Related Products are Displayed as Expected on Cart Page");
+            }else if(!actualVisibility&& !expectedVisibility){
+                scenarioDef.log(Status.PASS, "Validated Related Products are Not Displayed as Expected on Cart Page");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated Related Products are Displayed Unexpected on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated Related Products are not Displayed Unexpected on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateRelatedProductBrandVisibility(Boolean expectedVisibility) {
+        String locator = CartPageEnum.XPATH_RELATED_PRODUCT_BRAND.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Related Product Brand is Displayed as Expected on Cart Page");
+            }else if(!actualVisibility&& !expectedVisibility){
+                scenarioDef.log(Status.PASS, "Validated Related Product Brand is Not Displayed as Expected on Cart Page");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated Related Product Brand is Displayed Unexpected on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated Related Product Brand is not Displayed Unexpected on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateRelatedProductNameVisibility(Boolean expectedVisibility) {
+        String locator = CartPageEnum.XPATH_RELATED_PRODUCT_NAME.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Related Product Name is Displayed as Expected on Cart Page");
+            }else if(!actualVisibility&& !expectedVisibility){
+                scenarioDef.log(Status.PASS, "Validated Related Product Name is Not Displayed as Expected on Cart Page");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated Related Product Name is Displayed Unexpected on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated Related Product Name is not Displayed Unexpected on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateRelatedProductPriceVisibility(Boolean expectedVisibility) {
+        String locator = CartPageEnum.XPATH_RELATED_PRODUCT_PRICE.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Related Product Price is Displayed as Expected on Cart Page");
+            }else if(!actualVisibility&& !expectedVisibility){
+                scenarioDef.log(Status.PASS, "Validated Related Product Price is Not Displayed as Expected on Cart Page");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated Related Product Price is Displayed Unexpected on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated Related Product Price is not Displayed Unexpected on Cart Page";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
             }
         }catch (Exception e) {

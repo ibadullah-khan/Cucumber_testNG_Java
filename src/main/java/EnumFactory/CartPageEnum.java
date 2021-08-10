@@ -30,7 +30,11 @@ public enum CartPageEnum {
     XPATH_SHIPPING_METHOD_END("']"),
     XPATH_SHIPPING_PRICE_START("//*[@class='shippingRadios-radioContents-GH8']/span[text()='"),
     XPATH_SHIPPING_PRICE_END("']/following-sibling::span"),
-    XPATH_RELATED_PRODUCT("//*[@class='cartPage-price_adjustments_container-aL-']"),
+    XPATH_RELATED_PRODUCT_SECTION("//*[@id='recommended-product']//div[@class='slick-root-3PZ']"),
+    XPATH_RELATED_PRODUCTS("//*[@id='recommended-product']//div[@class='slick-list']"),
+    XPATH_RELATED_PRODUCT_BRAND("(//*[@class='slick-productDetail-2lk']//*[@class='slick-brandName-3JU'])"),
+    XPATH_RELATED_PRODUCT_NAME("(//*[@class='slick-productDetail-2lk']//*[@class='slick-title-3hj'])"),
+    XPATH_RELATED_PRODUCT_PRICE("(//*[@class='slick-priceDetail-jmn'])"),
     XPATH_SHIPPING_PRICE_SUMMARY_SECTION("//*[@class='shippingSummary-shippingBar-11G']//*[@class='priceSummary-price-2my']"),
     XPATH_SHIPPING_METHOD_SUMMARY_SECTION("//*[@class='shippingSummary-shippingBar-11G']//*[@class='priceSummary-lineItemLabel-122']"),
     XPATH_TOTAL_AMOUNT("//*[@class='priceSummary-summaryOpener-YIL']//*[@class='priceSummary-totalPrice---h priceSummary-price-2my']");
