@@ -1015,26 +1015,26 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
-    public void validateInvalidCouponErrorMessageVisibility(Boolean expectedVisibility) {
+    public void validateErrorMsgText(String expectedErrorMsgText){
         String locator = CartPageEnum.XPATH_INVALID_COUPON_ERROR_MESSAGE.getValue();
         String errorMsg = null;
-        Boolean actualVisibility;
+        String actualText;
         try{
-            actualVisibility = isVisible(locator);
-            if (actualVisibility && expectedVisibility) {
-                scenarioDef.log(Status.PASS, "Validated Invalid Coupon Error Message is Displayed as Expected on Cart Page");
-            }else if(!actualVisibility&& !expectedVisibility){
-                scenarioDef.log(Status.PASS, "Validated Invalid Coupon Error Message is Not Displayed as Expected on Cart Page");
-            }else if (actualVisibility && !expectedVisibility){
-                errorMsg = "Validated Invalid Coupon Error Message is Displayed Unexpected on Cart Page";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
-            }else if (!actualVisibility && expectedVisibility){
-                errorMsg = "Validated Invalid Coupon Error Message is not Displayed Unexpected on Cart Page";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            waitFactory.waitForElementToBeClickable(locator);
+            actualText = getText(locator).trim();
+            if (actualText.contains(expectedErrorMsgText)){
+                scenarioDef.log(Status.PASS,"Validated Error Message on Summary Section of Cart Page as Expected: "+expectedErrorMsgText);
+            }else {
+                errorMsg = "Could not validate Error Message on Summary Section of Cart Page as Expected: "+expectedErrorMsgText+" , Actual Value: "+actualText;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
             }
-        }catch (Exception e) {
+        }catch (Exception e){
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,errorMsg);
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL,"Unable to get the Error Message Element on Summary Section of Cart Page");
+            }else {
+                scenarioDef.log(Status.FAIL,errorMsg);
+            }
             throw e;
         }
     }

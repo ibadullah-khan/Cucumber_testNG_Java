@@ -300,12 +300,9 @@ public class CartStepsDef extends HarnessVariables{
         cartPage.validateTotalAmountAfterUsingCoupon(couponStatus);
     }
 
-    @Then("User Validates Invalid Coupon Code Error Message Visibility {string}")
-    public void userValidatesInvalidCouponCodeErrorMessageVisibility(String expectedCondition) {
-        if(expectedCondition.equals("true")){
-            cartPage.validateInvalidCouponErrorMessageVisibility(true);
-        }else {
-            cartPage.validateInvalidCouponErrorMessageVisibility(false);
-        }
+    @Then("User Validated {string} Coupon Error Message Text")
+    public void userValidatedCouponErrorMessageText(String errorMsgText) throws Exception {
+        String expectedErrorMsgText= new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(errorMsgText);
+        cartPage.validateErrorMsgText(expectedErrorMsgText);
     }
 }

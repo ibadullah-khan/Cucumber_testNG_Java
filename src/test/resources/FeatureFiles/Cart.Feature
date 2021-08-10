@@ -246,7 +246,6 @@ Feature: Cart Feature File
     And User Validates Successful Triggered Mini Cart
     Then User Clicks on View Cart Button
     Then User Should Redirect Toward "shopping.cart" Page
-    Then User Validates Invalid Coupon Code Error Message Visibility "false"
     Then User Enter "invalid.coupon" in Promo Code on Cart Page
     Then User Clicks on Add Promo Code Button
-    Then User Validates Invalid Coupon Code Error Message Visibility "true"
+    Then User Validated "invalid.coupon.error.msg" Coupon Error Message Text
