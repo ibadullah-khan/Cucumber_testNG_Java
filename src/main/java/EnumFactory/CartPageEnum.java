@@ -37,7 +37,7 @@ public enum CartPageEnum {
     XPATH_ADD_COUPON_BUTTON("//*[@class='button-content-XZ3' and text()='Add']"),
     XPATH_DISCOUNT_LABEL("//*[@class='priceSummary-priceValues-1EF']//*[contains(text(),'Discount')]"),
     XPATH_DISCOUNT_AMOUNT("(//*[contains(text(),'Discount')]//following-sibling::*[@class='priceSummary-price-2my'])[1]"),
-    XPATH_INVALID_COUPON_ERROR_MESSAGE("//*[@class='message-root-35v' and contains(text(),'No such entity')]");
+    XPATH_INVALID_COUPON_ERROR_MESSAGE("//*[@class='couponCode-entryFormError-22d couponCode-cartCoupon-3gg']//*[@class='message-root-35v']");
 
     private String cartPageVariables;
 
