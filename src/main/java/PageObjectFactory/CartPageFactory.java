@@ -753,31 +753,6 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
-    public void validateRelatedProductsVisibility(Boolean expectedVisibility) {
-        String locator = CartPageEnum.XPATH_RELATED_PRODUCTS.getValue();
-        String errorMsg = null;
-        Boolean actualVisibility;
-        try {
-            waitFactory.waitForElementToBeClickable(locator);
-            actualVisibility = isVisible(locator);
-            if (actualVisibility && expectedVisibility) {
-                scenarioDef.log(Status.PASS, "Validated Related Products are Displayed as Expected on Cart Page");
-            } else if (!actualVisibility && !expectedVisibility) {
-                scenarioDef.log(Status.PASS, "Validated Related Products are Not Displayed as Expected on Cart Page");
-            } else if (actualVisibility && !expectedVisibility) {
-                errorMsg = "Validated Related Products are Displayed Unexpected on Cart Page";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
-            } else if (!actualVisibility && expectedVisibility) {
-                errorMsg = "Validated Related Products are not Displayed Unexpected on Cart Page";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
-            }
-        } catch (Exception e) {
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL, errorMsg);
-            throw e;
-        }
-    }
-
     public void validateFirstRelatedProductVisibility(Boolean expectedVisibility) {
         String locator = CartPageEnum.XPATH_FIRST_RELATED_PRODUCT.getValue();
         String errorMsg = null;

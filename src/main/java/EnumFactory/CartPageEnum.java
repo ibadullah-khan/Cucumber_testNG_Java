@@ -33,7 +33,6 @@ public enum CartPageEnum {
     XPATH_SHIPPING_PRICE_START("//*[@class='shippingRadios-radioContents-GH8']/span[text()='"),
     XPATH_SHIPPING_PRICE_END("']/following-sibling::span"),
     XPATH_RELATED_PRODUCT_SECTION("//*[@id='recommended-product']//div[@class='slick-root-3PZ']"),
-    XPATH_RELATED_PRODUCTS("//*[@id='recommended-product']//div[@class='slick-list']"),
     XPATH_FIRST_RELATED_PRODUCT("//*[@class='slick-slides-3eP']"),
     XPATH_SECOND_RELATED_PRODUCT("(//*[@class='slick-slides-3eP'])[2]"),
     XPATH_THIRD_RELATED_PRODUCT("(//*[@class='slick-slides-3eP'])[3]"),
