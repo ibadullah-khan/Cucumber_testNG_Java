@@ -19,7 +19,6 @@ public enum MiniCartPageEnum {
     XPATH_CHECKOUT_BUTTON("//*[@class='miniCart-footerCol-1P_']//*[@class='button-root_normalPriority-1xS']"),
     XPATH_PRODUCT_SECTION("//*[@class='item-root-18B']"),
     XPATH_MEMBER_CHECKOUT("//*[@class='memberCheckout memberCheckoutBtn']"),
-    XPATH_INVALID_LOGIN_ERROR("//*[@class='main-loginError-2FL']"),
     XPATH_PRODUCT_BRAND("//*[@class='item-brandName-1JN']"),
     XPATH_EDIT_BUTTON("//*[@class='miniCart-contents_open-ubc']//*[contains(text(),'Edit')]"),
     XPATH_PRODUCT_COUNT_TEXT("//*[@class='miniCart-quantity-2K5']"),

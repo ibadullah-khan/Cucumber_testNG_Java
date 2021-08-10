@@ -1,7 +1,6 @@
 package PageObjectFactory;
 
 import EnumFactory.CartPageEnum;
-import EnumFactory.ProductDetailsPageEnum;
 import UtilitiesFactory.ElementFactory;
 import UtilitiesFactory.UtilFactory;
 import com.aventstack.extentreports.Status;
@@ -1037,25 +1036,9 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
-    public String validatePageLoad() {
-        String locator = CartPageEnum.XPATH_CART_TEXT.getValue();
-        String cartText;
-        try {
-            waitFactory.waitForElementToBeClickable(locator);
-            cartText = getText(locator);
-            scenarioDef.log(Status.PASS, "Fetched Error Text: " + cartText + " from Cart Page");
-            return cartText;
-        } catch (Exception e) {
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL, "Could not Fetch Error Text from Cart Page");
-            throw e;
-
-        }
-    }
-
     public void validateErrorMessageVisibility(boolean expectedVisibility) {
         String locator = CartPageEnum.XPATH_INVALID_LOGIN_ERROR.getValue();
-        String ProductDetailslocator = ProductDetailsPageEnum.XPATH_ADD_TO_CART_BUTTON.getValue();
+        String ProductDetailslocator = CartPageEnum.XPATH_ADD_TO_CART_BUTTON.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
         try {
