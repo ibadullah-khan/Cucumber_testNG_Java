@@ -316,42 +316,6 @@ public class CartStepsDef extends HarnessVariables{
         }
     }
 
-    @Then("User Validates Second Related Product Visibility on Cart Page {string}")
-    public void userValidatesRelatedProductBrandVisibility(String expectedCondition) {
-        if(expectedCondition.equals("true")){
-            cartPage.validateSecondRelatedProductVisibility(true);
-        }else {
-            cartPage.validateSecondRelatedProductVisibility(false);
-        }
-    }
-
-    @Then("User Validates Third Related Product Visibility on Cart Page {string}")
-    public void userValidatesRelatedProductNameVisibility(String expectedCondition) {
-        if(expectedCondition.equals("true")){
-            cartPage.validateThirdRelatedProductVisibility(true);
-        }else {
-            cartPage.validateThirdRelatedProductVisibility(false);
-        }
-    }
-
-    @Then("User Validates Fourth Related Product Visibility on Cart Page {string}")
-    public void userValidatesRelatedProductPriceVisibility(String expectedCondition) {
-        if(expectedCondition.equals("true")){
-            cartPage.validateFourthRelatedProductVisibility(true);
-        }else {
-            cartPage.validateFourthRelatedProductVisibility(false);
-        }
-    }
-
-    @Then("User Validates First Related Product Visibility on Cart Page {string}")
-    public void userValidatesFirstRelatedProductVisibilityOnCartPage(String expectedCondition) {
-        if(expectedCondition.equals("true")){
-            cartPage.validateFirstRelatedProductVisibility(true);
-        }else {
-            cartPage.validateFirstRelatedProductVisibility(false);
-        }
-    }
-
     @Then("User Validates UnSuccessful Login Error Visibility {string} on Cart Page")
     public void userValidatesUnSuccessfulLoginErrorVisibilityOnCartPage(String expectedCondition) {
         if(expectedCondition.equals("true")){
@@ -359,5 +323,10 @@ public class CartStepsDef extends HarnessVariables{
         }else {
             cartPage.validateErrorMessageVisibility(false);
         }
+    }
+
+    @Then("User Validates {string} Products Quantity on Cart Page")
+    public void userValidatesProductsQuantityOnCartPage(String expectedValue) {
+        cartPage.validateRelatedProductQuantity((Integer.parseInt(expectedValue)));
     }
 }
