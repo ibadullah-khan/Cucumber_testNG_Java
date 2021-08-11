@@ -3,6 +3,7 @@ package PageObjectFactory;
 import EnumFactory.CheckoutPageEnum;
 import UtilitiesFactory.UtilFactory;
 import com.aventstack.extentreports.Status;
+import org.openqa.selenium.NoSuchContextException;
 
 public class CheckoutPageFactory extends UtilFactory {
 
@@ -191,6 +192,45 @@ public class CheckoutPageFactory extends UtilFactory {
         }catch (Exception e){
             failureException = e.toString();
             scenarioDef.log(Status.FAIL,"Could not Select State on Checkout Page");
+            throw e;
+        }
+    }
+
+    public String getTaxValue(){
+        String locator = CheckoutPageEnum.XPATH_TAX_VALUE.getValue();
+        String taxvalue;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            taxvalue = getText(locator);
+            scenarioDef.log(Status.PASS,"Fetched Tax Value: "+ taxvalue +" from Checkout");
+            return taxvalue;
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Fetch Tax Value from Checkout");
+            throw e;
+        }
+    }
+
+    public void validateTaxValue(String expectedText){
+        String locator = CheckoutPageEnum. XPATH_TAX_VALUE.getValue();
+        String errorMsg = null;
+        String actualText;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            actualText = getText(locator).trim();
+            if (actualText.contains(expectedText)){
+                scenarioDef.log(Status.PASS,"Validated Tax on Checkout as Expected: "+expectedText);
+            }else {
+                errorMsg = "Could not validate Tax on Checkout as Expected: "+expectedText+" , Actual Value: "+actualText;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        }catch (Exception e){
+            failureException = e.toString();
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL,"Unable to get the Tax Element on Checkout");
+            }else {
+                scenarioDef.log(Status.FAIL,errorMsg);
+            }
             throw e;
         }
     }
