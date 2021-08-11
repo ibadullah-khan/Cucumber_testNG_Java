@@ -300,7 +300,6 @@ Feature: Cart Feature File
     Then User Clicks on "western.category" Category
     Then User Should Redirect Toward "western.category" Page
 
-
   @Regression
   Scenario: Verify YOUR CART IS EMPTY Section Is Displayed at Empty Cart
 
@@ -312,6 +311,7 @@ Feature: Cart Feature File
 
   @Regression
   Scenario: Validate Total Savings is Calculated Accurately and it is Rounded Off
+
       Given User Setups the Web Browser
       When User Navigates to "shoebacca.first.bag.pdt" Url
       Then User Clicks Add to Cart Button on PDP
