@@ -79,4 +79,9 @@ public class HomePageStepsDef extends HarnessVariables {
     public void userRefreshThePage() {
         refreshPage();
     }
+
+    @Then("User Navigate to Back Page")
+    public void userNavigateToBackPage() {
+        navigateToBackPage();
+    }
 }

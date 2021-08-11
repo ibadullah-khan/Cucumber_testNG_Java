@@ -263,6 +263,26 @@ Feature: Cart Feature File
     Then User Clicks on Guest Checkout Button
     Then User Should Redirect Toward "shopping.checkout" Page
 
+  @Regression
+  Scenario: Verify Categories Section and its Redirect Toward Relevant Category
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.cart" Url
+    Then User Should Redirect Toward "shopping.cart" Page
+    Then User Validates Your Cart is Empty Section Visibility "true"
+    Then User Validates Category Section Visibility "true"
+    Then User Clicks on "running.shoes.category" Category
+    Then User Should Redirect Toward "running.shoes.category" Page
+    Then User Navigate to Back Page
+    Then User Clicks on "women.sandal.category" Category
+    Then User Should Redirect Toward "women.sandal.category" Page
+    Then User Navigate to Back Page
+    Then User Clicks on "men.casual.category" Category
+    Then User Should Redirect Toward "men.casual.category" Page
+    Then User Navigate to Back Page
+    Then User Clicks on "western.category" Category
+    Then User Should Redirect Toward "western.category" Page
+
 
   @Regression
   Scenario: Verify YOUR CART IS EMPTY Section Is Displayed at Empty Cart
