@@ -225,4 +225,3 @@ Feature: Mini Cart Feature File
     Then User Clicks the Login Button on Account Menu
     And User Validates Mini Cart Icon Visibility on Header "true"
     Then User Validates UnSuccessful Login Error Visibility "true" on Cart Page
-

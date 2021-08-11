@@ -310,4 +310,17 @@ public class UtilFactory {
             throw e;
         }
     }
+
+    protected void navigateToBackPage(){
+        try{
+            BrowserFactory.getDriver().navigate().back();
+            waitForPageLoad();
+            customWait(3000);
+            scenarioDef.log(Status.PASS,"Successfully Navigate to Back Page");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Unable to Navigate to Back Page");
+            throw e;
+        }
+    }
 }

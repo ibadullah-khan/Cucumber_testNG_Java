@@ -895,7 +895,7 @@ public class CartPageFactory extends UtilFactory {
             if (totalAmount == subAmount + shippingAmount) {
                 scenarioDef.log(Status.PASS, "Validate Total Amount $" + totalAmount + " is Same as Expected on Summary Section of Cart Page");
             } else {
-                errorMsg = "Validate Summary Total Amount $" + totalAmount + " is not Same as Expected on Summary Section of Cart Page";
+                errorMsg="Validate Summary Total Amount $" + totalAmount + " is not Same as Expected on Summary Section of Cart Page";
                 throw new NoSuchContextException("Actual and Expected Value Differs");
             }
         } catch (Exception e) {
@@ -1061,6 +1061,43 @@ public class CartPageFactory extends UtilFactory {
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
+            throw e;
+        }
+    }
+
+    public void validateCategorySectionVisibility(Boolean expectedVisibility) {
+        String locator = CartPageEnum.XPATH_CATEGORY_SECTION.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Category Section is Displayed as Expected on Cart Page");
+            }else if(!actualVisibility&& !expectedVisibility){
+                scenarioDef.log(Status.PASS, "Validated Category Section is Not Displayed as Expected on Cart Page");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated Category Section is Displayed Unexpected on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated Category Section is not Displayed Unexpected on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,errorMsg);
+            throw e;
+        }
+    }
+
+    public void clickOnCategory(String expectedCategory){
+        String locator = CartPageEnum.XPATH_INDIVIDUAL_CATEGORY_START.getValue() + expectedCategory + CartPageEnum.XPATH_INDIVIDUAL_CATEGORY_END.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS,"Clicked on "+expectedCategory+ " of Cart Page");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not on "+expectedCategory+" of Cart Page");
             throw e;
         }
     }
