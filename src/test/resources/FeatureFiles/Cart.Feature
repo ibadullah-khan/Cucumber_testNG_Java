@@ -299,3 +299,13 @@ Feature: Cart Feature File
     Then User Navigate to Back Page
     Then User Clicks on "western.category" Category
     Then User Should Redirect Toward "western.category" Page
+
+
+  @Regression
+  Scenario: Verify YOUR CART IS EMPTY Section Is Displayed at Empty Cart
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.cart" Url
+    Then User Validates Your Cart is Empty Section Visibility "true"
+    And User Validates "empty.cart.text" Displayed on Cart Page
+    And User Validates "shoebacca.alt" Image on Cart Page
