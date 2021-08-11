@@ -1068,7 +1068,6 @@ public class CartPageFactory extends UtilFactory {
         try{
             waitFactory.waitForElementToBeClickable(locator);
             click(locator);
-            customWait(3000);
             scenarioDef.log(Status.PASS,"Clicked on "+expectedCategory+ " of Cart Page");
         }catch (Exception e){
             failureException = e.toString();

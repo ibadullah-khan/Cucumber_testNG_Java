@@ -259,4 +259,13 @@ Feature: Cart Feature File
     Then User Validates Your Cart is Empty Section Visibility "true"
     Then User Validates Category Section Visibility "true"
     Then User Clicks on "running.shoes.category" Category
-    Then User Should Redirect Toward "shoebacca.running.shoes.category" Page
+    Then User Should Redirect Toward "running.shoes.category" Page
+    Then User Navigate to Back Page
+    Then User Clicks on "women.sandal.category" Category
+    Then User Should Redirect Toward "women.sandal.category" Page
+    Then User Navigate to Back Page
+    Then User Clicks on "men.casual.category" Category
+    Then User Should Redirect Toward "men.casual.category" Page
+    Then User Navigate to Back Page
+    Then User Clicks on "western.category" Category
+    Then User Should Redirect Toward "western.category" Page
