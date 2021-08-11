@@ -224,6 +224,23 @@ Feature: Cart Feature File
     Then User Validates Your Cart is Empty Section Visibility "true"
 
   @Regression
+  Scenario: Verify Related Products Section is Displayed with Four Products on Cart Page
+
+    Given User Setups the Web Browser
+    Then User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks on View Cart Button
+    Then User Should Redirect Toward "shopping.cart" Page
+    Then User Validates Related Product Section Visibility on Cart Page "true"
+    Then User Validates "4" Related Products Quantity on Related Product Section on Cart Page
+    Then User Validates "4" Related Products Name on Related Product Section on Cart Page
+    Then User Validates "4" Related Products Brand on Related Product Section on Cart Page
+    Then User Validates "4" Related Products Price on Related Product Section on Cart Page
+
+
+
+  @Regression
   Scenario: Verify Price is not Discounted When Invalid Coupon is Entered
 
     Given User Setups the Web Browser
@@ -282,3 +299,13 @@ Feature: Cart Feature File
     Then User Navigate to Back Page
     Then User Clicks on "western.category" Category
     Then User Should Redirect Toward "western.category" Page
+
+
+  @Regression
+  Scenario: Verify YOUR CART IS EMPTY Section Is Displayed at Empty Cart
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.cart" Url
+    Then User Validates Your Cart is Empty Section Visibility "true"
+    And User Validates "empty.cart.text" Displayed on Cart Page
+    And User Validates "shoebacca.alt" Image on Cart Page
