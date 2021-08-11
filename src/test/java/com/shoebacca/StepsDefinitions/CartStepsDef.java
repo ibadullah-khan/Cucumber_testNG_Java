@@ -325,8 +325,23 @@ public class CartStepsDef extends HarnessVariables{
         }
     }
 
-    @Then("User Validates {string} Products Quantity on Cart Page")
+    @Then("User Validates {string} Related Products Quantity on Related Product Section on Cart Page")
     public void userValidatesProductsQuantityOnCartPage(String expectedValue) {
         cartPage.validateRelatedProductQuantity((Integer.parseInt(expectedValue)));
+    }
+
+    @Then("User Validates {string} Related Products Name on Related Product Section on Cart Page")
+    public void userValidatesRelatedProductsNameOnRelatedProductSectionOnCartPage(String expectedValue) {
+        cartPage.validateRelatedProductName((Integer.parseInt(expectedValue)));
+    }
+
+    @Then("User Validates {string} Related Products Brand on Related Product Section on Cart Page")
+    public void userValidatesRelatedProductsBrandOnRelatedProductSectionOnCartPage(String expectedValue) {
+        cartPage.validateRelatedProductBrand((Integer.parseInt(expectedValue)));
+    }
+
+    @Then("User Validates {string} Related Products Price on Related Product Section on Cart Page")
+    public void userValidatesRelatedProductsPriceOnRelatedProductSectionOnCartPage(String expectedValue) {
+        cartPage.validateRelatedProductPrice((Integer.parseInt(expectedValue)));
     }
 }

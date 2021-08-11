@@ -233,7 +233,11 @@ Feature: Cart Feature File
     And User Clicks on View Cart Button
     Then User Should Redirect Toward "shopping.cart" Page
     Then User Validates Related Product Section Visibility on Cart Page "true"
-    Then User Validates "4" Products Quantity on Cart Page
+    Then User Validates "4" Related Products Quantity on Related Product Section on Cart Page
+    Then User Validates "4" Related Products Name on Related Product Section on Cart Page
+    Then User Validates "4" Related Products Brand on Related Product Section on Cart Page
+    Then User Validates "4" Related Products Price on Related Product Section on Cart Page
+
 
 
   @Regression
