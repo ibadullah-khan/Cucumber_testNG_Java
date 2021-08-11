@@ -226,14 +226,5 @@ public class MiniCartStepsDef extends HarnessVariables{
     public void userClicksOnMemberCheckoutButton() {
         miniCartPage.clickOnMemberCheckoutButton();
     }
-
-    @Then("User Validates Your Cart Is Empty Image Visibility {string}")
-    public void userValidatesYourCartIsEmptyImageVisibility(String expectedCondition) {
-        if (expectedCondition.equals("true")) {
-            miniCartPage.ValidatesYourCartIsEmptyImageVisibility(true);
-        } else {
-            miniCartPage.ValidatesYourCartIsEmptyImageVisibility(false);
-        }
-    }
 }
 

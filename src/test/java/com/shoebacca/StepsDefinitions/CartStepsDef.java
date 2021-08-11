@@ -314,4 +314,16 @@ public class CartStepsDef extends HarnessVariables{
             cartPage.validateErrorMessageVisibility(false);
         }
     }
+
+    @And("User Validates {string} Displayed on Cart Page")
+    public void userValidatesDisplayedOnCartPage(String expectedValue)throws Exception {
+        String expectedErrorMsgText= new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(expectedValue);
+        cartPage.validateEmptyCartTextOnCart(expectedErrorMsgText);
+    }
+
+    @And("User Validates {string} Image on Cart Page")
+    public void userValidatesImageOnCartPage(String expectedValue)throws Exception {
+        String expectedErrorMsgText= new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(expectedValue);
+        cartPage.validateImageOnCart(expectedErrorMsgText);
+    }
 }

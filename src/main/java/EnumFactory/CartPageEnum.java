@@ -27,7 +27,7 @@ public enum CartPageEnum {
     XPATH_ADD_TO_CART_BUTTON("//*[@id='productFullDetail']//*[@class='button-root_highPriority-3-H']"),
     XPATH_PRODUCT_TAX("//*[text()='Tax']//following-sibling::*[@class='priceSummary-price-2my']"),
     XPATH_CART_IS_EMPTY("//*[@class='cartPage-title-ISm' and text()='YOUR CART IS EMPTY']"),
-    XPATH_CART_IS_EMPTY_TEXT("//strong[contains(text(),'YOUR CART IS')]"),
+    XPATH_IMG_ATT("//*[@class='cartPage-emptyCartImage-30f']//img"),
     XPATH_CHANGE_SHIPPING_LINK("//*[@class='shippingSummary-btnChange-28W']"),
     XPATH_SHIPPING_METHOD_START("//*[@class='shippingRadios-radioContents-GH8']/span[text()='"),
     XPATH_SHIPPING_METHOD_END("']"),

@@ -225,12 +225,3 @@ Feature: Mini Cart Feature File
     Then User Clicks the Login Button on Account Menu
     And User Validates Mini Cart Icon Visibility on Header "true"
     Then User Validates UnSuccessful Login Error Visibility "true" on Cart Page
-
-  @Regression
-  Scenario: Verify YOUR CART IS EMPTY Section Is Displayed at Empty Cart
-
-    Given User Setups the Web Browser
-    When User Navigates to "shoebacca.first.bag.pdt" Url
-    And User Clicks the Mini Cart Icon on Header
-    Then User Validates Your Cart Is Empty Image Visibility "true"
-    Then User Validates Your Cart is Empty Section Visibility "true"

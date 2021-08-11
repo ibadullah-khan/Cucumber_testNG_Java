@@ -705,7 +705,7 @@ public class CartPageFactory extends UtilFactory {
     }
 
     public void validateCartIsEmptySectionVisibility(Boolean expectedVisibility) {
-        String locator = CartPageEnum.XPATH_CART_IS_EMPTY_TEXT.getValue();
+        String locator = CartPageEnum.XPATH_CART_IS_EMPTY.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
         try {
@@ -1061,6 +1061,45 @@ public class CartPageFactory extends UtilFactory {
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
+            throw e;
+        }
+    }
+
+    public void validateEmptyCartTextOnCart(String expectedValue) {
+        String locator = CartPageEnum.XPATH_CART_IS_EMPTY.getValue();
+        String errorMsg = null;
+        String actualValue;
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            actualValue = getText(locator).trim();
+            if (actualValue.contains(expectedValue)) {
+                scenarioDef.log(Status.PASS, "Validated Cart Text is " + expectedValue + " on Cart Page");
+            } else {
+                errorMsg = "Could not validate Cart Text is: " + expectedValue + " on Cart Page, Actual Value is: " + actualValue;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
+    }
+    public void validateImageOnCart(String expectedValue) {
+        String locator = CartPageEnum.XPATH_IMG_ATT.getValue();
+        String errorMsg = null;
+        String actualValue;
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            actualValue = getAttribute(locator,"alt");
+            if (actualValue.contains(expectedValue)) {
+                scenarioDef.log(Status.PASS, "Validated Cart Image is " + expectedValue + " on Cart Page");
+            } else {
+                errorMsg = "Could not validate Cart Image is: " + expectedValue + " on Cart Page, Actual Value is: " + actualValue;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
             throw e;
         }
     }

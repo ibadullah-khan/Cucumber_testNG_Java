@@ -262,3 +262,13 @@ Feature: Cart Feature File
     Then User Clicks Checkout Button on Cart View
     Then User Clicks on Guest Checkout Button
     Then User Should Redirect Toward "shopping.checkout" Page
+
+
+  @Regression
+  Scenario: Verify YOUR CART IS EMPTY Section Is Displayed at Empty Cart
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.cart" Url
+    Then User Validates Your Cart is Empty Section Visibility "true"
+    And User Validates "empty.cart.text" Displayed on Cart Page
+    And User Validates "shoebacca.alt" Image on Cart Page
