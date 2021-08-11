@@ -90,6 +90,98 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
+    public void validateRelatedProductQuantity(int expectedValue) {
+        String locator = CartPageEnum.XPATH_RELATED_PRODUCTS.getValue();
+        String errorMsg = null;
+        List<WebElement> elements;
+        try {
+            elements = elementFactory.getElementsList(locator);
+            if (expectedValue == elements.size()) {
+                scenarioDef.log(Status.PASS, "Validated " + expectedValue + " Related Products is Displayed as Expected on Cart Page");
+            } else {
+                errorMsg = "Validated " + expectedValue + " Related Products is not Displayed as Expected on Cart Page";
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Related Products on Cart Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void validateRelatedProductName(int expectedValue) {
+        String locator = CartPageEnum.XPATH_RELATED_PRODUCTS_NAME.getValue();
+        String errorMsg = null;
+        List<WebElement> elements;
+        try {
+            elements = elementFactory.getElementsList(locator);
+            if (expectedValue == elements.size()) {
+                scenarioDef.log(Status.PASS, "Validated " + expectedValue + " Related Products Name is Displayed as Expected on Cart Page");
+            } else {
+                errorMsg = "Validated " + expectedValue + " Related Products Name is not Displayed as Expected on Cart Page";
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Related Products Name on Cart Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void validateRelatedProductBrand(int expectedValue) {
+        String locator = CartPageEnum.XPATH_RELATED_PRODUCTS_BRAND.getValue();
+        String errorMsg = null;
+        List<WebElement> elements;
+        try {
+            elements = elementFactory.getElementsList(locator);
+            if (expectedValue == elements.size()) {
+                scenarioDef.log(Status.PASS, "Validated " + expectedValue + " Related Products Brand is Displayed as Expected on Cart Page");
+            } else {
+                errorMsg = "Validated " + expectedValue + " Related Products Brand is not Displayed as Expected on Cart Page";
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Related Products Brand on Cart Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void validateRelatedProductPrice(int expectedValue) {
+        String locator = CartPageEnum.XPATH_RELATED_PRODUCTS_PRICE.getValue();
+        String errorMsg = null;
+        List<WebElement> elements;
+        try {
+            elements = elementFactory.getElementsList(locator);
+            if (expectedValue == elements.size()) {
+                scenarioDef.log(Status.PASS, "Validated " + expectedValue + " Related Products Price is Displayed as Expected on Cart Page");
+            } else {
+                errorMsg = "Validated " + expectedValue + " Related Products Price is not Displayed as Expected on Cart Page";
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Related Products Price on Cart Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
+
     public void validateQuantityOfProductAdded(String expectedValue) {
         String locator = CartPageEnum.XPATH_PRODUCT_QUANTITY.getValue();
         String errorMsg = null;
@@ -730,6 +822,31 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
+    public void validateRelatedProductSectionVisibility(Boolean expectedVisibility) {
+        String locator = CartPageEnum.XPATH_RELATED_PRODUCT_SECTION.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Related Product Section is Displayed as Expected on Cart Page");
+            } else if (!actualVisibility && !expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Related Product Section is Not Displayed as Expected on Cart Page");
+            } else if (actualVisibility && !expectedVisibility) {
+                errorMsg = "Validated Related Product Section is Displayed Unexpected on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
+                errorMsg = "Validated Related Product Section is not Displayed Unexpected on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
+    }
+
     public void clickOnChangeShippingOption() {
         String locator = CartPageEnum.XPATH_CHANGE_SHIPPING_LINK.getValue();
         try {
@@ -1122,6 +1239,45 @@ public class CartPageFactory extends UtilFactory {
                 scenarioDef.log(Status.PASS, "Saving Price " + savingamount[1] + " is Validated as Expected on Cart Page");
             } else {
                 errorMsg = "Validate Saving Price $" + savingamount[1] + " is not Same as Expected on Cart Page";
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateEmptyCartTextOnCart(String expectedValue) {
+        String locator = CartPageEnum.XPATH_CART_IS_EMPTY.getValue();
+        String errorMsg = null;
+        String actualValue;
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            actualValue = getText(locator).trim();
+            if (actualValue.contains(expectedValue)) {
+                scenarioDef.log(Status.PASS, "Validated Cart Text is " + expectedValue + " on Cart Page");
+            } else {
+                errorMsg = "Could not validate Cart Text is: " + expectedValue + " on Cart Page, Actual Value is: " + actualValue;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
+    }
+    public void validateImageOnCart(String expectedValue) {
+        String locator = CartPageEnum.XPATH_CART_EMPTY_IMAGE.getValue();
+        String errorMsg = null;
+        String actualValue;
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            actualValue = getAttribute(locator,"alt");
+            if (actualValue.contains(expectedValue)) {
+                scenarioDef.log(Status.PASS, "Validated Cart Image is " + expectedValue + " on Cart Page");
+            } else {
+                errorMsg = "Could not validate Cart Image is: " + expectedValue + " on Cart Page, Actual Value is: " + actualValue;
                 throw new NoSuchContextException("Actual and Expected Value Differs");
             }
         } catch (Exception e) {

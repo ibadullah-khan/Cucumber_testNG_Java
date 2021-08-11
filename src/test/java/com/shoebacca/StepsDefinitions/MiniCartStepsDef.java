@@ -43,9 +43,9 @@ public class MiniCartStepsDef extends HarnessVariables{
 
     @Then("User Validates Tax Label Visibility {string}")
     public void userValidatesTaxLabelVisibility(String expectedCondition) {
-        if(expectedCondition.equals("true")){
+        if (expectedCondition.equals("true")) {
             miniCartPage.validateTaxLabelVisibility(true);
-        }else {
+        } else {
             miniCartPage.validateTaxLabelVisibility(false);
         }
     }
@@ -62,7 +62,7 @@ public class MiniCartStepsDef extends HarnessVariables{
 
     @And("User Validates Mini Cart View Visibility {string}")
     public void userValidatesMiniCartViewVisibility(String expectedCondition) {
-        if(expectedCondition.equals("true")) {
+        if (expectedCondition.equals("true")) {
             miniCartPage.validateMiniCartViewVisibility(true);
         } else {
             miniCartPage.validateMiniCartViewVisibility(false);
@@ -72,7 +72,7 @@ public class MiniCartStepsDef extends HarnessVariables{
     @And("User Validates Close Button Visibility {string}")
     public void userValidatesCloseButtonVisibility(String expectedCondition) {
 
-        if(expectedCondition.equals("true")) {
+        if (expectedCondition.equals("true")) {
             miniCartPage.validateCloseButtonVisibility(true);
         } else {
             miniCartPage.validateCloseButtonVisibility(false);
@@ -81,81 +81,81 @@ public class MiniCartStepsDef extends HarnessVariables{
 
     @Then("User Validates Mini Cart Scrollability {string}")
     public void userValidatesMiniCartScrollability(String expectedCondition) {
-        if(expectedCondition.equals("true")){
+        if (expectedCondition.equals("true")) {
             miniCartPage.validateMiniCartScrollability(true);
-        }else {
+        } else {
             miniCartPage.validateMiniCartScrollability(false);
         }
     }
 
     @Then("User Validates Product Image Visibility {string}")
     public void userValidatesProductImageVisibility(String expectedCondition) {
-        if(expectedCondition.equals("true")){
-            miniCartPage.validateProductImageVisibility(1,true);
-        }else {
-            miniCartPage.validateProductImageVisibility(1,false);
+        if (expectedCondition.equals("true")) {
+            miniCartPage.validateProductImageVisibility(1, true);
+        } else {
+            miniCartPage.validateProductImageVisibility(1, false);
         }
     }
 
     @Then("User Validates Product Size Visibility {string}")
     public void userValidatesProductSizeVisibility(String expectedCondition) {
-        if(expectedCondition.equals("true")){
-            miniCartPage.validateProductSizeVisibility(1,true);
-        }else {
-            miniCartPage.validateProductSizeVisibility(1,false);
+        if (expectedCondition.equals("true")) {
+            miniCartPage.validateProductSizeVisibility(1, true);
+        } else {
+            miniCartPage.validateProductSizeVisibility(1, false);
         }
     }
 
     @Then("User Validates Product Color Visibility {string}")
     public void userValidatesProductColorVisibility(String expectedCondition) {
-        if(expectedCondition.equals("true")){
-            miniCartPage.validateProductColorVisibility(1,true);
-        }else {
-            miniCartPage.validateProductColorVisibility(1,false);
+        if (expectedCondition.equals("true")) {
+            miniCartPage.validateProductColorVisibility(1, true);
+        } else {
+            miniCartPage.validateProductColorVisibility(1, false);
         }
     }
 
     @Then("User Validates Product Remove Visibility {string}")
     public void userValidatesProductRemoveVisibility(String expectedCondition) {
-        if(expectedCondition.equals("true")){
-            miniCartPage.validateProductRemoveVisibility(1,true);
-        }else {
-            miniCartPage.validateProductRemoveVisibility(1,false);
+        if (expectedCondition.equals("true")) {
+            miniCartPage.validateProductRemoveVisibility(1, true);
+        } else {
+            miniCartPage.validateProductRemoveVisibility(1, false);
         }
     }
 
     @Then("User Validates Product Brand Visibility {string}")
     public void userValidatesProductBrandVisibility(String expectedCondition) {
-        if(expectedCondition.equals("true")){
-            miniCartPage.validateProductBrandVisibility(1,true);
-        }else {
-            miniCartPage.validateProductBrandVisibility(1,false);
+        if (expectedCondition.equals("true")) {
+            miniCartPage.validateProductBrandVisibility(1, true);
+        } else {
+            miniCartPage.validateProductBrandVisibility(1, false);
         }
     }
 
     @Then("User Validates Shipping Label Visibility {string}")
     public void userValidatesShippingLabelVisibility(String expectedCondition) {
-        if(expectedCondition.equals("true")){
+        if (expectedCondition.equals("true")) {
             miniCartPage.validateShippingLabelVisibility(true);
-        }else {
+        } else {
             miniCartPage.validateShippingLabelVisibility(false);
         }
     }
 
     @Then("User Validates View Cart Button Visibility {string}")
     public void userValidatesViewCartButtonVisibility(String expectedCondition) {
-        if(expectedCondition.equals("true")){
+        if (expectedCondition.equals("true")) {
             miniCartPage.validateViewCartButtonVisibility(true);
-        }else {
+        } else {
             miniCartPage.validateViewCartButtonVisibility(false);
         }
     }
 
     @Then("User Validates Checkout Button Visibility {string}")
     public void userValidatesCheckoutButtonVisibility(String expectedCondition) {
-        if(expectedCondition.equals("true")){
+        if (expectedCondition.equals("true")) {
             miniCartPage.validateCheckoutButtonVisibility(true);
-        }else {
+        } else {
             miniCartPage.validateCheckoutButtonVisibility(false);
         }
     }
@@ -172,10 +172,10 @@ public class MiniCartStepsDef extends HarnessVariables{
 
     @Then("User Validates Mini Cart Has {string} Product's Attributes Visibility {string}")
     public void userValidatesMiniCartHasProductSAttributesVisibility(String expectedNumber, String expectedCondition) {
-        if(expectedCondition.equals("true")){
-            miniCartPage.validateAllProductsAttributesVisibility(expectedNumber,true);
-        }else {
-            miniCartPage.validateAllProductsAttributesVisibility(expectedNumber,false);
+        if (expectedCondition.equals("true")) {
+            miniCartPage.validateAllProductsAttributesVisibility(expectedNumber, true);
+        } else {
+            miniCartPage.validateAllProductsAttributesVisibility(expectedNumber, false);
         }
     }
 
@@ -191,9 +191,9 @@ public class MiniCartStepsDef extends HarnessVariables{
 
     @Then("User Validates Edit Product Quantity Button Visibility {string}")
     public void userValidatesEditProductVisibility(String expectedCondition) {
-        if(expectedCondition.equals("true")){
+        if (expectedCondition.equals("true")) {
             miniCartPage.validateEditQuantityVisibility(true);
-        }else {
+        } else {
             miniCartPage.validateEditQuantityVisibility(false);
         }
     }
@@ -205,9 +205,9 @@ public class MiniCartStepsDef extends HarnessVariables{
 
     @Then("User Validates Product Section Visibility {string} on Mini Cart View")
     public void userValidatesProductSectionVisibilityOnMiniCartView(String expectedCondition) {
-        if(expectedCondition.equals("true")){
+        if (expectedCondition.equals("true")) {
             miniCartPage.validateProductSectionVisibility(true);
-        }else {
+        } else {
             miniCartPage.validateProductSectionVisibility(false);
         }
     }
