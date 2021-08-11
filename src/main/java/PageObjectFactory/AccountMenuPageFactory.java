@@ -84,5 +84,4 @@ public class AccountMenuPageFactory extends UtilFactory{
             throw e;
         }
     }
-
 }
