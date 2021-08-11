@@ -26,7 +26,7 @@ public class ExtentReportFactory extends UtilFactory {
         htmlReporter.config().setTheme(Theme.DARK);
         htmlReporter.config().setDocumentTitle("ShoeBacca Automation Test Report");
         htmlReporter.config().setEncoding("uft-8");
-        htmlReporter.config().setReportName("Automation Script");
+        htmlReporter.config().setReportName("ShoeBacca Automation Execution Report");
         htmlReporter.config().setTimeStampFormat("MMM dd, yyyy HH:mm:ss");
 
         extent.attachReporter(htmlReporter);

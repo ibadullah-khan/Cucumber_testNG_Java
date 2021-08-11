@@ -68,12 +68,12 @@ public class EmailReportFactory {
 //                    "  <tr>\n" +
 //                    "    <td>Passed</td>\n" +
 //                    "    <td style='color:green'>"+passed+"</td>\n" +
-//                    "    <td style='color:green'>"+(passed/(passed+failed))*100+"</td>\n" +
+//                    "    <td style='color:green'>"+(passed/(passed+failed))*100+"%</td>\n" +
 //                    "  </tr>\n" +
 //                    "  <tr>\n" +
 //                    "    <td>Failed</td>\n" +
 //                    "    <td style='color:red'>"+failed+"</td>\n" +
-//                    "    <td style='color:red'>"+(failed/(passed+failed))*100+"</td>\n" +
+//                    "    <td style='color:red'>"+(failed/(passed+failed))*100+"%</td>\n" +
 //                    "  </tr>\n" +
 //                    "</table>\n" +
 //                    "\n" +
