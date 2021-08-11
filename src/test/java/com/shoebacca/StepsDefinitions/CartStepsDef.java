@@ -329,4 +329,9 @@ public class CartStepsDef extends HarnessVariables{
         String expectedCategory= new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(categoryName);
         cartPage.clickOnCategory(expectedCategory);
     }
+
+    @Then("User Validates Discounted Amount on Cart Page")
+    public void userValidatesDiscountedAmountOnCartPage() {
+        cartPage.validateDiscountedAmount();
+    }
 }
