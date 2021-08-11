@@ -5,7 +5,9 @@ import UtilitiesFactory.PropertyLoaderFactory;
 public enum GlobalEnumVariables {
 
     VALID_LOGIN_USERNAME(""),
-    VALID_LOGIN_PASSWORD("");
+	INVALID_LOGIN_USERNAME(""),
+    VALID_LOGIN_PASSWORD(""),
+	INVALID_LOGIN_PASSWORD("");
 
     private String globalVariables;
 
@@ -24,7 +26,9 @@ public enum GlobalEnumVariables {
 	    	String userDataFile = "userData.properties";
 
             VALID_LOGIN_USERNAME.globalVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.username");
+			INVALID_LOGIN_USERNAME.globalVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("invalid.username");
             VALID_LOGIN_PASSWORD.globalVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.password");
+			INVALID_LOGIN_PASSWORD.globalVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("invalid.password");
         } catch (Exception e) {
 
             e.printStackTrace();

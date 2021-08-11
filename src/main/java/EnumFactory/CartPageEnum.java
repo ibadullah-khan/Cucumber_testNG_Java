@@ -23,6 +23,8 @@ public enum CartPageEnum {
     XPATH_REMOVE_START("//*[@class='product-name-3mh']/*[text()='"),
     XPATH_REMOVE_END("']//ancestor::div[@class='product-details-3HQ']//button[@class='product-btnRemove-16L']"),
     XPATH_CHECKOUT_CART("//span[text()='Go to Checkout']//parent::button[not(@disabled)]"),
+    XPATH_INVALID_LOGIN_ERROR("//*[@class='main-loginError-2FL']"),
+    XPATH_ADD_TO_CART_BUTTON("//*[@id='productFullDetail']//*[@class='button-root_highPriority-3-H']"),
     XPATH_PRODUCT_TAX("//*[text()='Tax']//following-sibling::*[@class='priceSummary-price-2my']"),
     XPATH_CART_IS_EMPTY("//*[@class='cartPage-title-ISm' and text()='YOUR CART IS EMPTY']"),
     XPATH_CHANGE_SHIPPING_LINK("//*[@class='shippingSummary-btnChange-28W']"),
@@ -38,7 +40,7 @@ public enum CartPageEnum {
     XPATH_DISCOUNT_LABEL("//*[@class='priceSummary-priceValues-1EF']//*[contains(text(),'Discount')]"),
     XPATH_DISCOUNT_AMOUNT("(//*[contains(text(),'Discount')]//following-sibling::*[@class='priceSummary-price-2my'])[1]"),
     XPATH_INVALID_COUPON_ERROR_MESSAGE("//*[@class='couponCode-entryFormError-22d couponCode-cartCoupon-3gg']//*[@class='message-root-35v']"),
-    XPATH_CATEGORY_SECTION("//*[@class='cmsBlock-root-2sX']"),
+    XPATH_CATEGORY_SECTION("//*[@class='cmsBlock-root-2sX']//*[@class='categories-block']"),
     XPATH_INDIVIDUAL_CATEGORY_START("//*[@class='categories-row']//*[text()=\""),
     XPATH_INDIVIDUAL_CATEGORY_END("\"]");
 

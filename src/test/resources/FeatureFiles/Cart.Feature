@@ -251,6 +251,19 @@ Feature: Cart Feature File
     Then User Validated "invalid.coupon.error.msg" Coupon Error Message Text
 
   @Regression
+  Scenario: Verify After Clicking on Checkout User is Redirected to Checkout Page
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    Then User Clicks on View Cart Button
+    Then User Should Redirect Toward "shopping.cart" Page
+    Then User Clicks Checkout Button on Cart View
+    Then User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
+
+  @Regression
   Scenario: Verify Categories Section and its Redirect Toward Relevant Category
 
     Given User Setups the Web Browser
