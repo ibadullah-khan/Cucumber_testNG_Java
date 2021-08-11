@@ -22,7 +22,6 @@ public enum MiniCartPageEnum {
     XPATH_PRODUCT_BRAND("//*[@class='item-brandName-1JN']"),
     XPATH_EDIT_BUTTON("//*[@class='miniCart-contents_open-ubc']//*[contains(text(),'Edit')]"),
     XPATH_PRODUCT_COUNT_TEXT("//*[@class='miniCart-quantity-2K5']"),
-    XPATH_CART_EMPTY_IMAGE("//*[@class='miniCart-emptyCartImage-3Pg']"),
     XPATH_PRODUCT_TAX("//*[text()='Tax']//following-sibling::*[@class='priceSummary-price-12K']");
 
 

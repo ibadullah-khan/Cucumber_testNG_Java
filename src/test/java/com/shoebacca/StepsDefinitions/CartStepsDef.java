@@ -306,6 +306,16 @@ public class CartStepsDef extends HarnessVariables{
         cartPage.validateErrorMsgText(expectedErrorMsgText);
     }
 
+
+    @Then("User Validates Related Product Section Visibility on Cart Page {string}")
+    public void userValidatesRelatedProductSectionVisibilityOnCartPage(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            cartPage.validateRelatedProductSectionVisibility(true);
+        }else {
+            cartPage.validateRelatedProductSectionVisibility(false);
+        }
+    }
+
     @Then("User Validates UnSuccessful Login Error Visibility {string} on Cart Page")
     public void userValidatesUnSuccessfulLoginErrorVisibilityOnCartPage(String expectedCondition) {
         if(expectedCondition.equals("true")){
@@ -328,6 +338,26 @@ public class CartStepsDef extends HarnessVariables{
     public void userClicksOnCategory(String categoryName)  throws Exception {
         String expectedCategory= new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(categoryName);
         cartPage.clickOnCategory(expectedCategory);
+    }
+
+    @Then("User Validates {string} Related Products Quantity on Related Product Section on Cart Page")
+    public void userValidatesProductsQuantityOnCartPage(String expectedValue) {
+        cartPage.validateRelatedProductQuantity((Integer.parseInt(expectedValue)));
+    }
+
+    @Then("User Validates {string} Related Products Name on Related Product Section on Cart Page")
+    public void userValidatesRelatedProductsNameOnRelatedProductSectionOnCartPage(String expectedValue) {
+        cartPage.validateRelatedProductName((Integer.parseInt(expectedValue)));
+    }
+
+    @Then("User Validates {string} Related Products Brand on Related Product Section on Cart Page")
+    public void userValidatesRelatedProductsBrandOnRelatedProductSectionOnCartPage(String expectedValue) {
+        cartPage.validateRelatedProductBrand((Integer.parseInt(expectedValue)));
+    }
+
+    @Then("User Validates {string} Related Products Price on Related Product Section on Cart Page")
+    public void userValidatesRelatedProductsPriceOnRelatedProductSectionOnCartPage(String expectedValue) {
+        cartPage.validateRelatedProductPrice((Integer.parseInt(expectedValue)));
     }
 
     @And("User Validates {string} Displayed on Cart Page")
