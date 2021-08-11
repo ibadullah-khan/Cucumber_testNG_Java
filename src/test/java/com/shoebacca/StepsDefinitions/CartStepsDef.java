@@ -325,6 +325,21 @@ public class CartStepsDef extends HarnessVariables{
         }
     }
 
+    @Then("User Validates Category Section Visibility {string}")
+    public void userValidatesCategorySectionVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            cartPage.validateCategorySectionVisibility(true);
+        }else {
+            cartPage.validateCategorySectionVisibility(false);
+        }
+    }
+
+    @Then("User Clicks on {string} Category")
+    public void userClicksOnCategory(String categoryName)  throws Exception {
+        String expectedCategory= new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(categoryName);
+        cartPage.clickOnCategory(expectedCategory);
+    }
+
     @Then("User Validates {string} Related Products Quantity on Related Product Section on Cart Page")
     public void userValidatesProductsQuantityOnCartPage(String expectedValue) {
         cartPage.validateRelatedProductQuantity((Integer.parseInt(expectedValue)));
