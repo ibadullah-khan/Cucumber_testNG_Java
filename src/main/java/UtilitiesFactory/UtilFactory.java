@@ -323,4 +323,10 @@ public class UtilFactory {
             throw e;
         }
     }
+
+    protected void CloseTheBrowser(){
+        clearSession();
+        BrowserFactory.getDriver().quit();
+
+    }
 }

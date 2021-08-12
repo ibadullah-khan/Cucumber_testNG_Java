@@ -328,4 +328,18 @@ Feature: Cart Feature File
     Then User Clicks on Login Button
     And User Validates Account Menu Visibility "true"
 
+  @Regression
+  Scenario: Add item to the cart close the browser and reopen the web store
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    Then User Clicks on View Cart Button
+    Then User Should Redirect Toward "shopping.cart" Page
+    Then User Validates Cart Items Quantity "1" on Cart Page
+    Then User Closes the Web Browser
+    Then User Setups the Web Browser
+    Then User Navigates to "shoebacca.cart" Url
+
 

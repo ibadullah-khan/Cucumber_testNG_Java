@@ -84,4 +84,9 @@ public class HomePageStepsDef extends HarnessVariables {
     public void userNavigateToBackPage() {
         navigateToBackPage();
     }
+
+    @Then("User Closes the Web Browser")
+    public void userClosesTheBrowser() {
+        CloseTheBrowser();
+    }
 }
