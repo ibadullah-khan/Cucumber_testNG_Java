@@ -1257,4 +1257,52 @@ public class CartPageFactory extends UtilFactory {
             throw e;
         }
     }
+
+    public void validateProductSectionLeftSideSLiderVisibility(Boolean expectedVisibility) {
+        String locator = CartPageEnum.XPATH_RELATED_PRODUCT_SECTION_LEFT_SLIDER.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Product Section Left Side Slider is Displayed as Expected on Cart Page");
+            }else if(!actualVisibility&& !expectedVisibility){
+                scenarioDef.log(Status.PASS, "Validated Product Section Left Side Slider is Not Displayed as Expected on Cart Page");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated Product Section Left Side Slider is Displayed Unexpected on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated Product Section Left Side Slider is not Displayed Unexpected on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateProductSectionRightSideSLiderVisibility(Boolean expectedVisibility) {
+        String locator = CartPageEnum.XPATH_RELATED_PRODUCT_SECTION_RIGHT_SLIDER.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Product Section Right Side Slider is Displayed as Expected on Cart Page");
+            }else if(!actualVisibility&& !expectedVisibility){
+                scenarioDef.log(Status.PASS, "Validated Product Section Right Side Slider is Not Displayed as Expected on Cart Page");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated Product Section Right Side Slider is Displayed Unexpected on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated Product Section Right Side Slider is not Displayed Unexpected on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,errorMsg);
+            throw e;
+        }
+    }
 }
