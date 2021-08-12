@@ -4,6 +4,7 @@ import EnumFactory.CartPageEnum;
 import UtilitiesFactory.ElementFactory;
 import UtilitiesFactory.UtilFactory;
 import com.aventstack.extentreports.Status;
+import org.apache.velocity.runtime.directive.Parse;
 import org.openqa.selenium.NoSuchContextException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
@@ -1226,19 +1227,22 @@ public class CartPageFactory extends UtilFactory {
         String oldAmountLocator = CartPageEnum.XPATH_PRODUCT_OLD_PRICE.getValue();
         String SavingLocator = CartPageEnum.XPATH_PRODUCT_SAVING_PRICE.getValue();
         String errorMsg = null;
-        waitFactory.waitForElementToBeClickable(newAmountLocator);
-        String[] newamount = getAttribute(newAmountLocator, "textContent").split("\\$");
-        String[] oldamount = getAttribute(oldAmountLocator, "textContent").split("[^0-9.]");
-        String[] savingamount = getAttribute(SavingLocator, "textContent").split("\\$");
         try {
-            Float getval = Float.parseFloat(oldamount[1]) - Float.parseFloat(newamount[1]);
+            waitFactory.waitForElementToBeClickable(newAmountLocator);
+            String newamount=getAttribute(newAmountLocator,"textContent").replaceAll("\\$","");
+            String oldamountreplace=getAttribute(oldAmountLocator,"textContent").replaceAll("\\$","");
+            oldamountreplace=oldamountreplace.replaceAll("/ea","");
+            String savingamount=getAttribute(SavingLocator,"textContent").replaceAll("Save","");
+            savingamount=savingamount.replaceAll("\\W","");
+            savingamount=savingamount.replaceAll("\\$","");
+            Float getval = Float.parseFloat(oldamountreplace)- Float.parseFloat(newamount);
             int finalVal = Math.round(getval);
-            String fetchValue = savingamount[1];
+            String fetchValue = savingamount;
             String expectedvalue = String.valueOf(finalVal);
             if (expectedvalue.contentEquals(fetchValue) ) {
-                scenarioDef.log(Status.PASS, "Saving Price " + savingamount[1] + " is Validated as Expected on Cart Page");
+                scenarioDef.log(Status.PASS, "Saving Price " + savingamount + " is Validated as Expected on Cart Page");
             } else {
-                errorMsg = "Validate Saving Price $" + savingamount[1] + " is not Same as Expected on Cart Page";
+                errorMsg = "Validate Saving Price $" + savingamount + " is not Same as Expected on Cart Page";
                 throw new NoSuchContextException("Actual and Expected Value Differs");
             }
         } catch (Exception e) {
