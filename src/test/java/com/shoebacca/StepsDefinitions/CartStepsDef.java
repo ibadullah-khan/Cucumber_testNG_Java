@@ -400,16 +400,7 @@ public class CartStepsDef extends HarnessVariables{
     }
 
     @Then("User Clicks on Login Button")
-    public void userClicksOnLoginButton() {
-        cartPage.clicksOnLoginButton();
-    }
-
-    @And("User Validates Login Section Visibility {string} on Sign In Popup")
-    public void userValidatesLoginSectionVisibilityOnSignInPopup(String expectedCondition) {
-        if (expectedCondition.equals("true")) {
-            cartPage.validateSignInSectionVisibility(true);
-        } else {
-            cartPage.validateSignInSectionVisibility(false);
-        }
+    public void userClicksonLoginButton() {
+        cartPage.clickOnLoginButton();
     }
 }

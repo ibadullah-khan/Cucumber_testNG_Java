@@ -1330,7 +1330,7 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
-    public void clicksOnLoginButton() {
+    public void clickOnLoginButton() {
         String locator = CartPageEnum.XPATH_CART_LOGIN_LINK.getValue();
         try{
             waitFactory.waitForElementToBeClickable(locator);
@@ -1339,30 +1339,6 @@ public class CartPageFactory extends UtilFactory {
         }catch (Exception e){
             failureException = e.toString();
             scenarioDef.log(Status.FAIL,"Could not Click on Login Link on Cart Page");
-            throw e;
-        }
-    }
-
-    public void validateSignInSectionVisibility(Boolean expectedVisibility) {
-        String locator = CartPageEnum.XPATH_SIGN_IN_SECTION.getValue();
-        String errorMsg = null;
-        Boolean actualVisibility;
-        try {
-            actualVisibility = isVisible(locator);
-            if (actualVisibility && expectedVisibility) {
-                scenarioDef.log(Status.PASS, "Validated Sign In Section is Displayed on Cart Page");
-            } else if (!actualVisibility && !expectedVisibility) {
-                scenarioDef.log(Status.PASS, "Validated Sign In Section is not Displayed as Expected on Cart Page");
-            } else if (actualVisibility && !expectedVisibility) {
-                errorMsg = "Validated Sign In Section is Displayed Unexpectedly on Cart Page";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
-            } else if (!actualVisibility && expectedVisibility) {
-                errorMsg = "Validated Sign In Section is not Displayed Unexpectedly on Cart Page";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
-            }
-        } catch (Exception e) {
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL, errorMsg);
             throw e;
         }
     }

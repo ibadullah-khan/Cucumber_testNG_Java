@@ -326,6 +326,6 @@ Feature: Cart Feature File
     When User Navigates to "shoebacca.cart" Url
     And User Validates Login Link Visibility on Cart Page "true"
     Then User Clicks on Login Button
-    And User Validates Login Section Visibility "true" on Sign In Popup
+    And User Validates Account Menu Visibility "true"
 
 
