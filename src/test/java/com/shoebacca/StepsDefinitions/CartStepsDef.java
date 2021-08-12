@@ -389,4 +389,18 @@ public class CartStepsDef extends HarnessVariables{
             cartPage.validateProductSectionRightSideSLiderVisibility(false);
         }
     }
+
+    @And("User Validates Login Link Visibility on Cart Page {string}")
+    public void userValidatesLoginLinkVisibilityOnCartPage(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            cartPage.validateLoginLinkVisibility(true);
+        }else {
+            cartPage.validateLoginLinkVisibility(false);
+        }
+    }
+
+    @Then("User Clicks on Login Button")
+    public void userClicksonLoginButton() {
+        cartPage.clickOnLoginButton();
+    }
 }
