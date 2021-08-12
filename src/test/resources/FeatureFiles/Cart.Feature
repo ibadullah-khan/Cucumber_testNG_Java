@@ -309,3 +309,13 @@ Feature: Cart Feature File
     Then User Validates Your Cart is Empty Section Visibility "true"
     And User Validates "empty.cart.text" Displayed on Cart Page
     And User Validates "shoebacca.alt" Image on Cart Page
+
+  @Regression
+  Scenario: Verify Related Product Carousal Section Should Display
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.cart" Url
+    Then User Should Redirect Toward "shopping.cart" Page
+    Then User Validates Related Product Section Visibility on Cart Page "true"
+    Then User Validates Left Side Slider of Product Section Visibility "true"
+    Then User Validates Right Side Slider of Product Section Visibility "true"

@@ -371,4 +371,22 @@ public class CartStepsDef extends HarnessVariables{
         String expectedErrorMsgText= new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(expectedValue);
         cartPage.validateImageOnCart(expectedErrorMsgText);
     }
+
+    @Then("User Validates Left Side Slider of Product Section Visibility {string}")
+    public void userValidatesLeftSideSliderOfProductSectionVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            cartPage.validateProductSectionLeftSideSLiderVisibility(true);
+        }else {
+            cartPage.validateProductSectionLeftSideSLiderVisibility(false);
+        }
+    }
+
+    @Then("User Validates Right Side Slider of Product Section Visibility {string}")
+    public void userValidatesRightSideSliderOfProductSectionVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            cartPage.validateProductSectionRightSideSLiderVisibility(true);
+        }else {
+            cartPage.validateProductSectionRightSideSLiderVisibility(false);
+        }
+    }
 }
