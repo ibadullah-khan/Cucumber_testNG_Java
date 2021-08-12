@@ -329,3 +329,12 @@ Feature: Cart Feature File
     And User Validates Account Menu Visibility "true"
 
 
+  @Regression
+  Scenario: Verify the Home link is redirecting to home page
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.cart" Url
+    Then User Should Redirect Toward "shopping.cart" Page
+    And User Validates Home Link Visibility on Cart Page "true"
+    Then User Clicks on Home Button on Cart Page
+    Then User Should Redirect Toward "shopping.home" Page

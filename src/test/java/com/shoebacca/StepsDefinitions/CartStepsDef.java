@@ -403,4 +403,18 @@ public class CartStepsDef extends HarnessVariables{
     public void userClicksonLoginButton() {
         cartPage.clickOnLoginButton();
     }
+
+    @And("User Validates Home Link Visibility on Cart Page {string}")
+    public void userValidatesHomeLinkVisibilityOnCartPage(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            cartPage.validateHomeLinkVisibility(true);
+        }else {
+            cartPage.validateHomeLinkVisibility(false);
+        }
+    }
+
+    @Then("User Clicks on Home Button on Cart Page")
+    public void userClicksOnHomeButtonOnCartPage() {
+        cartPage.clickOnHomeButton();
+    }
 }
