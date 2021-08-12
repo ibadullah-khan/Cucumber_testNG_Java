@@ -7,6 +7,9 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import java.io.IOException;
 
+import static UtilitiesFactory.EmailReportFactory.failed;
+import static UtilitiesFactory.EmailReportFactory.passed;
+
 public class ExtentReportFactory extends UtilFactory {
 
     String fileName = reportLocation + "extentreport.html";
@@ -23,7 +26,7 @@ public class ExtentReportFactory extends UtilFactory {
         htmlReporter.config().setTheme(Theme.DARK);
         htmlReporter.config().setDocumentTitle("ShoeBacca Automation Test Report");
         htmlReporter.config().setEncoding("uft-8");
-        htmlReporter.config().setReportName("Automation Script");
+        htmlReporter.config().setReportName("ShoeBacca Automation Execution Report");
         htmlReporter.config().setTimeStampFormat("MMM dd, yyyy HH:mm:ss");
 
         extent.attachReporter(htmlReporter);
@@ -31,7 +34,7 @@ public class ExtentReportFactory extends UtilFactory {
     }
 
     public void ExtentFailStep() throws IOException {
-
+            failed++;
             scenarioDef.log(Status.FAIL,
                 "<details>" + "<summary> <b> <font color=red> Cause of Failure: </b> "
                         + "</font>" + "</summary>"
@@ -40,7 +43,7 @@ public class ExtentReportFactory extends UtilFactory {
     }
 
     public void ExtentPassStep() throws IOException {
-
+            passed++;
             scenarioDef.log(Status.PASS,
                 "<summary> <b> <font color=green> Test Passed: </b> "
                         + "</font>" + "</summary>"

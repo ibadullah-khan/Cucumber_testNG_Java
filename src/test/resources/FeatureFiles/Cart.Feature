@@ -310,6 +310,16 @@ Feature: Cart Feature File
     And User Validates "shoebacca.alt" Image on Cart Page
 
   @Regression
+  Scenario: Verify Related Product Carousal Section Should Display
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.cart" Url
+    Then User Should Redirect Toward "shopping.cart" Page
+    Then User Validates Related Product Section Visibility on Cart Page "true"
+    Then User Validates Left Side Slider of Product Section Visibility "true"
+    Then User Validates Right Side Slider of Product Section Visibility "true"
+
+  @Regression
   Scenario: Verify Login Link Should Open The Login Popup For Guest User
 
     Given User Setups the Web Browser

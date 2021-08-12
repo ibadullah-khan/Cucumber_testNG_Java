@@ -1,6 +1,7 @@
 package Runner;
 
 import UtilitiesFactory.BrowserFactory;
+import UtilitiesFactory.EmailReportFactory;
 import UtilitiesFactory.ExtentReportFactory;
 import com.aventstack.extentreports.gherkin.model.Feature;
 import org.testng.ITestContext;
@@ -17,6 +18,8 @@ import static UtilitiesFactory.UtilFactory.features;
 public class TestRunnerListener implements ITestListener {
 
     ExtentReportFactory extentReport = new ExtentReportFactory();
+    EmailReportFactory emailReport = new EmailReportFactory();
+
     private final BrowserFactory browserFactoryInstance = BrowserFactory.getInstance();
 
     public TestRunnerListener() throws Exception {
@@ -56,6 +59,7 @@ public class TestRunnerListener implements ITestListener {
     @Override
     public void onFinish(ITestContext iTestContext) {
         extentReport.FlushReport();
+        emailReport.EmailReporter();
 
         if(getDriver()!=null){
             getDriver().quit();
