@@ -300,7 +300,6 @@ Feature: Cart Feature File
     Then User Clicks on "western.category" Category
     Then User Should Redirect Toward "western.category" Page
 
-
   @Regression
   Scenario: Verify YOUR CART IS EMPTY Section Is Displayed at Empty Cart
 
@@ -309,3 +308,14 @@ Feature: Cart Feature File
     Then User Validates Your Cart is Empty Section Visibility "true"
     And User Validates "empty.cart.text" Displayed on Cart Page
     And User Validates "shoebacca.alt" Image on Cart Page
+
+  @Regression
+  Scenario: Verify Login Link Should Open The Login Popup For Guest User
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.cart" Url
+    And User Validates Login Link Visibility on Cart Page "true"
+    Then User Clicks on Login Button
+    And User Validates Login Section Visibility "true" on Sign In Popup
+
+

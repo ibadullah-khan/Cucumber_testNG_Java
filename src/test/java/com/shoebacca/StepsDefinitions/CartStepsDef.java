@@ -371,4 +371,27 @@ public class CartStepsDef extends HarnessVariables{
         String expectedErrorMsgText= new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(expectedValue);
         cartPage.validateImageOnCart(expectedErrorMsgText);
     }
+
+    @And("User Validates Login Link Visibility on Cart Page {string}")
+    public void userValidatesLoginLinkVisibilityOnCartPage(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            cartPage.validateLoginLinkVisibility(true);
+        }else {
+            cartPage.validateLoginLinkVisibility(false);
+        }
+    }
+
+    @Then("User Clicks on Login Button")
+    public void userClicksOnLoginButton() {
+        cartPage.clicksOnLoginButton();
+    }
+
+    @And("User Validates Login Section Visibility {string} on Sign In Popup")
+    public void userValidatesLoginSectionVisibilityOnSignInPopup(String expectedCondition) {
+        if (expectedCondition.equals("true")) {
+            cartPage.validateSignInSectionVisibility(true);
+        } else {
+            cartPage.validateSignInSectionVisibility(false);
+        }
+    }
 }
