@@ -45,6 +45,11 @@ public class PDPStepsDef extends HarnessVariables{
     public void userFetchesProductBrandFromPDP() {
         PRODUCT_BRAND=productDetailsPage.getProductBrand();
     }
+
+    @And("User Select Product Size from PDP")
+    public void userSelectProductSizeFromPDP() {
+        productDetailsPage.SelectProductSize();
+    }
 }
 
 

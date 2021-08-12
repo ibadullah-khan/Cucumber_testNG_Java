@@ -403,4 +403,22 @@ public class CartStepsDef extends HarnessVariables{
     public void userClicksonLoginButton() {
         cartPage.clickOnLoginButton();
     }
+
+    @And("User Validates Product Discount Price Visibility {string}")
+    public void userValidatesProductDiscountPriceVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            cartPage.validateDiscountPriceVisibility(true);
+        }else {
+            cartPage.validateDiscountPriceVisibility(false);
+        }
+    }
+
+    @And("User Validates Product Save Price Visibility {string}")
+    public void userValidatesProductSavePriceVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            cartPage.validateProductSavePriceVisibility(true);
+        }else {
+            cartPage.validateProductSavePriceVisibility(false);
+        }
+    }
 }

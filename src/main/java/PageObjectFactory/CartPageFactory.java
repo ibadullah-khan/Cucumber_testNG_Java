@@ -1342,4 +1342,52 @@ public class CartPageFactory extends UtilFactory {
             throw e;
         }
     }
+
+    public void validateDiscountPriceVisibility(boolean expectedVisibility) {
+        String locator = CartPageEnum.PATH_PRODUCT_DISCOUNT_PRICE.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try {
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Product Discount Amount is Displayed on Cart Page");
+            } else if (!actualVisibility && !expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Product Discount Amount is not Displayed as Expected on Cart Page");
+            } else if (actualVisibility && !expectedVisibility) {
+                errorMsg = "Validated Product Discount Amount is Displayed Unexpectedly on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
+                errorMsg = "Validated Product Discount Amount is not Displayed Unexpectedly on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateProductSavePriceVisibility(boolean expectedVisibility) {
+        String locator = CartPageEnum.PATH_PRODUCT_SAVE_PRICE.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try {
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Product Save Amount is Displayed on Cart Page");
+            } else if (!actualVisibility && !expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Product Save Amount is not Displayed as Expected on Cart Page");
+            } else if (actualVisibility && !expectedVisibility) {
+                errorMsg = "Validated Product Save Amount is Displayed Unexpectedly on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
+                errorMsg = "Validated Product Save Amount is not Displayed Unexpectedly on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
+    }
 }
