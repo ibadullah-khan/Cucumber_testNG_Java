@@ -96,15 +96,15 @@ public class ProductDetailsPageFactory extends UtilFactory {
         }
     }
 
-    public void SelectProductSize() {
-        String locator = ProductDetailsPageEnum.XPATH_SELECT_PRODUCT_SIZE.getValue();
+    public void SelectFirstAvailableProductSize() {
+        String locator = ProductDetailsPageEnum.XPATH_SELECT_FIRST_AVAILABLE_PRODUCT_SIZE.getValue();
         try {
             waitFactory.waitForElementToBeClickable(locator);
             click(locator);
-            scenarioDef.log(Status.PASS, "Clicked on Add to Cart Button on PDP");
+            scenarioDef.log(Status.PASS, "Clicked on Add to First Available Size Button on PDP");
         } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL, "Could not Click on Add to Cart Button on PDP");
+            scenarioDef.log(Status.FAIL, "Could not Click on First Available Size Button on PDP");
             throw e;
         }
     }

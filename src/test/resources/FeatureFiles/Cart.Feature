@@ -333,14 +333,14 @@ Feature: Cart Feature File
 
     Given User Setups the Web Browser
     When User Navigates to "shoebacca.sale.pdt" Url
-    And User Fetches Product Price from PDP
-    And User Select Product Size from PDP
+    And User Select First Available Product Size from PDP
     And User Clicks Add to Cart Button on PDP
     And User Validates Successful Triggered Mini Cart
     Then User Clicks on View Cart Button
     And User Should Redirect Toward "shopping.cart" Page
-    Then User Validates Product Price in Cart
-    And User Validates Product Discount Price Visibility "true"
-    And User Validates Product Save Price Visibility "true"
+    And User Validates Successful Triggered on Cart Page
+    Then User Validates Product Price Visibility "true" on Cart Page
+    And User Validates Product Discount Price Visibility "true" on Cart Page
+    And User Validates Product Save Price Visibility "true" on Cart Page
 
 

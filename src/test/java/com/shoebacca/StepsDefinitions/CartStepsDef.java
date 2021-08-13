@@ -404,8 +404,8 @@ public class CartStepsDef extends HarnessVariables{
         cartPage.clickOnLoginButton();
     }
 
-    @And("User Validates Product Discount Price Visibility {string}")
-    public void userValidatesProductDiscountPriceVisibility(String expectedCondition) {
+    @And("User Validates Product Discount Price Visibility {string} on Cart Page")
+    public void userValidatesProductDiscountPriceVisibilityOnCartPage(String expectedCondition) {
         if(expectedCondition.equals("true")){
             cartPage.validateDiscountPriceVisibility(true);
         }else {
@@ -413,12 +413,26 @@ public class CartStepsDef extends HarnessVariables{
         }
     }
 
-    @And("User Validates Product Save Price Visibility {string}")
-    public void userValidatesProductSavePriceVisibility(String expectedCondition) {
+    @And("User Validates Product Save Price Visibility {string} on Cart Page")
+    public void userValidatesProductSavePriceVisibilityOnCartPage(String expectedCondition) {
         if(expectedCondition.equals("true")){
             cartPage.validateProductSavePriceVisibility(true);
         }else {
             cartPage.validateProductSavePriceVisibility(false);
+        }
+    }
+
+    @And("User Validates Successful Triggered on Cart Page")
+    public void userValidatesSuccessfulTriggeredOnCartPage() {
+        cartPage.validateCartTriggered();
+    }
+
+    @Then("User Validates Product Price Visibility {string} on Cart Page")
+    public void userValidatesProductPriceVisibilityOnCartPage(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            cartPage.validatePriceVisibility(true);
+        }else {
+            cartPage.validatePriceVisibility(false);
         }
     }
 }

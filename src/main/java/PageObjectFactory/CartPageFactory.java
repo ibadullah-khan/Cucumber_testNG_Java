@@ -1,6 +1,7 @@
 package PageObjectFactory;
 
 import EnumFactory.CartPageEnum;
+import EnumFactory.MiniCartPageEnum;
 import UtilitiesFactory.ElementFactory;
 import UtilitiesFactory.UtilFactory;
 import com.aventstack.extentreports.Status;
@@ -1382,6 +1383,42 @@ public class CartPageFactory extends UtilFactory {
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             } else if (!actualVisibility && expectedVisibility) {
                 errorMsg = "Validated Product Save Amount is not Displayed Unexpectedly on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateCartTriggered() {
+        String locator = CartPageEnum.XPATH_MINI_CART_VIEW.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            scenarioDef.log(Status.PASS,"Product Successfully Triggered on Cart Page");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Product Could not Successfully Trigger on Cart Page");
+            throw e;
+        }
+    }
+
+    public void validatePriceVisibility(boolean expectedVisibility) {
+        String locator = CartPageEnum.XPATH_PRODUCT_PRICE.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try {
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Product Amount is Displayed on Cart Page");
+            } else if (!actualVisibility && !expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Product Amount is not Displayed as Expected on Cart Page");
+            } else if (actualVisibility && !expectedVisibility) {
+                errorMsg = "Validated Product Amount is Displayed Unexpectedly on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
+                errorMsg = "Validated Product Amount is not Displayed Unexpectedly on Cart Page";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             }
         } catch (Exception e) {
