@@ -404,6 +404,11 @@ public class CartStepsDef extends HarnessVariables{
         cartPage.clickOnLoginButton();
     }
 
+    @Then("User Validates Discounted Amount on Cart Page")
+    public void userValidatesDiscountedAmountOnCartPage() {
+        cartPage.validateDiscountedAmount();
+    }
+
     @And("User Validates Product Discount Price Visibility {string} on Cart Page")
     public void userValidatesProductDiscountPriceVisibilityOnCartPage(String expectedCondition) {
         if(expectedCondition.equals("true")){
