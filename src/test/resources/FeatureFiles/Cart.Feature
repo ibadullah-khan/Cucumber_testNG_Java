@@ -355,3 +355,11 @@ Feature: Cart Feature File
     And User Validates Product Save Price Visibility "true" on Cart Page
 
 
+  @Regression
+  Scenario: Verify the Home link is redirecting to home page
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.cart" Url
+    And User Validates Home Link Visibility on Cart Page "true"
+    Then User Clicks on Home Button on Cart Page
+    Then User Should Redirect Toward "shopping.home" Page
