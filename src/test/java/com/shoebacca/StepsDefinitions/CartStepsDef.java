@@ -372,21 +372,21 @@ public class CartStepsDef extends HarnessVariables{
         cartPage.validateImageOnCart(expectedErrorMsgText);
     }
 
-    @Then("User Validates Left Side Slider of Product Section Visibility {string}")
-    public void userValidatesLeftSideSliderOfProductSectionVisibility(String expectedCondition) {
+    @Then("User Validates Left Side Carousal of Product Section Visibility {string}")
+    public void userValidatesLeftSideCarousalOfProductSectionVisibility(String expectedCondition) {
         if(expectedCondition.equals("true")){
-            cartPage.validateProductSectionLeftSideSLiderVisibility(true);
+            cartPage.validateProductSectionLeftSideCarousalVisibility(true);
         }else {
-            cartPage.validateProductSectionLeftSideSLiderVisibility(false);
+            cartPage.validateProductSectionLeftSideCarousalVisibility(false);
         }
     }
 
-    @Then("User Validates Right Side Slider of Product Section Visibility {string}")
-    public void userValidatesRightSideSliderOfProductSectionVisibility(String expectedCondition) {
+    @Then("User Validates Right Side Carousal of Product Section Visibility {string}")
+    public void userValidatesRightSideCarousalOfProductSectionVisibility(String expectedCondition) {
         if(expectedCondition.equals("true")){
-            cartPage.validateProductSectionRightSideSLiderVisibility(true);
+            cartPage.validateProductSectionRightSideCarousalVisibility(true);
         }else {
-            cartPage.validateProductSectionRightSideSLiderVisibility(false);
+            cartPage.validateProductSectionRightSideCarousalVisibility(false);
         }
     }
 
@@ -402,5 +402,56 @@ public class CartStepsDef extends HarnessVariables{
     @Then("User Clicks on Login Button")
     public void userClicksonLoginButton() {
         cartPage.clickOnLoginButton();
+    }
+
+    @Then("User Validates Discounted Amount on Cart Page")
+    public void userValidatesDiscountedAmountOnCartPage() {
+        cartPage.validateDiscountedAmount();
+    }
+
+    @And("User Validates Product Discount Price Visibility {string} on Cart Page")
+    public void userValidatesProductDiscountPriceVisibilityOnCartPage(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            cartPage.validateDiscountPriceVisibility(true);
+        }else {
+            cartPage.validateDiscountPriceVisibility(false);
+        }
+    }
+
+    @And("User Validates Product Save Price Visibility {string} on Cart Page")
+    public void userValidatesProductSavePriceVisibilityOnCartPage(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            cartPage.validateProductSavePriceVisibility(true);
+        }else {
+            cartPage.validateProductSavePriceVisibility(false);
+        }
+    }
+
+    @And("User Validates Successful Triggered on Cart Page")
+    public void userValidatesSuccessfulTriggeredOnCartPage() {
+        cartPage.validateCartTriggered();
+    }
+
+    @Then("User Validates Product Price Visibility {string} on Cart Page")
+    public void userValidatesProductPriceVisibilityOnCartPage(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            cartPage.validatePriceVisibility(true);
+        }else {
+            cartPage.validatePriceVisibility(false);
+        }
+    }
+
+    @And("User Validates Home Link Visibility on Cart Page {string}")
+    public void userValidatesHomeLinkVisibilityOnCartPage(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            cartPage.validateHomeLinkVisibility(true);
+        }else {
+            cartPage.validateHomeLinkVisibility(false);
+        }
+    }
+
+    @Then("User Clicks on Home Button on Cart Page")
+    public void userClicksOnHomeButtonOnCartPage() {
+        cartPage.clickOnHomeButton();
     }
 }

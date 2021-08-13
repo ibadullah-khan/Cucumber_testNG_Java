@@ -3,6 +3,7 @@ package EnumFactory;
 public enum CartPageEnum {
 
     XPATH_ITEM_CONTAINER_HEADING_START("//li[@class='"),
+    XPATH_CART_HEADING("//*[@class='cartPage-heading-1Q0']"),
     XPATH_ITEM_CONTAINER_HEADING_END("']"),
     XPATH_ITEM_CONTAINER_CONTENT_START("//*[@class='product-productListing-2Gh']//*[@class='"),
     XPATH_ITEM_CONTAINER_CONTENT_END("']"),
@@ -13,6 +14,8 @@ public enum CartPageEnum {
     XPATH_PRODUCT_COLOUR("//*[@class='product-color-196']"),
     XPATH_PRODUCT_SIZE("//*[@class='product-variations-tXu']/dl"),
     XPATH_PRODUCT_PRICE("//*[@class='product-pricebox-3qU']/span[@class='product-price-Nq8']"),
+    XPATH_PRODUCT_OLD_PRICE("//*[@class='product-pricebox-3qU']/span[@class='product-discountPrice-1b1']"),
+    XPATH_PRODUCT_SAVING_PRICE("//*[@class='product-pricebox-3qU']/span[@class='product-save-3k6']"),
     XPATH_PRODUCT_SECTION("//*[@class='product-details-3HQ']"),
     XPATH_PRODUCT_IMAGE("//*[@class='product-imageContainer-2ws image-container-2jo']"),
     XPATH_PRODUCT_REMOVE_LINK("//*[@class='product-btnRemove-16L']"),
@@ -25,6 +28,7 @@ public enum CartPageEnum {
     XPATH_CHECKOUT_CART("//span[text()='Go to Checkout']//parent::button[not(@disabled)]"),
     XPATH_INVALID_LOGIN_ERROR("//*[@class='main-loginError-2FL']"),
     XPATH_CART_LOGIN_LINK("//*[@class='cartPage-emptyCartBox-2Z6']//*[text()='Log in']"),
+    XPATH_CART_HOME_LINK("//*[@class='cartPage-emptyCartBox-2Z6']//*[text()='Home']"),
     XPATH_ADD_TO_CART_BUTTON("//*[@id='productFullDetail']//*[@class='button-root_highPriority-3-H']"),
     XPATH_PRODUCT_TAX("//*[text()='Tax']//following-sibling::*[@class='priceSummary-price-2my']"),
     XPATH_CART_IS_EMPTY("//*[@class='cartPage-title-ISm' and text()='YOUR CART IS EMPTY']"),

@@ -316,8 +316,8 @@ Feature: Cart Feature File
     When User Navigates to "shoebacca.cart" Url
     Then User Should Redirect Toward "shopping.cart" Page
     Then User Validates Related Product Section Visibility on Cart Page "true"
-    Then User Validates Left Side Slider of Product Section Visibility "true"
-    Then User Validates Right Side Slider of Product Section Visibility "true"
+    Then User Validates Left Side Carousal of Product Section Visibility "true"
+    Then User Validates Right Side Carousal of Product Section Visibility "true"
 
   @Regression
   Scenario: Verify Login Link Should Open The Login Popup For Guest User
@@ -328,6 +328,16 @@ Feature: Cart Feature File
     Then User Clicks on Login Button
     And User Validates Account Menu Visibility "true"
 
+  @Regression
+  Scenario: Validate Total Savings is Calculated Accurately and it is Rounded Off
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.sale.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    Then User Clicks on View Cart Button
+    Then User Should Redirect Toward "shopping.cart" Page
+    Then User Validates Discounted Amount on Cart Page
   @Regression
   Scenario: Add item to the cart close the browser and reopen the web store
 
@@ -344,3 +354,38 @@ Feature: Cart Feature File
     Then User Validates Cart Items Quantity "1" on Cart Page
 
 
+  @Regression
+  Scenario: Verify Discount is Applied Automatically When Cart Price Rule Is Active and Applicable
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.sale.pdt" Url
+    And User Select First Available Product Size from PDP
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    Then User Clicks on View Cart Button
+    And User Should Redirect Toward "shopping.cart" Page
+    And User Validates Successful Triggered on Cart Page
+    Then User Validates Product Price Visibility "true" on Cart Page
+    And User Validates Product Discount Price Visibility "true" on Cart Page
+    And User Validates Product Save Price Visibility "true" on Cart Page
+
+  @Regression
+  Scenario: Verify the Home link is redirecting to home page
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.cart" Url
+    And User Validates Home Link Visibility on Cart Page "true"
+    Then User Clicks on Home Button on Cart Page
+    Then User Should Redirect Toward "shopping.home" Page
+
+  @Regression
+  Scenario: Validate Guest Customer can Continue as Guest and Lands on the Checkout Page
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks on View Cart Button
+    Then User Clicks Checkout Button on Cart View
+    Then User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
