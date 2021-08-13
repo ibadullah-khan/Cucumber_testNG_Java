@@ -247,7 +247,11 @@ public class MiniCartPageFactory extends UtilFactory {
             }
         }catch (Exception e){
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,errorMsg);
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Scroll Element on Mini Cart");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
             throw e;
         }
     }
