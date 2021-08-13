@@ -3,6 +3,7 @@ package EnumFactory;
 public enum CartPageEnum {
 
     XPATH_ITEM_CONTAINER_HEADING_START("//li[@class='"),
+    XPATH_CART_HEADING("//*[@class='cartPage-heading-1Q0']"),
     XPATH_ITEM_CONTAINER_HEADING_END("']"),
     XPATH_ITEM_CONTAINER_CONTENT_START("//*[@class='product-productListing-2Gh']//*[@class='"),
     XPATH_ITEM_CONTAINER_CONTENT_END("']"),
