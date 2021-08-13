@@ -340,7 +340,7 @@ Feature: Cart Feature File
     Then User Validates Discounted Amount on Cart Page
 
   @Regression
-  Scenario: Add item to the cart close the browser and reopen the web store
+  Scenario: Add Item to the Cart Close the Browser and Reopen the Web Store
 
     Given User Setups the Web Browser
     When User Navigates to "shoebacca.first.bag.pdt" Url
