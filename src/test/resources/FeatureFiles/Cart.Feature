@@ -329,6 +329,32 @@ Feature: Cart Feature File
     And User Validates Account Menu Visibility "true"
 
   @Regression
+  Scenario: Validate Total Savings is Calculated Accurately and it is Rounded Off
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.sale.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    Then User Clicks on View Cart Button
+    Then User Should Redirect Toward "shopping.cart" Page
+    Then User Validates Discounted Amount on Cart Page
+
+  @Regression
+  Scenario: Verify Discount is Applied Automatically When Cart Price Rule Is Active and Applicable
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.sale.pdt" Url
+    And User Select First Available Product Size from PDP
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    Then User Clicks on View Cart Button
+    And User Should Redirect Toward "shopping.cart" Page
+    And User Validates Successful Triggered on Cart Page
+    Then User Validates Product Price Visibility "true" on Cart Page
+    And User Validates Product Discount Price Visibility "true" on Cart Page
+    And User Validates Product Save Price Visibility "true" on Cart Page
+
+  @Regression
   Scenario: Validate Guest Customer can Continue as Guest and Lands on the Checkout Page
 
     Given User Setups the Web Browser
