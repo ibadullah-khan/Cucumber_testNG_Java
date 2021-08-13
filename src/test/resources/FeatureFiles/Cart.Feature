@@ -341,5 +341,6 @@ Feature: Cart Feature File
     Then User Closes the Web Browser
     Then User Setups the Web Browser
     Then User Navigates to "shoebacca.cart" Url
+    Then User Validates Cart Items Quantity "1" on Cart Page
 
 

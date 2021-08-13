@@ -325,7 +325,7 @@ public class UtilFactory {
     }
 
     protected void CloseTheBrowser(){
-        clearSession();
+//        clearSession();
         BrowserFactory.getDriver().quit();
 
     }
