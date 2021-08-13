@@ -403,4 +403,9 @@ public class CartStepsDef extends HarnessVariables{
     public void userClicksonLoginButton() {
         cartPage.clickOnLoginButton();
     }
+
+    @Then("User Validates Discounted Amount on Cart Page")
+    public void userValidatesDiscountedAmountOnCartPage() {
+        cartPage.validateDiscountedAmount();
+    }
 }

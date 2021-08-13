@@ -7,7 +7,6 @@ import com.aventstack.extentreports.Status;
 import org.openqa.selenium.NoSuchContextException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
-
 import java.util.List;
 
 public class CartPageFactory extends UtilFactory {
@@ -1012,7 +1011,7 @@ public class CartPageFactory extends UtilFactory {
             if (totalAmount == subAmount + shippingAmount) {
                 scenarioDef.log(Status.PASS, "Validate Total Amount $" + totalAmount + " is Same as Expected on Summary Section of Cart Page");
             } else {
-                errorMsg="Validate Summary Total Amount $" + totalAmount + " is not Same as Expected on Summary Section of Cart Page";
+                errorMsg = "Validate Summary Total Amount $" + totalAmount + " is not Same as Expected on Summary Section of Cart Page";
                 throw new NoSuchContextException("Actual and Expected Value Differs");
             }
         } catch (Exception e) {
@@ -1186,35 +1185,65 @@ public class CartPageFactory extends UtilFactory {
         String locator = CartPageEnum.XPATH_CATEGORY_SECTION.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
-        try{
+        try {
             actualVisibility = isVisible(locator);
             if (actualVisibility && expectedVisibility) {
                 scenarioDef.log(Status.PASS, "Validated Category Section is Displayed as Expected on Cart Page");
-            }else if(!actualVisibility&& !expectedVisibility){
+            } else if (!actualVisibility && !expectedVisibility) {
                 scenarioDef.log(Status.PASS, "Validated Category Section is Not Displayed as Expected on Cart Page");
-            }else if (actualVisibility && !expectedVisibility){
+            } else if (actualVisibility && !expectedVisibility) {
                 errorMsg = "Validated Category Section is Displayed Unexpected on Cart Page";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
-            }else if (!actualVisibility && expectedVisibility){
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
                 errorMsg = "Validated Category Section is not Displayed Unexpected on Cart Page";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             }
-        }catch (Exception e) {
+        } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,errorMsg);
+            scenarioDef.log(Status.FAIL, errorMsg);
             throw e;
         }
     }
 
-    public void clickOnCategory(String expectedCategory){
+    public void clickOnCategory(String expectedCategory) {
         String locator = CartPageEnum.XPATH_INDIVIDUAL_CATEGORY_START.getValue() + expectedCategory + CartPageEnum.XPATH_INDIVIDUAL_CATEGORY_END.getValue();
-        try{
+        try {
             waitFactory.waitForElementToBeClickable(locator);
             click(locator);
-            scenarioDef.log(Status.PASS,"Clicked on "+expectedCategory+ " of Cart Page");
-        }catch (Exception e){
+            scenarioDef.log(Status.PASS, "Clicked on " + expectedCategory + " of Cart Page");
+        } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not on "+expectedCategory+" of Cart Page");
+            scenarioDef.log(Status.FAIL, "Could not on " + expectedCategory + " of Cart Page");
+            throw e;
+        }
+    }
+
+    public void validateDiscountedAmount() {
+        String newAmountLocator = CartPageEnum.XPATH_PRODUCT_PRICE.getValue();
+        String oldAmountLocator = CartPageEnum.XPATH_PRODUCT_OLD_PRICE.getValue();
+        String SavingLocator = CartPageEnum.XPATH_PRODUCT_SAVING_PRICE.getValue();
+        String errorMsg = null;
+        try {
+            waitFactory.waitForElementToBeClickable(newAmountLocator);
+            String newamount=getAttribute(newAmountLocator,"textContent").replaceAll("\\$","");
+            String oldamountreplace=getAttribute(oldAmountLocator,"textContent").replaceAll("\\$","");
+            oldamountreplace=oldamountreplace.replaceAll("/ea","");
+            String savingamount=getAttribute(SavingLocator,"textContent").replaceAll("Save","");
+            savingamount=savingamount.replaceAll("\\W","");
+            savingamount=savingamount.replaceAll("\\$","");
+            Float getval = Float.parseFloat(oldamountreplace)- Float.parseFloat(newamount);
+            int finalVal = Math.round(getval);
+            String fetchValue = savingamount;
+            String expectedvalue = String.valueOf(finalVal);
+            if (expectedvalue.contentEquals(fetchValue) ) {
+                scenarioDef.log(Status.PASS, "Saving Price " + savingamount + " is Validated as Expected on Cart Page");
+            } else {
+                errorMsg = "Validate Saving Price $" + savingamount + " is not Same as Expected on Cart Page";
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
             throw e;
         }
     }
