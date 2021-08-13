@@ -1,7 +1,6 @@
 package PageObjectFactory;
 
 import EnumFactory.CartPageEnum;
-import EnumFactory.MiniCartPageEnum;
 import UtilitiesFactory.ElementFactory;
 import UtilitiesFactory.UtilFactory;
 import com.aventstack.extentreports.Status;
@@ -1374,7 +1373,7 @@ public class CartPageFactory extends UtilFactory {
     }
 
     public void validateDiscountPriceVisibility(boolean expectedVisibility) {
-        String locator = CartPageEnum.PATH_PRODUCT_DISCOUNT_PRICE.getValue();
+        String locator = CartPageEnum.XPATH_PRODUCT_OLD_PRICE.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
         try {
@@ -1398,7 +1397,7 @@ public class CartPageFactory extends UtilFactory {
     }
 
     public void validateProductSavePriceVisibility(boolean expectedVisibility) {
-        String locator = CartPageEnum.PATH_PRODUCT_SAVE_PRICE.getValue();
+        String locator = CartPageEnum.XPATH_PRODUCT_SAVING_PRICE.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
         try {
@@ -1422,13 +1421,13 @@ public class CartPageFactory extends UtilFactory {
     }
 
     public void validateCartTriggered() {
-        String locator = CartPageEnum.XPATH_MINI_CART_VIEW.getValue();
+        String locator = CartPageEnum.XPATH_CART_HEADING.getValue();
         try{
             waitFactory.waitForElementToBeClickable(locator);
-            scenarioDef.log(Status.PASS,"Product Successfully Triggered on Cart Page");
+            scenarioDef.log(Status.PASS,"Successfully Loaded Cart Page");
         }catch (Exception e){
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Product Could not Successfully Trigger on Cart Page");
+            scenarioDef.log(Status.FAIL,"Could not Load Cart Page Successfully");
             throw e;
         }
     }

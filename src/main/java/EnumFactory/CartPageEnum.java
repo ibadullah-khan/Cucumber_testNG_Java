@@ -3,7 +3,7 @@ package EnumFactory;
 public enum CartPageEnum {
 
     XPATH_ITEM_CONTAINER_HEADING_START("//li[@class='"),
-    XPATH_MINI_CART_VIEW("//*[@class='cartPage-heading-1Q0']"),
+    XPATH_CART_HEADING("//*[@class='cartPage-heading-1Q0']"),
     XPATH_ITEM_CONTAINER_HEADING_END("']"),
     XPATH_ITEM_CONTAINER_CONTENT_START("//*[@class='product-productListing-2Gh']//*[@class='"),
     XPATH_ITEM_CONTAINER_CONTENT_END("']"),
@@ -18,8 +18,6 @@ public enum CartPageEnum {
     XPATH_PRODUCT_SAVING_PRICE("//*[@class='product-pricebox-3qU']/span[@class='product-save-3k6']"),
     XPATH_PRODUCT_SECTION("//*[@class='product-details-3HQ']"),
     XPATH_PRODUCT_IMAGE("//*[@class='product-imageContainer-2ws image-container-2jo']"),
-    PATH_PRODUCT_DISCOUNT_PRICE("//*[@class='product-discountPrice-1b1']"),
-    PATH_PRODUCT_SAVE_PRICE("//*[@class='product-save-3k6']"),
     XPATH_PRODUCT_REMOVE_LINK("//*[@class='product-btnRemove-16L']"),
     XPATH_PRODUCT_BRAND("//*[@class='product-brand-3xv']"),
     XPATH_PRODUCT_DATE("//*[@class='product-estimatedDate-1uX']"),

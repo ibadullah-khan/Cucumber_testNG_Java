@@ -96,7 +96,7 @@ public class ProductDetailsPageFactory extends UtilFactory {
         }
     }
 
-    public void SelectFirstAvailableProductSize() {
+    public void selectFirstAvailableProductSize() {
         String locator = ProductDetailsPageEnum.XPATH_SELECT_FIRST_AVAILABLE_PRODUCT_SIZE.getValue();
         try {
             waitFactory.waitForElementToBeClickable(locator);

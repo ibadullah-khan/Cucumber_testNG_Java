@@ -332,7 +332,7 @@ Feature: Cart Feature File
   Scenario: Validate Total Savings is Calculated Accurately and it is Rounded Off
 
     Given User Setups the Web Browser
-    When User Navigates to "shoebacca.first.bag.pdt" Url
+    When User Navigates to "shoebacca.sale.pdt" Url
     Then User Clicks Add to Cart Button on PDP
     And User Validates Successful Triggered Mini Cart
     Then User Clicks on View Cart Button

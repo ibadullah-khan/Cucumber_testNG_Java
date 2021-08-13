@@ -48,7 +48,7 @@ public class PDPStepsDef extends HarnessVariables{
 
     @And("User Select First Available Product Size from PDP")
     public void userSelectFirstAvailableProductSizeFromPDP() {
-        productDetailsPage.SelectFirstAvailableProductSize();
+        productDetailsPage.selectFirstAvailableProductSize();
     }
 }
 
