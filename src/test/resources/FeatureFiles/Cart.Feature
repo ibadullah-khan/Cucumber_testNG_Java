@@ -338,6 +338,7 @@ Feature: Cart Feature File
     Then User Clicks on View Cart Button
     Then User Should Redirect Toward "shopping.cart" Page
     Then User Validates Discounted Amount on Cart Page
+
   @Regression
   Scenario: Add item to the cart close the browser and reopen the web store
 
@@ -348,11 +349,9 @@ Feature: Cart Feature File
     Then User Clicks on View Cart Button
     Then User Should Redirect Toward "shopping.cart" Page
     Then User Validates Cart Items Quantity "1" on Cart Page
-    Then User Closes the Web Browser
-    Then User Setups the Web Browser
+    Then User Opens New Tab And Closes Previous Tab
     Then User Navigates to "shoebacca.cart" Url
     Then User Validates Cart Items Quantity "1" on Cart Page
-
 
   @Regression
   Scenario: Verify Discount is Applied Automatically When Cart Price Rule Is Active and Applicable
