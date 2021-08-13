@@ -316,8 +316,8 @@ Feature: Cart Feature File
     When User Navigates to "shoebacca.cart" Url
     Then User Should Redirect Toward "shopping.cart" Page
     Then User Validates Related Product Section Visibility on Cart Page "true"
-    Then User Validates Left Side Slider of Product Section Visibility "true"
-    Then User Validates Right Side Slider of Product Section Visibility "true"
+    Then User Validates Left Side Carousal of Product Section Visibility "true"
+    Then User Validates Right Side Carousal of Product Section Visibility "true"
 
   @Regression
   Scenario: Verify Login Link Should Open The Login Popup For Guest User
@@ -355,7 +355,7 @@ Feature: Cart Feature File
     And User Validates Product Save Price Visibility "true" on Cart Page
 
   @Regression
-  Scenario: Validate Guest Customer can Continue as Guest and Lands on the Checkout Page
+  Scenario: Verify the Home link is redirecting to home page
 
     Given User Setups the Web Browser
     When User Navigates to "shoebacca.first.bag.pdt" Url
@@ -365,3 +365,13 @@ Feature: Cart Feature File
     Then User Clicks Checkout Button on Cart View
     Then User Clicks on Guest Checkout Button
     Then User Should Redirect Toward "shopping.checkout" Page
+
+  @Regression
+  Scenario: Validate Guest Customer can Continue as Guest and Lands on the Checkout Page
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.cart" Url
+    And User Validates Home Link Visibility on Cart Page "true"
+    Then User Clicks on Home Button on Cart Page
+    Then User Should Redirect Toward "shopping.home" Page
+
