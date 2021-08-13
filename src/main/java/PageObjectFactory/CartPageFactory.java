@@ -37,7 +37,7 @@ public class CartPageFactory extends UtilFactory {
             }
         } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL, errorMsg);
+            scenarioDef.log(Status.FAIL,errorMsg);
             throw e;
         }
     }
@@ -62,7 +62,7 @@ public class CartPageFactory extends UtilFactory {
             }
         } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL, errorMsg);
+            scenarioDef.log(Status.FAIL,errorMsg);
             throw e;
         }
     }
@@ -82,7 +82,11 @@ public class CartPageFactory extends UtilFactory {
             }
         } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL, errorMsg);
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Cart Item Quantity Element on Cart Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
             throw e;
         }
     }
@@ -102,7 +106,7 @@ public class CartPageFactory extends UtilFactory {
         } catch (Exception e) {
             failureException = e.toString();
             if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the Related Products on Cart Page");
+                scenarioDef.log(Status.FAIL, "Unable to get the Related Products Element on Cart Page");
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
@@ -125,7 +129,7 @@ public class CartPageFactory extends UtilFactory {
         } catch (Exception e) {
             failureException = e.toString();
             if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the Related Products Name on Cart Page");
+                scenarioDef.log(Status.FAIL, "Unable to get the Related Products Name Element on Cart Page");
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
@@ -148,7 +152,7 @@ public class CartPageFactory extends UtilFactory {
         } catch (Exception e) {
             failureException = e.toString();
             if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the Related Products Brand on Cart Page");
+                scenarioDef.log(Status.FAIL, "Unable to get the Related Products Brand Element on Cart Page");
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
@@ -171,7 +175,7 @@ public class CartPageFactory extends UtilFactory {
         } catch (Exception e) {
             failureException = e.toString();
             if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the Related Products Price on Cart Page");
+                scenarioDef.log(Status.FAIL, "Unable to get the Related Products Price Element on Cart Page");
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
@@ -194,7 +198,11 @@ public class CartPageFactory extends UtilFactory {
             }
         } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL, errorMsg);
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Product Quantity Element on Cart Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
             throw e;
         }
     }
@@ -218,7 +226,7 @@ public class CartPageFactory extends UtilFactory {
             }
         } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL, errorMsg);
+            scenarioDef.log(Status.FAIL,errorMsg);
             throw e;
         }
     }
@@ -239,7 +247,7 @@ public class CartPageFactory extends UtilFactory {
         } catch (Exception e) {
             failureException = e.toString();
             if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the Product Section Element on Cart");
+                scenarioDef.log(Status.FAIL, "Unable to get the Product Element on Cart Page");
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
@@ -269,7 +277,7 @@ public class CartPageFactory extends UtilFactory {
         } catch (Exception e) {
             failureException = e.toString();
             if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the Product Name Element on Cart");
+                scenarioDef.log(Status.FAIL, "Unable to get the Product Name Element on Cart Page");
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
@@ -299,7 +307,7 @@ public class CartPageFactory extends UtilFactory {
         } catch (Exception e) {
             failureException = e.toString();
             if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the Product Price Element on Cart");
+                scenarioDef.log(Status.FAIL, "Unable to get the Product Price Element on Cart Page");
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
@@ -329,7 +337,7 @@ public class CartPageFactory extends UtilFactory {
         } catch (Exception e) {
             failureException = e.toString();
             if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the Product Image Element on Cart");
+                scenarioDef.log(Status.FAIL, "Unable to get the Product Image Element on Cart Page");
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
@@ -359,7 +367,7 @@ public class CartPageFactory extends UtilFactory {
         } catch (Exception e) {
             failureException = e.toString();
             if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the Product Expected Date Element on Cart");
+                scenarioDef.log(Status.FAIL, "Unable to get the Product Expected Date Element on Cart Page");
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
@@ -389,7 +397,7 @@ public class CartPageFactory extends UtilFactory {
         } catch (Exception e) {
             failureException = e.toString();
             if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the Product Remove Link Element on Cart");
+                scenarioDef.log(Status.FAIL, "Unable to get the Product Remove Link Element on Cart Page");
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
@@ -419,7 +427,7 @@ public class CartPageFactory extends UtilFactory {
         } catch (Exception e) {
             failureException = e.toString();
             if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the Product Color Element on Cart");
+                scenarioDef.log(Status.FAIL, "Unable to get the Product Color Element on Cart Page");
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
@@ -449,7 +457,7 @@ public class CartPageFactory extends UtilFactory {
         } catch (Exception e) {
             failureException = e.toString();
             if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the Product Size Element on Cart");
+                scenarioDef.log(Status.FAIL, "Unable to get the Product Size Element on Cart Page");
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
@@ -479,7 +487,7 @@ public class CartPageFactory extends UtilFactory {
         } catch (Exception e) {
             failureException = e.toString();
             if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the Product Brand Element on Cart");
+                scenarioDef.log(Status.FAIL, "Unable to get the Product Brand Element on Cart Page");
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
@@ -509,7 +517,7 @@ public class CartPageFactory extends UtilFactory {
         } catch (Exception e) {
             failureException = e.toString();
             if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the Product Date Element on Cart");
+                scenarioDef.log(Status.FAIL, "Unable to get the Product Date Element on Cart Page");
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
@@ -578,7 +586,7 @@ public class CartPageFactory extends UtilFactory {
         } catch (Exception e) {
             failureException = e.toString();
             if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the Product Name Element on Cart");
+                scenarioDef.log(Status.FAIL, "Unable to get the Product Name Element on Cart Page");
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
@@ -602,7 +610,7 @@ public class CartPageFactory extends UtilFactory {
         } catch (Exception e) {
             failureException = e.toString();
             if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the Product Price Element on Cart");
+                scenarioDef.log(Status.FAIL, "Unable to get the Product Price Element on Cart Page");
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
@@ -626,7 +634,7 @@ public class CartPageFactory extends UtilFactory {
         } catch (Exception e) {
             failureException = e.toString();
             if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the Product Size Element on Cart");
+                scenarioDef.log(Status.FAIL, "Unable to get the Product Size Element on Cart Page");
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
@@ -650,7 +658,7 @@ public class CartPageFactory extends UtilFactory {
         } catch (Exception e) {
             failureException = e.toString();
             if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the Product Colour Element on Cart");
+                scenarioDef.log(Status.FAIL, "Unable to get the Product Colour Element on Cart Page");
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
@@ -674,7 +682,7 @@ public class CartPageFactory extends UtilFactory {
         } catch (Exception e) {
             failureException = e.toString();
             if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the Product Brand Element on Cart");
+                scenarioDef.log(Status.FAIL, "Unable to get the Product Brand Element on Cart Page");
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
@@ -699,7 +707,7 @@ public class CartPageFactory extends UtilFactory {
         } catch (Exception e) {
             failureException = e.toString();
             if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the Remove Link on Cart Page");
+                scenarioDef.log(Status.FAIL, "Unable to get the Remove Link Element on Cart Page");
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
@@ -787,7 +795,7 @@ public class CartPageFactory extends UtilFactory {
         } catch (Exception e) {
             failureException = e.toString();
             if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the Tax Element on Cart");
+                scenarioDef.log(Status.FAIL, "Unable to get the Tax Element on Cart Page");
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
@@ -814,7 +822,11 @@ public class CartPageFactory extends UtilFactory {
             }
         } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL, errorMsg);
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Cart Is Empty Section Element on Cart Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
             throw e;
         }
     }
@@ -839,7 +851,11 @@ public class CartPageFactory extends UtilFactory {
             }
         } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL, errorMsg);
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Related Product Section Element on Cart Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
             throw e;
         }
     }
@@ -891,7 +907,11 @@ public class CartPageFactory extends UtilFactory {
             }
         } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL, errorMsg);
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Shipping Method Element on drop down of Summary Section on Cart Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
             throw e;
         }
     }
@@ -915,7 +935,11 @@ public class CartPageFactory extends UtilFactory {
             }
         } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL, errorMsg);
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Shipping Price Element on drop down of Summary Section on Cart Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
             throw e;
         }
     }
@@ -979,7 +1003,7 @@ public class CartPageFactory extends UtilFactory {
         } catch (Exception e) {
             failureException = e.toString();
             if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the  Shipping Method Element Summary Section of  Cart Page");
+                scenarioDef.log(Status.FAIL, "Unable to get the Shipping Method Element Summary Section of  Cart Page");
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
@@ -1017,7 +1041,7 @@ public class CartPageFactory extends UtilFactory {
         } catch (Exception e) {
             failureException = e.toString();
             if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the  Price Element on Summary Section of  Cart Page");
+                scenarioDef.log(Status.FAIL, "Unable to get the Price Element on Summary Section of  Cart Page");
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
@@ -1086,7 +1110,7 @@ public class CartPageFactory extends UtilFactory {
             }
         } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL, errorMsg);
+            scenarioDef.log(Status.FAIL,errorMsg);
             throw e;
         }
     }
@@ -1120,7 +1144,7 @@ public class CartPageFactory extends UtilFactory {
         } catch (Exception e) {
             failureException = e.toString();
             if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the  Price Element on Summary Section of  Cart Page");
+                scenarioDef.log(Status.FAIL, "Unable to get the Price Element on Summary Section of  Cart Page");
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
@@ -1173,7 +1197,7 @@ public class CartPageFactory extends UtilFactory {
             }
         } catch (Exception e) {
             if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the Element on Cart");
+                scenarioDef.log(Status.FAIL, "Unable to get the Error Message Element on Cart Page");
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
@@ -1243,7 +1267,11 @@ public class CartPageFactory extends UtilFactory {
             }
         } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL, errorMsg);
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Discount Element on Cart Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
             throw e;
         }
     }
@@ -1263,7 +1291,11 @@ public class CartPageFactory extends UtilFactory {
             }
         } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL, errorMsg);
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Empty Cart Text Element on Cart Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
             throw e;
         }
     }
@@ -1282,26 +1314,30 @@ public class CartPageFactory extends UtilFactory {
             }
         } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL, errorMsg);
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Image Element on Cart Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
             throw e;
         }
     }
 
-    public void validateProductSectionLeftSideSLiderVisibility(Boolean expectedVisibility) {
+    public void validateProductSectionLeftSideCarousalVisibility(Boolean expectedVisibility) {
         String locator = CartPageEnum.XPATH_RELATED_PRODUCT_SECTION_LEFT_SLIDER.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
         try{
             actualVisibility = isVisible(locator);
             if (actualVisibility && expectedVisibility) {
-                scenarioDef.log(Status.PASS, "Validated Product Section Left Side Slider is Displayed as Expected on Cart Page");
+                scenarioDef.log(Status.PASS, "Validated Product Section Left Side Carousal is Displayed as Expected on Cart Page");
             }else if(!actualVisibility&& !expectedVisibility){
-                scenarioDef.log(Status.PASS, "Validated Product Section Left Side Slider is Not Displayed as Expected on Cart Page");
+                scenarioDef.log(Status.PASS, "Validated Product Section Left Side Carousal is Not Displayed as Expected on Cart Page");
             }else if (actualVisibility && !expectedVisibility){
-                errorMsg = "Validated Product Section Left Side Slider is Displayed Unexpected on Cart Page";
+                errorMsg = "Validated Product Section Left Side Carousal is Displayed Unexpected on Cart Page";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
             }else if (!actualVisibility && expectedVisibility){
-                errorMsg = "Validated Product Section Left Side Slider is not Displayed Unexpected on Cart Page";
+                errorMsg = "Validated Product Section Left Side Carousal is not Displayed Unexpected on Cart Page";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
             }
         }catch (Exception e) {
@@ -1311,21 +1347,21 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
-    public void validateProductSectionRightSideSLiderVisibility(Boolean expectedVisibility) {
+    public void validateProductSectionRightSideCarousalVisibility(Boolean expectedVisibility) {
         String locator = CartPageEnum.XPATH_RELATED_PRODUCT_SECTION_RIGHT_SLIDER.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
         try{
             actualVisibility = isVisible(locator);
             if (actualVisibility && expectedVisibility) {
-                scenarioDef.log(Status.PASS, "Validated Product Section Right Side Slider is Displayed as Expected on Cart Page");
+                scenarioDef.log(Status.PASS, "Validated Product Section Right Side Carousal is Displayed as Expected on Cart Page");
             }else if(!actualVisibility&& !expectedVisibility){
-                scenarioDef.log(Status.PASS, "Validated Product Section Right Side Slider is Not Displayed as Expected on Cart Page");
+                scenarioDef.log(Status.PASS, "Validated Product Section Right Side Carousal is Not Displayed as Expected on Cart Page");
             }else if (actualVisibility && !expectedVisibility){
-                errorMsg = "Validated Product Section Right Side Slider is Displayed Unexpected on Cart Page";
+                errorMsg = "Validated Product Section Right Side Carousal is Displayed Unexpected on Cart Page";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
             }else if (!actualVisibility && expectedVisibility){
-                errorMsg = "Validated Product Section Right Side Slider is not Displayed Unexpected on Cart Page";
+                errorMsg = "Validated Product Section Right Side Carousal is not Displayed Unexpected on Cart Page";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
             }
         }catch (Exception e) {
