@@ -354,7 +354,6 @@ Feature: Cart Feature File
     And User Validates Product Discount Price Visibility "true" on Cart Page
     And User Validates Product Save Price Visibility "true" on Cart Page
 
-
   @Regression
   Scenario: Verify the Home link is redirecting to home page
 
@@ -363,3 +362,15 @@ Feature: Cart Feature File
     And User Validates Home Link Visibility on Cart Page "true"
     Then User Clicks on Home Button on Cart Page
     Then User Should Redirect Toward "shopping.home" Page
+
+  @Regression
+  Scenario: Validate Guest Customer can Continue as Guest and Lands on the Checkout Page
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks on View Cart Button
+    Then User Clicks Checkout Button on Cart View
+    Then User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
