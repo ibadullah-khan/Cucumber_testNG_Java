@@ -1235,7 +1235,7 @@ public class CartPageFactory extends UtilFactory {
             int finalVal = Math.round(getval);
             String fetchValue = savingamount;
             String expectedvalue = String.valueOf(finalVal);
-            if (expectedvalue.contentEquals(fetchValue) ) {
+            if (expectedvalue.equals(fetchValue) ) {
                 scenarioDef.log(Status.PASS, "Saving Price " + savingamount + " is Validated as Expected on Cart Page");
             } else {
                 errorMsg = "Validate Saving Price $" + savingamount + " is not Same as Expected on Cart Page";

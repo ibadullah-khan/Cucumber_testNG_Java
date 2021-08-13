@@ -328,9 +328,6 @@ Feature: Cart Feature File
     Then User Clicks on Login Button
     And User Validates Account Menu Visibility "true"
 
-
-
-
   @Regression
   Scenario: Validate Total Savings is Calculated Accurately and it is Rounded Off
 
