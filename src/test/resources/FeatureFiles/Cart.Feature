@@ -374,3 +374,12 @@ Feature: Cart Feature File
     Then User Clicks Checkout Button on Cart View
     Then User Clicks on Guest Checkout Button
     Then User Should Redirect Toward "shopping.checkout" Page
+
+  @Regression
+  Scenario: Verify if Shipping Method is not Changed then Loader is not Displaying with Page Refresh
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks on View Cart Button
