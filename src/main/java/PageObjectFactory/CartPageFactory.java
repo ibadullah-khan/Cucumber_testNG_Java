@@ -558,7 +558,7 @@ public class CartPageFactory extends UtilFactory {
     }
 
     public void clickOnCheckoutButton() {
-        String locator = CartPageEnum.XPATH_CHECKOUT_CART.getValue();
+        String locator = CartPageEnum.XPATH_CHECKOUT_CART_BUTTON.getValue();
         try {
             waitFactory.waitForElementToBeClickable(locator);
             click(locator);
@@ -876,7 +876,7 @@ public class CartPageFactory extends UtilFactory {
 
     public void clickOnShippingMethod(String expecetedShippingMethodName) {
         String locator = CartPageEnum.XPATH_SHIPPING_METHOD_START.getValue() + expecetedShippingMethodName + CartPageEnum.XPATH_SHIPPING_METHOD_END.getValue();
-        String checkoutLocator = CartPageEnum.XPATH_CHECKOUT_CART.getValue();
+        String checkoutLocator = CartPageEnum.XPATH_CHECKOUT_CART_BUTTON.getValue();
         try {
             waitFactory.waitForElementToBeClickable(locator);
             click(locator);
@@ -1079,7 +1079,7 @@ public class CartPageFactory extends UtilFactory {
 
     public void clickOnAddPromoCodeButton() {
         String locator = CartPageEnum.XPATH_ADD_COUPON_BUTTON.getValue();
-        String checkoutLocator = CartPageEnum.XPATH_CHECKOUT_CART.getValue();
+        String checkoutLocator = CartPageEnum.XPATH_CHECKOUT_CART_BUTTON.getValue();
         try {
             waitFactory.waitForElementToBeClickable(locator);
             click(locator);
