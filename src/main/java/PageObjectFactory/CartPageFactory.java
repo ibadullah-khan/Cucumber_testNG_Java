@@ -1,6 +1,7 @@
 package PageObjectFactory;
 
 import EnumFactory.CartPageEnum;
+import EnumFactory.MiniCartPageEnum;
 import UtilitiesFactory.ElementFactory;
 import UtilitiesFactory.UtilFactory;
 import com.aventstack.extentreports.Status;
@@ -1397,7 +1398,7 @@ public class CartPageFactory extends UtilFactory {
     }
 
     public void validateHomeLinkVisibility(boolean expectedVisibility) {
-        String locator = CartPageEnum.XPATH_CART_HOME_LINK.getValue();
+        String locator = CartPageEnum.XPATH_SHIPPING_METHOD_SUMMARY_SECTION.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
         try{
@@ -1414,6 +1415,56 @@ public class CartPageFactory extends UtilFactory {
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
             }
         }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateShippingLabelVisibility(Boolean expectedVisibility) {
+        String locator = CartPageEnum.XPATH_SHIPPING_METHOD_SUMMARY_SECTION.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Shipping Label is Displayed as Expected on Mini Cart View");
+            }else if(!actualVisibility&& !expectedVisibility){
+                scenarioDef.log(Status.PASS, "Validated Shipping Label is Not Displayed as Expected on Mini Cart View");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated Shipping Label is Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated Shipping Label is not Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateShippingValueVisibility(Boolean expectedVisibility) {
+        String locator = CartPageEnum.XPATH_SHIPPING_PRICE_SUMMARY_SECTION.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Shipping Value is Displayed as Expected on Mini Cart View");
+            }else if(!actualVisibility&& !expectedVisibility){
+                scenarioDef.log(Status.PASS, "Validated Shipping Value is Not Displayed as Expected on Mini Cart View");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated Shipping Value is Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated Shipping Value is not Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e) {
             failureException = e.toString();
             scenarioDef.log(Status.FAIL,errorMsg);
             throw e;

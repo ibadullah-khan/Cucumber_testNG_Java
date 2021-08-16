@@ -388,3 +388,15 @@ Feature: Cart Feature File
     Then User Clicks Checkout Button on Cart View
     Then User Clicks on Guest Checkout Button
     Then User Should Redirect Toward "shopping.checkout" Page
+
+  @Regression
+  Scenario: Estimated Delivery Date is Only Diplayed After Shipping Methods are Loaded
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks on View Cart Button
+    Then User Validates Shipping Label Visibility on Cart Page "true"
+    Then User Validates Shipping Value Visibility on Cart Page "true"
+    Then User Validates Expected Date Visibility on Cart "true"
