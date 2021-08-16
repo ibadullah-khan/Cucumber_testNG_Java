@@ -427,8 +427,8 @@ public class CartStepsDef extends HarnessVariables{
         }
     }
 
-    @And("User Validates Successful Triggered on Cart Page")
-    public void userValidatesSuccessfulTriggeredOnCartPage() {
+    @And("User Validates Successful Loaded Cart Page")
+    public void userValidatesSuccessfulLoadedCartPage() {
         cartPage.validateCartTriggered();
     }
 
