@@ -390,7 +390,7 @@ Feature: Cart Feature File
     Then User Should Redirect Toward "shopping.checkout" Page
 
   @Regression
-  Scenario: Verify if Shipping Method is not Changed then Loader is not Displaying with Page Refresh
+  Scenario: Verify Shipping Method is not Changed and Loader is not Displayed with Page Refresh
 
     Given User Setups the Web Browser
     When User Navigates to "shoebacca.first.bag.pdt" Url
