@@ -454,4 +454,13 @@ public class CartStepsDef extends HarnessVariables{
     public void userClicksOnHomeButtonOnCartPage() {
         cartPage.clickOnHomeButton();
     }
+
+    @Then("User Validates Checkout Button Disabled Visibility {string}")
+    public void userValidatesCheckoutButtonDisabledVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            cartPage.validateCheckoutDisabledVisibility(true);
+        }else {
+            cartPage.validateCheckoutDisabledVisibility(false);
+        }
+    }
 }

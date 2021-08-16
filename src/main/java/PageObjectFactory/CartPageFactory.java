@@ -1419,6 +1419,30 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
+    public void validateCheckoutDisabledVisibility(boolean expectedVisibility) {
+        String locator = CartPageEnum.XPATH_CHECKOUT_DISABLED_CART.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility){
+                scenarioDef.log(Status.PASS,"Validated Checkout is Displayed as Expected on Cart Page");
+            }else if (!actualVisibility && !expectedVisibility){
+                scenarioDef.log(Status.PASS,"Validated Checkout is not Displayed as Expected on Cart Page");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated Checkout is Displayed Unexpected on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated Checkout is not Displayed Unexpected on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,errorMsg);
+            throw e;
+        }
+    }
+
     public void clickOnLoginButton() {
         String locator = CartPageEnum.XPATH_CART_LOGIN_LINK.getValue();
         try{
