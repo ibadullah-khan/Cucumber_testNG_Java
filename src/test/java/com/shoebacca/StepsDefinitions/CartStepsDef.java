@@ -464,13 +464,12 @@ public class CartStepsDef extends HarnessVariables{
             cartPage.validatePredictInspectorSectionVisibility(false);
         }
     }
-    @Then("User Verify that on {string} Section {string} should be display")
-    public void userVerifyThatOnSectionShouldBeDisplay(String PredictInspectorMenuItem, String PredictInspectorMenuItemDescription) throws Exception {
+
+    @Then("User Verify that on {string} Column {string} Description is Display")
+    public void userVerifyThatOnColumnDescriptionIsDisplay(String PredictInspectorMenuItem, String PredictInspectorMenuItemDescription) throws Exception {
         String expectedPredictInspectorMenuItem= new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(PredictInspectorMenuItem);
         String expectedPredictInspectorMenuItemDescription= new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(PredictInspectorMenuItemDescription);
-
         cartPage.validatePredictItemDescription(expectedPredictInspectorMenuItem,expectedPredictInspectorMenuItemDescription);
+
     }
-
-
 }

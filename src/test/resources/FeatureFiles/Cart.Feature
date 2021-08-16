@@ -395,4 +395,4 @@ Feature: Cart Feature File
     Given User Setups the Web Browser
     When User Navigates to "shoebacca.cart.predict.inspector" Url
     Then User Verify Predict Inspector Section Visibility "true"
-    Then User Verify that on "predict.inspecter.item" Section "predict.inspector.item.description" should be display
+    Then User Verify that on "predict.inspecter.item" Column "predict.inspector.item.description" Description is Display
