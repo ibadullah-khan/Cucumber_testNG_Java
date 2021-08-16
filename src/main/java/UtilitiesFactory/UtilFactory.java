@@ -4,6 +4,13 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.NoSuchContextException;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.*;
 import org.openqa.selenium.html5.WebStorage;
 import org.openqa.selenium.interactions.Actions;
@@ -318,12 +325,15 @@ public class UtilFactory {
     }
 
     protected void openNewTab () {
-        WebDriver driver = BrowserFactory.getDriver();
+
         BrowserFactory.getDriver().switchTo().newWindow(WindowType.TAB);
+    }
+
+    protected void closeOldTab() {
+        WebDriver driver = BrowserFactory.getDriver();
         String[] tabs = driver.getWindowHandles().toArray(new String[0]);
         driver.switchTo().window(tabs[0]);
         driver.close();
         driver.switchTo().window(tabs[1]);
-
     }
 }

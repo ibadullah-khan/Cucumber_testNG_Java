@@ -349,7 +349,8 @@ Feature: Cart Feature File
     Then User Clicks on View Cart Button
     Then User Should Redirect Toward "shopping.cart" Page
     Then User Validates Cart Items Quantity "1" on Cart Page
-    Then User Opens New Tab And Closes Previous Tab
+    Then User Opens New Tab
+    Then User Closes Old Tab
     Then User Navigates to "shoebacca.cart" Url
     Then User Validates Cart Items Quantity "1" on Cart Page
 

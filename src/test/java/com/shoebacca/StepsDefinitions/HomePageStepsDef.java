@@ -85,8 +85,13 @@ public class HomePageStepsDef extends HarnessVariables {
         navigateToBackPage();
     }
 
-    @Then("User Opens New Tab And Closes Previous Tab")
+    @Then("User Opens New Tab")
     public void userOpensNewTab() {
         openNewTab();
+    }
+
+    @Then("User Closes Old Tab")
+    public void userClosesOldTab() {
+        closeOldTab();
     }
 }
