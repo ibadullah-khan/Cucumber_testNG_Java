@@ -52,9 +52,9 @@ public class PDPStepsDef extends HarnessVariables{
         productDetailsPage.selectFirstAvailableProductSize();
     }
 
-    @Then("User Validates Product Name from PDP")
-    public void userValidatesProductNameFromPDP() {
-        productDetailsPage.validateProductName(PRODUCT_NAME);
+    @Then("User Validates Product Name from PDP to Related Product Name")
+    public void userValidatesProductNameFromPDPtoRelatedProductName() {
+        productDetailsPage.validateProductNameToRelatedProduct(PRODUCT_NAME,RELATED_PRODUCT_NAME);
     }
 }
 
