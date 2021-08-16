@@ -390,6 +390,14 @@ Feature: Cart Feature File
     Then User Should Redirect Toward "shopping.checkout" Page
 
   @Regression
+  Scenario: Verify the recommended login is Personal
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.cart.predict.inspector" Url
+    Then User Verify Predict Inspector Section Visibility "true"
+    Then User Verify that on "predict.inspecter.item" Column "predict.inspector.item.description" Description is Display
+
+  @Regression
   Scenario:Verify Clicking on Product Carousel(s) is Redirecting to Relevant PDP
 
     Given User Setups the Web Browser

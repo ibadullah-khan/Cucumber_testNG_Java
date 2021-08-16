@@ -455,6 +455,24 @@ public class CartStepsDef extends HarnessVariables{
         cartPage.clickOnHomeButton();
     }
 
+    @Then("User Verify Predict Inspector Section Visibility {string}")
+    public void userVerifyPredictInspectorSectionVisibility(String expectedCondition) {
+
+        if(expectedCondition.equals("true")){
+            cartPage.validatePredictInspectorSectionVisibility(true);
+        }else {
+            cartPage.validatePredictInspectorSectionVisibility(false);
+        }
+    }
+
+    @Then("User Verify that on {string} Column {string} Description is Display")
+    public void userVerifyThatOnColumnDescriptionIsDisplay(String PredictInspectorMenuItem, String PredictInspectorMenuItemDescription) throws Exception {
+        String expectedPredictInspectorMenuItem= new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(PredictInspectorMenuItem);
+        String expectedPredictInspectorMenuItemDescription= new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(PredictInspectorMenuItemDescription);
+        cartPage.validatePredictItemDescription(expectedPredictInspectorMenuItem,expectedPredictInspectorMenuItemDescription);
+
+    }
+
     @And("User Fetches First Related Product Name From Cart Page")
     public void userFetchesFirstRelatedProductNameFromCartPage() {
         RELATED_PRODUCT_NAME = cartPage.getProductNameFromCarousal();
