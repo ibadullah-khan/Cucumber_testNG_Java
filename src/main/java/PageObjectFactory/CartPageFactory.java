@@ -1528,4 +1528,54 @@ public class CartPageFactory extends UtilFactory {
             throw e;
         }
     }
+
+    public void validatePredictItemDescription(String expectedPredictInspectorMenuItem, String expectedPredictInspectorMenuItemDescription) {
+        String locator = CartPageEnum.XPATH_PREDICT_INSPECTOR_ITEM_DESCRIPTION_START.getValue() + expectedPredictInspectorMenuItem + CartPageEnum.XPATH_PREDICT_INSPECTOR_ITEM_DESCRIPTION_END.getValue();
+        String errorMsg = null;
+        String actualValue;
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            actualValue = getText(locator).trim();
+            if (actualValue.contains(expectedPredictInspectorMenuItemDescription)) {
+                scenarioDef.log(Status.PASS, "Validated Predict Inspector Item Description Text is " + expectedPredictInspectorMenuItemDescription + " on Cart Page");
+            } else {
+                errorMsg = "Could not validate Predict Inspector Item Description Text is: " + expectedPredictInspectorMenuItemDescription + " on Cart Page, Actual Value is: " + actualValue;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Predict Inspector Item Description Element on Cart Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+
+    }
+
+    public void validatePredictInspectorSectionVisibility(boolean expectedVisibility) {
+
+        String locator = CartPageEnum.XPATH_PREDICT_INSPECTOR_SECTION.getValue() ;
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility){
+                scenarioDef.log(Status.PASS,"Validated Predict Inspector Section Displayed on Cart Page");
+            }else if (!actualVisibility && !expectedVisibility){
+                scenarioDef.log(Status.PASS,"Validated Predict Inspector Section is not Displayed as Expected on Cart Page");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated Predict Inspector Section is Displayed Unexpected on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated Predict Inspector Section is not Displayed Unexpected on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,errorMsg);
+            throw e;
+        }
+    }
 }

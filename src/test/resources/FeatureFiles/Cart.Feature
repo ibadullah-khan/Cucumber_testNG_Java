@@ -374,3 +374,11 @@ Feature: Cart Feature File
     Then User Clicks Checkout Button on Cart View
     Then User Clicks on Guest Checkout Button
     Then User Should Redirect Toward "shopping.checkout" Page
+
+  @Regression
+  Scenario: Verify the recommended login is Personal
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.cart.predict.inspector" Url
+    Then User Verify Predict Inspector Section Visibility "true"
+    Then User Verify that on "predict.inspecter.item" Section "predict.inspector.item.description" should be display

@@ -55,7 +55,10 @@ public enum CartPageEnum {
     XPATH_INVALID_COUPON_ERROR_MESSAGE("//*[@class='couponCode-entryFormError-22d couponCode-cartCoupon-3gg']//*[@class='message-root-35v']"),
     XPATH_CATEGORY_SECTION("//*[@class='cmsBlock-root-2sX']//*[@class='categories-block']"),
     XPATH_INDIVIDUAL_CATEGORY_START("//*[@class='categories-row']//*[text()=\""),
-    XPATH_INDIVIDUAL_CATEGORY_END("\"]");
+    XPATH_INDIVIDUAL_CATEGORY_END("\"]"),
+    XPATH_PREDICT_INSPECTOR_SECTION("//*[@id='sc-inspector']"),
+    XPATH_PREDICT_INSPECTOR_ITEM_DESCRIPTION_START("//*[@class='sc-event-caption-title' and text()='"),
+    XPATH_PREDICT_INSPECTOR_ITEM_DESCRIPTION_END("']//following-sibling::span");
 
     private String cartPageVariables;
 
