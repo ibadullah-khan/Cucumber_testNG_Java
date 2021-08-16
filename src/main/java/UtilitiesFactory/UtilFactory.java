@@ -11,7 +11,7 @@ import org.openqa.selenium.NoSuchContextException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.*;
+import org.openqa.selenium.WindowType;
 import org.openqa.selenium.html5.WebStorage;
 import org.openqa.selenium.interactions.Actions;
 import java.io.File;
