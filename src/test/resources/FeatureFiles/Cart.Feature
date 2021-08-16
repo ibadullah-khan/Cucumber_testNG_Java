@@ -388,3 +388,12 @@ Feature: Cart Feature File
     Then User Clicks Checkout Button on Cart View
     Then User Clicks on Guest Checkout Button
     Then User Should Redirect Toward "shopping.checkout" Page
+
+  @Regression
+  Scenario: Changing Shipping Method Causes Estimated Delivery Dates in cart to recompute
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks on View Cart Button
