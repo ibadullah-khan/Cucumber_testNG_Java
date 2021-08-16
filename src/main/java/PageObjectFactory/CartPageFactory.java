@@ -321,6 +321,7 @@ public class CartPageFactory extends UtilFactory {
         Boolean actualVisibility;
         List<WebElement> elements;
         try {
+            waitFactory.waitForElementToBeClickable(locator);
             elements = elementFactory.getElementsList(locator);
             actualVisibility = expectedProductNo == elements.size();
             if (actualVisibility && expectedVisibility) {
