@@ -52,14 +52,9 @@ public class PDPStepsDef extends HarnessVariables{
         productDetailsPage.selectFirstAvailableProductSize();
     }
 
-    @Then("User Select First Related Product From Carousal")
-    public void userSelectFirstRelatedProductFromCarousal() {
-        productDetailsPage.selectFirstAvailableProductFromRelatedProductSection();
-    }
-
-    @And("User Fetches First Related Product Name From Carousal")
-    public void userFetchesFirstRelatedProductNameFromCarousal() {
-        PRODUCT_NAME = productDetailsPage.getProductNameFromCarousal();
+    @Then("User Validates Product Name from PDP")
+    public void userValidatesProductNameFromPDP() {
+        productDetailsPage.validateProductName(PRODUCT_NAME);
     }
 }
 

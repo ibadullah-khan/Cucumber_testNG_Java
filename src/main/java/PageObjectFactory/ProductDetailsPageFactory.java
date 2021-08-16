@@ -3,6 +3,7 @@ package PageObjectFactory;
 import EnumFactory.ProductDetailsPageEnum;
 import UtilitiesFactory.UtilFactory;
 import com.aventstack.extentreports.Status;
+import org.openqa.selenium.NoSuchContextException;
 
 public class ProductDetailsPageFactory extends UtilFactory {
     public ProductDetailsPageFactory() throws Exception {
@@ -109,30 +110,26 @@ public class ProductDetailsPageFactory extends UtilFactory {
         }
     }
 
-    public void selectFirstAvailableProductFromRelatedProductSection() {
-        String locator = ProductDetailsPageEnum.XPATH_PRODUCT_NAME_CAROUSAL.getValue();
+    public void validateProductName(String expectedText) {
+        String locator = ProductDetailsPageEnum.XPATH_PRODUCT_NAME.getValue();
+        String errorMsg = null;
+        String actualText;
         try {
             waitFactory.waitForElementToBeClickable(locator);
-            click(locator);
-            scenarioDef.log(Status.PASS, "Clicked on First Available Product on Related Product Carousal");
+            actualText = getText(locator).trim();
+            if (actualText.contains(expectedText)) {
+                scenarioDef.log(Status.PASS, "Validated Product Name on PDP is as Expected: " + expectedText);
+            } else {
+                errorMsg = "Could not validate Product Name on PDP is as Expected: " + expectedText + " , Actual Value: " + actualText;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
         } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL, "Could not Click on First Available Product on Related Product Carousal");
-            throw e;
-        }
-    }
-
-    public String getProductNameFromCarousal() {
-        String locator = ProductDetailsPageEnum.XPATH_PRODUCT_NAME_CAROUSAL.getValue();
-        String productName;
-        try{
-            waitFactory.waitForElementToBeClickable(locator);
-            productName = getText(locator);
-            scenarioDef.log(Status.PASS,"Fetched Product Name: "+ productName +" from Related Product");
-            return productName;
-        }catch (Exception e){
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Fetch Product Name from Related Product");
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Product Name Element on PDP");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
             throw e;
         }
     }

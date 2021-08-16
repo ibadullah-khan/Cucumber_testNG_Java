@@ -454,4 +454,14 @@ public class CartStepsDef extends HarnessVariables{
     public void userClicksOnHomeButtonOnCartPage() {
         cartPage.clickOnHomeButton();
     }
+
+    @And("User Fetches First Related Product Name From Cart Page")
+    public void userFetchesFirstRelatedProductNameFromCartPage() {
+        RELATED_PRODUCT_NAME = cartPage.getProductNameFromCarousal();
+    }
+
+    @Then("User Select First Related Product From Cart Page")
+    public void userSelectFirstRelatedProductFromCartPage() {
+        cartPage.selectFirstAvailableProductFromRelatedProductSection();
+    }
 }

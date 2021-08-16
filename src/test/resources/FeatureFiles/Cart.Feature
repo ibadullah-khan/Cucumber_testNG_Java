@@ -394,6 +394,8 @@ Feature: Cart Feature File
 
     Given User Setups the Web Browser
     When User Navigates to "shoebacca.cart" Url
-    And User Fetches First Related Product Name From Carousal
-    Then User Select First Related Product From Carousal
+    And User Fetches First Related Product Name From Cart Page
+    Then User Select First Related Product From Cart Page
     And User Fetches Product Name from PDP
+    Then User Validates Product Name from PDP
+
