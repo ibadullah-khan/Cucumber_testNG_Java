@@ -1579,4 +1579,32 @@ public class CartPageFactory extends UtilFactory {
             throw e;
         }
     }
+
+    public String getProductNameFromCarousal() {
+            String locator = CartPageEnum.XPATH_PRODUCT_NAME_CAROUSAL.getValue();
+            String productName;
+            try{
+                waitFactory.waitForElementToBeClickable(locator);
+                productName = getText(locator);
+                scenarioDef.log(Status.PASS,"Fetched Product Name: "+ productName +" from Related Product");
+                return productName;
+            }catch (Exception e){
+                failureException = e.toString();
+                scenarioDef.log(Status.FAIL,"Could not Fetch Product Name from Related Product");
+                throw e;
+        }
+    }
+
+    public void selectFirstAvailableProductFromRelatedProductSection() {
+            String locator = CartPageEnum.XPATH_PRODUCT_NAME_CAROUSAL.getValue();
+            try {
+                waitFactory.waitForElementToBeClickable(locator);
+                click(locator);
+                scenarioDef.log(Status.PASS, "Clicked on First Available Product on Related Product Carousal");
+            } catch (Exception e) {
+                failureException = e.toString();
+                scenarioDef.log(Status.FAIL, "Could not Click on First Available Product on Related Product Carousal");
+                throw e;
+        }
+    }
 }
