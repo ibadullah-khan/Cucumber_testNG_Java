@@ -1397,7 +1397,7 @@ public class CartPageFactory extends UtilFactory {
     }
 
     public void validateHomeLinkVisibility(boolean expectedVisibility) {
-        String locator = CartPageEnum.XPATH_SHIPPING_METHOD_SUMMARY_SECTION.getValue();
+        String locator = CartPageEnum.XPATH_CART_HOME_LINK.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
         try{
