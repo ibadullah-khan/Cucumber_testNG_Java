@@ -89,7 +89,7 @@ public class CheckoutStepsDef extends HarnessVariables{
         checkoutPage.validateTaxValue(TAX_VALUE);
     }
 
-    @Then("User Validates {string} Date Color on Checkout")
+    @Then("User Validates {string} Estimated Date Color on Checkout")
     public void userValidatesDateColorOnCheckout(String expectedValue) throws Exception {
         String expectedDateColor= new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(expectedValue);
         checkoutPage.validateDateColor(expectedDateColor);

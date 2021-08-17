@@ -1641,7 +1641,6 @@ public class CartPageFactory extends UtilFactory {
             waitFactory.waitForElementToBeClickable(dateLocator);
             String actualValue=getCSS(dateLocator,"color");
             String hex = Color.fromString(actualValue).asHex();
-            System.out.println(hex);
             if (hex.contains(expectedDateColor)) {
                 scenarioDef.log(Status.PASS, "Validated Date Color is " + expectedDateColor + " on Cart");
             } else {
