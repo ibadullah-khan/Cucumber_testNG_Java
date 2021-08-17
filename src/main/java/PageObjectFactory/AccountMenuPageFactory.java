@@ -77,6 +77,7 @@ public class AccountMenuPageFactory extends UtilFactory{
         String locator = AccountMenuPageEnum.XPATH_ACCOUNT_MENU_GREET_HEADING.getValue();
         try{
             waitFactory.waitForElementToBeVisible(locator);
+            waitForPageLoad();
             scenarioDef.log(Status.PASS,"User Logged In Successfully");
         }catch (Exception e){
             failureException = e.toString();
