@@ -363,7 +363,7 @@ Feature: Cart Feature File
     And User Validates Successful Triggered Mini Cart
     Then User Clicks on View Cart Button
     And User Should Redirect Toward "shopping.cart" Page
-    And User Validates Successful Triggered on Cart Page
+    And User Validates Successful Loaded Cart Page
     Then User Validates Product Price Visibility "true" on Cart Page
     And User Validates Product Discount Price Visibility "true" on Cart Page
     And User Validates Product Save Price Visibility "true" on Cart Page
@@ -388,6 +388,26 @@ Feature: Cart Feature File
     Then User Clicks Checkout Button on Cart View
     Then User Clicks on Guest Checkout Button
     Then User Should Redirect Toward "shopping.checkout" Page
+
+  @Regression
+  Scenario: Verify the recommended login is Personal
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.cart.predict.inspector" Url
+    Then User Verify Predict Inspector Section Visibility "true"
+    Then User Verify that on "predict.inspecter.item" Column "predict.inspector.item.description" Description is Display
+
+  @Regression
+  Scenario:Verify Clicking on Product Carousel(s) is Redirecting to Relevant PDP
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.cart" Url
+    And User Fetches First Related Product Name From Cart Page
+    Then User Select First Related Product From Cart Page
+    And User Fetches Product Name from PDP
+    Then User Validates Product Name from PDP to Related Product Name
+
+
 
   @Regression
   Scenario: Verify Summary Section not Loaded, if Shipping Method is not Updated
