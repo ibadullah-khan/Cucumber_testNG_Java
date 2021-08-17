@@ -454,4 +454,14 @@ public class CartStepsDef extends HarnessVariables{
     public void userClicksOnHomeButtonOnCartPage() {
         cartPage.clickOnHomeButton();
     }
+
+    @Then("User Fetches Expected Date on Cart Page")
+    public void userFetchesExpectedDateOnCartPage() {
+        cartPage.getDateForStandardShipping();
+    }
+
+    @Then("User Validates Recomputed Date on Cart Page")
+    public void userValidatesRecomputedDateOnCartPage() {
+        cartPage.validateRecomputedDate();
+    }
 }
