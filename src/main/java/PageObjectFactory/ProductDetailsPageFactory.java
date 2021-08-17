@@ -3,6 +3,7 @@ package PageObjectFactory;
 import EnumFactory.ProductDetailsPageEnum;
 import UtilitiesFactory.UtilFactory;
 import com.aventstack.extentreports.Status;
+import org.openqa.selenium.support.Color;
 import org.openqa.selenium.NoSuchContextException;
 
 public class ProductDetailsPageFactory extends UtilFactory {
@@ -122,6 +123,32 @@ public class ProductDetailsPageFactory extends UtilFactory {
         } catch (Exception e) {
             failureException = e.toString();
             scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateDateColor(String expectedDateColor){
+        String dateLocator = ProductDetailsPageEnum.XPATH_ESTIMATED_DATE.getValue();
+        String errorMsg = null;
+        try {
+            waitFactory.waitForElementToBeClickable(dateLocator);
+            String actualValue=getCSS(dateLocator,"color");
+            String hex = Color.fromString(actualValue).asHex();
+            System.out.println(hex);
+            if (hex.contains(expectedDateColor)) {
+                scenarioDef.log(Status.PASS, "Validated Date Color is " + expectedDateColor + " on PDP");
+            } else {
+                errorMsg = "Could not validate Date Color is: " + expectedDateColor + " on PDP, Actual Value is: " + actualValue;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        }
+        catch (Exception e){
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Date Color PDP");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
             throw e;
         }
     }

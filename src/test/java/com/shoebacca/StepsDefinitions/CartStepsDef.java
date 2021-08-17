@@ -491,4 +491,10 @@ public class CartStepsDef extends HarnessVariables{
             cartPage.validateCheckoutDisabledVisibility(false);
         }
     }
+
+    @Then("User Validates {string} Date Color on Cart")
+    public void userValidatesDateColorOnCart(String expectedValue) throws Exception {
+        String expectedDateColor= new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(expectedValue);
+        cartPage.validateDateColor(expectedDateColor);
+    }
 }

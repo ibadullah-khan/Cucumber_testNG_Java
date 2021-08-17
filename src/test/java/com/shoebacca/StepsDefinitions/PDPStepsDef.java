@@ -1,12 +1,14 @@
 package com.shoebacca.StepsDefinitions;
 
 import PageObjectFactory.ProductDetailsPageFactory;
+import UtilitiesFactory.PropertyLoaderFactory;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 
 public class PDPStepsDef extends HarnessVariables{
 
     ProductDetailsPageFactory productDetailsPage;
+    protected String pdpPropFile = "pdp.properties";
 
     public PDPStepsDef() throws Exception {
         productDetailsPage = new ProductDetailsPageFactory();
@@ -56,6 +58,10 @@ public class PDPStepsDef extends HarnessVariables{
     public void userValidatesProductNameFromPDPtoRelatedProductName() {
         productDetailsPage.validateProductNameToRelatedProduct(PRODUCT_NAME,RELATED_PRODUCT_NAME);
     }
+
+    @Then("User Validates {string} Date Color on PDP")
+    public void userValidatesDateColorOnPDP(String expectedValue) throws Exception {
+        String expectedDateColor= new PropertyLoaderFactory().getPropertyFile(pdpPropFile).getProperty(expectedValue);
+        productDetailsPage.validateDateColor(expectedDateColor);
+    }
 }
-
-

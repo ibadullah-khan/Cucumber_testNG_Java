@@ -435,3 +435,17 @@ Feature: Cart Feature File
     Then User Validates Successful Login on Account Menu
     Then User Validates Cart Items Quantity "2" on Cart Page
     Then User Click on Remove Link on "shoebacca.first.bag.name" Product on Cart Page
+
+  @Regression
+  Scenario: Verify the Text Color of Estimated Delivery Date on PDP,Cart and Checkout Page
+
+    Given User Setups the Web Browser
+    Then User Navigates to "shoebacca.second.bag.pdt" Url
+    Then User Validates "date.color" Date Color on PDP
+    Then User Clicks Add to Cart Button on PDP
+    Then User Clicks on View Cart Button
+    Then User Should Redirect Toward "shopping.cart" Page
+    Then User Validates "date.color" Date Color on Cart
+    Then User Clicks Checkout Button on Cart View
+    Then User Clicks on Guest Checkout Button
+    Then User Validates "date.color" Date Color on Checkout

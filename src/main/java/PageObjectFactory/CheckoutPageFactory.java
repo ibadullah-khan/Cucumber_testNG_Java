@@ -4,6 +4,7 @@ import EnumFactory.CheckoutPageEnum;
 import UtilitiesFactory.UtilFactory;
 import com.aventstack.extentreports.Status;
 import org.openqa.selenium.NoSuchContextException;
+import org.openqa.selenium.support.Color;
 
 public class CheckoutPageFactory extends UtilFactory {
 
@@ -230,6 +231,32 @@ public class CheckoutPageFactory extends UtilFactory {
                 scenarioDef.log(Status.FAIL,"Unable to get the Tax Element on Checkout");
             }else {
                 scenarioDef.log(Status.FAIL,errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void validateDateColor(String expectedDateColor){
+        String dateLocator = CheckoutPageEnum.XPATH_ESTIMATED_DATE.getValue();
+        String errorMsg = null;
+        try {
+            waitFactory.waitForElementToBeClickable(dateLocator);
+            String actualValue=getCSS(dateLocator,"color");
+            String hex = Color.fromString(actualValue).asHex();
+            System.out.println(hex);
+            if (hex.contains(expectedDateColor)) {
+                scenarioDef.log(Status.PASS, "Validated Date Color is " + expectedDateColor + " on Checkout");
+            } else {
+                errorMsg = "Could not validate Date Color is: " + expectedDateColor + " on Checkout, Actual Value is: " + actualValue;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        }
+        catch (Exception e){
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Date Color Checkout");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
             }
             throw e;
         }
