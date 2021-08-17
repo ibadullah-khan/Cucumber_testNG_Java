@@ -1421,7 +1421,7 @@ public class CartPageFactory extends UtilFactory {
     }
 
     public void validateCheckoutDisabledVisibility(boolean expectedVisibility) {
-        String locator = CartPageEnum.XPATH_CHECKOUT_DISABLED_CART.getValue();
+        String locator = CartPageEnum.XPATH_CHECKOUT_DISABLED_CART_BUTTON.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
         try{

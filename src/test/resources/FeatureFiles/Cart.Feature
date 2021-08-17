@@ -407,8 +407,6 @@ Feature: Cart Feature File
     And User Fetches Product Name from PDP
     Then User Validates Product Name from PDP to Related Product Name
 
-
-
   @Regression
   Scenario: Verify Summary Section not Loaded, if Shipping Method is not Updated
 
@@ -420,3 +418,20 @@ Feature: Cart Feature File
     Then User Should Redirect Toward "shopping.cart" Page
     Then User Refresh the Page
     Then User Validates Checkout Button Disabled Visibility "false"
+
+  @Regression
+  Scenario: Verify Cart Summary is Updated When Guest Customer Signs In and There is Change in Cart Items
+
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    Then User Clicks on View Cart Button
+    Then User Should Redirect Toward "shopping.cart" Page
+    Then User Validates Cart Items Quantity "1" on Cart Page
+    And User Clicks the Account Icon on Header
+    Then User Enters Valid Login Data Username on Account Menu
+    And User Enters Valid Login Password on Account Menu
+    Then User Clicks the Login Button on Account Menu
+    Then User Validates Successful Login on Account Menu
+    Then User Validates Cart Items Quantity "2" on Cart Page
+    Then User Click on Remove Link on "shoebacca.first.bag.name" Product on Cart Page
