@@ -427,8 +427,8 @@ public class CartStepsDef extends HarnessVariables{
         }
     }
 
-    @And("User Validates Successful Triggered on Cart Page")
-    public void userValidatesSuccessfulTriggeredOnCartPage() {
+    @And("User Validates Successful Loaded Cart Page")
+    public void userValidatesSuccessfulLoadedCartPage() {
         cartPage.validateCartTriggered();
     }
 
@@ -471,5 +471,15 @@ public class CartStepsDef extends HarnessVariables{
         String expectedPredictInspectorMenuItemDescription= new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(PredictInspectorMenuItemDescription);
         cartPage.validatePredictItemDescription(expectedPredictInspectorMenuItem,expectedPredictInspectorMenuItemDescription);
 
+    }
+
+    @And("User Fetches First Related Product Name From Cart Page")
+    public void userFetchesFirstRelatedProductNameFromCartPage() {
+        RELATED_PRODUCT_NAME = cartPage.getProductNameFromCarousal();
+    }
+
+    @Then("User Select First Related Product From Cart Page")
+    public void userSelectFirstRelatedProductFromCartPage() {
+        cartPage.selectFirstAvailableProductFromRelatedProductSection();
     }
 }
