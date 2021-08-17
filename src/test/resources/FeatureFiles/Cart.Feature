@@ -407,4 +407,3 @@ Feature: Cart Feature File
     Then User Clicks on "expedited.shipping" Shipping Method on Dropdown of Cart Page
     Then User Fetches Expected Date on Cart Page
     Then User Validates Recomputed Date on Cart Page
-
