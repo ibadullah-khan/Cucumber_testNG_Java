@@ -427,8 +427,8 @@ public class CartStepsDef extends HarnessVariables{
         }
     }
 
-    @And("User Validates Successful Triggered on Cart Page")
-    public void userValidatesSuccessfulTriggeredOnCartPage() {
+    @And("User Validates Successful Loaded Cart Page")
+    public void userValidatesSuccessfulLoadedCartPage() {
         cartPage.validateCartTriggered();
     }
 
@@ -453,6 +453,34 @@ public class CartStepsDef extends HarnessVariables{
     @Then("User Clicks on Home Button on Cart Page")
     public void userClicksOnHomeButtonOnCartPage() {
         cartPage.clickOnHomeButton();
+    }
+
+    @Then("User Verify Predict Inspector Section Visibility {string}")
+    public void userVerifyPredictInspectorSectionVisibility(String expectedCondition) {
+
+        if(expectedCondition.equals("true")){
+            cartPage.validatePredictInspectorSectionVisibility(true);
+        }else {
+            cartPage.validatePredictInspectorSectionVisibility(false);
+        }
+    }
+
+    @Then("User Verify that on {string} Column {string} Description is Display")
+    public void userVerifyThatOnColumnDescriptionIsDisplay(String PredictInspectorMenuItem, String PredictInspectorMenuItemDescription) throws Exception {
+        String expectedPredictInspectorMenuItem= new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(PredictInspectorMenuItem);
+        String expectedPredictInspectorMenuItemDescription= new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(PredictInspectorMenuItemDescription);
+        cartPage.validatePredictItemDescription(expectedPredictInspectorMenuItem,expectedPredictInspectorMenuItemDescription);
+
+    }
+
+    @And("User Fetches First Related Product Name From Cart Page")
+    public void userFetchesFirstRelatedProductNameFromCartPage() {
+        RELATED_PRODUCT_NAME = cartPage.getProductNameFromCarousal();
+    }
+
+    @Then("User Select First Related Product From Cart Page")
+    public void userSelectFirstRelatedProductFromCartPage() {
+        cartPage.selectFirstAvailableProductFromRelatedProductSection();
     }
 
     @Then("User Validates Shipping Label Visibility on Cart Page {string}")
