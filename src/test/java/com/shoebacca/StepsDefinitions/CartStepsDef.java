@@ -483,6 +483,15 @@ public class CartStepsDef extends HarnessVariables{
         cartPage.selectFirstAvailableProductFromRelatedProductSection();
     }
 
+    @Then("User Validates Checkout Button Disabled Visibility {string}")
+    public void userValidatesCheckoutButtonDisabledVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            cartPage.validateCheckoutDisabledVisibility(true);
+        }else {
+            cartPage.validateCheckoutDisabledVisibility(false);
+        }
+    }
+
     @Then("User Validates Shipping Label Visibility on Cart Page {string}")
     public void userValidatesShippingLabelVisibilityOnCartPage(String expectedCondition) {
         if(expectedCondition.equals("true")){
