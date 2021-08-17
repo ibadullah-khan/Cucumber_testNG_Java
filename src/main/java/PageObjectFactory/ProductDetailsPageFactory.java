@@ -114,18 +114,14 @@ public class ProductDetailsPageFactory extends UtilFactory {
         String errorMsg = null;
         try {
             if (productNamePdp.contains(productNameRp)) {
-                scenarioDef.log(Status.PASS, "Validated Product Name is Similar To The Product Name: " + productNamePdp);
+                scenarioDef.log(Status.PASS, "Validated Product Name From PDP is Similar to The Related Product Name: " + productNamePdp);
             } else {
                 errorMsg = "Could not validate Expected  Product : " + productNamePdp + " , Actual Value: " + productNameRp;
                 throw new NoSuchContextException("Actual and Expected Name is Differs");
             }
         } catch (Exception e) {
             failureException = e.toString();
-            if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the Product Name Element");
-            } else {
-                scenarioDef.log(Status.FAIL, errorMsg);
-            }
+            scenarioDef.log(Status.FAIL, errorMsg);
             throw e;
         }
     }
