@@ -19,6 +19,7 @@ public class TestRunnerListener implements ITestListener {
 
     ExtentReportFactory extentReport = new ExtentReportFactory();
     EmailReportFactory emailReport = new EmailReportFactory();
+    String emailReporting;
 
     private final BrowserFactory browserFactoryInstance = BrowserFactory.getInstance();
 
@@ -29,6 +30,7 @@ public class TestRunnerListener implements ITestListener {
     @Override
     public void onTestStart(ITestResult iTestResult) {
           browserFactoryInstance.setBrowser(getParameterValue("browser"));
+          emailReporting = getParameterValue("emailReport");
     }
 
     @Override
@@ -59,8 +61,10 @@ public class TestRunnerListener implements ITestListener {
     @Override
     public void onFinish(ITestContext iTestContext) {
         extentReport.FlushReport();
-        emailReport.EmailReporter();
-
+        if (emailReporting.equalsIgnoreCase("on"))
+        {
+            emailReport.EmailReporter();
+        }
         if(getDriver()!=null){
             getDriver().quit();
         }
