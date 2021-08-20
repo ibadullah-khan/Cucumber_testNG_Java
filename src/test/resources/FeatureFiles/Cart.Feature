@@ -361,7 +361,7 @@ Feature: Cart Feature File
     And User Validates Successful Triggered Mini Cart
     Then User Clicks on View Cart Button
     And User Should Redirect Toward "shopping.cart" Page
-    And User Validates Successful Triggered on Cart Page
+    And User Validates Successful Loaded Cart Page
     Then User Validates Product Price Visibility "true" on Cart Page
     And User Validates Product Discount Price Visibility "true" on Cart Page
     And User Validates Product Save Price Visibility "true" on Cart Page
@@ -386,6 +386,91 @@ Feature: Cart Feature File
     Then User Clicks Checkout Button on Cart View
     Then User Clicks on Guest Checkout Button
     Then User Should Redirect Toward "shopping.checkout" Page
+
+  @Regression
+  Scenario: Verify the recommended login is Personal
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.cart.predict.inspector" Url
+    Then User Verify Predict Inspector Section Visibility "true"
+    Then User Verify that on "predict.inspecter.item" Column "predict.inspector.item.description" Description is Display
+
+  @Regression
+  Scenario:Verify Clicking on Product Carousel(s) is Redirecting to Relevant PDP
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.cart" Url
+    And User Fetches First Related Product Name From Cart Page
+    Then User Select First Related Product From Cart Page
+    And User Fetches Product Name from PDP
+    Then User Validates Product Name from PDP to Related Product Name
+
+  @Regression
+  Scenario: Verify Summary Section not Loaded, if Shipping Method is not Updated
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks on View Cart Button
+    Then User Should Redirect Toward "shopping.cart" Page
+    Then User Refresh the Page
+    Then User Validates Checkout Button Disabled Visibility "false"
+
+  @Regression
+  Scenario: Verify Cart Content is Updated When Guest Customer Signs In and There is Change in Cart Items
+
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    Then User Clicks on View Cart Button
+    Then User Should Redirect Toward "shopping.cart" Page
+    Then User Validates Cart Items Quantity "1" on Cart Page
+    And User Clicks the Account Icon on Header
+    Then User Enters Valid Login Data Username on Account Menu
+    And User Enters Valid Login Password on Account Menu
+    Then User Clicks the Login Button on Account Menu
+    Then User Validates Successful Login on Account Menu
+    Then User Validates Cart Items Quantity "2" on Cart Page
+    Then User Click on Remove Link on "shoebacca.first.bag.name" Product on Cart Page
+
+  @Regression
+  Scenario: Estimated Delivery Date is Only Diplayed After Shipping Methods are Loaded
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks on View Cart Button
+    Then User Validates Shipping Label Visibility on Cart Page "true"
+    Then User Validates Shipping Value Visibility on Cart Page "true"
+    Then User Validates Expected Date Visibility on Cart "true"
+
+  @Regression
+  Scenario: Verify User Can Select Only One Shipping Method at a Time
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    Then User Clicks on View Cart Button
+    Then User Should Redirect Toward "shopping.cart" Page
+    Then User Clicks on Change Shipping Option of Cart Page
+    Then User Clicks on "rush.shipping" Shipping Method on Dropdown of Cart Page
+    Then User Validates "rush.shipping" Shipping Method Name on Summary Section of Cart Page
+
+  @Regression
+  Scenario: Verify User can not Unselect all Shipping Methods at a Time
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    Then User Clicks on View Cart Button
+    Then User Should Redirect Toward "shopping.cart" Page
+    Then User Clicks on Change Shipping Option of Cart Page
+    Then User Clicks on "standard.shipping" Shipping Method on Dropdown of Cart Page
+    Then User Validates "standard.shipping" Shipping Method Name on Summary Section of Cart Page
 
   @Regression
   Scenario: Changing Shipping Method Causes Estimated Delivery Dates in Cart to Recompute
