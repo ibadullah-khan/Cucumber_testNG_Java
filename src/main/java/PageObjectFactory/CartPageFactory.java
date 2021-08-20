@@ -7,6 +7,8 @@ import com.aventstack.extentreports.Status;
 import org.openqa.selenium.NoSuchContextException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.Color;
+
 import java.util.List;
 
 public class CartPageFactory extends UtilFactory {
@@ -1676,6 +1678,31 @@ public class CartPageFactory extends UtilFactory {
                 failureException = e.toString();
                 scenarioDef.log(Status.FAIL, "Could not Click on First Available Product on Related Product Carousal");
                 throw e;
+        }
+    }
+
+    public void validateDateColor(String expectedDateColor){
+        String dateLocator = CartPageEnum.XPATH_PRODUCT_DATE.getValue();
+        String errorMsg = null;
+        try {
+            waitFactory.waitForElementToBeClickable(dateLocator);
+            String actualValue=getCSS(dateLocator,"color");
+            String hex = Color.fromString(actualValue).asHex();
+            if (hex.contains(expectedDateColor)) {
+                scenarioDef.log(Status.PASS, "Validated Date Color is " + expectedDateColor + " on Cart");
+            } else {
+                errorMsg = "Could not validate Date Color is: " + expectedDateColor + " on Cart, Actual Value is: " + actualValue;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        }
+        catch (Exception e){
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Date Color Cart");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
         }
     }
 }

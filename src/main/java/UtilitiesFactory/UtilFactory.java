@@ -235,6 +235,16 @@ public class UtilFactory {
             return false;
         }
     }
+    protected String getCSS(String locatorValue,String attributeValue){
+        WebElement element = elementFactory.getElement(locatorValue);
+        return getCSSAttribute(element,attributeValue);
+    }
+
+    protected String getCSSAttribute(WebElement element,String attributeValue)
+    {
+        return element.getCssValue(attributeValue);
+    }
+
 
     protected String getAttribute(String locatorValue,String attributeValue)
     {

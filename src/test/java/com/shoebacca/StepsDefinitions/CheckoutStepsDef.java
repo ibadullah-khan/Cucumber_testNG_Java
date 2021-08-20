@@ -1,12 +1,14 @@
 package com.shoebacca.StepsDefinitions;
 
 import PageObjectFactory.CheckoutPageFactory;
+import UtilitiesFactory.PropertyLoaderFactory;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 
 public class CheckoutStepsDef extends HarnessVariables{
 
     CheckoutPageFactory checkoutPage;
+    protected String checkoutPropFile = "checkout.properties";
 
     public CheckoutStepsDef() throws Exception {
         checkoutPage = new CheckoutPageFactory();
@@ -85,5 +87,11 @@ public class CheckoutStepsDef extends HarnessVariables{
     @Then("User Validates Tax Value from Checkout")
     public void userValidatesTaxValueFromCheckout() {
         checkoutPage.validateTaxValue(TAX_VALUE);
+    }
+
+    @Then("User Validates {string} Estimated Delivery Date Color on Checkout Page")
+    public void userValidatesDateColorOnCheckout(String expectedValue) throws Exception {
+        String expectedDateColor= new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(expectedValue);
+        checkoutPage.validateDateColor(expectedDateColor);
     }
 }
