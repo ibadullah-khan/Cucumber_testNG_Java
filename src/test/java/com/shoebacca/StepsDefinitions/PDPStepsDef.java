@@ -59,7 +59,7 @@ public class PDPStepsDef extends HarnessVariables{
         productDetailsPage.validateProductNameToRelatedProduct(PRODUCT_NAME,RELATED_PRODUCT_NAME);
     }
 
-    @Then("User Validates {string} Estimated Date Color on PDP")
+    @Then("User Validates {string} Estimated Delivery Date Color on PDP")
     public void userValidatesDateColorOnPDP(String expectedValue) throws Exception {
         String expectedDateColor= new PropertyLoaderFactory().getPropertyFile(pdpPropFile).getProperty(expectedValue);
         productDetailsPage.validateDateColor(expectedDateColor);

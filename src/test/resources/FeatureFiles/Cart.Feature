@@ -238,8 +238,6 @@ Feature: Cart Feature File
     Then User Validates "4" Related Products Brand on Related Product Section on Cart Page
     Then User Validates "4" Related Products Price on Related Product Section on Cart Page
 
-
-
   @Regression
   Scenario: Verify Price is not Discounted When Invalid Coupon is Entered
 
@@ -441,11 +439,11 @@ Feature: Cart Feature File
 
     Given User Setups the Web Browser
     Then User Navigates to "shoebacca.second.bag.pdt" Url
-    Then User Validates "estimated.date.color" Estimated Date Color on PDP
+    Then User Validates "estimated.date.color" Estimated Delivery Date Color on PDP
     Then User Clicks Add to Cart Button on PDP
     Then User Clicks on View Cart Button
     Then User Should Redirect Toward "shopping.cart" Page
-    Then User Validates "estimated.date.color" Estimated Date Color on Cart
+    Then User Validates "estimated.date.color" Estimated Delivery Date Color on Cart Page
     Then User Clicks Checkout Button on Cart View
     Then User Clicks on Guest Checkout Button
-    Then User Validates "estimated.date.color" Estimated Date Color on Checkout
+    Then User Validates "estimated.date.color" Estimated Delivery Date Color on Checkout Page

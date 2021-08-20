@@ -128,7 +128,7 @@ public class ProductDetailsPageFactory extends UtilFactory {
     }
 
     public void validateDateColor(String expectedDateColor){
-        String dateLocator = ProductDetailsPageEnum.XPATH_ESTIMATED_DATE.getValue();
+        String dateLocator = ProductDetailsPageEnum.XPATH_ESTIMATED_DELIVERY_DATE.getValue();
         String errorMsg = null;
         try {
             waitFactory.waitForElementToBeClickable(dateLocator);
