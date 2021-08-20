@@ -436,7 +436,6 @@ Feature: Cart Feature File
     Then User Validates Cart Items Quantity "2" on Cart Page
     Then User Click on Remove Link on "shoebacca.first.bag.name" Product on Cart Page
 
-
   @Regression
   Scenario: Verify the Standard Shipping Method is Selected by Default when Cart Page is Loaded
 

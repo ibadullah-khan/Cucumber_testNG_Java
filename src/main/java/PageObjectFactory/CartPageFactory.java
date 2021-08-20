@@ -992,9 +992,10 @@ public class CartPageFactory extends UtilFactory {
 
     public void validateShippingMethodNameOnSummarySection(String expectedShippingMethod) {
         String locator = CartPageEnum.XPATH_SHIPPING_METHOD_SUMMARY_SECTION.getValue();
-        String shippingMethod = getText(locator);
         String errorMsg = null;
         try {
+            waitFactory.waitForElementToBeVisible(locator);
+            String shippingMethod = getText(locator);
             if (shippingMethod.contains(expectedShippingMethod)) {
                 scenarioDef.log(Status.PASS, " Validated Shipping Method " + expectedShippingMethod + " Same as Expected on Summary Section of Cart Page");
             } else {
