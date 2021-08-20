@@ -435,3 +435,15 @@ Feature: Cart Feature File
     Then User Validates Successful Login on Account Menu
     Then User Validates Cart Items Quantity "2" on Cart Page
     Then User Click on Remove Link on "shoebacca.first.bag.name" Product on Cart Page
+
+  @Regression
+  Scenario: Estimated Delivery Date is Only Diplayed After Shipping Methods are Loaded
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks on View Cart Button
+    Then User Validates Shipping Label Visibility on Cart Page "true"
+    Then User Validates Shipping Value Visibility on Cart Page "true"
+    Then User Validates Expected Date Visibility on Cart "true"
