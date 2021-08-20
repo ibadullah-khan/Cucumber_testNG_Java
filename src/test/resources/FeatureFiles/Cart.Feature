@@ -485,3 +485,13 @@ Feature: Cart Feature File
     Then User Clicks Checkout Button on Cart View
     Then User Clicks on Guest Checkout Button
     Then User Validates "estimated.date.color" Estimated Delivery Date Color on Checkout Page
+
+  @Regression
+  Scenario: Verify the Standard Shipping Method is Selected by Default when Cart Page is Loaded
+
+    When User Navigates to "shoebacca.second.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    Then User Clicks on View Cart Button
+    Then User Should Redirect Toward "shopping.cart" Page
+    Then User Validates "standard.shipping" Shipping Method Name on Summary Section of Cart Page
