@@ -8,17 +8,12 @@ import org.openqa.selenium.NoSuchContextException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.Color;
-
-
-import javax.xml.bind.SchemaOutputResolver;
-import java.util.Arrays;
 import java.util.List;
 
 public class CartPageFactory extends UtilFactory {
 
     ElementFactory elementFactory = new ElementFactory();
     protected String cartPropFile = "cartData.properties";
-    String datevalue;
 
     public CartPageFactory() throws Exception {
     }
@@ -785,21 +780,6 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
-    public String getExpectedDate() {
-
-        String locator = CartPageEnum.XPATH_PRODUCT_DATE.getValue();
-        try {
-            waitFactory.waitForElementToBeClickable(locator);
-            datevalue = getText(locator);
-            scenarioDef.log(Status.PASS, "Fetched Date Value: " + datevalue + " from Cart");
-            return datevalue;
-        } catch (Exception e) {
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL, "Could not Fetch Date Value from Cart");
-            throw e;
-        }
-    }
-
     public void validateTaxValue(String expectedText) {
         String locator = CartPageEnum.XPATH_PRODUCT_TAX.getValue();
         String errorMsg = null;
@@ -1444,23 +1424,23 @@ public class CartPageFactory extends UtilFactory {
         String locator = CartPageEnum.XPATH_SHIPPING_METHOD_SUMMARY_SECTION.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
-        try{
+        try {
             waitFactory.waitForElementToBeClickable(locator);
             actualVisibility = isVisible(locator);
             if (actualVisibility && expectedVisibility) {
                 scenarioDef.log(Status.PASS, "Validated Shipping Label is Displayed as Expected on Mini Cart View");
-            }else if(!actualVisibility&& !expectedVisibility){
+            } else if (!actualVisibility && !expectedVisibility) {
                 scenarioDef.log(Status.PASS, "Validated Shipping Label is Not Displayed as Expected on Mini Cart View");
-            }else if (actualVisibility && !expectedVisibility){
+            } else if (actualVisibility && !expectedVisibility) {
                 errorMsg = "Validated Shipping Label is Displayed Unexpected on Mini Cart View";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
-            }else if (!actualVisibility && expectedVisibility){
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
                 errorMsg = "Validated Shipping Label is not Displayed Unexpected on Mini Cart View";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             }
-        }catch (Exception e) {
+        } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,errorMsg);
+            scenarioDef.log(Status.FAIL, errorMsg);
             throw e;
         }
     }
@@ -1469,23 +1449,23 @@ public class CartPageFactory extends UtilFactory {
         String locator = CartPageEnum.XPATH_SHIPPING_PRICE_SUMMARY_SECTION.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
-        try{
+        try {
             waitFactory.waitForElementToBeClickable(locator);
             actualVisibility = isVisible(locator);
             if (actualVisibility && expectedVisibility) {
                 scenarioDef.log(Status.PASS, "Validated Shipping Value is Displayed as Expected on Mini Cart View");
-            }else if(!actualVisibility&& !expectedVisibility){
+            } else if (!actualVisibility && !expectedVisibility) {
                 scenarioDef.log(Status.PASS, "Validated Shipping Value is Not Displayed as Expected on Mini Cart View");
-            }else if (actualVisibility && !expectedVisibility){
+            } else if (actualVisibility && !expectedVisibility) {
                 errorMsg = "Validated Shipping Value is Displayed Unexpected on Mini Cart View";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
-            }else if (!actualVisibility && expectedVisibility){
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
                 errorMsg = "Validated Shipping Value is not Displayed Unexpected on Mini Cart View";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             }
-        }catch (Exception e) {
+        } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,errorMsg);
+            scenarioDef.log(Status.FAIL, errorMsg);
             throw e;
         }
     }
@@ -1494,22 +1474,22 @@ public class CartPageFactory extends UtilFactory {
         String locator = CartPageEnum.XPATH_CHECKOUT_DISABLED_CART_BUTTON.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
-        try{
+        try {
             actualVisibility = isVisible(locator);
-            if (actualVisibility && expectedVisibility){
-                scenarioDef.log(Status.PASS,"Validated Checkout is Displayed as Expected on Cart Page");
-            }else if (!actualVisibility && !expectedVisibility){
-                scenarioDef.log(Status.PASS,"Validated Checkout is not Displayed as Expected on Cart Page");
-            }else if (actualVisibility && !expectedVisibility){
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Checkout is Displayed as Expected on Cart Page");
+            } else if (!actualVisibility && !expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Checkout is not Displayed as Expected on Cart Page");
+            } else if (actualVisibility && !expectedVisibility) {
                 errorMsg = "Validated Checkout is Displayed Unexpected on Cart Page";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
-            }else if (!actualVisibility && expectedVisibility){
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
                 errorMsg = "Validated Checkout is not Displayed Unexpected on Cart Page";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,errorMsg);
+            scenarioDef.log(Status.FAIL, errorMsg);
             throw e;
         }
     }
@@ -1628,60 +1608,58 @@ public class CartPageFactory extends UtilFactory {
 
         String locator = CartPageEnum.XPATH_PRODUCT_DATE.getValue();
         String errorMsg = null;
-        String[] getAllFirstDateValues;
-        String[] actualText;
+        String[] getAllExpectedDateValues;
         List<WebElement> elements;
         try {
+            waitForPageLoad();
             waitFactory.waitForElementToBeClickable(locator);
             elements = elementFactory.getElementsList(locator);
-            actualText = new String[elements.size()];
-            getAllFirstDateValues = new String[elements.size()];
+            getAllExpectedDateValues = new String[elements.size()];
             for (int i = 0; i < elements.size(); i++) {
-                actualText[i] = getText(locator).trim().replaceAll("Estimated Delivery Date: ","");
-                getAllFirstDateValues[i]=actualText[i];
-            }
-            scenarioDef.log(Status.PASS, "Fetched Expected Dates Value: " + getAllFirstDateValues + " from Cart");
-            return getAllFirstDateValues;
-        }  catch (Exception e) {
+                getAllExpectedDateValues[i] = getText(locator).trim().replaceAll("Estimated Delivery Date: ", "");
+                 }
+            scenarioDef.log(Status.PASS, "Fetched Expected Dates Value: " + getAllExpectedDateValues + " from Cart");
+            return getAllExpectedDateValues;
+        } catch (Exception e) {
             failureException = e.toString();
             if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the Tax Element on Cart Page");
+                scenarioDef.log(Status.FAIL, "Unable to get the Expected Date Element on Cart Page");
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
             throw e;
         }
     }
-    public void getDateForExpeditedShippingAndCompare(String[] getAllFirstDateValues) {
-        String locator = CartPageEnum.XPATH_PRODUCT_DATE.getValue();
+
+    public void getDateForExpeditedShippingAndCompare(String[] getAllStandardExpectedDateValues) {
+
         String errorMsg = null;
         Boolean Result=null;
-        String[] getAllSecondDateValues;
-        String[] actualText;
-        List<WebElement> elements;
+        String[] getAllExpeditedExpectedDateValues;
         try {
-            waitFactory.waitForElementToBeClickable(locator);
-            elements = elementFactory.getElementsList(locator);
-            actualText = new String[elements.size()];
-            getAllSecondDateValues = new String[elements.size()];
-            for (int i = 0; i < elements.size(); i++) {
-                actualText[i] = getText(locator).trim().replaceAll("Estimated Delivery Date: ","");
-                getAllSecondDateValues[i]=actualText[i];
+            getAllExpeditedExpectedDateValues=getAllExpectedDates();
+            for(int i = 0;i<getAllExpeditedExpectedDateValues.length;i++){
+                if(getAllStandardExpectedDateValues[i]!=getAllExpeditedExpectedDateValues[i]){
+                    Result=true;
+                }
+                if(getAllStandardExpectedDateValues[i]==getAllExpeditedExpectedDateValues[i]){
+                    Result=false;
+                }
             }
-            Result = Arrays.equals(getAllFirstDateValues,getAllSecondDateValues);
-            if(Result==false){
+            if (Result == true) {
                 scenarioDef.log(Status.PASS, "Validated Standard Shipping and Expedited Shipping Dates are Displayed as Expected on Cart Page");
-            }else if (Result==true) {
+            } else if (Result == false) {
                 scenarioDef.log(Status.FAIL, "Validated Standard Shipping and Expedited Shipping Dates is not Displayed as Expected on Cart Page");
             }
-        }  catch (Exception e) {
-            failureException = e.toString();
-            if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the Tax Element on Cart Page");
-            } else {
-                scenarioDef.log(Status.FAIL, errorMsg);
-            }
-            throw e;
+        }
+            catch (Exception e){
+                failureException = e.toString();
+                if (errorMsg == null) {
+                    scenarioDef.log(Status.FAIL, "Unable to get the Expected Date Element on Cart Page");
+                } else {
+                    scenarioDef.log(Status.FAIL, errorMsg);
+                }
+                throw e;
         }
     }
 

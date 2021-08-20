@@ -500,14 +500,14 @@ Feature: Cart Feature File
   Scenario: Changing Shipping Method Causes Estimated Delivery Dates in Cart to Recompute
 
     Given User Setups the Web Browser
-    When User Navigates to "shoebacca.second.bag.pdt" Url
+    When User Navigates to "shoebacca.first.bag.pdt" Url
     Then User Clicks Add to Cart Button on PDP
     And User Validates Successful Triggered Mini Cart
-    Then User Navigates to "shoebacca.third.bag.pdt" Url
+    Then User Navigates to "shoebacca.second.bag.pdt" Url
     Then User Clicks Add to Cart Button on PDP
     And User Validates Successful Triggered Mini Cart
     And User Clicks on View Cart Button
-    Then User Fetches All Expected Dates on Cart Page
+    Then User Fetches All Estimated Delivery Dates on Cart Page
     Then User Clicks on Change Shipping Option of Cart Page
     Then User Clicks on "expedited.shipping" Shipping Method on Dropdown of Cart Page
-    Then User Fetches And Compare Expedited Date on Cart Page
+    Then User Fetches And Compare Estimated Delivery Date on Cart Page
