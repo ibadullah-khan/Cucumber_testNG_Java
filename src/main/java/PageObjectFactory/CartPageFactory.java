@@ -7,12 +7,13 @@ import com.aventstack.extentreports.Status;
 import org.openqa.selenium.NoSuchContextException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.Color;
+
 import java.util.List;
 
 public class CartPageFactory extends UtilFactory {
 
     ElementFactory elementFactory = new ElementFactory();
-    protected String cartPropFile = "cartData.properties";
 
     public CartPageFactory() throws Exception {
     }
@@ -692,7 +693,6 @@ public class CartPageFactory extends UtilFactory {
     }
 
     public void validateRemoveLinkVisibility(int expectedRemoveLink) {
-
         String locator = CartPageEnum.XPATH_REMOVE_LINK.getValue();
         waitFactory.waitForElementToBeVisible(locator);
         String errorMsg = null;
@@ -949,7 +949,6 @@ public class CartPageFactory extends UtilFactory {
         String locator = CartPageEnum.XPATH_SHIPPING_PRICE_START.getValue() + expectedShippingMethod + CartPageEnum.XPATH_SHIPPING_PRICE_END.getValue();
         String actualPrice = getText(locator).trim();
         String errorMsg = null;
-
         try {
             if (actualPrice.equalsIgnoreCase(expectedShippingPrice)) {
                 scenarioDef.log(Status.PASS, "Validated Shipping Price " + expectedShippingPrice + " Same as Expected on Shipping Method Drop of Summary Section of Cart Page");
@@ -1025,7 +1024,6 @@ public class CartPageFactory extends UtilFactory {
     }
 
     public void validateTotalAmount() {
-
         String subAmountLocator = CartPageEnum.XPATH_SUB_TOTAL_AMOUNT.getValue();
         String totalAmountLocator = CartPageEnum.XPATH_TOTAL_AMOUNT.getValue();
         String errorMsg = null;
@@ -1301,6 +1299,7 @@ public class CartPageFactory extends UtilFactory {
             throw e;
         }
     }
+
     public void validateImageOnCart(String expectedValue) {
         String locator = CartPageEnum.XPATH_CART_EMPTY_IMAGE.getValue();
         String errorMsg = null;
@@ -1415,6 +1414,56 @@ public class CartPageFactory extends UtilFactory {
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
             }
         }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateShippingLabelVisibility(Boolean expectedVisibility) {
+        String locator = CartPageEnum.XPATH_SHIPPING_METHOD_SUMMARY_SECTION.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Shipping Label is Displayed as Expected on Mini Cart View");
+            }else if(!actualVisibility&& !expectedVisibility){
+                scenarioDef.log(Status.PASS, "Validated Shipping Label is Not Displayed as Expected on Mini Cart View");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated Shipping Label is Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated Shipping Label is not Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateShippingValueVisibility(Boolean expectedVisibility) {
+        String locator = CartPageEnum.XPATH_SHIPPING_PRICE_SUMMARY_SECTION.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Shipping Value is Displayed as Expected on Mini Cart View");
+            }else if(!actualVisibility&& !expectedVisibility){
+                scenarioDef.log(Status.PASS, "Validated Shipping Value is Not Displayed as Expected on Mini Cart View");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated Shipping Value is Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated Shipping Value is not Displayed Unexpected on Mini Cart View";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e) {
             failureException = e.toString();
             scenarioDef.log(Status.FAIL,errorMsg);
             throw e;
@@ -1630,6 +1679,31 @@ public class CartPageFactory extends UtilFactory {
                 failureException = e.toString();
                 scenarioDef.log(Status.FAIL, "Could not Click on First Available Product on Related Product Carousal");
                 throw e;
+        }
+    }
+
+    public void validateDateColor(String expectedDateColor){
+        String dateLocator = CartPageEnum.XPATH_PRODUCT_DATE.getValue();
+        String errorMsg = null;
+        try {
+            waitFactory.waitForElementToBeClickable(dateLocator);
+            String actualValue=getCSS(dateLocator,"color");
+            String hex = Color.fromString(actualValue).asHex();
+            if (hex.contains(expectedDateColor)) {
+                scenarioDef.log(Status.PASS, "Validated Date Color is " + expectedDateColor + " on Cart");
+            } else {
+                errorMsg = "Could not validate Date Color is: " + expectedDateColor + " on Cart, Actual Value is: " + actualValue;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        }
+        catch (Exception e){
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Date Color Cart");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
         }
     }
 }

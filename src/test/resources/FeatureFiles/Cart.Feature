@@ -238,8 +238,6 @@ Feature: Cart Feature File
     Then User Validates "4" Related Products Brand on Related Product Section on Cart Page
     Then User Validates "4" Related Products Price on Related Product Section on Cart Page
 
-
-
   @Regression
   Scenario: Verify Price is not Discounted When Invalid Coupon is Entered
 
@@ -420,7 +418,7 @@ Feature: Cart Feature File
     Then User Validates Checkout Button Disabled Visibility "false"
 
   @Regression
-  Scenario: Verify Cart Summary is Updated When Guest Customer Signs In and There is Change in Cart Items
+  Scenario: Verify Cart Content is Updated When Guest Customer Signs In and There is Change in Cart Items
 
     When User Navigates to "shoebacca.first.bag.pdt" Url
     Then User Clicks Add to Cart Button on PDP
@@ -435,6 +433,58 @@ Feature: Cart Feature File
     Then User Validates Successful Login on Account Menu
     Then User Validates Cart Items Quantity "2" on Cart Page
     Then User Click on Remove Link on "shoebacca.first.bag.name" Product on Cart Page
+
+  @Regression
+  Scenario: Estimated Delivery Date is Only Diplayed After Shipping Methods are Loaded
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks on View Cart Button
+    Then User Validates Shipping Label Visibility on Cart Page "true"
+    Then User Validates Shipping Value Visibility on Cart Page "true"
+    Then User Validates Expected Date Visibility on Cart "true"
+
+  @Regression
+  Scenario: Verify User Can Select Only One Shipping Method at a Time
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    Then User Clicks on View Cart Button
+    Then User Should Redirect Toward "shopping.cart" Page
+    Then User Clicks on Change Shipping Option of Cart Page
+    Then User Clicks on "rush.shipping" Shipping Method on Dropdown of Cart Page
+    Then User Validates "rush.shipping" Shipping Method Name on Summary Section of Cart Page
+
+  @Regression
+  Scenario: Verify User can not Unselect all Shipping Methods at a Time
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    Then User Clicks on View Cart Button
+    Then User Should Redirect Toward "shopping.cart" Page
+    Then User Clicks on Change Shipping Option of Cart Page
+    Then User Clicks on "standard.shipping" Shipping Method on Dropdown of Cart Page
+    Then User Validates "standard.shipping" Shipping Method Name on Summary Section of Cart Page
+
+  @Regression
+  Scenario: Verify the Text Color of Estimated Delivery Date on PDP,Cart and Checkout Page
+
+    Given User Setups the Web Browser
+    Then User Navigates to "shoebacca.second.bag.pdt" Url
+    Then User Validates "estimated.date.color" Estimated Delivery Date Color on PDP
+    Then User Clicks Add to Cart Button on PDP
+    Then User Clicks on View Cart Button
+    Then User Should Redirect Toward "shopping.cart" Page
+    Then User Validates "estimated.date.color" Estimated Delivery Date Color on Cart Page
+    Then User Clicks Checkout Button on Cart View
+    Then User Clicks on Guest Checkout Button
+    Then User Validates "estimated.date.color" Estimated Delivery Date Color on Checkout Page
 
   @Regression
   Scenario: Verify the Standard Shipping Method is Selected by Default when Cart Page is Loaded

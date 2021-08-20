@@ -176,7 +176,6 @@ public class MiniCartPageFactory extends UtilFactory {
     }
 
     public void validateCloseButtonVisibility(Boolean expectedVisibility) {
-
         String locator = MiniCartPageEnum.XPATH_MINI_CART_CLOSE_ICON.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
@@ -202,7 +201,6 @@ public class MiniCartPageFactory extends UtilFactory {
     }
 
     public void validateEditQuantityVisibility(Boolean expectedVisibility) {
-
         String locator = MiniCartPageEnum.XPATH_EDIT_BUTTON.getValue();
         String errorMsg = null;
         Boolean actualVisibility;

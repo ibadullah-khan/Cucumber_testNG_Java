@@ -9,7 +9,7 @@ public enum MiniCartPageEnum {
     XPATH_PRODUCT_PRICE("//*[@class='item-price-2oh']"),
     XPATH_PRODUCTS_CONTAINER("//*[@class='productList-items_container-2q_']/div/div"),
     XPATH_TAX_LABEL("//*[@class='priceSummary-lineItemLabel-1zJ' and contains(text(),'Tax')]"),
-    XPATH_GUEST_CHECKOUT_BUTTON("(//*[@class='checkoutProcess-body-2hF']//button[@class='guestCheckout']//span[@class='button-content-XZ3'])[2]"),
+    XPATH_GUEST_CHECKOUT_BUTTON("(//*[@class='checkoutProcess-body-2hF']//button[@class='guestCheckout']//span[@class='button-content-XZ3'])"),
     XPATH_PRODUCT_SIZE("//*[@class='item-root-18B']//*[@class='item-options-1pj']"),
     XPATH_PRODUCT_COLOR("//*[@class='item-colorName-1xx']"),
     XPATH_PRODUCT_IMAGE("//*[@class='item-thumbnailContainer-1_h']"),
@@ -34,5 +34,4 @@ public enum MiniCartPageEnum {
     public String getValue() {
         return this.miniCartPageVariables;
     }
-
 }
