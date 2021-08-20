@@ -7,6 +7,8 @@ import com.aventstack.extentreports.Status;
 import org.openqa.selenium.NoSuchContextException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.Color;
+
 
 import javax.xml.bind.SchemaOutputResolver;
 import java.util.Arrays;
@@ -696,7 +698,6 @@ public class CartPageFactory extends UtilFactory {
     }
 
     public void validateRemoveLinkVisibility(int expectedRemoveLink) {
-
         String locator = CartPageEnum.XPATH_REMOVE_LINK.getValue();
         waitFactory.waitForElementToBeVisible(locator);
         String errorMsg = null;
@@ -968,7 +969,6 @@ public class CartPageFactory extends UtilFactory {
         String locator = CartPageEnum.XPATH_SHIPPING_PRICE_START.getValue() + expectedShippingMethod + CartPageEnum.XPATH_SHIPPING_PRICE_END.getValue();
         String actualPrice = getText(locator).trim();
         String errorMsg = null;
-
         try {
             if (actualPrice.equalsIgnoreCase(expectedShippingPrice)) {
                 scenarioDef.log(Status.PASS, "Validated Shipping Price " + expectedShippingPrice + " Same as Expected on Shipping Method Drop of Summary Section of Cart Page");
@@ -1011,9 +1011,10 @@ public class CartPageFactory extends UtilFactory {
 
     public void validateShippingMethodNameOnSummarySection(String expectedShippingMethod) {
         String locator = CartPageEnum.XPATH_SHIPPING_METHOD_SUMMARY_SECTION.getValue();
-        String shippingMethod = getText(locator);
         String errorMsg = null;
         try {
+            waitFactory.waitForElementToBeVisible(locator);
+            String shippingMethod = getText(locator);
             if (shippingMethod.contains(expectedShippingMethod)) {
                 scenarioDef.log(Status.PASS, " Validated Shipping Method " + expectedShippingMethod + " Same as Expected on Summary Section of Cart Page");
             } else {
@@ -1043,7 +1044,6 @@ public class CartPageFactory extends UtilFactory {
     }
 
     public void validateTotalAmount() {
-
         String subAmountLocator = CartPageEnum.XPATH_SUB_TOTAL_AMOUNT.getValue();
         String totalAmountLocator = CartPageEnum.XPATH_TOTAL_AMOUNT.getValue();
         String errorMsg = null;
@@ -1760,6 +1760,31 @@ public class CartPageFactory extends UtilFactory {
                 failureException = e.toString();
                 scenarioDef.log(Status.FAIL, "Could not Click on First Available Product on Related Product Carousal");
                 throw e;
+        }
+    }
+
+    public void validateDateColor(String expectedDateColor){
+        String dateLocator = CartPageEnum.XPATH_PRODUCT_DATE.getValue();
+        String errorMsg = null;
+        try {
+            waitFactory.waitForElementToBeClickable(dateLocator);
+            String actualValue=getCSS(dateLocator,"color");
+            String hex = Color.fromString(actualValue).asHex();
+            if (hex.contains(expectedDateColor)) {
+                scenarioDef.log(Status.PASS, "Validated Date Color is " + expectedDateColor + " on Cart");
+            } else {
+                errorMsg = "Could not validate Date Color is: " + expectedDateColor + " on Cart, Actual Value is: " + actualValue;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        }
+        catch (Exception e){
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Date Color Cart");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
         }
     }
 }

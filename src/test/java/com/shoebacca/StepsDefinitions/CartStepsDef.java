@@ -510,6 +510,12 @@ public class CartStepsDef extends HarnessVariables{
         }
     }
 
+    @Then("User Validates {string} Estimated Delivery Date Color on Cart Page")
+    public void userValidatesDateColorOnCart(String expectedValue) throws Exception {
+        String expectedDateColor= new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(expectedValue);
+        cartPage.validateDateColor(expectedDateColor);
+    }
+
     @Then("User Fetches And Compare Expedited Date on Cart Page")
     public void userFetchesExpeditedDateOnCartPage() {
         cartPage.getDateForExpeditedShippingAndCompare(ALL_EXPECTED_DATE);

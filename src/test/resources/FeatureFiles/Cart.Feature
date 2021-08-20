@@ -473,6 +473,30 @@ Feature: Cart Feature File
     Then User Validates "standard.shipping" Shipping Method Name on Summary Section of Cart Page
 
   @Regression
+  Scenario: Verify the Text Color of Estimated Delivery Date on PDP,Cart and Checkout Page
+
+    Given User Setups the Web Browser
+    Then User Navigates to "shoebacca.second.bag.pdt" Url
+    Then User Validates "estimated.date.color" Estimated Delivery Date Color on PDP
+    Then User Clicks Add to Cart Button on PDP
+    Then User Clicks on View Cart Button
+    Then User Should Redirect Toward "shopping.cart" Page
+    Then User Validates "estimated.date.color" Estimated Delivery Date Color on Cart Page
+    Then User Clicks Checkout Button on Cart View
+    Then User Clicks on Guest Checkout Button
+    Then User Validates "estimated.date.color" Estimated Delivery Date Color on Checkout Page
+
+  @Regression
+  Scenario: Verify the Standard Shipping Method is Selected by Default when Cart Page is Loaded
+
+    When User Navigates to "shoebacca.second.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    Then User Clicks on View Cart Button
+    Then User Should Redirect Toward "shopping.cart" Page
+    Then User Validates "standard.shipping" Shipping Method Name on Summary Section of Cart Page
+
+  @Regression
   Scenario: Changing Shipping Method Causes Estimated Delivery Dates in Cart to Recompute
 
     Given User Setups the Web Browser

@@ -34,5 +34,4 @@ public enum MiniCartPageEnum {
     public String getValue() {
         return this.miniCartPageVariables;
     }
-
 }

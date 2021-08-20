@@ -49,7 +49,7 @@ public enum CartPageEnum {
     XPATH_RELATED_PRODUCTS_BRAND("//*[contains(@class, 'slick-slide slick-active')]//*[contains(@class, 'slick-title-3hj')]"),
     XPATH_RELATED_PRODUCTS_PRICE("//*[contains(@class, 'slick-slide slick-active')]//*[contains(@class, 'slick-priceDetail-jmn')]"),
     XPATH_SHIPPING_PRICE_SUMMARY_SECTION("//*[@class='shippingSummary-shippingBar-11G']//*[@class='priceSummary-price-2my']"),
-    XPATH_SHIPPING_METHOD_SUMMARY_SECTION("//*[@class='shippingSummary-shippingBar-11G']//*[@class='priceSummary-lineItemLabel-122']"),
+    XPATH_SHIPPING_METHOD_SUMMARY_SECTION("//div[@class='shippingSummary-shippingBar-11G']//span[@class='priceSummary-lineItemLabel-122']"),
     XPATH_TOTAL_AMOUNT("//*[@class='priceSummary-summaryOpener-YIL']//*[@class='priceSummary-totalPrice---h priceSummary-price-2my']"),
     XPATH_PROMO_CODE_FIELD("//*[@id='couponCode']"),
     XPATH_ADD_COUPON_BUTTON("//*[@class='button-content-XZ3' and text()='Add']"),
