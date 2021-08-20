@@ -7,6 +7,7 @@ public enum CartPageEnum {
     XPATH_ITEM_CONTAINER_HEADING_END("']"),
     XPATH_ITEM_CONTAINER_CONTENT_START("//*[@class='product-productListing-2Gh']//*[@class='"),
     XPATH_ITEM_CONTAINER_CONTENT_END("']"),
+    XPATH_PRODUCT_NAME_CAROUSAL("//*[@class='slick-slide slick-active slick-current']//*[@class='slick-title-3hj']"),
     XPATH_ITEM_QUANTITY_COUNTER("//*[@class='cartPage-heading-1Q0']/span"),
     XPATH_PRODUCT_QUANTITY("//input[@class='quantity-input-1fR']"),
     XPATH_SUMMARY_SECTION("//*[@class='cartPage-summary_container-2pt']"),
@@ -25,9 +26,12 @@ public enum CartPageEnum {
     XPATH_REMOVE_LINK("//button[@class='product-btnRemove-16L' and contains(text(),'Remove')]"),
     XPATH_REMOVE_START("//*[@class='product-name-3mh']/*[text()='"),
     XPATH_REMOVE_END("']//ancestor::div[@class='product-details-3HQ']//button[@class='product-btnRemove-16L']"),
+    XPATH_CHECKOUT_CART_BUTTON("//span[text()='Go to Checkout']//parent::button[not(@disabled)]"),
     XPATH_CHECKOUT_CART("//span[text()='Go to Checkout']//parent::button[not(@disabled)]"),
+    XPATH_CHECKOUT_DISABLED_CART_BUTTON("//span[text()='Go to Checkout']//parent::button[(@disabled)]"),
     XPATH_INVALID_LOGIN_ERROR("//*[@class='main-loginError-2FL']"),
     XPATH_CART_LOGIN_LINK("//*[@class='cartPage-emptyCartBox-2Z6']//*[text()='Log in']"),
+    XPATH_CART_HOME_LINK("//*[@class='cartPage-emptyCartBox-2Z6']//*[text()='Home']"),
     XPATH_ADD_TO_CART_BUTTON("//*[@id='productFullDetail']//*[@class='button-root_highPriority-3-H']"),
     XPATH_PRODUCT_TAX("//*[text()='Tax']//following-sibling::*[@class='priceSummary-price-2my']"),
     XPATH_CART_IS_EMPTY("//*[@class='cartPage-title-ISm' and text()='YOUR CART IS EMPTY']"),
@@ -54,7 +58,10 @@ public enum CartPageEnum {
     XPATH_INVALID_COUPON_ERROR_MESSAGE("//*[@class='couponCode-entryFormError-22d couponCode-cartCoupon-3gg']//*[@class='message-root-35v']"),
     XPATH_CATEGORY_SECTION("//*[@class='cmsBlock-root-2sX']//*[@class='categories-block']"),
     XPATH_INDIVIDUAL_CATEGORY_START("//*[@class='categories-row']//*[text()=\""),
-    XPATH_INDIVIDUAL_CATEGORY_END("\"]");
+    XPATH_INDIVIDUAL_CATEGORY_END("\"]"),
+    XPATH_PREDICT_INSPECTOR_SECTION("//*[@id='sc-inspector']"),
+    XPATH_PREDICT_INSPECTOR_ITEM_DESCRIPTION_START("//*[@class='sc-event-caption-title' and text()='"),
+    XPATH_PREDICT_INSPECTOR_ITEM_DESCRIPTION_END("']//following-sibling::span");
 
     private String cartPageVariables;
 

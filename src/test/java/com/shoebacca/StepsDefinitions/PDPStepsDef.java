@@ -2,6 +2,7 @@ package com.shoebacca.StepsDefinitions;
 
 import PageObjectFactory.ProductDetailsPageFactory;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
 
 public class PDPStepsDef extends HarnessVariables{
 
@@ -49,6 +50,11 @@ public class PDPStepsDef extends HarnessVariables{
     @And("User Select First Available Product Size from PDP")
     public void userSelectFirstAvailableProductSizeFromPDP() {
         productDetailsPage.selectFirstAvailableProductSize();
+    }
+
+    @Then("User Validates Product Name from PDP to Related Product Name")
+    public void userValidatesProductNameFromPDPtoRelatedProductName() {
+        productDetailsPage.validateProductNameToRelatedProduct(PRODUCT_NAME,RELATED_PRODUCT_NAME);
     }
 }
 
