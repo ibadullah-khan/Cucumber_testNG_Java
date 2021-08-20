@@ -8,6 +8,8 @@ import org.openqa.selenium.NoSuchContextException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
+import javax.xml.bind.SchemaOutputResolver;
+import java.util.Arrays;
 import java.util.List;
 
 public class CartPageFactory extends UtilFactory {
@@ -1548,21 +1550,25 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
-    public void getDateForStandardShipping() {
+    public String[] getAllExpectedDates() {
+
         String locator = CartPageEnum.XPATH_PRODUCT_DATE.getValue();
         String errorMsg = null;
-        String[] firstDateValue = new String[0];
-        String[] actualText = new String[0];
+        String[] getAllFirstDateValues;
+        String[] actualText;
         List<WebElement> elements;
         try {
-
             waitFactory.waitForElementToBeClickable(locator);
             elements = elementFactory.getElementsList(locator);
-            for (int i = 1; i <= elements.size(); i++) {
-                actualText[i] = getText(locator).trim().replaceAll("Estimated Delivery Date: ", "");
-                firstDateValue[i] = actualText[i];
+            actualText = new String[elements.size()];
+            getAllFirstDateValues = new String[elements.size()];
+            for (int i = 0; i < elements.size(); i++) {
+                actualText[i] = getText(locator).trim().replaceAll("Estimated Delivery Date: ","");
+                getAllFirstDateValues[i]=actualText[i];
             }
-        } catch (Exception e) {
+            scenarioDef.log(Status.PASS, "Fetched Expected Dates Value: " + getAllFirstDateValues + " from Cart");
+            return getAllFirstDateValues;
+        }  catch (Exception e) {
             failureException = e.toString();
             if (errorMsg == null) {
                 scenarioDef.log(Status.FAIL, "Unable to get the Tax Element on Cart Page");
@@ -1572,27 +1578,36 @@ public class CartPageFactory extends UtilFactory {
             throw e;
         }
     }
-//    public void getDateForExpeditedShipping() {
-//        String locator = CartPageEnum.XPATH_PRODUCT_TAX.getValue();
-//        String errorMsg = null;
-//        String actualText;
-//        try {
-//            waitFactory.waitForElementToBeClickable(locator);
-//            actualText = getText(locator).trim();
-//            if (actualText.contains(expectedText)) {
-//                scenarioDef.log(Status.PASS, "Validated Tax on Cart as Expected: " + expectedText);
-//            } else {
-//                errorMsg = "Could not validate Tax on Cart as Expected: " + expectedText + " , Actual Value: " + actualText;
-//                throw new NoSuchContextException("Actual and Expected Value Differs");
-//            }
-//        } catch (Exception e) {
-//            failureException = e.toString();
-//            if (errorMsg == null) {
-//                scenarioDef.log(Status.FAIL, "Unable to get the Tax Element on Cart Page");
-//            } else {
-//                scenarioDef.log(Status.FAIL, errorMsg);
-//            }
-//            throw e;
-//        }
-//    }
+    public void getDateForExpeditedShippingAndCompare(String[] getAllFirstDateValues) {
+        String locator = CartPageEnum.XPATH_PRODUCT_DATE.getValue();
+        String errorMsg = null;
+        Boolean Result=null;
+        String[] getAllSecondDateValues;
+        String[] actualText;
+        List<WebElement> elements;
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            elements = elementFactory.getElementsList(locator);
+            actualText = new String[elements.size()];
+            getAllSecondDateValues = new String[elements.size()];
+            for (int i = 0; i < elements.size(); i++) {
+                actualText[i] = getText(locator).trim().replaceAll("Estimated Delivery Date: ","");
+                getAllSecondDateValues[i]=actualText[i];
+            }
+            Result = Arrays.equals(getAllFirstDateValues,getAllSecondDateValues);
+            if(Result==false){
+                scenarioDef.log(Status.PASS, "Validated Standard Shipping and Expedited Shipping Dates are Displayed as Expected on Cart Page");
+            }else if (Result==true) {
+                scenarioDef.log(Status.FAIL, "Validated Standard Shipping and Expedited Shipping Dates is not Displayed as Expected on Cart Page");
+            }
+        }  catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Tax Element on Cart Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
 }

@@ -237,7 +237,7 @@ Feature: Cart Feature File
     Then User Validates "4" Related Products Name on Related Product Section on Cart Page
     Then User Validates "4" Related Products Brand on Related Product Section on Cart Page
     Then User Validates "4" Related Products Price on Related Product Section on Cart Page
-#
+
 
 
   @Regression
@@ -393,17 +393,14 @@ Feature: Cart Feature File
   Scenario: Changing Shipping Method Causes Estimated Delivery Dates in Cart to Recompute
 
     Given User Setups the Web Browser
-    When User Navigates to "shoebacca.first.bag.pdt" Url
+    When User Navigates to "shoebacca.second.bag.pdt" Url
     Then User Clicks Add to Cart Button on PDP
     And User Validates Successful Triggered Mini Cart
-    Then User Navigates to "shoebacca.second.bag.pdt" Url
+    Then User Navigates to "shoebacca.third.bag.pdt" Url
     Then User Clicks Add to Cart Button on PDP
     And User Validates Successful Triggered Mini Cart
     And User Clicks on View Cart Button
-    Then User Should Redirect Toward "shopping.cart" Page
-#    Then User Validates "standard.shipping" Shipping Method Name on Summary Section of Cart Page
-    Then User Fetches Expected Date on Cart Page
+    Then User Fetches All Expected Dates on Cart Page
     Then User Clicks on Change Shipping Option of Cart Page
     Then User Clicks on "expedited.shipping" Shipping Method on Dropdown of Cart Page
-    Then User Fetches Expected Date on Cart Page
-    Then User Validates Recomputed Date on Cart Page
+    Then User Fetches And Compare Expedited Date on Cart Page
