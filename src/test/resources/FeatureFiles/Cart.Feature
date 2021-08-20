@@ -338,6 +338,20 @@ Feature: Cart Feature File
     Then User Validates Discounted Amount on Cart Page
 
   @Regression
+  Scenario: Add Item to the Cart Close the Browser and Reopen the Web Store
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    Then User Clicks on View Cart Button
+    Then User Should Redirect Toward "shopping.cart" Page
+    Then User Validates Cart Items Quantity "1" on Cart Page
+    Then User Opens New Tab And Closes Previous Tab
+    Then User Navigates to "shoebacca.cart" Url
+    Then User Validates Cart Items Quantity "1" on Cart Page
+
+  @Regression
   Scenario: Verify Discount is Applied Automatically When Cart Price Rule Is Active and Applicable
 
     Given User Setups the Web Browser
