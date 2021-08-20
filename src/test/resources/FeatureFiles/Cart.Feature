@@ -447,3 +447,16 @@ Feature: Cart Feature File
     Then User Validates Shipping Label Visibility on Cart Page "true"
     Then User Validates Shipping Value Visibility on Cart Page "true"
     Then User Validates Expected Date Visibility on Cart "true"
+
+  @Regression
+  Scenario: Verify Customer Can Select Only One Shipping Method at a Time
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    Then User Clicks on View Cart Button
+    Then User Should Redirect Toward "shopping.cart" Page
+    Then User Clicks on Change Shipping Option of Cart Page
+    Then User Clicks on "rush.shipping" Shipping Method on Dropdown of Cart Page
+    Then User Validates "rush.shipping" Shipping Method Name on Summary Section of Cart Page
