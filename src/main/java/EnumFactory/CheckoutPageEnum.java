@@ -32,5 +32,4 @@ public enum CheckoutPageEnum {
     public String getValue() {
         return this.checkoutPageVariables;
     }
-
 }

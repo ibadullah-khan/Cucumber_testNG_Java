@@ -17,5 +17,4 @@ public enum AccountMenuPageEnum {
     public String getValue() {
         return this.accountMenuPageVariables;
     }
-
 }

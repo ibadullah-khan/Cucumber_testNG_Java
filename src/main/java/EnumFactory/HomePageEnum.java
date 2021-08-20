@@ -15,5 +15,4 @@ public enum HomePageEnum {
     public String getValue() {
         return this.homePageVariables;
     }
-
 }

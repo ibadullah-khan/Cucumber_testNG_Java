@@ -12,7 +12,6 @@ import java.util.List;
 public class CartPageFactory extends UtilFactory {
 
     ElementFactory elementFactory = new ElementFactory();
-    protected String cartPropFile = "cartData.properties";
 
     public CartPageFactory() throws Exception {
     }
@@ -691,7 +690,6 @@ public class CartPageFactory extends UtilFactory {
     }
 
     public void validateRemoveLinkVisibility(int expectedRemoveLink) {
-
         String locator = CartPageEnum.XPATH_REMOVE_LINK.getValue();
         waitFactory.waitForElementToBeVisible(locator);
         String errorMsg = null;
@@ -948,7 +946,6 @@ public class CartPageFactory extends UtilFactory {
         String locator = CartPageEnum.XPATH_SHIPPING_PRICE_START.getValue() + expectedShippingMethod + CartPageEnum.XPATH_SHIPPING_PRICE_END.getValue();
         String actualPrice = getText(locator).trim();
         String errorMsg = null;
-
         try {
             if (actualPrice.equalsIgnoreCase(expectedShippingPrice)) {
                 scenarioDef.log(Status.PASS, "Validated Shipping Price " + expectedShippingPrice + " Same as Expected on Shipping Method Drop of Summary Section of Cart Page");
@@ -1023,7 +1020,6 @@ public class CartPageFactory extends UtilFactory {
     }
 
     public void validateTotalAmount() {
-
         String subAmountLocator = CartPageEnum.XPATH_SUB_TOTAL_AMOUNT.getValue();
         String totalAmountLocator = CartPageEnum.XPATH_TOTAL_AMOUNT.getValue();
         String errorMsg = null;
@@ -1299,6 +1295,7 @@ public class CartPageFactory extends UtilFactory {
             throw e;
         }
     }
+
     public void validateImageOnCart(String expectedValue) {
         String locator = CartPageEnum.XPATH_CART_EMPTY_IMAGE.getValue();
         String errorMsg = null;

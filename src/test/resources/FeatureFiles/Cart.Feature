@@ -238,8 +238,6 @@ Feature: Cart Feature File
     Then User Validates "4" Related Products Brand on Related Product Section on Cart Page
     Then User Validates "4" Related Products Price on Related Product Section on Cart Page
 
-
-
   @Regression
   Scenario: Verify Price is not Discounted When Invalid Coupon is Entered
 
@@ -353,5 +351,3 @@ Feature: Cart Feature File
     Then User Validates Product Price Visibility "true" on Cart Page
     And User Validates Product Discount Price Visibility "true" on Cart Page
     And User Validates Product Save Price Visibility "true" on Cart Page
-
-

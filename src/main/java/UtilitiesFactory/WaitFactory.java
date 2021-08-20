@@ -58,12 +58,10 @@ public class WaitFactory {
     }
 
     public void staticWait(int waitTime) {
-
         try {
             Thread.sleep(waitTime);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
     }
 }
