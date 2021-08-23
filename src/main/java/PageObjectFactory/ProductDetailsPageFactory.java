@@ -143,7 +143,7 @@ public class ProductDetailsPageFactory extends UtilFactory {
     }
 
     public void validateDateColor(String expectedDateColor){
-        String dateLocator = ProductDetailsPageEnum.XPATH_ESTIMATED_ANDROID_DELIVERY_DATE.getValue();
+        String dateLocator = ProductDetailsPageEnum.XPATH_ESTIMATED_MOBILE_DELIVERY_DATE.getValue();
         String errorMsg = null;
         try {
             waitFactory.waitForElementToBeClickable(dateLocator);
@@ -168,7 +168,7 @@ public class ProductDetailsPageFactory extends UtilFactory {
     }
 
     public void validateExpectedDateVisibility(Boolean expectedVisibility) {
-        String locator = ProductDetailsPageEnum.XPATH_ESTIMATED_ANDROID_DELIVERY_DATE.getValue();
+        String locator = ProductDetailsPageEnum.XPATH_ESTIMATED_MOBILE_DELIVERY_DATE.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
         try{
