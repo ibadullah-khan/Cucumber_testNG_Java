@@ -1,6 +1,5 @@
 package PageObjectFactory;
 
-import EnumFactory.CartPageEnum;
 import EnumFactory.ProductDetailsPageEnum;
 import UtilitiesFactory.UtilFactory;
 import com.aventstack.extentreports.Status;
@@ -30,10 +29,10 @@ public class ProductDetailsPageFactory extends UtilFactory {
         try {
             waitFactory.waitForElementToBeClickable(locator);
             click(locator);
-            scenarioDef.log(Status.PASS, "Clicked on Add to Cart Button on PDP");
+            scenarioDef.log(Status.PASS, "Clicked on Add to Cart Button on PDP for Mobile");
         } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL, "Could not Click on Add to Cart Button on PDP");
+            scenarioDef.log(Status.FAIL, "Could not Click on Add to Cart Button on PDP for Mobile");
             throw e;
         }
     }
