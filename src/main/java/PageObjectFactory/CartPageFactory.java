@@ -13,7 +13,6 @@ import java.util.List;
 public class CartPageFactory extends UtilFactory {
 
     ElementFactory elementFactory = new ElementFactory();
-    protected String cartPropFile = "cartData.properties";
 
     public CartPageFactory() throws Exception {
     }
@@ -1604,7 +1603,7 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
-    public String[] getAllExpectedDates() {
+    public String[] getAllExpectedDeliveryDates() {
 
         String locator = CartPageEnum.XPATH_PRODUCT_DATE.getValue();
         String errorMsg = null;
@@ -1631,25 +1630,19 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
-    public void getDateForExpeditedShippingAndCompare(String[] getAllStandardExpectedDateValues) {
+    public void getAllExpectedDeliveryDatesAndCompare(String[] getAllStandardExpectedDateValues) {
 
         String errorMsg = null;
-        Boolean Result=null;
-        String[] getAllExpeditedExpectedDateValues;
+        String[] getAllExpectedDateValues;
         try {
-            getAllExpeditedExpectedDateValues=getAllExpectedDates();
-            for(int i = 0;i<getAllExpeditedExpectedDateValues.length;i++){
-                if(getAllStandardExpectedDateValues[i]!=getAllExpeditedExpectedDateValues[i]){
-                    Result=true;
+            getAllExpectedDateValues = getAllExpectedDeliveryDates();
+            for (int i = 0; i < getAllExpectedDateValues.length; i++) {
+                if (getAllStandardExpectedDateValues[i] != getAllExpectedDateValues[i]) {
+                    scenarioDef.log(Status.PASS, "Validated Standard Shipping and Expedited Shipping Dates are Displayed as Expected on Cart Page");
                 }
-                if(getAllStandardExpectedDateValues[i]==getAllExpeditedExpectedDateValues[i]){
-                    Result=false;
+                if (getAllStandardExpectedDateValues[i] == getAllExpectedDateValues[i]) {
+                    scenarioDef.log(Status.FAIL, "Validated Standard Shipping and Expedited Shipping Dates is not Displayed as Expected on Cart Page");
                 }
-            }
-            if (Result == true) {
-                scenarioDef.log(Status.PASS, "Validated Standard Shipping and Expedited Shipping Dates are Displayed as Expected on Cart Page");
-            } else if (Result == false) {
-                scenarioDef.log(Status.FAIL, "Validated Standard Shipping and Expedited Shipping Dates is not Displayed as Expected on Cart Page");
             }
         }
             catch (Exception e){

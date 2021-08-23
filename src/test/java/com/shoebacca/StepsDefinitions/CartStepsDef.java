@@ -518,11 +518,11 @@ public class CartStepsDef extends HarnessVariables{
 
     @Then("User Fetches And Compare Estimated Delivery Date on Cart Page")
     public void userFetchesAndCompareEstimatedDateOnCartPage() {
-        cartPage.getDateForExpeditedShippingAndCompare(ALL_EXPECTED_DATE);
+        cartPage.getAllExpectedDeliveryDatesAndCompare(ALL_EXPECTED_DATE);
     }
 
     @Then("User Fetches All Estimated Delivery Dates on Cart Page")
     public void userFetchesAllEstimatedDeliveryDatesOnCartPage() {
-    ALL_EXPECTED_DATE=cartPage.getAllExpectedDates();
+    ALL_EXPECTED_DATE=cartPage.getAllExpectedDeliveryDates();
     }
 }
