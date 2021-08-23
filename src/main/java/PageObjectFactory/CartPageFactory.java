@@ -1638,10 +1638,10 @@ public class CartPageFactory extends UtilFactory {
             getAllExpectedDateValues = getAllExpectedDeliveryDates();
             for (int i = 0; i < getAllExpectedDateValues.length; i++) {
                 if (getAllStandardExpectedDateValues[i] != getAllExpectedDateValues[i]) {
-                    scenarioDef.log(Status.PASS, "Validated Standard Shipping and Expedited Shipping Dates are Displayed as Expected on Cart Page");
+                    scenarioDef.log(Status.PASS, "Validated Standard Shipping" +getAllStandardExpectedDateValues+ " and Expedited Shipping Dates "+getAllExpectedDateValues+ " are Displayed as Expected on Cart Page");
                 }
                 if (getAllStandardExpectedDateValues[i] == getAllExpectedDateValues[i]) {
-                    scenarioDef.log(Status.FAIL, "Validated Standard Shipping and Expedited Shipping Dates is not Displayed as Expected on Cart Page");
+                    scenarioDef.log(Status.FAIL, "Validated Standard Shipping" +getAllStandardExpectedDateValues+ " and Expedited Shipping Dates "+getAllExpectedDateValues+ " is not Displayed as Expected on Cart Page");
                 }
             }
         }
