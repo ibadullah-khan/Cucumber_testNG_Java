@@ -497,7 +497,7 @@ Feature: Cart Feature File
     Then User Validates "standard.shipping" Shipping Method Name on Summary Section of Cart Page
 
   @Regression
-  Scenario: Changing Shipping Method Causes Estimated Delivery Dates in Cart to Recompute
+  Scenario:Verify Changing Shipping Method Causes Estimated Delivery Dates in Cart to Recompute
 
     Given User Setups the Web Browser
     When User Navigates to "shoebacca.first.bag.pdt" Url

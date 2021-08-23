@@ -1603,26 +1603,26 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
-    public String[] getAllExpectedDeliveryDates() {
+    public String[] getAllEstimatedDeliveryDates() {
 
         String locator = CartPageEnum.XPATH_PRODUCT_DATE.getValue();
         String errorMsg = null;
-        String[] getAllExpectedDateValues;
+        String[] getAllEstimatedDeliveryDates;
         List<WebElement> elements;
         try {
             waitForPageLoad();
             waitFactory.waitForElementToBeClickable(locator);
             elements = elementFactory.getElementsList(locator);
-            getAllExpectedDateValues = new String[elements.size()];
+            getAllEstimatedDeliveryDates = new String[elements.size()];
             for (int i = 0; i < elements.size(); i++) {
-                getAllExpectedDateValues[i] = getText(locator).trim().replaceAll("Estimated Delivery Date: ", "");
+                getAllEstimatedDeliveryDates[i] = getText(locator).trim().replaceAll("Estimated Delivery Date: ", "");
                  }
-            scenarioDef.log(Status.PASS, "Fetched Expected Dates Value: " + getAllExpectedDateValues + " from Cart");
-            return getAllExpectedDateValues;
+            scenarioDef.log(Status.PASS, "Fetched Estimated Delivery Dates Value: " + getAllEstimatedDeliveryDates + " from Cart");
+            return getAllEstimatedDeliveryDates;
         } catch (Exception e) {
             failureException = e.toString();
             if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the Expected Date Element on Cart Page");
+                scenarioDef.log(Status.FAIL, "Unable to get the Estimated Delivery Date Element on Cart Page");
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
@@ -1630,25 +1630,25 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
-    public void getAllExpectedDeliveryDatesAndCompare(String[] getAllStandardExpectedDateValues) {
+    public void getAllEstimatedDeliveryDatesAndCompare(String[] getAllStandardExpectedDateValues) {
 
         String errorMsg = null;
-        String[] getAllExpectedDateValues;
+        String[] getAllEstimatedDateValues;
         try {
-            getAllExpectedDateValues = getAllExpectedDeliveryDates();
-            for (int i = 0; i < getAllExpectedDateValues.length; i++) {
-                if (getAllStandardExpectedDateValues[i] != getAllExpectedDateValues[i]) {
-                    scenarioDef.log(Status.PASS, "Validated Standard Shipping" +getAllStandardExpectedDateValues+ " and Expedited Shipping Dates "+getAllExpectedDateValues+ " are Displayed as Expected on Cart Page");
+            getAllEstimatedDateValues = getAllEstimatedDeliveryDates();
+            for (int i = 0; i < getAllEstimatedDateValues.length; i++) {
+                if (getAllStandardExpectedDateValues[i] != getAllEstimatedDateValues[i]) {
+                    scenarioDef.log(Status.PASS, "Validated Expected Estimated Delivery Date" +getAllStandardExpectedDateValues+ " and Actual Estimated Delivery Date " +getAllEstimatedDateValues+ " are Displayed as Expected on Cart Page");
                 }
-                if (getAllStandardExpectedDateValues[i] == getAllExpectedDateValues[i]) {
-                    scenarioDef.log(Status.FAIL, "Validated Standard Shipping" +getAllStandardExpectedDateValues+ " and Expedited Shipping Dates "+getAllExpectedDateValues+ " is not Displayed as Expected on Cart Page");
+                if (getAllStandardExpectedDateValues[i] == getAllEstimatedDateValues[i]) {
+                    scenarioDef.log(Status.FAIL, "Validated Expected Estimated Delivery Date" +getAllStandardExpectedDateValues+ " and Actual Estimated Delivery Date "+getAllEstimatedDateValues+ " is not Displayed as Expected on Cart Page");
                 }
             }
         }
             catch (Exception e){
                 failureException = e.toString();
                 if (errorMsg == null) {
-                    scenarioDef.log(Status.FAIL, "Unable to get the Expected Date Element on Cart Page");
+                    scenarioDef.log(Status.FAIL, "Unable to Compare Expected Estimated Delivery Dates with Actual Estimated Delivery Dates on Cart Page");
                 } else {
                     scenarioDef.log(Status.FAIL, errorMsg);
                 }
