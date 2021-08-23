@@ -262,6 +262,7 @@ public class CartPageFactory extends UtilFactory {
         Boolean actualVisibility;
         List<WebElement> elements;
         try {
+            waitFactory.waitForElementToBeClickable(locator);
             elements = elementFactory.getElementsList(locator);
             actualVisibility = expectedProductNo == elements.size();
             if (actualVisibility && expectedVisibility) {
@@ -572,6 +573,20 @@ public class CartPageFactory extends UtilFactory {
 
     }
 
+    public void clickOnViewCartButtonMobile() {
+        String locator = CartPageEnum.XPATH_VIEW_CART_MOBILE.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS, "Clicked on View Cart Button on Cart View");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Click on View Cart on Cart View");
+            throw e;
+        }
+
+    }
+
     public void validateProductName(String expectedText) {
         String locator = CartPageEnum.XPATH_PRODUCT_NAME.getValue();
         String errorMsg = null;
@@ -709,6 +724,30 @@ public class CartPageFactory extends UtilFactory {
             failureException = e.toString();
             if (errorMsg == null) {
                 scenarioDef.log(Status.FAIL, "Unable to get the Remove Link Element on Cart Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void validateExpectedDateQuantityVisibility(int expectedDate) {
+        String locator = CartPageEnum.XPATH_PRODUCT_DATE.getValue();
+        waitFactory.waitForElementToBeVisible(locator);
+        String errorMsg = null;
+        List<WebElement> elements;
+        try {
+            elements = elementFactory.getElementsList(locator);
+            if (expectedDate == elements.size()) {
+                scenarioDef.log(Status.PASS, "Validated " + expectedDate + " Expected Date is Displayed as Expected on Cart Page");
+            } else {
+                errorMsg = "Validated " + expectedDate + " Expected Date is not Displayed as Expected on Cart Page";
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Expected Date Element on Cart Page");
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }

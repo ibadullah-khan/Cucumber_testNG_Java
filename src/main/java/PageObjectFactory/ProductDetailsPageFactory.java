@@ -1,8 +1,10 @@
 package PageObjectFactory;
 
+import EnumFactory.CartPageEnum;
 import EnumFactory.ProductDetailsPageEnum;
 import UtilitiesFactory.UtilFactory;
 import com.aventstack.extentreports.Status;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.Color;
 import org.openqa.selenium.NoSuchContextException;
 
@@ -12,6 +14,19 @@ public class ProductDetailsPageFactory extends UtilFactory {
 
     public void clickOnAddToCart() {
         String locator = ProductDetailsPageEnum.XPATH_ADD_TO_CART_BUTTON.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS, "Clicked on Add to Cart Button on PDP");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Click on Add to Cart Button on PDP");
+            throw e;
+        }
+    }
+
+    public void clickOnAddToCartMobile() {
+        String locator = ProductDetailsPageEnum.XPATH_ADD_TO_CART_BUTTON_MOBILE.getValue();
         try {
             waitFactory.waitForElementToBeClickable(locator);
             click(locator);
@@ -128,7 +143,7 @@ public class ProductDetailsPageFactory extends UtilFactory {
     }
 
     public void validateDateColor(String expectedDateColor){
-        String dateLocator = ProductDetailsPageEnum.XPATH_ESTIMATED_DELIVERY_DATE.getValue();
+        String dateLocator = ProductDetailsPageEnum.XPATH_ESTIMATED_ANDROID_DELIVERY_DATE.getValue();
         String errorMsg = null;
         try {
             waitFactory.waitForElementToBeClickable(dateLocator);
@@ -151,4 +166,30 @@ public class ProductDetailsPageFactory extends UtilFactory {
             throw e;
         }
     }
+
+    public void validateExpectedDateVisibility(Boolean expectedVisibility) {
+        String locator = ProductDetailsPageEnum.XPATH_ESTIMATED_ANDROID_DELIVERY_DATE.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Expected Date is Displayed as Expected on PDP");
+            }else if(!actualVisibility&& !expectedVisibility){
+                scenarioDef.log(Status.PASS, "Validated Expected Date is Not Displayed as Expected on PDP");
+            }else if (actualVisibility && !expectedVisibility){
+                errorMsg = "Validated Expected Date is Displayed Unexpected on PDP";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }else if (!actualVisibility && expectedVisibility){
+                errorMsg = "Validated Expected Date is not Displayed Unexpected on PDP";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,errorMsg);
+            throw e;
+        }
+    }
+
 }

@@ -3,6 +3,7 @@ package EnumFactory;
 public enum CartPageEnum {
 
     XPATH_ITEM_CONTAINER_HEADING_START("//li[@class='"),
+    XPATH_VIEW_CART_MOBILE("//*[@class='miniCart-footerCol-1P_']//*[@class='button-root_highPriority-3-H']"),
     XPATH_CART_HEADING("//*[@class='cartPage-heading-1Q0']"),
     XPATH_ITEM_CONTAINER_HEADING_END("']"),
     XPATH_ITEM_CONTAINER_CONTENT_START("//*[@class='product-productListing-2Gh']//*[@class='"),
@@ -27,7 +28,6 @@ public enum CartPageEnum {
     XPATH_REMOVE_START("//*[@class='product-name-3mh']/*[text()='"),
     XPATH_REMOVE_END("']//ancestor::div[@class='product-details-3HQ']//button[@class='product-btnRemove-16L']"),
     XPATH_CHECKOUT_CART_BUTTON("//span[text()='Go to Checkout']//parent::button[not(@disabled)]"),
-    XPATH_CHECKOUT_CART("//span[text()='Go to Checkout']//parent::button[not(@disabled)]"),
     XPATH_CHECKOUT_DISABLED_CART_BUTTON("//span[text()='Go to Checkout']//parent::button[(@disabled)]"),
     XPATH_INVALID_LOGIN_ERROR("//*[@class='main-loginError-2FL']"),
     XPATH_CART_LOGIN_LINK("//*[@class='cartPage-emptyCartBox-2Z6']//*[text()='Log in']"),
