@@ -469,7 +469,7 @@ public class CheckoutPageFactory extends UtilFactory {
 
     public void validateShippingMethodValue(String expecetedShippingMethodName,Boolean expectedVisibility) {
 
-        String locator = CheckoutPageEnum.XPATH_SHIPPING_METHOD_CLICK_START.getValue() + expecetedShippingMethodName + CheckoutPageEnum.XPATH_SHIPPING_METHOD_CLICK_END.getValue();
+        String locator = CheckoutPageEnum.XPATH_SHIPPING_METHOD_SELECTED_START.getValue() + expecetedShippingMethodName + CheckoutPageEnum.XPATH_SHIPPING_METHOD_SELECTED_END.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
         try {
