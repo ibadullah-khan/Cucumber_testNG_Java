@@ -572,21 +572,6 @@ public class CartPageFactory extends UtilFactory {
         }
 
     }
-
-    public void clickOnViewCartButtonMobile() {
-        String locator = CartPageEnum.XPATH_VIEW_CART_MOBILE.getValue();
-        try {
-            waitFactory.waitForElementToBeClickable(locator);
-            click(locator);
-            scenarioDef.log(Status.PASS, "Clicked on View Cart Button on Cart View");
-        } catch (Exception e) {
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL, "Could not Click on View Cart on Cart View");
-            throw e;
-        }
-
-    }
-
     public void validateProductName(String expectedText) {
         String locator = CartPageEnum.XPATH_PRODUCT_NAME.getValue();
         String errorMsg = null;
@@ -731,7 +716,7 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
-    public void validateExpectedDateQuantityVisibility(int expectedDate) {
+    public void validateEstimatedDateQuantityVisibility(int expectedDate) {
         String locator = CartPageEnum.XPATH_PRODUCT_DATE.getValue();
         waitFactory.waitForElementToBeVisible(locator);
         String errorMsg = null;

@@ -226,5 +226,10 @@ public class MiniCartStepsDef extends HarnessVariables{
     public void userClicksOnMemberCheckoutButton() {
         miniCartPage.clickOnMemberCheckoutButton();
     }
+
+    @Then("User Clicks on View Cart Button for Mobile")
+    public void userClicksOnViewCartButtonForMobile() {
+        miniCartPage.clickOnViewCartButtonMobile();
+    }
 }
 

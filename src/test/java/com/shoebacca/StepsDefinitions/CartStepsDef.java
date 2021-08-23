@@ -516,13 +516,10 @@ public class CartStepsDef extends HarnessVariables{
         cartPage.validateDateColor(expectedDateColor);
     }
 
-    @Then("User Validates Cart Page Has {string} Expected Date")
+    @Then("User Validates Cart Page Has {string} Expected Date on Cart Page")
     public void userValidatesCartPageHasExpectedDate(String expectedDate) {
-        cartPage.validateExpectedDateQuantityVisibility((Integer.parseInt(expectedDate)));
+        cartPage.validateEstimatedDateQuantityVisibility((Integer.parseInt(expectedDate)));
     }
 
-    @Then("User Clicks on View Cart Button for Mobile")
-    public void userClicksOnViewCartButtonForMobile() {
-        cartPage.clickOnViewCartButtonMobile();
-    }
+
 }

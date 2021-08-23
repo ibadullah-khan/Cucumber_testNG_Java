@@ -1,5 +1,6 @@
 package PageObjectFactory;
 
+import EnumFactory.CartPageEnum;
 import EnumFactory.MiniCartPageEnum;
 import UtilitiesFactory.ElementFactory;
 import UtilitiesFactory.UtilFactory;
@@ -739,4 +740,19 @@ public class MiniCartPageFactory extends UtilFactory {
             throw e;
         }
     }
+
+    public void clickOnViewCartButtonMobile() {
+        String locator = MiniCartPageEnum.XPATH_VIEW_CART_MOBILE.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS, "Clicked on View Cart Button on Cart View for Mobile");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Click on View Cart on Cart View for Mobile");
+            throw e;
+        }
+
+    }
+
 }
