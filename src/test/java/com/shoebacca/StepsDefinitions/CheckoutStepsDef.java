@@ -95,14 +95,14 @@ public class CheckoutStepsDef extends HarnessVariables{
         checkoutPage.validateDateColor(expectedDateColor);
     }
 
-    @Then("User Select {string} Shipping Method on Check Out Page")
-    public void userSelectShippingMethodOnCheckOutPage(String shippingMethod) throws Exception {
+    @Then("User Select {string} Shipping Method on Checkout Page")
+    public void userSelectShippingMethodOnCheckoutPage(String shippingMethod) throws Exception {
         String shippingMethodName = new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(shippingMethod);
         checkoutPage.clickOnShippingMethod(shippingMethodName);
     }
 
-    @Then("User Validate Email Address is Retained on Cart Page")
-    public void userValidateEmailAddressIsRetainedOnCartPage() {
+    @Then("User Validate Email Address is Retained on Checkout Page")
+    public void userValidateEmailAddressIsRetainedOnCheckoutPage() {
         checkoutPage.validateEmailAddressIsRetained(VALID_EMAIL_ADDRESS);
     }
 
@@ -116,38 +116,38 @@ public class CheckoutStepsDef extends HarnessVariables{
         }
     }
 
-    @Then("User Validate First Name is Retained on Cart Page")
-    public void userValidateFirstNameIsRetainedOnCartPage() {
+    @Then("User Validate First Name is Retained on Checkout Page")
+    public void userValidateFirstNameIsRetainedOnCheckoutPage() {
         checkoutPage.validateFirstNameIsRetained(VALID_FIRSTNAME);
     }
 
-    @Then("User Validate Last Name is Retained on Cart Page")
-    public void userValidateLastNameIsRetainedOnCartPage() {
+    @Then("User Validate Last Name is Retained on Checkout Page")
+    public void userValidateLastNameIsRetainedOnCheckoutPage() {
         checkoutPage.validateLastNameIsRetained(VALID_LASTNAME);
     }
 
-    @Then("User Validate Address is Retained on Cart Page")
-    public void userValidateAddressIsRetainedOnCartPage() {
+    @Then("User Validate Address is Retained on Checkout Page")
+    public void userValidateAddressIsRetainedOnCheckoutPage() {
         checkoutPage.validateAddressIsRetained(VALID_ADDRESS);
     }
 
-    @Then("User Validate City is Retained on Cart Page")
-    public void userValidateCityIsRetainedOnCartPage() {
+    @Then("User Validate City is Retained on Checkout Page")
+    public void userValidateCityIsRetainedOnCheckoutPage() {
         checkoutPage.validateCityIsRetained(VALID_CITY);
     }
 
-    @Then("User Validate State is Retained on Cart Page")
-    public void userValidateStateIsRetainedOnCartPage() {
+    @Then("User Validate State is Retained on Checkout Page")
+    public void userValidateStateIsRetainedOnCheckoutPage() {
         checkoutPage.validateStateIsRetained(VALID_STATE);
     }
 
-    @Then("User Validate Zip Code Address is Retained on Cart Page")
-    public void userValidateZipCodeAddressIsRetainedOnCartPage() {
+    @Then("User Validate Zip Code Address is Retained on Checkout Page")
+    public void userValidateZipCodeAddressIsRetainedOnCheckoutPage() {
         checkoutPage.validateZipCodeIsRetained(VALID_ZIPCODE);
     }
 
-    @Then("User Validate Phone No is Retained on Cart Page")
-    public void userValidatePhoneNoIsRetainedOnCartPage() {
+    @Then("User Validate Phone No is Retained on Checkout Page")
+    public void userValidatePhoneNoIsRetainedOnCheckoutPage() {
         checkoutPage.validatePhoneNoIsRetained(VALID_PH_NO);
     }
 }
