@@ -1283,15 +1283,15 @@ public class CartPageFactory extends UtilFactory {
             waitFactory.waitForElementToBeClickable(locator);
             actualValue = getText(locator).trim();
             if (actualValue.contains(expectedValue)) {
-                scenarioDef.log(Status.PASS, "Validated Tax on Checkout as Expected: " + expectedValue);
+                scenarioDef.log(Status.PASS, "Validated Cart Text is " + expectedValue + " on Cart Page");
             } else {
-                errorMsg = "Could not validate Tax on Checkout as Expected: " + expectedValue + " , Actual Value: " + actualValue;
+                errorMsg = "Could not validate Cart Text as Expected: " + expectedValue + " , Actual Value: " + actualValue;
                 throw new NoSuchContextException("Actual and Expected Value Differs");
             }
         } catch (Exception e) {
             failureException = e.toString();
             if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the Tax Element on Checkout");
+                scenarioDef.log(Status.FAIL, "Unable to get the Text Element on Checkout");
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
@@ -1610,7 +1610,6 @@ public class CartPageFactory extends UtilFactory {
         String[] getAllEstimatedDeliveryDates;
         List<WebElement> elements;
         try {
-            waitForPageLoad();
             waitFactory.waitForElementToBeClickable(locator);
             elements = elementFactory.getElementsList(locator);
             getAllEstimatedDeliveryDates = new String[elements.size()];
