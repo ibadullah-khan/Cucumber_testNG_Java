@@ -1,9 +1,11 @@
 package PageObjectFactory;
 
+import EnumFactory.CartPageEnum;
 import EnumFactory.CheckoutPageEnum;
 import UtilitiesFactory.UtilFactory;
 import com.aventstack.extentreports.Status;
 import org.openqa.selenium.NoSuchContextException;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.Color;
 
 public class CheckoutPageFactory extends UtilFactory {

@@ -21,6 +21,7 @@ public enum CheckoutPageEnum {
     XPATH_CREDIT_CARD_CVV_FIELD("//input[@id='cvv']"),
     XPATH_PLACE_ORDER_BUTTON("//span[text()='Place Order']"),
     XPATH_ESTIMATED_DELIVERY_DATE("//*[@class='item-estimatedDate-2Aa']"),
+    XPATH_CART_IS_EMPTY("//*[@class='cartPage-title-ISm' and text()='YOUR CART IS EMPTY']"),
     XPATH_TAX_VALUE("//*[text()='Tax']//following-sibling::*[@class='priceSummary-price-12K']");
 
 

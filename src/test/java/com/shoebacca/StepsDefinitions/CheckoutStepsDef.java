@@ -94,4 +94,5 @@ public class CheckoutStepsDef extends HarnessVariables{
         String expectedDateColor= new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(expectedValue);
         checkoutPage.validateDateColor(expectedDateColor);
     }
-}
+
+    }

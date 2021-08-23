@@ -495,3 +495,10 @@ Feature: Cart Feature File
     Then User Clicks on View Cart Button
     Then User Should Redirect Toward "shopping.cart" Page
     Then User Validates "standard.shipping" Shipping Method Name on Summary Section of Cart Page
+
+  @Regression
+  Scenario: Verify Checkout Page Cannot be Accessed Through URL With Empty Cart
+
+    When User Navigates to "shoebacca.checkout" Url
+    Then User Should Redirect Toward "shoebacca.cart" Page
+    Then User Validates Your Cart is Empty Section Visibility "true"
