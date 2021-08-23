@@ -26,6 +26,14 @@
         </classes>
     </test>
 
+    <test name="Check Out Feature">
+        <parameter name="browser" value= "&browser;" />
+        <parameter name="emailReport" value="&emailReport;" />
+        <classes>
+            <class name="Runner.CheckOutTest" />
+        </classes>
+    </test>
+
     <test name="User Journey Feature">
         <parameter name="browser" value= "&browser;" />
         <parameter name="emailReport" value="&emailReport;" />
