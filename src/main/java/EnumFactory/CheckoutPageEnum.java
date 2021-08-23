@@ -25,8 +25,7 @@ public enum CheckoutPageEnum {
     XPATH_SHIPPING_METHOD_START("//*[@class='shippingRadios-radioLabel-3S0']/span[text()='"),
     XPATH_SHIPPING_METHOD_END("']"),
     XPATH_SHIPPING_METHOD_CLICK_START("//*[@class='shippingRadios-radioLabel-3S0']/span[text()='"),
-    XPATH_SHIPPING_METHOD_CLICK_END("']/parent::span/parent::label/input[@checked]"),
-    ;
+    XPATH_SHIPPING_METHOD_CLICK_END("']/parent::span/parent::label/input[@checked]");
 
 
     private String checkoutPageVariables;
