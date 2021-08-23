@@ -262,4 +262,238 @@ public class CheckoutPageFactory extends UtilFactory {
             throw e;
         }
     }
+
+    public void clickOnShippingMethod(String expecetedShippingMethodName) {
+        String locator = CheckoutPageEnum.XPATH_SHIPPING_METHOD_START.getValue() + expecetedShippingMethodName + CheckoutPageEnum.XPATH_SHIPPING_METHOD_END.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS, "Clicked on " + expecetedShippingMethodName + " Method on Checkout Page");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Click " + expecetedShippingMethodName + " Method on Checkout Page");
+            throw e;
+        }
+    }
+
+    public void validateEmailAddressIsRetained(String expectedValue) {
+        String locator = CheckoutPageEnum.XPATH_EMAIL_ADDRESS_FIELD.getValue();
+        String errorMsg = null;
+        String actualValue;
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            actualValue = getAttribute(locator, "value");
+            if (actualValue.contains(expectedValue)) {
+                scenarioDef.log(Status.PASS, "Validated Email Address is " + expectedValue + " on Checkout Page");
+            } else {
+                errorMsg = "Could not validate Email Address is: " + expectedValue + " on Checkout Page, Actual Value is: " + actualValue;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Email Address Element on Checkout Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void validateFirstNameIsRetained(String expectedValue) {
+        String locator = CheckoutPageEnum.XPATH_FIRST_NAME_FIELD.getValue();
+        String errorMsg = null;
+        String actualValue;
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            actualValue = getAttribute(locator, "value");
+            if (actualValue.contains(expectedValue)) {
+                scenarioDef.log(Status.PASS, "Validated First Name is " + expectedValue + " on Checkout Page");
+            } else {
+                errorMsg = "Could not validate First Name is: " + expectedValue + " on Checkout Page, Actual Value is: " + actualValue;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the First Name Element on Checkout Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void validateLastNameIsRetained(String expectedValue) {
+        String locator = CheckoutPageEnum.XPATH_LAST_NAME_FIELD.getValue();
+        String errorMsg = null;
+        String actualValue;
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            actualValue = getAttribute(locator, "value");
+            if (actualValue.contains(expectedValue)) {
+                scenarioDef.log(Status.PASS, "Validated Last Name is " + expectedValue + " on Checkout Page");
+            } else {
+                errorMsg = "Could not validate Last Name is: " + expectedValue + " on Checkout Page, Actual Value is: " + actualValue;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Last Name Element on Checkout Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void validateAddressIsRetained(String expectedValue) {
+        String locator = CheckoutPageEnum.XPATH_ADDRESS_FIELD.getValue();
+        String errorMsg = null;
+        String actualValue;
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            actualValue = getAttribute(locator, "value");
+            if (actualValue.contains(expectedValue)) {
+                scenarioDef.log(Status.PASS, "Validated Address is " + expectedValue + " on Checkout Page");
+            } else {
+                errorMsg = "Could not validate Address is: " + expectedValue + " on Checkout Page, Actual Value is: " + actualValue;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Address Element on Checkout Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void validateCityIsRetained(String expectedValue) {
+        String locator = CheckoutPageEnum.XPATH_CITY_FIELD.getValue();
+        String errorMsg = null;
+        String actualValue;
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            actualValue = getAttribute(locator, "value");
+            if (actualValue.contains(expectedValue)) {
+                scenarioDef.log(Status.PASS, "Validated City is " + expectedValue + " on Checkout Page");
+            } else {
+                errorMsg = "Could not validate City is: " + expectedValue + " on Checkout Page, Actual Value is: " + actualValue;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the City Element on Checkout Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void validateStateIsRetained(String expectedValue) {
+        String locator = CheckoutPageEnum.XPATH_STATE_DROPDOWN_FIELD.getValue();
+        String errorMsg = null;
+        String actualValue;
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            actualValue = getText(locator);
+            if (actualValue.contains(expectedValue)) {
+                scenarioDef.log(Status.PASS, "Validated State is " + expectedValue + " on Checkout Page");
+            } else {
+                errorMsg = "Could not validate State is: " + expectedValue + " on Checkout Page, Actual Value is: " + actualValue;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the State Element on Checkout Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void validateZipCodeIsRetained(String expectedValue) {
+        String locator = CheckoutPageEnum.XPATH_ZIPCODE_FIELD.getValue();
+        String errorMsg = null;
+        String actualValue;
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            actualValue = getAttribute(locator, "value");
+            if (actualValue.contains(expectedValue)) {
+                scenarioDef.log(Status.PASS, "Validated Zip Code is " + expectedValue + " on Checkout Page");
+            } else {
+                errorMsg = "Could not validate Zip Code is: " + expectedValue + " on Checkout Page, Actual Value is: " + actualValue;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Zip Code Element on Checkout Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void validatePhoneNoIsRetained(String expectedValue) {
+        String locator = CheckoutPageEnum.XPATH_PH_NO_FIELD.getValue();
+        String errorMsg = null;
+        String actualValue;
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            actualValue = getAttribute(locator, "value").replace("-","");
+            if (actualValue.contains(expectedValue)) {
+                scenarioDef.log(Status.PASS, "Validated Phone No is " + expectedValue + " on Checkout Page");
+            } else {
+                errorMsg = "Could not validate Phone No is: " + expectedValue + " on Checkout Page, Actual Value is: " + actualValue;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Phone No Element on Checkout Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void validateShippingMethodValue(String expecetedShippingMethodName,Boolean expectedVisibility) {
+
+        String locator = CheckoutPageEnum.XPATH_SHIPPING_METHOD_SELECTED_START.getValue() + expecetedShippingMethodName + CheckoutPageEnum.XPATH_SHIPPING_METHOD_SELECTED_END.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try {
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated " + expecetedShippingMethodName + " Shipping Method is Selected on Checkout Page");
+            } else if (!actualVisibility && !expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated " + expecetedShippingMethodName + "Shipping Method is not Selected on Checkout Page");
+            } else if (actualVisibility && !expectedVisibility) {
+                errorMsg = "Validated " + expecetedShippingMethodName + " Shipping Method is Selected on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
+                errorMsg = "Validated  Shipping Method " + expecetedShippingMethodName + "is Selected on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Shipping Method Element on Checkout Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
 }

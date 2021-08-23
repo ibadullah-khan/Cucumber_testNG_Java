@@ -21,9 +21,11 @@ public enum CheckoutPageEnum {
     XPATH_CREDIT_CARD_CVV_FIELD("//input[@id='cvv']"),
     XPATH_PLACE_ORDER_BUTTON("//span[text()='Place Order']"),
     XPATH_ESTIMATED_DELIVERY_DATE("//*[@class='item-estimatedDate-2Aa']"),
-    XPATH_CART_IS_EMPTY("//*[@class='cartPage-title-ISm' and text()='YOUR CART IS EMPTY']"),
-    XPATH_TAX_VALUE("//*[text()='Tax']//following-sibling::*[@class='priceSummary-price-12K']");
-
+    XPATH_TAX_VALUE("//*[text()='Tax']//following-sibling::*[@class='priceSummary-price-12K']"),
+    XPATH_SHIPPING_METHOD_START("//*[@class='shippingRadios-radioLabel-3S0']/span[text()='"),
+    XPATH_SHIPPING_METHOD_END("']"),
+    XPATH_SHIPPING_METHOD_SELECTED_START("//*[@class='shippingRadios-radioLabel-3S0']/span[text()='"),
+    XPATH_SHIPPING_METHOD_SELECTED_END("']/parent::span/parent::label/input[@checked]");
 
     private String checkoutPageVariables;
 
