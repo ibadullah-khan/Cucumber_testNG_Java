@@ -5,10 +5,10 @@ import UtilitiesFactory.ElementFactory;
 import UtilitiesFactory.UtilFactory;
 import com.aventstack.extentreports.Status;
 import org.openqa.selenium.NoSuchContextException;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.Color;
 import java.util.List;
+import org.openqa.selenium.NoSuchElementException;
 
 public class CartPageFactory extends UtilFactory {
 
@@ -1639,7 +1639,7 @@ public class CartPageFactory extends UtilFactory {
             getAllEstimatedDeliveryDates = new String[elements.size()];
             for (int i = 0; i < elements.size(); i++) {
                 getAllEstimatedDeliveryDates[i] = getText(locator).trim().replaceAll("Estimated Delivery Date: ", "");
-                 }
+            }
             scenarioDef.log(Status.PASS, "Fetched Estimated Delivery Dates Value: " + getAllEstimatedDeliveryDates + " from Cart");
             return getAllEstimatedDeliveryDates;
         } catch (Exception e) {
@@ -1661,21 +1661,20 @@ public class CartPageFactory extends UtilFactory {
             getAllEstimatedDateValues = getAllEstimatedDeliveryDates();
             for (int i = 0; i < getAllEstimatedDateValues.length; i++) {
                 if (getAllStandardExpectedDateValues[i] != getAllEstimatedDateValues[i]) {
-                    scenarioDef.log(Status.PASS, "Validated Expected Estimated Delivery Date" +getAllStandardExpectedDateValues+ " and Actual Estimated Delivery Date " +getAllEstimatedDateValues+ " are Displayed as Expected on Cart Page");
+                    scenarioDef.log(Status.PASS, "Validated Expected Estimated Delivery Date" + getAllStandardExpectedDateValues + " and Actual Estimated Delivery Date " + getAllEstimatedDateValues + " are Displayed as Expected on Cart Page");
                 }
                 if (getAllStandardExpectedDateValues[i] == getAllEstimatedDateValues[i]) {
-                    scenarioDef.log(Status.FAIL, "Validated Expected Estimated Delivery Date" +getAllStandardExpectedDateValues+ " and Actual Estimated Delivery Date "+getAllEstimatedDateValues+ " is not Displayed as Expected on Cart Page");
+                    scenarioDef.log(Status.FAIL, "Validated Expected Estimated Delivery Date" + getAllStandardExpectedDateValues + " and Actual Estimated Delivery Date " + getAllEstimatedDateValues + " is not Displayed as Expected on Cart Page");
                 }
             }
-        }
-            catch (Exception e){
-                failureException = e.toString();
-                if (errorMsg == null) {
-                    scenarioDef.log(Status.FAIL, "Unable to Compare Expected Estimated Delivery Dates with Actual Estimated Delivery Dates on Cart Page");
-                } else {
-                    scenarioDef.log(Status.FAIL, errorMsg);
-                }
-                throw e;
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to Compare Expected Estimated Delivery Dates with Actual Estimated Delivery Dates on Cart Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
         }
     }
 
@@ -1706,63 +1705,63 @@ public class CartPageFactory extends UtilFactory {
 
     public void validatePredictInspectorSectionVisibility(boolean expectedVisibility) {
 
-        String locator = CartPageEnum.XPATH_PREDICT_INSPECTOR_SECTION.getValue() ;
+        String locator = CartPageEnum.XPATH_PREDICT_INSPECTOR_SECTION.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
-        try{
+        try {
             actualVisibility = isVisible(locator);
-            if (actualVisibility && expectedVisibility){
-                scenarioDef.log(Status.PASS,"Validated Predict Inspector Section Displayed on Cart Page");
-            }else if (!actualVisibility && !expectedVisibility){
-                scenarioDef.log(Status.PASS,"Validated Predict Inspector Section is not Displayed as Expected on Cart Page");
-            }else if (actualVisibility && !expectedVisibility){
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Predict Inspector Section Displayed on Cart Page");
+            } else if (!actualVisibility && !expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Predict Inspector Section is not Displayed as Expected on Cart Page");
+            } else if (actualVisibility && !expectedVisibility) {
                 errorMsg = "Validated Predict Inspector Section is Displayed Unexpected on Cart Page";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
-            }else if (!actualVisibility && expectedVisibility){
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
                 errorMsg = "Validated Predict Inspector Section is not Displayed Unexpected on Cart Page";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " +locator);
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,errorMsg);
+            scenarioDef.log(Status.FAIL, errorMsg);
             throw e;
         }
     }
 
     public String getProductNameFromCarousal() {
-            String locator = CartPageEnum.XPATH_PRODUCT_NAME_CAROUSAL.getValue();
-            String productName;
-            try{
-                waitFactory.waitForElementToBeClickable(locator);
-                productName = getText(locator);
-                scenarioDef.log(Status.PASS,"Fetched Product Name: "+ productName +" from Related Product");
-                return productName;
-            }catch (Exception e){
-                failureException = e.toString();
-                scenarioDef.log(Status.FAIL,"Could not Fetch Product Name from Related Product");
-                throw e;
+        String locator = CartPageEnum.XPATH_PRODUCT_NAME_CAROUSAL.getValue();
+        String productName;
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            productName = getText(locator);
+            scenarioDef.log(Status.PASS, "Fetched Product Name: " + productName + " from Related Product");
+            return productName;
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Fetch Product Name from Related Product");
+            throw e;
         }
     }
 
     public void selectFirstAvailableProductFromRelatedProductSection() {
-            String locator = CartPageEnum.XPATH_PRODUCT_NAME_CAROUSAL.getValue();
-            try {
-                waitFactory.waitForElementToBeClickable(locator);
-                click(locator);
-                scenarioDef.log(Status.PASS, "Clicked on First Available Product on Related Product Carousal");
-            } catch (Exception e) {
-                failureException = e.toString();
-                scenarioDef.log(Status.FAIL, "Could not Click on First Available Product on Related Product Carousal");
-                throw e;
+        String locator = CartPageEnum.XPATH_PRODUCT_NAME_CAROUSAL.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS, "Clicked on First Available Product on Related Product Carousal");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Click on First Available Product on Related Product Carousal");
+            throw e;
         }
     }
 
-    public void validateDateColor(String expectedDateColor){
+    public void validateDateColor(String expectedDateColor) {
         String dateLocator = CartPageEnum.XPATH_PRODUCT_DATE.getValue();
         String errorMsg = null;
         try {
             waitFactory.waitForElementToBeClickable(dateLocator);
-            String actualValue=getCSS(dateLocator,"color");
+            String actualValue = getCSS(dateLocator, "color");
             String hex = Color.fromString(actualValue).asHex();
             if (hex.contains(expectedDateColor)) {
                 scenarioDef.log(Status.PASS, "Validated Date Color is " + expectedDateColor + " on Cart");
@@ -1770,8 +1769,7 @@ public class CartPageFactory extends UtilFactory {
                 errorMsg = "Could not validate Date Color is: " + expectedDateColor + " on Cart, Actual Value is: " + actualValue;
                 throw new NoSuchContextException("Actual and Expected Value Differs");
             }
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             failureException = e.toString();
             if (errorMsg == null) {
                 scenarioDef.log(Status.FAIL, "Unable to get the Date Color Cart");
@@ -1779,6 +1777,43 @@ public class CartPageFactory extends UtilFactory {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
             throw e;
+        }
+    }
+
+    public void validateSocialButtonColor(String expectedButtonColor) {
+        String buttonLocator = CartPageEnum.XPATH_SOCIAL_MEDIA_BUTTON.getValue();
+        String errorMsg = null;
+        try {
+            waitFactory.waitForElementToBeClickable(buttonLocator);
+            String actualValue = getCSS(buttonLocator, "color");
+            String hex = Color.fromString(actualValue).asHex();
+            if (hex.contains(expectedButtonColor)) {
+                scenarioDef.log(Status.PASS, "Validated Button Color is " + expectedButtonColor + " on Cart");
+            } else {
+                errorMsg = "Could not validate Button Color is: " + expectedButtonColor + " on Cart, Actual Value is: " + actualValue;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Button Color on Cart");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void hoverOnSocialMediaButton() {
+
+        String buttonLocator = CartPageEnum.XPATH_SOCIAL_MEDIA_BUTTON.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(buttonLocator);
+            hover(buttonLocator);
+            scenarioDef.log(Status.PASS, "Hovered on Social Button on Cart Page");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Hovered on Social Button on Cart Page");
         }
     }
 }
