@@ -511,3 +511,14 @@ Feature: Cart Feature File
     Then User Clicks on Change Shipping Option of Cart Page
     Then User Clicks on "expedited.shipping" Shipping Method on Dropdown of Cart Page
     Then User Fetches And Compare Estimated Delivery Date on Cart Page
+
+  @Regression
+  Scenario:Verify the Social Login Button is Displayed at the Checkout Process Pop-Up
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks on View Cart Button
+    Then User Clicks Checkout Button on Cart View
+    Then User Validates Social Login Button Visibility "true"
