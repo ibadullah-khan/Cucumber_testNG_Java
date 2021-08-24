@@ -516,6 +516,16 @@ public class CartStepsDef extends HarnessVariables{
         cartPage.validateDateColor(expectedDateColor);
     }
 
+    @Then("User Fetches And Compare Estimated Delivery Date on Cart Page")
+    public void userFetchesAndCompareEstimatedDateOnCartPage() {
+        cartPage.getAllEstimatedDeliveryDatesAndCompare(ALL_EXPECTED_DATE);
+    }
+
+    @Then("User Fetches All Estimated Delivery Dates on Cart Page")
+    public void userFetchesAllEstimatedDeliveryDatesOnCartPage() {
+    ALL_EXPECTED_DATE=cartPage.getAllEstimatedDeliveryDates();
+    }
+
     @Then("User Validates Cart Page Has {string} Estimated Date on Cart Page")
     public void userValidatesCartPageHasExpectedDate(String expectedDate) {
         cartPage.validateEstimatedDeliveryDateQuantityVisibility((Integer.parseInt(expectedDate)));
