@@ -533,6 +533,17 @@ public class CartStepsDef extends HarnessVariables{
 
 
 
+    @Then("User Hovers Mouse To Social Button")
+    public void userHoversMouseToSocialButton() {
+        cartPage.hoverOnSocialMediaButton();
+    }
+
+    @Then("User Validates {string} Social Button Color on Cart Page")
+    public void userValidatesSocialButtonColorOnCartPage(String expectedValue) throws Exception {
+        String socialButtonColor = new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(expectedValue);
+        cartPage.validateSocialButtonColor(socialButtonColor);
+    }
+
     @Then("User Validates Social Login Button Visibility {string}")
     public void userValidatesSocialLoginButtonVisibility(String expectedCondition) {
         if(expectedCondition.equals("true")){
