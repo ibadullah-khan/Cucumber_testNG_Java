@@ -528,7 +528,7 @@ public class CartStepsDef extends HarnessVariables{
 
     @Then("User Hovers Mouse To Social Button")
     public void userHoversMouseToSocialButton() {
-        cartPage.HoverMouse();
+        cartPage.hoverOnSocialMediaButton();
     }
 
     @Then("User Validates {string} Social Button Color on Cart Page")

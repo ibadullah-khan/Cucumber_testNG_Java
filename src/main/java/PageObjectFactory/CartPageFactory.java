@@ -4,9 +4,11 @@ import EnumFactory.CartPageEnum;
 import UtilitiesFactory.ElementFactory;
 import UtilitiesFactory.UtilFactory;
 import com.aventstack.extentreports.Status;
-import org.openqa.selenium.*;
+import org.openqa.selenium.NoSuchContextException;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.Color;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class CartPageFactory extends UtilFactory {
 
@@ -1755,7 +1757,7 @@ public class CartPageFactory extends UtilFactory {
     }
 
     public void validateSocialButtonColor(String expectedButtonColor) {
-        String buttonLocator = CartPageEnum.XPATH_SOCIAL_BUTTON_COLOR.getValue();
+        String buttonLocator = CartPageEnum.XPATH_SOCIAL_MEDIA_BUTTON.getValue();
         String errorMsg = null;
         try {
             waitFactory.waitForElementToBeClickable(buttonLocator);
@@ -1778,9 +1780,9 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
-    public void HoverMouse() {
+    public void hoverOnSocialMediaButton() {
 
-        String buttonLocator = CartPageEnum.XPATH_SOCIAL_BUTTON_COLOR.getValue();
+        String buttonLocator = CartPageEnum.XPATH_SOCIAL_MEDIA_BUTTON.getValue();
         try {
             waitFactory.waitForElementToBeClickable(buttonLocator);
             hover(buttonLocator);
