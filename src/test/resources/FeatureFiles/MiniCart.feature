@@ -225,3 +225,14 @@ Feature: Mini Cart Feature File
     Then User Clicks the Login Button on Account Menu
     And User Validates Mini Cart Icon Visibility on Header "true"
     Then User Validates UnSuccessful Login Error Visibility "true" on Cart Page
+
+  @Regression
+  Scenario:Verify the Social Login Button is Displayed at the Checkout Process Pop-Up
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks on View Cart Button
+    Then User Clicks Checkout Button on Cart View
+    Then User Validates Social Login Button Visibility "true"
