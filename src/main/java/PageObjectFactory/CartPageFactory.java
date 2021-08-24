@@ -715,17 +715,17 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
-    public void validateEstimatedDeliveryDateQuantityVisibility(int expectedDate) {
+    public void validateEstimatedDeliveryDateQuantityVisibility(int expectedCount) {
         String locator = CartPageEnum.XPATH_PRODUCT_DATE.getValue();
         waitFactory.waitForElementToBeVisible(locator);
         String errorMsg = null;
         List<WebElement> elements;
         try {
             elements = elementFactory.getElementsList(locator);
-            if (expectedDate == elements.size()) {
-                scenarioDef.log(Status.PASS, "Validated " + expectedDate + " Expected Date is Displayed as Expected on Cart Page");
+            if (expectedCount == elements.size()) {
+                scenarioDef.log(Status.PASS, "Validated " + expectedCount + " Expected Date is Displayed as Expected on Cart Page");
             } else {
-                errorMsg = "Validated " + expectedDate + " Expected Date is not Displayed as Expected on Cart Page";
+                errorMsg = "Validated " + expectedCount + " Expected Date is not Displayed as Expected on Cart Page";
                 throw new NoSuchContextException("Actual and Expected Value Differs");
             }
         } catch (Exception e) {
