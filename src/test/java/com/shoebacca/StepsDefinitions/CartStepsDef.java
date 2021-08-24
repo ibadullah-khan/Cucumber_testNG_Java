@@ -526,6 +526,13 @@ public class CartStepsDef extends HarnessVariables{
     ALL_EXPECTED_DATE=cartPage.getAllEstimatedDeliveryDates();
     }
 
+    @Then("User Validates Cart Page Has {string} Estimated Date on Cart Page")
+    public void userValidatesCartPageHasExpectedDate(String expectedDate) {
+        cartPage.validateEstimatedDeliveryDateQuantityVisibility((Integer.parseInt(expectedDate)));
+    }
+
+
+
     @Then("User Hovers Mouse To Social Button")
     public void userHoversMouseToSocialButton() {
         cartPage.hoverOnSocialMediaButton();

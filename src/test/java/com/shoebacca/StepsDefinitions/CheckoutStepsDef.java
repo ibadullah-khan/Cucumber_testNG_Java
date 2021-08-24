@@ -150,4 +150,15 @@ public class CheckoutStepsDef extends HarnessVariables {
     public void userValidatePhoneNoIsRetainedOnCheckoutPage() {
         checkoutPage.validatePhoneNoIsRetained(VALID_PH_NO);
     }
+
+    @Then("User Validates Shipping Detail Section is in {string} State")
+    public void userValidatesShippingDetailSectionIsInState(String state) {
+        checkoutPage.validateShippingSectionState(state);
+
+    }
+
+    @Then("User Click on Shipping Details Section Title")
+    public void userClickOnShippingDetailsSectionTitle() throws Exception {
+            checkoutPage.clickOnShippingDetailTitle();
+    }
 }

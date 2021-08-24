@@ -42,3 +42,30 @@ Feature: Checkout Feature File
     Then User Validate Zip Code Address is Retained on Checkout Page
     Then User Validate Phone No is Retained on Checkout Page
     Then User Validates "rush.shipping" Option Selected Visibility "true"
+
+  @Regression
+  Scenario: Verify Accordant Close and Open State of Completed Sections on Checkout Page
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
+    And User Enters Valid Email Address on Checkout Page
+    And User Enters Valid First Name on Checkout Page
+    And User Enters Valid Last Name on Checkout Page
+    And User Enters Valid Address on Checkout Page
+    And User Enters Valid City on Checkout Page
+    And User Selects Valid State on Checkout Page
+    And User Enters Valid Zip Code on Checkout Page
+    And User Enters Valid Phone No on Checkout Page
+    Then User Select "rush.shipping" Shipping Method on Checkout Page
+    Then User Validates Shipping Detail Section is in "edit" State
+    Then User Clicks Save and Continue Button on Checkout Page
+    Then User Validates Shipping Detail Section is in "close" State
+    Then User Click on Shipping Details Section Title
+    Then User Validates Shipping Detail Section is in "open" State
+    Then User Click on Shipping Details Section Title
+    Then User Validates Shipping Detail Section is in "close" State

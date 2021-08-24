@@ -57,6 +57,18 @@ public class WaitFactory {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
+    public void waitForElementToBeInVisible(String locatorValue) {
+
+        WebDriverWait wait = new WebDriverWait(driver, TimeUnit.MILLISECONDS.toSeconds(timeOutInMilliSeconds));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(locatorValue)));
+    }
+
+    public void waitForElementToBeInVisible(WebElement element) {
+
+        WebDriverWait wait = new WebDriverWait(driver, TimeUnit.MILLISECONDS.toSeconds(timeOutInMilliSeconds));
+        wait.until(ExpectedConditions.invisibilityOf(element));
+    }
+
     public void staticWait(int waitTime) {
         try {
             Thread.sleep(waitTime);
