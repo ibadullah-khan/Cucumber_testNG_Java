@@ -156,10 +156,12 @@ public class CheckoutPageFactory extends UtilFactory {
 
     public void clickSaveAndContinueButton() throws Exception {
         String locator = CheckoutPageEnum.XPATH_SAVE_AND_CONTINUE_BUTTON.getValue();
+        String loader = CheckoutPageEnum.XPATH_SHIPPING_LOADER.getValue();
         try{
             waitFactory.waitForElementToBeClickable(locator);
             customWait(4000);
             click(locator);
+            waitFactory.waitForElementToBeVisible(loader);
             scenarioDef.log(Status.PASS,"Clicked on Save and Continue Button on Checkout Page");
         }catch (Exception e){
             failureException = e.toString();
@@ -509,6 +511,7 @@ public class CheckoutPageFactory extends UtilFactory {
     }
 
     public void validateShippingSectionState(String expectedState) {
+        String loader = CheckoutPageEnum.XPATH_SHIPPING_LOADER.getValue();
         String locator =null;
         String errorMsg = null;
         Boolean actualVisibility;
@@ -520,7 +523,7 @@ public class CheckoutPageFactory extends UtilFactory {
             }else if (expectedState.contains("close")){
                 locator = CheckoutPageEnum.XPATH_SHIPPING_DETAIl_CLOSED_STATE.getValue();
             }
-            customWait(3000);
+            waitFactory.waitForElementToBeInVisible(loader);
             actualVisibility = isVisible(locator);
             if (actualVisibility) {
                 scenarioDef.log(Status.PASS, "Validated Shipping Section is in "+expectedState+" State on Checkout Page");
