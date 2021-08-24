@@ -161,4 +161,49 @@ public class CheckoutStepsDef extends HarnessVariables {
     public void userClickOnShippingDetailsSectionTitle() throws Exception {
             checkoutPage.clickOnShippingDetailTitle();
     }
+
+    @Then("User Validates {string} Method Name {string} on Summary Section of Checkout Page")
+    public void userValidatesMethodNameOnSummarySectionOfCheckoutPage(String shippingMethod, String expectedCondition) throws Exception {
+        String shippingMethodName = new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(shippingMethod);
+        if (expectedCondition.equals("true")) {
+            checkoutPage.validateShippingMethodNameOnSummarySection(shippingMethodName);
+        } else {
+            checkoutPage.validateShippingMethodNameOnSummarySection(shippingMethodName);
+        }
+    }
+
+    @Then("User Selects Expedited Shipping Method on Checkout Page")
+    public void userSelectsExpeditedShippingMethodOnCheckoutPage() throws Exception {
+        checkoutPage.selectExpeditedShippingMethod();
+    }
+
+    @And("User Validates Successful Loaded Checkout Page")
+    public void userValidatesSuccessfulLoadedCheckoutPage() {
+        checkoutPage.validateCheckoutPageTriggered();
+    }
+
+    @And("User Enters Invalid Email Address on Checkout Page")
+    public void userEntersInvalidEmailAddressOnCheckoutPage()throws Exception {
+        checkoutPage.enterEmailAddress(INVALID_EMAIL_ADDRESS);
+    }
+
+    @And("User Enters Invalid Zip Code on Checkout Page")
+    public void userEntersInvalidZipCodeOnCheckoutPage()throws Exception {
+        checkoutPage.enterZipCode(INVALID_ZIPCODE);
+    }
+
+    @And("User Enters Invalid Phone No on Checkout Page")
+    public void userEntersInvalidPhoneNoOnCheckoutPage()throws Exception {
+        checkoutPage.enterPhNo(INVALID_PH_NO);
+    }
+
+    @Then("User Clears the Email Field on Checkout Page")
+    public void userClearsTheEmailFieldOnCheckoutPage() throws Exception{
+        checkoutPage.clearEmailField();
+    }
+
+    @Then("User Clears the Zip Code Field on Checkout Page")
+    public void userClearsTheZipCodeFieldOnCheckoutPage()throws Exception {
+        checkoutPage.clearZipCodeField();
+    }
 }

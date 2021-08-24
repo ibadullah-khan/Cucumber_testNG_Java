@@ -541,4 +541,79 @@ public class CheckoutPageFactory extends UtilFactory {
             throw e;
         }
     }
+
+    public void validateShippingMethodNameOnSummarySection(String expectedShippingMethodName) {
+        String locator = CheckoutPageEnum.XPATH_SHIPPING_METHOD_LABEL.getValue();
+        String errorMsg = null;
+        try {
+            waitFactory.waitForElementToBeVisible(locator);
+            String shippingMethod = getText(locator);
+            if (shippingMethod.contains(expectedShippingMethodName)) {
+                scenarioDef.log(Status.PASS, " Validated Shipping Method " + expectedShippingMethodName + " Same as Expected on Summary Section of Checkout Page");
+            } else {
+                errorMsg = " Validate Shipping Method " + expectedShippingMethodName + " Not Same as Expected Same as Expected on Summary Section of Checkout Page";
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Shipping Method Element Summary Section of  Checkout Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+
+        }
+    }
+
+    public void selectExpeditedShippingMethod() throws Exception {
+        String locator = CheckoutPageEnum.XPATH_EXPEDITED_SHIPPING_RADIO_BUTTON.getValue();
+        try {
+            waitFactory.waitForElementToBeVisible(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS, "Clicked on Disabled Shipping Method on Checkout Page");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not click on Disabled Shipping Method on Checkout Page");
+            throw e;
+        }
+    }
+
+    public void validateCheckoutPageTriggered() {
+        String locator = CheckoutPageEnum.XPATH_CHECKOUT_HEADING.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            scenarioDef.log(Status.PASS, "Successfully Loaded Checkout Page");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Load Checkout Page Successfully");
+            throw e;
+        }
+    }
+
+    public void clearEmailField() throws Exception {
+        String locator = CheckoutPageEnum.XPATH_EMAIL_ADDRESS_FIELD.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            clearField(locator);
+            scenarioDef.log(Status.PASS, "Email Field is Clear on Checkout Page");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Clear Email Field on Checkout Page");
+            throw e;
+        }
+    }
+
+    public void clearZipCodeField() throws Exception {
+        String locator = CheckoutPageEnum.XPATH_ZIPCODE_FIELD.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            clearField(locator);
+            scenarioDef.log(Status.PASS, "Zip Code Field is Clear on Checkout Page");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Clear Zip Code Field on Checkout Page");
+            throw e;
+        }
+    }
+
 }

@@ -41,4 +41,7 @@ public class HarnessVariables extends UtilFactory {
     protected final String DESCRIPTION_CONTENT=CartEnumVariables.DESCRIPTION_CONTENT.getValue();
     protected final String QUANTITY_CONTENT=CartEnumVariables.QUANTITY_CONTENT.getValue();
     protected final String ITEM_TOTAL_CONTENT=CartEnumVariables.ITEM_TOTAL_CONTENT.getValue();
+    protected final String INVALID_EMAIL_ADDRESS = CheckoutEnumVariables.INVALID_EMAIL_ADDRESS.getValue();
+    protected final String INVALID_PH_NO = CheckoutEnumVariables.INVALID_PH_NO.getValue();
+    protected final String INVALID_ZIPCODE = CheckoutEnumVariables.INVALID_ZIPCODE.getValue();
 }
