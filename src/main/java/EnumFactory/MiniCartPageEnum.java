@@ -3,6 +3,7 @@ package EnumFactory;
 public enum MiniCartPageEnum {
 
     XPATH_MINI_CART_VIEW("//*[@class='miniCart-contents_open-ubc']"),
+    XPATH_VIEW_CART_MOBILE("//*[@class='miniCart-footerCol-1P_']//*[@class='button-root_highPriority-3-H']"),
     XPATH_MINI_CART_LOGIN_LINK("//*[@class='miniCart-loginBtn-1r9']"),
     XPATH_MINI_CART_CLOSE_ICON("//*[@class='miniCart-closeBtn-2jN']/span"),
     XPATH_PRODUCT_NAME("//*[@class='item-name-1dB']"),
