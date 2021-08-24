@@ -25,7 +25,12 @@ public enum CheckoutPageEnum {
     XPATH_SHIPPING_METHOD_START("//*[@class='shippingRadios-radioLabel-3S0']/span[text()='"),
     XPATH_SHIPPING_METHOD_END("']"),
     XPATH_SHIPPING_METHOD_SELECTED_START("//*[@class='shippingRadios-radioLabel-3S0']/span[text()='"),
-    XPATH_SHIPPING_METHOD_SELECTED_END("']/parent::span/parent::label/input[@checked]");
+    XPATH_SHIPPING_METHOD_SELECTED_END("']/parent::span/parent::label/input[@checked]"),
+    XPATH_SHIPPING_DETAIl_EDIT_STATE("//*[@id='js-checkoutForm']"),
+    XPATH_SHIPPING_DETAIl_OPEN_STATE("//*[@class='section-contents_container-t-j']"),
+    XPATH_SHIPPING_DETAIl_CLOSED_STATE("//*[@class='section-contents_container_closed-35H']"),
+    XPATH_SHIPPING_DETAIl_TITLE("//*[@class='section-title-8Re' and contains(text(),'Shipping Details')]"),
+    XPATH_SHIPPING_LOADER("//*[@class='paymentInformation-loading-3aw']");
 
     private String checkoutPageVariables;
 
