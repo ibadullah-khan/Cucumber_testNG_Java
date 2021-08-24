@@ -536,4 +536,3 @@ Feature: Cart Feature File
     Then User Clicks Checkout Button on Cart View
     Then User Hovers Mouse To Social Button
     Then User Validates "social.button.color" Social Button Color on Cart Page
-
