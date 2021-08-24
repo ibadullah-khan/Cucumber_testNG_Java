@@ -26,11 +26,17 @@ public enum CheckoutPageEnum {
     XPATH_SHIPPING_METHOD_END("']"),
     XPATH_SHIPPING_METHOD_SELECTED_START("//*[@class='shippingRadios-radioLabel-3S0']/span[text()='"),
     XPATH_SHIPPING_METHOD_SELECTED_END("']/parent::span/parent::label/input[@checked]"),
-    XPATH_SHIPPING_DETAIl_EDIT_STATE("//*[@id='js-checkoutForm']"),
-    XPATH_SHIPPING_DETAIl_OPEN_STATE("//*[@class='section-contents_container-t-j']"),
-    XPATH_SHIPPING_DETAIl_CLOSED_STATE("//*[@class='section-contents_container_closed-35H']"),
-    XPATH_SHIPPING_DETAIl_TITLE("//*[@class='section-title-8Re' and contains(text(),'Shipping Details')]"),
-    XPATH_SHIPPING_LOADER("//*[@class='paymentInformation-loading-3aw']");
+    XPATH_SHIPPING_DETAIL_EDIT_STATE("//*[@id='js-checkoutForm']"),
+    XPATH_SHIPPING_DETAIL_OPEN_STATE("//*[@class='section-contents_container-t-j']"),
+    XPATH_SHIPPING_DETAIL_CLOSED_STATE("//*[@class='section-contents_container_closed-35H']"),
+    XPATH_SHIPPING_DETAIL_TITLE("//*[@class='section-title-8Re' and contains(text(),'Shipping Details')]"),
+    XPATH_SHIPPING_LOADER("//*[@class='paymentInformation-loading-3aw']"),
+    XPATH_ADD_NEW_ADDRESS("//*[text()='Add New Address']"),
+    XPATH_FIRST_AND_LAST_NAME("//*[@class='card-name-1C0']"),
+    XPATH_ADDRESS("(//*[@class='card-address-33x']/span)[1]"),
+    XPATH_CITY_STATE_ZIPCODE("(//*[@class='card-address-33x']/span)[2]"),
+    XPATH_PHONE_NO("(//*[@class='card-root-3nz']/span)[2]"),
+    XPATH_EMAIL_ADDRESS("//*[@class='card-emailBundle-1IB']");
 
     private String checkoutPageVariables;
 

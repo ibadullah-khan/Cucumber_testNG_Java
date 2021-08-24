@@ -77,3 +77,23 @@ Feature: Checkout Feature File
     Then User Should Redirect Toward "shoebacca.cart" Page
     Then User Validates Successful Loaded Cart Page
     Then User Validates Your Cart is Empty Section Visibility "true"
+
+  @Regression
+  Scenario: Verify There is an Option for Logged in User to Add New Address or Change it
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.home" Url
+    And User Clicks the Account Icon on Header
+    Then User Enters Valid Login Data Username on Account Menu
+    And User Enters Valid Login Password on Account Menu
+    Then User Clicks the Login Button on Account Menu
+    Then User Validates Successful Login on Account Menu
+    And User Clicks the Mini Cart Icon on Header
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Should Redirect Toward "shopping.checkout" Page
+    Then User Validates Add New Address Visibility "true"
+    Then User Validates First Name and Last Name in Shipping Detail Section
+    Then User Validates Address in Shipping Detail Section
+    Then User Validates State City and Zip Code in Shipping Detail Section
+    Then User Validates Phone No in Shipping Detail Section
+    Then User Validates Email Address in Shipping Detail Section

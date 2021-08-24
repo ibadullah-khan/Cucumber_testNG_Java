@@ -112,7 +112,7 @@ public class CheckoutStepsDef extends HarnessVariables {
         if (expectedCondition.equals("true")) {
             checkoutPage.validateShippingMethodValue(shippingMethodName, true);
         } else {
-            checkoutPage.validateShippingMethodValue(shippingMethodName, true);
+            checkoutPage.validateShippingMethodValue(shippingMethodName, false);
         }
     }
 
@@ -160,5 +160,39 @@ public class CheckoutStepsDef extends HarnessVariables {
     @Then("User Click on Shipping Details Section Title")
     public void userClickOnShippingDetailsSectionTitle() throws Exception {
             checkoutPage.clickOnShippingDetailTitle();
+    }
+
+    @Then("User Validates Add New Address Visibility {string}")
+    public void userValidatesAddNewAddressVisibility(String expectedCondition) {
+        if (expectedCondition.equals("true")) {
+            checkoutPage.validateAddNewAddressOption(true);
+        } else {
+            checkoutPage.validateAddNewAddressOption(false);
+        }
+    }
+
+    @Then("User Validates First Name and Last Name in Shipping Detail Section")
+    public void userValidatesFirstNameAndLastNameInShippingDetailSection() {
+        checkoutPage.validateFirstAndLastNameInShippingDetailSection(VALID_FIRSTNAME+" "+VALID_LASTNAME);
+    }
+
+    @Then("User Validates Address in Shipping Detail Section")
+    public void userValidatesAddressInShippingDetailSection() {
+        checkoutPage.validateAddressInShippingDetailSection(VALID_ADDRESS);
+    }
+
+    @Then("User Validates State City and Zip Code in Shipping Detail Section")
+    public void userValidatesStateCityAndZipCodeInShippingDetailSection() {
+        checkoutPage.validateStateCityZipCode(VALID_STATE+", "+VALID_CITY+ " "+VALID_ZIPCODE + " US");
+    }
+
+    @Then("User Validates Phone No in Shipping Detail Section")
+    public void userValidatesPhoneNoInShippingDetailSection() {
+        checkoutPage.validatePhoneNoInDetailSection(VALID_PH_NO);
+    }
+
+    @Then("User Validates Email Address in Shipping Detail Section")
+    public void userValidatesEmailAddressInShippingDetailSection() {
+        checkoutPage.validateEmailAddressInDetailSection(VALID_EMAIL_ADDRESS);
     }
 }
