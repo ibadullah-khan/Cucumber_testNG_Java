@@ -525,4 +525,15 @@ public class CartStepsDef extends HarnessVariables{
     public void userFetchesAllEstimatedDeliveryDatesOnCartPage() {
     ALL_EXPECTED_DATE=cartPage.getAllEstimatedDeliveryDates();
     }
+
+    @Then("User Hovers Mouse To Social Button")
+    public void userHoversMouseToSocialButton() {
+        cartPage.HoverMouse();
+    }
+
+    @Then("User Validates {string} Social Button Color on Cart Page")
+    public void userValidatesSocialButtonColorOnCartPage(String expectedValue) throws Exception {
+        String socialButtonColor = new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(expectedValue);
+        cartPage.validateSocialButtonColor(socialButtonColor);
+    }
 }

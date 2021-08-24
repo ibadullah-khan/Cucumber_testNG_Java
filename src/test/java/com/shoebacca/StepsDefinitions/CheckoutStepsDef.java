@@ -5,7 +5,7 @@ import UtilitiesFactory.PropertyLoaderFactory;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 
-public class CheckoutStepsDef extends HarnessVariables{
+public class CheckoutStepsDef extends HarnessVariables {
 
     CheckoutPageFactory checkoutPage;
     protected String checkoutPropFile = "checkout.properties";
@@ -81,7 +81,7 @@ public class CheckoutStepsDef extends HarnessVariables{
 
     @Then("User Fetches Tax Value on Checkout")
     public void userFetchesTaxValueOnCheckout() {
-        TAX_VALUE=checkoutPage.getTaxValue();
+        TAX_VALUE = checkoutPage.getTaxValue();
     }
 
     @Then("User Validates Tax Value from Checkout")
@@ -91,7 +91,7 @@ public class CheckoutStepsDef extends HarnessVariables{
 
     @Then("User Validates {string} Estimated Delivery Date Color on Checkout Page")
     public void userValidatesDateColorOnCheckout(String expectedValue) throws Exception {
-        String expectedDateColor= new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(expectedValue);
+        String expectedDateColor = new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(expectedValue);
         checkoutPage.validateDateColor(expectedDateColor);
     }
 
@@ -108,11 +108,11 @@ public class CheckoutStepsDef extends HarnessVariables{
 
     @Then("User Validates {string} Option Selected Visibility {string}")
     public void userValidatesOptionSelectedVisibility(String shippingMethod, String expectedCondition) throws Exception {
-        String shippingMethodName= new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(shippingMethod);
-        if(expectedCondition.equals("true")){
-            checkoutPage.validateShippingMethodValue(shippingMethodName,true);
-        }else {
-            checkoutPage.validateShippingMethodValue(shippingMethodName,true);
+        String shippingMethodName = new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(shippingMethod);
+        if (expectedCondition.equals("true")) {
+            checkoutPage.validateShippingMethodValue(shippingMethodName, true);
+        } else {
+            checkoutPage.validateShippingMethodValue(shippingMethodName, true);
         }
     }
 
