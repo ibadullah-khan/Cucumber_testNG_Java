@@ -48,4 +48,5 @@ Feature: Checkout Feature File
 
     When User Navigates to "shoebacca.checkout" Url
     Then User Should Redirect Toward "shoebacca.cart" Page
+    Then User Validates Successful Loaded Cart Page
     Then User Validates Your Cart is Empty Section Visibility "true"

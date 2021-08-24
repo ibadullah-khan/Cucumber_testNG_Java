@@ -808,7 +808,6 @@ public class CartPageFactory extends UtilFactory {
         String errorMsg = null;
         Boolean actualVisibility;
         try {
-            waitFactory.waitForElementToBeVisible(locator);
             actualVisibility = isVisible(locator);
             if (actualVisibility && expectedVisibility) {
                 scenarioDef.log(Status.PASS, "Validated Cart Is Empty Section is Displayed as Expected on Cart Page");
