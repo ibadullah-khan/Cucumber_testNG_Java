@@ -741,6 +741,18 @@ public class MiniCartPageFactory extends UtilFactory {
         }
     }
 
+    public void clickOnSocialMediaButton() {
+        String locator = MiniCartPageEnum.XPATH_SOCIAL_MEDIA_BUTTON.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            jsClick(locator);
+            scenarioDef.log(Status.PASS,"Clicked on Social Media Button on Cart View");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Click on Social Media Button on Cart View");
+        }
+    }
+
     public void validateTaxValue(String expectedText){
         String locator = MiniCartPageEnum.XPATH_PRODUCT_TAX.getValue();
         String errorMsg = null;
