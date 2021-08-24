@@ -70,6 +70,14 @@ Feature: Checkout Feature File
     Then User Click on Shipping Details Section Title
     Then User Validates Shipping Detail Section is in "close" State
 
+  @Regression
+  Scenario: Verify Checkout Page Cannot be Accessed Through URL With Empty Cart
+
+    When User Navigates to "shoebacca.checkout" Url
+    Then User Should Redirect Toward "shoebacca.cart" Page
+    Then User Validates Successful Loaded Cart Page
+    Then User Validates Your Cart is Empty Section Visibility "true"
+
 
   @Regression
   Scenario: Verify Shipping Method Can be Changed Only After All Required Shipping Address Fields are Filled
