@@ -716,7 +716,7 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
-    public void validateEstimatedDateQuantityVisibility(int expectedDate) {
+    public void validateEstimatedDeliveryDateQuantityVisibility(int expectedDate) {
         String locator = CartPageEnum.XPATH_PRODUCT_DATE.getValue();
         waitFactory.waitForElementToBeVisible(locator);
         String errorMsg = null;

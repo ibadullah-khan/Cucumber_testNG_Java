@@ -166,7 +166,7 @@ public class ProductDetailsPageFactory extends UtilFactory {
         }
     }
 
-    public void validateEstimatedDateVisibility(Boolean expectedVisibility) {
+    public void validateEstimatedDeliveryDateQuantityVisibility(Boolean expectedVisibility) {
         String locator = ProductDetailsPageEnum.XPATH_ESTIMATED_DELIVERY_DATE.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
