@@ -162,19 +162,10 @@ public class CheckoutStepsDef extends HarnessVariables {
             checkoutPage.clickOnShippingDetailTitle();
     }
 
-    @Then("User Validates {string} Method Name {string} on Summary Section of Checkout Page")
-    public void userValidatesMethodNameOnSummarySectionOfCheckoutPage(String shippingMethod, String expectedCondition) throws Exception {
+    @Then("User Validates {string} Method Name on Summary Section of Checkout Page")
+    public void userValidatesMethodNameOnSummarySectionOfCheckoutPage(String shippingMethod) throws Exception {
         String shippingMethodName = new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(shippingMethod);
-        if (expectedCondition.equals("true")) {
-            checkoutPage.validateShippingMethodNameOnSummarySection(shippingMethodName);
-        } else {
-            checkoutPage.validateShippingMethodNameOnSummarySection(shippingMethodName);
-        }
-    }
-
-    @Then("User Selects Expedited Shipping Method on Checkout Page")
-    public void userSelectsExpeditedShippingMethodOnCheckoutPage() throws Exception {
-        checkoutPage.selectExpeditedShippingMethod();
+        checkoutPage.validateShippingMethodNameOnSummarySection(shippingMethodName);
     }
 
     @And("User Validates Successful Loaded Checkout Page")

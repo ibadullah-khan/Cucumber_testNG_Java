@@ -565,19 +565,6 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
-    public void selectExpeditedShippingMethod() throws Exception {
-        String locator = CheckoutPageEnum.XPATH_EXPEDITED_SHIPPING_RADIO_BUTTON.getValue();
-        try {
-            waitFactory.waitForElementToBeVisible(locator);
-            click(locator);
-            scenarioDef.log(Status.PASS, "Clicked on Disabled Shipping Method on Checkout Page");
-        } catch (Exception e) {
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL, "Could not click on Disabled Shipping Method on Checkout Page");
-            throw e;
-        }
-    }
-
     public void validateCheckoutPageTriggered() {
         String locator = CheckoutPageEnum.XPATH_CHECKOUT_HEADING.getValue();
         try {

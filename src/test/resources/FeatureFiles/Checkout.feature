@@ -92,8 +92,8 @@ Feature: Checkout Feature File
     Then User Clicks on Guest Checkout Button
     Then User Should Redirect Toward "shopping.checkout" Page
     And User Validates Successful Loaded Checkout Page
-    Then User Selects Expedited Shipping Method on Checkout Page
-    Then User Validates "standard.shipping" Method Name "true" on Summary Section of Checkout Page
+    Then User Select "standard.shipping" Shipping Method on Checkout Page
+    Then User Validates "standard.shipping" Method Name on Summary Section of Checkout Page
     And User Enters Invalid Email Address on Checkout Page
     And User Enters Valid First Name on Checkout Page
     And User Enters Valid Last Name on Checkout Page
@@ -102,13 +102,14 @@ Feature: Checkout Feature File
     And User Selects Valid State on Checkout Page
     And User Enters Invalid Zip Code on Checkout Page
     And User Enters Invalid Phone No on Checkout Page
-    Then User Selects Expedited Shipping Method on Checkout Page
-    Then User Validates "standard.shipping" Method Name "true" on Summary Section of Checkout Page
+    Then User Select "standard.shipping" Shipping Method on Checkout Page
+    Then User Validates "standard.shipping" Method Name on Summary Section of Checkout Page
     Then User Clears the Email Field on Checkout Page
     Then User Clears the Zip Code Field on Checkout Page
     And User Enters Valid Email Address on Checkout Page
     And User Enters Valid Zip Code on Checkout Page
     And User Enters Valid Phone No on Checkout Page
-    Then User Selects Expedited Shipping Method on Checkout Page
+    Then User Select "expedited.shipping" Shipping Method on Checkout Page
     Then User Clicks Save and Continue Button on Checkout Page
-    Then User Validates "expedited.shipping" Method Name "true" on Summary Section of Checkout Page
+    Then User Validates "expedited.shipping" Method Name on Summary Section of Checkout Page
+
