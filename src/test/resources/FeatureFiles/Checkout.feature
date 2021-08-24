@@ -42,3 +42,10 @@ Feature: Checkout Feature File
     Then User Validate Zip Code Address is Retained on Checkout Page
     Then User Validate Phone No is Retained on Checkout Page
     Then User Validates "rush.shipping" Option Selected Visibility "true"
+
+  @Regression
+  Scenario: Verify Checkout Page Cannot be Accessed Through URL With Empty Cart
+
+    When User Navigates to "shoebacca.checkout" Url
+    Then User Should Redirect Toward "shoebacca.cart" Page
+    Then User Validates Your Cart is Empty Section Visibility "true"
