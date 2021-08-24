@@ -68,9 +68,9 @@ public class PDPStepsDef extends HarnessVariables{
     @Then("User Validates Estimated Delivery Date Visibility on PDP {string} for Mobile")
     public void userValidatesEstimatedDeliveryDateVisibilityOnPDP(String expectedCondition) {
         if(expectedCondition.equals("true")){
-            productDetailsPage.validateEstimatedDeliveryDateQuantityVisibility(true);
+            productDetailsPage.validateEstimatedDeliveryDateVisibility(true);
         }else {
-            productDetailsPage.validateEstimatedDeliveryDateQuantityVisibility(false);
+            productDetailsPage.validateEstimatedDeliveryDateVisibility(false);
         }
     }
 
