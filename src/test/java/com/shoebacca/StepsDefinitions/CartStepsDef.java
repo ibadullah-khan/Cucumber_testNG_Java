@@ -543,13 +543,4 @@ public class CartStepsDef extends HarnessVariables{
         String socialButtonColor = new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(expectedValue);
         cartPage.validateSocialButtonColor(socialButtonColor);
     }
-
-    @Then("User Validates Social Login Button Visibility {string}")
-    public void userValidatesSocialLoginButtonVisibility(String expectedCondition) {
-        if(expectedCondition.equals("true")){
-            cartPage.validateSocialLoginButtonVisibility(true);
-        }else {
-            cartPage.validateSocialLoginButtonVisibility(false);
-        }
-    }
 }

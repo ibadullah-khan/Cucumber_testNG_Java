@@ -231,5 +231,14 @@ public class MiniCartStepsDef extends HarnessVariables{
     public void userClicksOnViewCartButtonForMobile() {
         miniCartPage.clickOnViewCartButtonMobile();
     }
+
+    @Then("User Validates Social Login Button Visibility {string}")
+    public void userValidatesSocialLoginButtonVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            miniCartPage.validateSocialLoginButtonVisibility(true);
+        }else {
+            miniCartPage.validateSocialLoginButtonVisibility(false);
+        }
+    }
 }
 

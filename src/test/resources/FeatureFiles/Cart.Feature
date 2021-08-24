@@ -536,14 +536,3 @@ Feature: Cart Feature File
     Then User Clicks Checkout Button on Cart View
     Then User Hovers Mouse To Social Button
     Then User Validates "social.button.color" Social Button Color on Cart Page
-
-  @Regression
-  Scenario:Verify the Social Login Button is Displayed at the Checkout Process Pop-Up
-
-    Given User Setups the Web Browser
-    When User Navigates to "shoebacca.first.bag.pdt" Url
-    Then User Clicks Add to Cart Button on PDP
-    And User Validates Successful Triggered Mini Cart
-    And User Clicks on View Cart Button
-    Then User Clicks Checkout Button on Cart View
-    Then User Validates Social Login Button Visibility "true"
