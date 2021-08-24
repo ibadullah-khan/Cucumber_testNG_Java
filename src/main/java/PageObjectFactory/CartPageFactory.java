@@ -8,7 +8,7 @@ import org.openqa.selenium.NoSuchContextException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.Color;
 import java.util.List;
-import java.util.NoSuchElementException;
+import org.openqa.selenium.NoSuchElementException;
 
 public class CartPageFactory extends UtilFactory {
 
