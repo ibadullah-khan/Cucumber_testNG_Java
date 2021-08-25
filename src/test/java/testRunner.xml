@@ -42,4 +42,12 @@
         </classes>
     </test>
 
+    <test name="Order Confirmation Feature">
+        <parameter name="browser" value= "&browser;" />
+        <parameter name="emailReport" value="&emailReport;" />
+        <classes>
+            <class name="Runner.OrderConfirmationTest" />
+        </classes>
+    </test>
+
 </suite>
