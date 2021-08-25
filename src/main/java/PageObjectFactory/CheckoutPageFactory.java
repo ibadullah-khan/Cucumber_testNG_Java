@@ -877,4 +877,17 @@ public class CheckoutPageFactory extends UtilFactory {
             throw e;
         }
     }
+
+    public void clickOnEditButtonText()throws Exception {
+            String locator = CheckoutPageEnum.XPATH_EDIT_BUTTON_TEXT.getValue();
+            try{
+                waitFactory.waitForElementToBeClickable(locator);
+                click(locator);
+                scenarioDef.log(Status.PASS,"Clicked on Edit Button Text on Checkout Page");
+            }catch (Exception e){
+                failureException = e.toString();
+                scenarioDef.log(Status.FAIL,"Could not Click on Edit Button Text on Checkout Page");
+                throw e;
+            }
+    }
 }

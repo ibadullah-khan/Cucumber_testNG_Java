@@ -279,4 +279,9 @@ public class CheckoutStepsDef extends HarnessVariables {
     public void userClicksOnPhoneNoFieldOnCheckoutPage() {
         checkoutPage.clickOnPhoneNoField();
     }
+
+    @Then("User Clicks on Edit Button Text on Checkout Page")
+    public void userClicksOnEditButtonTextOnCheckoutPage()throws Exception {
+        checkoutPage.clickOnEditButtonText();
+    }
 }

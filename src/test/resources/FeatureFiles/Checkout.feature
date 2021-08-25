@@ -177,3 +177,30 @@ Feature: Checkout Feature File
     Then User Validates Required Field Error Message "invalid.zip.code.error.msg" on "zip.code" Field of Checkout Page
     Then User Enters Invalid Phone No on Checkout Page
     Then User Validates Required Field Error Message "invalid.ph.no.error.msg" on "phone" Field of Checkout Page
+
+    @Regression
+    Scenario: Validate Error Messages are Shown for Required Fields on Checkout Page
+
+      Given User Setups the Web Browser
+      When User Navigates to "shoebacca.first.bag.pdt" Url
+      Then User Clicks Add to Cart Button on PDP
+      And User Validates Successful Triggered Mini Cart
+      And User Closes Mini Cart View
+      And User Clicks the Mini Cart Icon on Header
+      And User Clicks Checkout Button on Mini Cart View
+      Then User Clicks on Guest Checkout Button
+      Then User Should Redirect Toward "shopping.checkout" Page
+      And User Enters Valid Email Address on Checkout Page
+      And User Enters Valid First Name on Checkout Page
+      And User Enters Valid Last Name on Checkout Page
+      And User Enters Valid Address on Checkout Page
+      And User Enters Valid City on Checkout Page
+      And User Selects Valid State on Checkout Page
+      And User Enters Valid Zip Code on Checkout Page
+      And User Enters Valid Phone No on Checkout Page
+      Then User Select "expedited.shipping" Shipping Method on Checkout Page
+      Then User Clicks Save and Continue Button on Checkout Page
+      Then User Click on Shipping Details Section Title
+      Then User Validates Shipping Detail Section is in "open" State
+      Then User Clicks on Edit Button Text on Checkout Page
+      Then User Validates Shipping Detail Section is in "edit" State
