@@ -1,5 +1,6 @@
 package PageObjectFactory;
 
+import EnumFactory.CartPageEnum;
 import EnumFactory.CheckoutPageEnum;
 import UtilitiesFactory.UtilFactory;
 import com.aventstack.extentreports.Status;
@@ -497,6 +498,30 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
+    public void validateShippingMethod(String expectedText) {
+        String locator = CheckoutPageEnum.XPATH_SHIPPING_METHOD_CHECKBOX.getValue();
+        String errorMsg = null;
+        String actualText;
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            actualText = getText(locator).trim();
+            if (actualText.equalsIgnoreCase(expectedText)) {
+                scenarioDef.log(Status.PASS, "Validated Shipping Method on Checkout as Expected: " + expectedText);
+            } else {
+                errorMsg = "Could not validate Shipping Method on Checkout as Expected: " + expectedText + " , Actual Value: " + actualText;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Shipping Element on Cart Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
+
     public void clickOnShippingDetailTitle() throws Exception {
         String locator = CheckoutPageEnum.XPATH_SHIPPING_DETAIL_TITLE.getValue();
         try{
@@ -522,6 +547,36 @@ public class CheckoutPageFactory extends UtilFactory {
                 locator = CheckoutPageEnum.XPATH_SHIPPING_DETAIL_OPEN_STATE.getValue();
             }else if (expectedState.contains("close")){
                 locator = CheckoutPageEnum.XPATH_SHIPPING_DETAIL_CLOSED_STATE.getValue();
+            }
+            waitFactory.waitForElementToBeInVisible(loader);
+            actualVisibility = isVisible(locator);
+            if (actualVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Shipping Section is in "+expectedState+" State on Checkout Page");
+            } else {
+                errorMsg = "Validated  Shipping Section is not "+expectedState+" State on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Shipping Section State Element on Checkout Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void validatePaymentMethodState(String expectedState) {
+        String loader = CheckoutPageEnum.XPATH_SHIPPING_LOADER.getValue();
+        String locator =null;
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try {
+            if(expectedState.equals("active")){
+                locator = CheckoutPageEnum.XPATH_PAYMENT_METHOD_ACTIVE.getValue();
+            } else if (expectedState.equals("inactive")){
+                locator = CheckoutPageEnum.XPATH_PAYMENT_METHOD_INACTIVE.getValue();
             }
             waitFactory.waitForElementToBeInVisible(loader);
             actualVisibility = isVisible(locator);
@@ -568,6 +623,7 @@ public class CheckoutPageFactory extends UtilFactory {
         String locator = CheckoutPageEnum.XPATH_CHECKOUT_HEADING.getValue();
         try {
             waitFactory.waitForElementToBeClickable(locator);
+            customWait(1000);
             scenarioDef.log(Status.PASS, "Successfully Loaded Checkout Page");
         } catch (Exception e) {
             failureException = e.toString();
@@ -746,53 +802,6 @@ public class CheckoutPageFactory extends UtilFactory {
             }else {
                 scenarioDef.log(Status.FAIL,errorMsg);
             }
-            throw e;
-        }
-    }
-    public void validateShippingDetailsEnabledVisibility(boolean expectedVisibility) {
-        String locator = CheckoutPageEnum.XPATH_SHIPPING_DETAIL_ACTIVE.getValue();
-        String errorMsg = null;
-        Boolean actualVisibility;
-        try {
-            actualVisibility = isVisible(locator);
-            if (actualVisibility && expectedVisibility) {
-                scenarioDef.log(Status.PASS, "Validated Shipping Detail is Displayed as Expected on Checkout Page");
-            } else if (!actualVisibility && !expectedVisibility) {
-                scenarioDef.log(Status.PASS, "Validated Shipping Detail is not Displayed as Expected on Checkout Page");
-            } else if (actualVisibility && !expectedVisibility) {
-                errorMsg = "Validated Shipping Detail is Displayed Unexpected on Checkout Page";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
-            } else if (!actualVisibility && expectedVisibility) {
-                errorMsg = "Validated Shipping Detail is not Displayed Unexpected on Checkout Page";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
-            }
-        } catch (Exception e) {
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL, errorMsg);
-            throw e;
-        }
-    }
-
-    public void validatePaymentMethodDisabledVisibility(boolean expectedVisibility) {
-        String locator = CheckoutPageEnum.XPATH_PAYMENT_METHOD_DISABLED.getValue();
-        String errorMsg = null;
-        Boolean actualVisibility;
-        try {
-            actualVisibility = isVisible(locator);
-            if (actualVisibility && expectedVisibility) {
-                scenarioDef.log(Status.PASS, "Validated Payment Method is Displayed as Expected on Checkout Page");
-            } else if (!actualVisibility && !expectedVisibility) {
-                scenarioDef.log(Status.PASS, "Validated Payment Method is not Displayed as Expected on Checkout Page");
-            } else if (actualVisibility && !expectedVisibility) {
-                errorMsg = "Validated Payment Method is Displayed Unexpected on Checkout Page";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
-            } else if (!actualVisibility && expectedVisibility) {
-                errorMsg = "Validated Payment Method is not Displayed Unexpected on Checkout Page";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
-            }
-        } catch (Exception e) {
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL, errorMsg);
             throw e;
         }
     }

@@ -232,21 +232,13 @@ public class CheckoutStepsDef extends HarnessVariables {
         checkoutPage.validateEmailAddressInDetailSection(VALID_DATA_EMAIL_ADDRESS);
     }
 
-    @Then("User Validates Shipping Details Enabled on Checkout Page {string}")
-    public void userValidatesShippingDetailsEnabledOnCheckoutPage(String expectedCondition) {
-        if(expectedCondition.equals("true")){
-            checkoutPage.validateShippingDetailsEnabledVisibility(true);
-        }else {
-            checkoutPage.validateShippingDetailsEnabledVisibility(false);
-        }
+    @Then("User Validates Shipping Method on Checkout Page")
+    public void userValidatesShippingMethodOnCheckoutPage() {
+        checkoutPage.validateShippingMethod(SHIPPING_METHOD);
     }
 
-    @Then("User Validates Payment Method Disabled on Checkout Page {string}")
-    public void userValidatesPaymentMethodDisabledOnCheckoutPage(String expectedCondition) {
-        if(expectedCondition.equals("true")){
-            checkoutPage.validatePaymentMethodDisabledVisibility(true);
-        }else {
-            checkoutPage.validatePaymentMethodDisabledVisibility(false);
-        }
+    @Then("User Validates Payment Method Section is in {string} State")
+    public void userValidatesPaymentMethodSectionIsInState(String state) {
+        checkoutPage.validatePaymentMethodState(state);
     }
 }

@@ -39,8 +39,10 @@ public enum CheckoutPageEnum {
     XPATH_CITY_STATE_ZIPCODE("(//*[@class='card-address-33x']/span)[2]"),
     XPATH_PHONE_NO("(//*[@class='card-root-3nz']/span)[2]"),
     XPATH_EMAIL_ADDRESS("//*[@class='card-emailBundle-1IB']"),
+    XPATH_SHIPPING_METHOD_CHECKBOX("//*[@class='shippingRadios-radioLabel-3S0']/span"),
     XPATH_SHIPPING_DETAIL_ACTIVE("//*[@class='checkoutPage-shipping_information_container-1Ro']//child::h3[not(@disabled)]"),
-    XPATH_PAYMENT_METHOD_DISABLED("//*[@class='checkoutPage-payment_information_container-3zC']//child::h3[not(disabled)]");
+    XPATH_PAYMENT_METHOD_INACTIVE("//*[@class='checkoutPage-payment_information_container-3zC']//h3"),
+    XPATH_PAYMENT_METHOD_ACTIVE("///*[@class='checkoutPage-price_adjustments_container-jA3']");
 
     private String checkoutPageVariables;
 

@@ -1,5 +1,6 @@
 package PageObjectFactory;
 
+import EnumFactory.CartPageEnum;
 import EnumFactory.MiniCartPageEnum;
 import UtilitiesFactory.ElementFactory;
 import UtilitiesFactory.UtilFactory;
@@ -750,6 +751,21 @@ public class MiniCartPageFactory extends UtilFactory {
         }catch (Exception e){
             failureException = e.toString();
             scenarioDef.log(Status.FAIL,"Could not Click on Social Media Button on Cart View");
+        }
+    }
+
+    public String getShippingMethod() {
+        String shippingname;
+        String locator = MiniCartPageEnum.XPATH_SHIPPING_LABEL.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            shippingname = getText(locator);
+            scenarioDef.log(Status.PASS, "Fetched Shipping Value: " + shippingname + " from Mini Cart");
+            return shippingname;
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Fetch Shipping Value from Mini Cart");
+            throw e;
         }
     }
 

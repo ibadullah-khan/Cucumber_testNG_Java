@@ -151,8 +151,10 @@ Feature: Checkout Feature File
     When User Navigates to "shoebacca.first.bag.pdt" Url
     And User Clicks Add to Cart Button on PDP
     And User Validates Successful Triggered Mini Cart
+    Then User Fetches Shipping Method on Cart Page
     And User Clicks Checkout Button on Mini Cart View
     Then User Clicks on Guest Checkout Button
-    Then User Validates Shipping Details Enabled on Checkout Page "true"
-    Then User Validates "standard.shipping" Method Name on Summary Section of Checkout Page
-    Then User Validates Payment Method Disabled on Checkout Page "true"
+    Then User Validates Successful Loaded Checkout Page
+    Then User Validates Shipping Detail Section is in "edit" State
+    Then User Validates Shipping Method on Checkout Page
+    Then User Validates Payment Method Section is in "inactive" State
