@@ -130,3 +130,16 @@ Feature: Checkout Feature File
     Then User Validates Phone No in Shipping Detail Section
     Then User Validates Email Address in Shipping Detail Section
     Then User Validates Add New Address Visibility "true"
+
+  @Regression
+  Scenario: Validate Sign In Without Entering Any Values
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Clicks on Member Checkout Button
+    Then User Clicks the Login Button on Account Menu
+    Then User Validates Error Message Visibility "true" on Email Field on Account Menu
+    Then User Validates Error Message Visibility "true" on Password Field on Account Menu

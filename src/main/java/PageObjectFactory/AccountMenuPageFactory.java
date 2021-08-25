@@ -85,4 +85,52 @@ public class AccountMenuPageFactory extends UtilFactory{
             throw e;
         }
     }
+
+    public void validateErrorMessageVisibilityOnEmail(boolean expectedVisibility) {
+        String locator = AccountMenuPageEnum.XPATH_REQUIRED_EMAIL_FIELD_ERROR.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try {
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Error Message is Displayed as Expected on Email Field on Account Menu");
+            } else if (!actualVisibility && !expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Error Message is Not Displayed as Expected on Email Field on Account Menu");
+            } else if (actualVisibility && !expectedVisibility) {
+                errorMsg = "Validated Error Message is Displayed Unexpected on Email Field";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
+                errorMsg = "Validated Error Message is Displayed Unexpectedly on Email Field on Account Menu";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateErrorMessageVisibilityOnPassword(boolean expectedVisibility) {
+        String locator = AccountMenuPageEnum.XPATH_REQUIRED_PASSWORD_FIELD_ERROR.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try {
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Error Message is Displayed as Expected on Password Field on Account Menu");
+            } else if (!actualVisibility && !expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Error Message is Not Displayed as Expected on Password Field on Account Menu");
+            } else if (actualVisibility && !expectedVisibility) {
+                errorMsg = "Validated Error Message is Displayed Unexpected on Password Field on Account Menu";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
+                errorMsg = "Validated Error Message is Displayed Unexpectedly on Password Field";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
+    }
 }
