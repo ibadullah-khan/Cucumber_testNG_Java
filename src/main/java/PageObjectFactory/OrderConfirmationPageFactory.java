@@ -82,7 +82,7 @@ public class OrderConfirmationPageFactory extends UtilFactory {
         }
         catch (Exception e){
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Validate error message equals to expected error message on Order Confirmation Page");
+            scenarioDef.log(Status.FAIL,"Could not Get Mis-Match error message element on Order Confirmation Page");
             throw e;
         }
     }
