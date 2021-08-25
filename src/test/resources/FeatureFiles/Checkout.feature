@@ -96,7 +96,14 @@ Feature: Checkout Feature File
     And User Clicks on Address Field on Checkout Page
     Then User Validates Required Field Error Message "required.field.error.msg" on "last.name" Field of Checkout Page
     And User Clicks on City Field on Checkout Page
-    Then User Validates Required Field Error Message "required.field.error.msg" on "last.name" Field of Checkout Page
+    Then User Validates Required Field Error Message "required.field.error.msg" on "address" Field of Checkout Page
     And User Clicks on State Field on Checkout Page
+    Then User Validates Required Field Error Message "required.field.error.msg" on "city" Field of Checkout Page
     And User Clicks on Zip Code Field on Checkout Page
+    Then User Validates Required Field Error Message "required.field.error.msg" on "state" Field of Checkout Page
     And User Clicks on Phone No Field on Checkout Page
+    Then User Validates Required Field Error Message "required.field.error.msg" on "zip.code" Field of Checkout Page
+    Then User Enter Invlid zip code
+    Then User Validates Required Field Error Message "invalid.zip.code.error.msg" on "zip.code" Field of Checkout Page
+    Then User Validates Required Field Error Message "invalid.ph.no.error.msg" on "zip.code" Field of Checkout Page
+
