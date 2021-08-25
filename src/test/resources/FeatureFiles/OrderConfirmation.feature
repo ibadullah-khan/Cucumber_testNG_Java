@@ -1,5 +1,5 @@
-Feature: OrderCreation Feature File
-  Contains All Order Creation Module Test Cases
+Feature: Order Confirmation Feature File
+  Contains All Order Confirmation Module Test Cases
 
   @Regression
   Scenario: Verify account is not created if incorrect password is entered

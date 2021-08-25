@@ -29,11 +29,11 @@ public class OrderConfirmationPageFactory extends UtilFactory {
         try{
             waitFactory.waitForElementToBeVisible(locator);
             enterString(locator,password);
-            scenarioDef.log(Status.PASS,"Entered Password"+ password +" on Order Confirmation Page");
+            scenarioDef.log(Status.PASS,"Entered Password: "+ password +" on Order Confirmation Page");
         }
         catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Enter Password on Order Confirmation Page");
+            scenarioDef.log(Status.FAIL,"Could not Enter Password: "+ password +" on Order Confirmation Page");
             throw e;
         }
     }
@@ -43,11 +43,11 @@ public class OrderConfirmationPageFactory extends UtilFactory {
         try{
             waitFactory.waitForElementToBeVisible(locator);
             enterString(locator,password);
-            scenarioDef.log(Status.PASS,"Entered Re-Password"+ password +" on Order Confirmation Page");
+            scenarioDef.log(Status.PASS,"Entered Re-Password: "+ password +" on Order Confirmation Page");
         }
         catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Enter Re-Password on Order Confirmation Page");
+            scenarioDef.log(Status.FAIL,"Could not Enter Re-Password: "+ password +" on Order Confirmation Page");
             throw e;
         }
     }
