@@ -511,3 +511,28 @@ Feature: Cart Feature File
     Then User Clicks on Change Shipping Option of Cart Page
     Then User Clicks on "expedited.shipping" Shipping Method on Dropdown of Cart Page
     Then User Fetches And Compare Estimated Delivery Date on Cart Page
+
+  @Regression
+  Scenario: Verify Estimated Delivery Date is Only Displayed Once on Mobile Devices
+
+    When User Navigates to "shoebacca.second.bag.pdt" Url
+    Then User Validates Estimated Delivery Date Visibility on PDP "true" for Mobile
+    Then User Validates "estimated.date.color" Estimated Delivery Date Color on PDP
+    Then User Clicks Add to Cart Button on PDP for Mobile
+    And User Validates Successful Triggered Mini Cart
+    Then User Clicks on View Cart Button for Mobile
+    Then User Validates Cart Has "1" Product's Attributes Visibility "true"
+    Then User Validates Cart Page Has "1" Estimated Date on Cart Page
+    Then User Validates "estimated.date.color" Estimated Delivery Date Color on Cart Page
+
+  @Regression
+  Scenario:Verify the Mouse Hover Makes Social Login Button Blue
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    Then User Clicks on View Cart Button
+    Then User Clicks Checkout Button on Cart View
+    Then User Hovers Mouse To Social Button
+    Then User Validates "social.button.color" Social Button Color on Cart Page

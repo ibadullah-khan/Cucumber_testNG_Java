@@ -27,7 +27,6 @@ public enum CartPageEnum {
     XPATH_REMOVE_START("//*[@class='product-name-3mh']/*[text()='"),
     XPATH_REMOVE_END("']//ancestor::div[@class='product-details-3HQ']//button[@class='product-btnRemove-16L']"),
     XPATH_CHECKOUT_CART_BUTTON("//span[text()='Go to Checkout']//parent::button[not(@disabled)]"),
-    XPATH_CHECKOUT_CART("//span[text()='Go to Checkout']//parent::button[not(@disabled)]"),
     XPATH_CHECKOUT_DISABLED_CART_BUTTON("//span[text()='Go to Checkout']//parent::button[(@disabled)]"),
     XPATH_INVALID_LOGIN_ERROR("//*[@class='main-loginError-2FL']"),
     XPATH_CART_LOGIN_LINK("//*[@class='cartPage-emptyCartBox-2Z6']//*[text()='Log in']"),
@@ -61,6 +60,7 @@ public enum CartPageEnum {
     XPATH_INDIVIDUAL_CATEGORY_END("\"]"),
     XPATH_PREDICT_INSPECTOR_SECTION("//*[@id='sc-inspector']"),
     XPATH_PREDICT_INSPECTOR_ITEM_DESCRIPTION_START("//*[@class='sc-event-caption-title' and text()='"),
+    XPATH_SOCIAL_MEDIA_BUTTON("//*[@class='checkoutProcess-body-2hF']//*[@class='facebookLogin-btnFacebook-21h metro']"),
     XPATH_PREDICT_INSPECTOR_ITEM_DESCRIPTION_END("']//following-sibling::span");
 
     private String cartPageVariables;

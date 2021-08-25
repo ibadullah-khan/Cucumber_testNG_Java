@@ -3,6 +3,7 @@ package EnumFactory;
 public enum MiniCartPageEnum {
 
     XPATH_MINI_CART_VIEW("//*[@class='miniCart-contents_open-ubc']"),
+    XPATH_VIEW_CART_MOBILE("//*[@class='miniCart-footerCol-1P_']//*[@class='button-root_highPriority-3-H']"),
     XPATH_MINI_CART_LOGIN_LINK("//*[@class='miniCart-loginBtn-1r9']"),
     XPATH_MINI_CART_CLOSE_ICON("//*[@class='miniCart-closeBtn-2jN']/span"),
     XPATH_PRODUCT_NAME("//*[@class='item-name-1dB']"),
@@ -22,6 +23,7 @@ public enum MiniCartPageEnum {
     XPATH_PRODUCT_BRAND("//*[@class='item-brandName-1JN']"),
     XPATH_EDIT_BUTTON("//*[@class='miniCart-contents_open-ubc']//*[contains(text(),'Edit')]"),
     XPATH_PRODUCT_COUNT_TEXT("//*[@class='miniCart-quantity-2K5']"),
+    XPATH_SOCIAL_MEDIA_BUTTON("//*[@class='checkoutProcess-body-2hF']//*[@class='facebookLogin-btnFacebook-21h metro']"),
     XPATH_PRODUCT_TAX("//*[text()='Tax']//following-sibling::*[@class='priceSummary-price-12K']");
 
 
