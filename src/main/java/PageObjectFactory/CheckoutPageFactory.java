@@ -602,7 +602,6 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
-
     public void validateAddNewAddressOption(boolean expectedVisibility) {
         String locator = CheckoutPageEnum.XPATH_ADD_NEW_ADDRESS.getValue();
         String errorMsg = null;
