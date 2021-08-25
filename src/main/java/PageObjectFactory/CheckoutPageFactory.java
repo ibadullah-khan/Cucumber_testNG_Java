@@ -645,27 +645,26 @@ public class CheckoutPageFactory extends UtilFactory {
             throw e;
         }
     }
-    public void validateRequiredErrorMessageVisibility(String expectedField, boolean expectedVisibility) {
+    public void validateRequiredErrorMessageText(String expectedField, String expectedErrorMsgText) {
         String locator = CheckoutPageEnum.XPATH_REQ_FIELD_MESSAGE_START.getValue() +expectedField+CheckoutPageEnum.XPATH_REQ_FIELD_MESSAGE_END.getValue();
         String errorMsg = null;
-        Boolean actualVisibility;
+        String actualText;
         try {
             waitFactory.waitForElementToBeClickable(locator);
-            actualVisibility = isVisible(locator);
-            if (actualVisibility && expectedVisibility) {
-                scenarioDef.log(Status.PASS, "Validated Shipping Label is Displayed as Expected on Mini Cart View");
-            } else if (!actualVisibility && !expectedVisibility) {
-                scenarioDef.log(Status.PASS, "Validated Shipping Label is Not Displayed as Expected on Mini Cart View");
-            } else if (actualVisibility && !expectedVisibility) {
-                errorMsg = "Validated Shipping Label is Displayed Unexpected on Mini Cart View";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
-            } else if (!actualVisibility && expectedVisibility) {
-                errorMsg = "Validated Shipping Label is not Displayed Unexpected on Mini Cart View";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            actualText = getText(locator).trim();
+            if (actualText.contains(expectedErrorMsgText)) {
+                scenarioDef.log(Status.PASS, "Validated Error Message on Summary Section of Cart Page as Expected: " + expectedErrorMsgText);
+            } else {
+                errorMsg = "Could not validate Error Message on Summary Section of Cart Page as Expected: " + expectedErrorMsgText + " , Actual Value: " + actualText;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
             }
         } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL, errorMsg);
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Error Message Element on Summary Section of Cart Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
             throw e;
         }
     }

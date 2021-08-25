@@ -172,13 +172,11 @@ public class CheckoutStepsDef extends HarnessVariables {
         checkoutPage.clickOnFirstNameField();
     }
 
-    @Then("User Validates Required Field Error Message Visibility {string} on {string} Field of Checkout Page")
-    public void userValidatesRequiredFieldErrorMessageVisibilityOnFieldOfCheckoutPage(String expectedField, String expectedCondition) {
-        if(expectedCondition.equals("true")){
-            checkoutPage.validateRequiredErrorMessageVisibility(expectedField,true);
-        }else {
-            checkoutPage.validateRequiredErrorMessageVisibility(expectedField,false);
-        }
+    @Then("User Validates Required Field Error Message {string} on {string} Field of Checkout Page")
+    public void userValidatesRequiredFieldErrorMessageVisibilityOnFieldOfCheckoutPage(String inputField, String errorMsgText) throws Exception {
+        String expectedinputField = new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(inputField);
+        //String expectedErrorMsgText = new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(errorMsgText);
+        //checkoutPage.validateRequiredErrorMessageText(expectedinputField,expectedErrorMsgText);
     }
 
     @And("User Clicks on Last Name Field on Checkout Page")

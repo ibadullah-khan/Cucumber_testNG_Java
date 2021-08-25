@@ -90,10 +90,13 @@ Feature: Checkout Feature File
     Then User Should Redirect Toward "shopping.checkout" Page
     And User Clicks on Email Address Field on Checkout Page
     And User Clicks on First Name Field on Checkout Page
-    Then User Validates Required Field Error Message Visibility "true" on "email.address" Field of Checkout Page
+    Then User Validates Required Field Error Message "invalid.email.error.msg" on "email.address" Field of Checkout Page
     And User Clicks on Last Name Field on Checkout Page
+    Then User Validates Required Field Error Message "required.field.error.msg" on "first.name" Field of Checkout Page
     And User Clicks on Address Field on Checkout Page
+    Then User Validates Required Field Error Message "required.field.error.msg" on "last.name" Field of Checkout Page
     And User Clicks on City Field on Checkout Page
+    Then User Validates Required Field Error Message "required.field.error.msg" on "last.name" Field of Checkout Page
     And User Clicks on State Field on Checkout Page
     And User Clicks on Zip Code Field on Checkout Page
     And User Clicks on Phone No Field on Checkout Page
