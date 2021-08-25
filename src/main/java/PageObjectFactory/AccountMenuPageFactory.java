@@ -101,7 +101,7 @@ public class AccountMenuPageFactory extends UtilFactory{
                 errorMsg = "Validated Error Message is Displayed Unexpected on Email Field";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             } else if (!actualVisibility && expectedVisibility) {
-                errorMsg = "Validated Error Message is not Displayed Unexpected on Email Field";
+                errorMsg = "Validated Error Message is Displayed Unexpectedly on Email Field";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             }
         } catch (Exception e) {
@@ -127,7 +127,7 @@ public class AccountMenuPageFactory extends UtilFactory{
                 errorMsg = "Validated Error Message is Displayed Unexpected on Password Field";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             } else if (!actualVisibility && expectedVisibility) {
-                errorMsg = "Validated Error Message is not Displayed Unexpected on Password Field";
+                errorMsg = "Validated Error Message is Displayed Unexpectedly on Password Field";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             }
         } catch (Exception e) {

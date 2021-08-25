@@ -112,8 +112,6 @@ Feature: Checkout Feature File
     Then User Clicks Save and Continue Button on Checkout Page
     Then User Validates "expedited.shipping" Method Name on Summary Section of Checkout Page
 
-
-
     @Regression
     Scenario: Validate Sign In Without Entering Any Values
 
