@@ -193,6 +193,6 @@ public class CheckoutStepsDef extends HarnessVariables {
 
     @Then("User Validates Email Address in Shipping Detail Section")
     public void userValidatesEmailAddressInShippingDetailSection() {
-        checkoutPage.validateEmailAddressInDetailSection(VALID_EMAIL_ADDRESS);
+        checkoutPage.validateEmailAddressInDetailSection(VALID_DATA_EMAIL_ADDRESS);
     }
 }

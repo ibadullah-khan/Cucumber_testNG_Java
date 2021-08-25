@@ -5,6 +5,7 @@ import UtilitiesFactory.PropertyLoaderFactory;
 public enum CheckoutEnumVariables {
 
     VALID_EMAIL_ADDRESS(""),
+	VALID_DATA_EMAIL_ADDRESS(""),
     VALID_FIRSTNAME(""),
 	VALID_LASTNAME(""),
 	VALID_ADDRESS(""),
@@ -33,6 +34,7 @@ public enum CheckoutEnumVariables {
 	    	String userDataFile = "checkout.properties";
 
 			VALID_EMAIL_ADDRESS.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.email.address");
+			VALID_DATA_EMAIL_ADDRESS.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.data.email.address");
 			VALID_FIRSTNAME.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.first.name");
 			VALID_LASTNAME.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.last.name");
 			VALID_ADDRESS.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.address");

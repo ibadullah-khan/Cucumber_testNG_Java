@@ -547,7 +547,6 @@ public class CheckoutPageFactory extends UtilFactory {
         String errorMsg = null;
         Boolean actualVisibility;
         try {
-            waitFactory.waitForElementToBeClickable(locator);
             actualVisibility = isVisible(locator);
             if (actualVisibility && expectedVisibility) {
                 scenarioDef.log(Status.PASS, "Validated Add New Address Option is Display on Checkout Page");

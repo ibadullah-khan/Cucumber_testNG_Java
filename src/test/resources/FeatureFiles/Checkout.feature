@@ -91,9 +91,9 @@ Feature: Checkout Feature File
     And User Clicks the Mini Cart Icon on Header
     And User Clicks Checkout Button on Mini Cart View
     Then User Should Redirect Toward "shopping.checkout" Page
-    Then User Validates Add New Address Visibility "true"
     Then User Validates First Name and Last Name in Shipping Detail Section
     Then User Validates Address in Shipping Detail Section
     Then User Validates State City and Zip Code in Shipping Detail Section
     Then User Validates Phone No in Shipping Detail Section
     Then User Validates Email Address in Shipping Detail Section
+    Then User Validates Add New Address Visibility "true"
