@@ -32,6 +32,8 @@ public enum CheckoutPageEnum {
     XPATH_SHIPPING_DETAIl_TITLE("//*[@class='section-title-8Re' and contains(text(),'Shipping Details')]"),
     XPATH_SHIPPING_METHOD_LABEL("//span[@class='priceSummary-lineItemLabel-1zJ' and contains(text(),'Shipping')]"),
     XPATH_CHECKOUT_HEADING("//*[@class='checkoutPage-heading-1gt']"),
+    XPATH_SHIPPING_DETAIL_ACTIVE("//*[@class='checkoutPage-shipping_information_container-1Ro']//child::h3[not(@disabled)]"),
+    XPATH_PAYMENT_METHOD_DISABLED("//*[@class='checkoutPage-payment_information_container-3zC']//child::h3[not(disabled)]"),
     XPATH_SHIPPING_LOADER("//*[@class='paymentInformation-loading-3aw']");
 
     private String checkoutPageVariables;

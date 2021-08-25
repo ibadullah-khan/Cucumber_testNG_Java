@@ -197,4 +197,22 @@ public class CheckoutStepsDef extends HarnessVariables {
     public void userClearsTheZipCodeFieldOnCheckoutPage()throws Exception {
         checkoutPage.clearZipCodeField();
     }
+
+    @Then("User Validates Shipping Details Enabled on Checkout Page {string}")
+    public void userValidatesShippingDetailsEnabledOnCheckoutPage(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateShippingDetailsEnabledVisibility(true);
+        }else {
+            checkoutPage.validateShippingDetailsEnabledVisibility(false);
+        }
+    }
+
+    @Then("User Validates Payment Method Disabled on Checkout Page {string}")
+    public void userValidatesPaymentMethodDisabledOnCheckoutPage(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validatePaymentMethodDisabledVisibility(true);
+        }else {
+            checkoutPage.validatePaymentMethodDisabledVisibility(false);
+        }
+    }
 }

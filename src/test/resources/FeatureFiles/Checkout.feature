@@ -112,3 +112,15 @@ Feature: Checkout Feature File
     Then User Clicks Save and Continue Button on Checkout Page
     Then User Validates "expedited.shipping" Method Name on Summary Section of Checkout Page
 
+  @Regression
+  Scenario: Validate the UI for Active and Inactive Steps
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Clicks on Guest Checkout Button
+    Then User Validates Shipping Details Enabled on Checkout Page "true"
+    Then User Validates "standard.shipping" Method Name on Summary Section of Checkout Page
+    Then User Validates Payment Method Disabled on Checkout Page "true"
