@@ -95,10 +95,10 @@ public class CheckoutPageFactory extends UtilFactory {
         try{
             waitFactory.waitForElementToBeClickable(locator);
             enterString(locator,textToEnter);
-            scenarioDef.log(Status.PASS,"Entered Text: "+textToEnter+" on ZipCode Field on Checkout Page");
+            scenarioDef.log(Status.PASS,"Entered Text: "+textToEnter+" on Phone Number Field on Checkout Page");
         }catch (Exception e){
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Enter Text on ZipCode Field on Checkout Page");
+            scenarioDef.log(Status.FAIL,"Could not Enter Text on Phone Number Field on Checkout Page");
             throw e;
         }
     }
