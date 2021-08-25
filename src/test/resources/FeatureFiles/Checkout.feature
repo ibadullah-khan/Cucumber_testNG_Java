@@ -78,7 +78,6 @@ Feature: Checkout Feature File
     Then User Validates Successful Loaded Cart Page
     Then User Validates Your Cart is Empty Section Visibility "true"
 
-
   @Regression
   Scenario: Verify Shipping Method Can be Changed Only After All Required Shipping Address Fields are Filled
 
