@@ -133,4 +133,41 @@ public class AccountMenuPageFactory extends UtilFactory{
             throw e;
         }
     }
+
+    public void enterEmailAddress(String email)throws Exception {
+        String locator = AccountMenuPageEnum.XPATH_ACCOUNT_MENU_USERNAME.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            enterString(locator,email);
+            scenarioDef.log(Status.PASS,"Entered Text: "+email+" on Username Field on Account Menu");
+        }catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Enter Text on Username Field on Account Menu");
+            throw e;
+        }
+    }
+
+    public void validatesValidationErrorMessageVisibilityOnEmail(boolean expectedVisibility) {
+        String locator = AccountMenuPageEnum.XPATH_VALIDATION_ERROR.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try {
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Validation Message is Displayed as Expected on Email Field on Account Menu");
+            } else if (!actualVisibility && !expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Validation Error Message is Not Displayed as Expected on Email Field on Account Menu");
+            } else if (actualVisibility && !expectedVisibility) {
+                errorMsg = "Validated Validation Error Message is Displayed Unexpected on Email Field";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
+                errorMsg = "Validated Validation Error Message is Displayed Unexpectedly on Email Field on Account Menu";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
+    }
 }
