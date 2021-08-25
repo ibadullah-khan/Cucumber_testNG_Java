@@ -24,6 +24,7 @@ public class HarnessVariables extends UtilFactory {
     protected final String VALID_PASSWORD = GlobalEnumVariables.VALID_LOGIN_PASSWORD.getValue();
     protected final String INVALID_PASSWORD = GlobalEnumVariables.INVALID_LOGIN_PASSWORD.getValue();
     protected final String VALID_EMAIL_ADDRESS = CheckoutEnumVariables.VALID_EMAIL_ADDRESS.getValue();
+    protected final String VALID_DATA_EMAIL_ADDRESS = CheckoutEnumVariables.VALID_DATA_EMAIL_ADDRESS.getValue();
     protected final String VALID_FIRSTNAME = CheckoutEnumVariables.VALID_FIRSTNAME.getValue();
     protected final String VALID_LASTNAME = CheckoutEnumVariables.VALID_LASTNAME.getValue();
     protected final String VALID_ADDRESS = CheckoutEnumVariables.VALID_ADDRESS.getValue();
