@@ -155,4 +155,6 @@ Feature: Checkout Feature File
     And User Clicks Checkout Button on Mini Cart View
     Then User Clicks on Guest Checkout Button
     Then User Should Redirect Toward "shopping.checkout" Page
-    Then User Validates Logo in Header on Checkout Page
+    Then User Validates Header Visibility "true" on Checkout Page
+    Then User Validates Logo Visibility "true" in Header on Checkout Page
+    Then User Validates Help icon Visibility "true" on Checkout Page

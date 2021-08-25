@@ -231,4 +231,31 @@ public class CheckoutStepsDef extends HarnessVariables {
     public void userValidatesEmailAddressInShippingDetailSection() {
         checkoutPage.validateEmailAddressInDetailSection(VALID_DATA_EMAIL_ADDRESS);
     }
+
+    @Then("User Validates Header Visibility {string} on Checkout Page")
+    public void userValidatesHeaderVisibilityOnCheckoutPage(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateHeaderVisibility(true);
+        }else {
+            checkoutPage.validateHeaderVisibility(false);
+        }
+    }
+
+    @Then("User Validates Logo Visibility {string} in Header on Checkout Page")
+    public void userValidatesLogoVisibilityInHeaderOnCheckoutPage(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateHeaderLogoVisibility(true);
+        }else {
+            checkoutPage.validateHeaderLogoVisibility(false);
+        }
+    }
+
+    @Then("User Validates Help icon Visibility {string} on Checkout Page")
+    public void userValidatesHelpIconVisibilityOnCheckoutPage(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateHeaderIconVisibility(true);
+        }else {
+            checkoutPage.validateHeaderIconVisibility(false);
+        }
+    }
 }

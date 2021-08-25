@@ -38,6 +38,9 @@ public enum CheckoutPageEnum {
     XPATH_ADDRESS("(//*[@class='card-address-33x']/span)[1]"),
     XPATH_CITY_STATE_ZIPCODE("(//*[@class='card-address-33x']/span)[2]"),
     XPATH_PHONE_NO("(//*[@class='card-root-3nz']/span)[2]"),
+    XPATH_HEADER("//*[@class='header-desktopSecondaryActions-n-W']"),
+    XPATH_HEADER_LOGO("//*[@class='header-logo-2jr image-loaded-ktU']"),
+    XPATH_HEADER_ICON("//*[@class='helpTrigger-help-RY1']"),
     XPATH_EMAIL_ADDRESS("//*[@class='card-emailBundle-1IB']");
 
     private String checkoutPageVariables;

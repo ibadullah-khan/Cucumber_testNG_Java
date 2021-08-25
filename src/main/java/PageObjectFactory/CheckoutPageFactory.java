@@ -1,5 +1,6 @@
 package PageObjectFactory;
 
+import EnumFactory.AccountMenuPageEnum;
 import EnumFactory.CheckoutPageEnum;
 import UtilitiesFactory.UtilFactory;
 import com.aventstack.extentreports.Status;
@@ -746,6 +747,78 @@ public class CheckoutPageFactory extends UtilFactory {
             }else {
                 scenarioDef.log(Status.FAIL,errorMsg);
             }
+            throw e;
+        }
+    }
+
+    public void validateHeaderVisibility(boolean expectedVisibility) {
+        String locator = CheckoutPageEnum.XPATH_HEADER.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try {
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Header is Displayed as Expected on Checkout Page");
+            } else if (!actualVisibility && !expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Header is not Displayed as Expected on Checkout Page");
+            } else if (actualVisibility && !expectedVisibility) {
+                errorMsg = "Validated Header is Displayed Unexpected on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
+                errorMsg = "Validated Header is Displayed Unexpectedly on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateHeaderLogoVisibility(boolean expectedVisibility) {
+        String locator = CheckoutPageEnum.XPATH_HEADER_LOGO.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try {
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Logo is Displayed as Expected on Checkout Page");
+            } else if (!actualVisibility && !expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Logo is not Displayed as Expected on Checkout Page");
+            } else if (actualVisibility && !expectedVisibility) {
+                errorMsg = "Validated Logo is Displayed Unexpected on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
+                errorMsg = "Validated Logo is Displayed Unexpectedly on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateHeaderIconVisibility(boolean expectedVisibility) {
+        String locator = CheckoutPageEnum.XPATH_HEADER_ICON.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try {
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Help Icon is Displayed as Expected on Checkout Page");
+            } else if (!actualVisibility && !expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Help Icon is not Displayed as Expected on Checkout Page");
+            } else if (actualVisibility && !expectedVisibility) {
+                errorMsg = "Validated Help Icon is Displayed Unexpected on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
+                errorMsg = "Validated Help Icon is Displayed Unexpectedly on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
             throw e;
         }
     }
