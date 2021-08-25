@@ -339,6 +339,12 @@ public class UtilFactory {
         BrowserFactory.getDriver().switchTo().newWindow(WindowType.TAB);
     }
 
+    protected void switchesNewTab () {
+        WebDriver driver = BrowserFactory.getDriver();
+        String[] tabs = driver.getWindowHandles().toArray(new String[0]);
+        driver.switchTo().window(tabs[1]);
+    }
+
     protected void closeOldTab() {
         WebDriver driver = BrowserFactory.getDriver();
         String[] tabs = driver.getWindowHandles().toArray(new String[0]);
