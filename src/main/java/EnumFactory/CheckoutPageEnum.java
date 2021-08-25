@@ -31,7 +31,6 @@ public enum CheckoutPageEnum {
     XPATH_SHIPPING_DETAIl_CLOSED_STATE("//*[@class='section-contents_container_closed-35H']"),
     XPATH_SHIPPING_DETAIl_TITLE("//*[@class='section-title-8Re' and contains(text(),'Shipping Details')]"),
     XPATH_SHIPPING_METHOD_LABEL("//span[@class='priceSummary-lineItemLabel-1zJ' and contains(text(),'Shipping')]"),
-    XPATH_EXPEDITED_SHIPPING_RADIO_BUTTON("//*[@class='shippingRadios-radioLabel-3S0']/span[text()='Expedited Shipping']"),
     XPATH_CHECKOUT_HEADING("//*[@class='checkoutPage-heading-1gt']"),
     XPATH_SHIPPING_LOADER("//*[@class='paymentInformation-loading-3aw']");
 
