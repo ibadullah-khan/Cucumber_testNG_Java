@@ -56,8 +56,8 @@ public class AccountMenuStepsDef extends HarnessVariables{
         accountMenuPage.enterUsername(VALID_DATA_USERNAME);
     }
 
-    @Then("User Validates Error Message Visibility {string} on Email")
-    public void userValidatesErrorMessageVisibilityOnEmail(String expectedCondition) {
+    @Then("User Validates Error Message Visibility {string} on Email Field on Account Menu")
+    public void userValidatesErrorMessageVisibilityOnEmailOnAccountMenu(String expectedCondition) {
         if(expectedCondition.equals("true")){
             accountMenuPage.validateErrorMessageVisibilityOnEmail(true);
         }else {
@@ -65,7 +65,7 @@ public class AccountMenuStepsDef extends HarnessVariables{
         }
     }
 
-    @Then("User Validates Error Message Visibility {string} on Password")
+    @Then("User Validates Error Message Visibility {string} on Password Field on Account Menu")
     public void userValidatesErrorMessageVisibilityOnPassword(String expectedCondition) {
         if(expectedCondition.equals("true")){
             accountMenuPage.validateErrorMessageVisibilityOnPassword(true);
