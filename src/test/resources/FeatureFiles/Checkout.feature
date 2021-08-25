@@ -88,11 +88,7 @@ Feature: Checkout Feature File
       And User Clicks Checkout Button on Mini Cart View
       Then User Clicks on Member Checkout Button
       Then User Clicks the Login Button on Account Menu
-
-      Then User Validates UnSuccessful Login Error Visibility "true" on Cart Page
-      Then User Validates Error Visibility "true" on Username
-      Then User Validates Error Visibility "true" on Password
-#      Then User Validates Login Pop Up Visi
-#      Then User Clicks on Sign In Button
+      Then User Validates Error Message Visibility "true" on Email
+      Then User Validates Error Message Visibility "true" on Password
 
 
