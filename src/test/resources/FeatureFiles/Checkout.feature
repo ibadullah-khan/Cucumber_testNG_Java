@@ -77,3 +77,18 @@ Feature: Checkout Feature File
     Then User Should Redirect Toward "shoebacca.cart" Page
     Then User Validates Successful Loaded Cart Page
     Then User Validates Your Cart is Empty Section Visibility "true"
+
+    @Regression
+    Scenario: Validate Sign In Without Entering Any Values
+
+      Given User Setups the Web Browser
+      When User Navigates to "shoebacca.first.bag.pdt" Url
+      And User Clicks Add to Cart Button on PDP
+      And User Validates Successful Triggered Mini Cart
+      And User Clicks Checkout Button on Mini Cart View
+      Then User Clicks on Member Checkout Button
+      Then User Clicks the Login Button on Account Menu
+#      Then User Validates Login Pop Up Visi
+#      Then User Clicks on Sign In Button
+
+
