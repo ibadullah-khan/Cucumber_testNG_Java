@@ -161,4 +161,53 @@ public class CheckoutStepsDef extends HarnessVariables {
     public void userClickOnShippingDetailsSectionTitle() throws Exception {
             checkoutPage.clickOnShippingDetailTitle();
     }
+
+    @And("User Clicks on Email Address Field on Checkout Page")
+    public void userClicksOnEmailAddressFieldOnCheckoutPage() {
+        checkoutPage.clickOnEmailAddressField();
+    }
+
+    @And("User Clicks on First Name Field on Checkout Page")
+    public void userClicksOnFirstNameFieldOnCheckoutPage() {
+        checkoutPage.clickOnFirstNameField();
+    }
+
+    @Then("User Validates Required Field Error Message Visibility {string} on {string} Field of Checkout Page")
+    public void userValidatesRequiredFieldErrorMessageVisibilityOnFieldOfCheckoutPage(String expectedField, String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateRequiredErrorMessageVisibility(expectedField,true);
+        }else {
+            checkoutPage.validateRequiredErrorMessageVisibility(expectedField,false);
+        }
+    }
+
+    @And("User Clicks on Last Name Field on Checkout Page")
+    public void userClicksOnLastNameFieldOnCheckoutPage() {
+        checkoutPage.clickOnLastNameField();
+    }
+
+    @And("User Clicks on Address Field on Checkout Page")
+    public void userClicksOnAddressFieldOnCheckoutPage() {
+        checkoutPage.clickOnAddressField();
+    }
+
+    @And("User Clicks on City Field on Checkout Page")
+    public void userClicksOnCityFieldOnCheckoutPage() {
+        checkoutPage.clickOnCityField();
+    }
+
+    @And("User Clicks on State Field on Checkout Page")
+    public void userClicksOnStateFieldOnCheckoutPage() {
+        checkoutPage.clickOnStateField();
+    }
+
+    @And("User Clicks on Zip Code Field on Checkout Page")
+    public void userClicksOnZipCodeFieldOnCheckoutPage() {
+        checkoutPage.clickOnZipCodeField();
+    }
+
+    @And("User Clicks on Phone No Field on Checkout Page")
+    public void userClicksOnPhoneNoFieldOnCheckoutPage() {
+        checkoutPage.clickOnPhoneNoField();
+    }
 }
