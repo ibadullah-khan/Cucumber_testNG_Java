@@ -610,9 +610,9 @@ public class CheckoutPageFactory extends UtilFactory {
         try {
             actualVisibility = isVisible(locator);
             if (actualVisibility && expectedVisibility) {
-                scenarioDef.log(Status.PASS, "Validated Add New Address Option is Display on Checkout Page");
+                scenarioDef.log(Status.PASS, "Validated Add New Address Option is Display as Expected on Checkout Page");
             } else if (!actualVisibility && !expectedVisibility) {
-                scenarioDef.log(Status.PASS, "ValidatedAdd New Address Option is not Display on Checkout Page");
+                scenarioDef.log(Status.PASS, "ValidatedAdd New Address Option is not Display as Expected on Checkout Page");
             } else if (actualVisibility && !expectedVisibility) {
                 errorMsg = "Add New Address Option is Display on Checkout Page";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
@@ -641,7 +641,7 @@ public class CheckoutPageFactory extends UtilFactory {
             if (actualText.contains(expectedFirstAndLastName)){
                 scenarioDef.log(Status.PASS,"Validated First and Last Name as Expected: "+expectedFirstAndLastName);
             }else {
-                errorMsg = "Could not validate Tax on Checkout as Expected: "+expectedFirstAndLastName+" , Actual Value: "+actualText;
+                errorMsg = "Could not validate First and Last Name as Expected: "+expectedFirstAndLastName+" , Actual Value: "+actualText;
                 throw new NoSuchContextException("Actual and Expected Value Differs");
             }
         }catch (Exception e){
@@ -665,7 +665,7 @@ public class CheckoutPageFactory extends UtilFactory {
             if (actualText.contains(address)){
                 scenarioDef.log(Status.PASS,"Validated Address as Expected: "+address);
             }else {
-                errorMsg = "Could not Address on Checkout as Expected: "+address+" , Actual Value: "+actualText;
+                errorMsg = "Could not Validate Address as Expected: "+address+" , Actual Value: "+actualText;
                 throw new NoSuchContextException("Actual and Expected Value Differs");
             }
         }catch (Exception e){
@@ -689,7 +689,7 @@ public class CheckoutPageFactory extends UtilFactory {
             if (actualText.contains(expectedStateCityZipCode)){
                 scenarioDef.log(Status.PASS,"Validated State City Zip Code as Expected: "+expectedStateCityZipCode);
             }else {
-                errorMsg = "Could not State City Code on Checkout as Expected: "+expectedStateCityZipCode+" , Actual Value: "+actualText;
+                errorMsg = "Could not Validate State City Code as Expected: "+expectedStateCityZipCode+" , Actual Value: "+actualText;
                 throw new NoSuchContextException("Actual and Expected Value Differs");
             }
         }catch (Exception e){
@@ -713,7 +713,7 @@ public class CheckoutPageFactory extends UtilFactory {
             if (actualText.contains(expectedPhoneNo)){
                 scenarioDef.log(Status.PASS,"Validated Phone No as Expected: "+expectedPhoneNo);
             }else {
-                errorMsg = "Could not Phone No on Checkout as Expected: "+expectedPhoneNo+" , Actual Value: "+actualText;
+                errorMsg = "Could not Validate Phone No on as Expected: "+expectedPhoneNo+" , Actual Value: "+actualText;
                 throw new NoSuchContextException("Actual and Expected Value Differs");
             }
         }catch (Exception e){
@@ -735,9 +735,9 @@ public class CheckoutPageFactory extends UtilFactory {
             waitFactory.waitForElementToBeClickable(locator);
             actualText = getText(locator).trim();
             if (actualText.contains(expectedEmail)){
-                scenarioDef.log(Status.PASS,"Validated Phone No as Expected: "+expectedEmail);
+                scenarioDef.log(Status.PASS,"Validated Email Address as Expected: "+expectedEmail);
             }else {
-                errorMsg = "Could not Phone No on Checkout as Expected: "+expectedEmail+" , Actual Value: "+actualText;
+                errorMsg = "Could not Validate Email Address as Expected: "+expectedEmail+" , Actual Value: "+actualText;
                 throw new NoSuchContextException("Actual and Expected Value Differs");
             }
         }catch (Exception e){
