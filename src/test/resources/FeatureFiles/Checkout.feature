@@ -171,6 +171,8 @@ Feature: Checkout Feature File
     Then User Validates Required Field Error Message "required.field.error.msg" on "zip.code" Field of Checkout Page
     Then User Clicks on First Name Field on Checkout Page
     Then User Validates Required Field Error Message "invalid.ph.no.error.msg" on "phone" Field of Checkout Page
+    Then User Enters Invalid Email Address on Checkout Page
+    Then User Validates Required Field Error Message "invalid.email.error.msg" on "email.address" Field of Checkout Page
     Then User Enters Invalid Zip Code on Checkout Page
     Then User Validates Required Field Error Message "invalid.zip.code.error.msg" on "zip.code" Field of Checkout Page
     Then User Enters Invalid Phone No on Checkout Page
