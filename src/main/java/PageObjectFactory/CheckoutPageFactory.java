@@ -742,7 +742,7 @@ public class CheckoutPageFactory extends UtilFactory {
         }catch (Exception e){
             failureException = e.toString();
             if (errorMsg == null){
-                scenarioDef.log(Status.FAIL,"Unable to get the Phone No Element on Checkout Page");
+                scenarioDef.log(Status.FAIL,"Unable to get the Email Element on Checkout Page");
             }else {
                 scenarioDef.log(Status.FAIL,errorMsg);
             }
