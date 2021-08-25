@@ -15,6 +15,9 @@ public enum CheckoutEnumVariables {
 	VALID_ZIPCODE(""),
 	VALID_CC_NUM(""),
 	VALID_CC_EXPIRY(""),
+	INVALID_EMAIL_ADDRESS(""),
+	INVALID_PH_NO(""),
+	INVALID_ZIPCODE(""),
 	VALID_CC_CVV("");
 
     private String checkoutVariables;
@@ -45,6 +48,9 @@ public enum CheckoutEnumVariables {
 			VALID_CC_NUM.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.cc.number");
 			VALID_CC_EXPIRY.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.cc.expiry");
 			VALID_CC_CVV.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.cc.cvv");
+			INVALID_EMAIL_ADDRESS.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("invalid.email.address");
+			INVALID_ZIPCODE.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("invalid.zip.code");
+			INVALID_PH_NO.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("invalid.ph.no");
         } catch (Exception e) {
 
             e.printStackTrace();

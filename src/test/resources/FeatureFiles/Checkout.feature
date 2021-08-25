@@ -79,6 +79,39 @@ Feature: Checkout Feature File
     Then User Validates Your Cart is Empty Section Visibility "true"
 
   @Regression
+  Scenario: Verify Shipping Method Can be Changed Only After All Required Shipping Address Fields are Filled
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Closes Mini Cart View
+    And User Clicks the Mini Cart Icon on Header
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
+    Then User Select "expedited.shipping" Shipping Method on Checkout Page
+    Then User Validates "standard.shipping" Method Name on Summary Section of Checkout Page
+    And User Enters Invalid Email Address on Checkout Page
+    And User Enters Valid First Name on Checkout Page
+    And User Enters Valid Last Name on Checkout Page
+    And User Enters Valid Address on Checkout Page
+    And User Enters Valid City on Checkout Page
+    And User Selects Valid State on Checkout Page
+    And User Enters Invalid Zip Code on Checkout Page
+    And User Enters Invalid Phone No on Checkout Page
+    Then User Select "expedited.shipping" Shipping Method on Checkout Page
+    Then User Validates "standard.shipping" Method Name on Summary Section of Checkout Page
+    Then User Clears the Email Field on Checkout Page
+    Then User Clears the Zip Code Field on Checkout Page
+    And User Enters Valid Email Address on Checkout Page
+    And User Enters Valid Zip Code on Checkout Page
+    And User Enters Valid Phone No on Checkout Page
+    Then User Select "expedited.shipping" Shipping Method on Checkout Page
+    Then User Clicks Save and Continue Button on Checkout Page
+    Then User Validates "expedited.shipping" Method Name on Summary Section of Checkout Page
+
+  @Regression
   Scenario: Verify There is an Option for Logged in User to Add New Address or Change it
 
     Given User Setups the Web Browser
