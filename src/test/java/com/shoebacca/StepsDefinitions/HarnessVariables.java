@@ -2,6 +2,7 @@ package com.shoebacca.StepsDefinitions;
 
 import UtilitiesFactory.UtilFactory;
 import com.shoebacca.Enums.CheckoutEnumVariables;
+import com.shoebacca.Enums.ErrorMsgEnumVariables;
 import com.shoebacca.Enums.CartEnumVariables;
 import com.shoebacca.Enums.GlobalEnumVariables;
 
@@ -23,6 +24,7 @@ public class HarnessVariables extends UtilFactory {
     protected final String VALID_PASSWORD = GlobalEnumVariables.VALID_LOGIN_PASSWORD.getValue();
     protected final String INVALID_PASSWORD = GlobalEnumVariables.INVALID_LOGIN_PASSWORD.getValue();
     protected final String VALID_EMAIL_ADDRESS = CheckoutEnumVariables.VALID_EMAIL_ADDRESS.getValue();
+    protected final String VALID_DATA_EMAIL_ADDRESS = CheckoutEnumVariables.VALID_DATA_EMAIL_ADDRESS.getValue();
     protected final String VALID_FIRSTNAME = CheckoutEnumVariables.VALID_FIRSTNAME.getValue();
     protected final String VALID_LASTNAME = CheckoutEnumVariables.VALID_LASTNAME.getValue();
     protected final String VALID_ADDRESS = CheckoutEnumVariables.VALID_ADDRESS.getValue();
@@ -41,4 +43,8 @@ public class HarnessVariables extends UtilFactory {
     protected final String DESCRIPTION_CONTENT=CartEnumVariables.DESCRIPTION_CONTENT.getValue();
     protected final String QUANTITY_CONTENT=CartEnumVariables.QUANTITY_CONTENT.getValue();
     protected final String ITEM_TOTAL_CONTENT=CartEnumVariables.ITEM_TOTAL_CONTENT.getValue();
+    protected final String MISMATCH_PASSWORD_ERROR=ErrorMsgEnumVariables.MISMATCH_PASSWORD_ERROR.getValue();
+    protected final String INVALID_EMAIL_ADDRESS = CheckoutEnumVariables.INVALID_EMAIL_ADDRESS.getValue();
+    protected final String INVALID_PH_NO = CheckoutEnumVariables.INVALID_PH_NO.getValue();
+    protected final String INVALID_ZIPCODE = CheckoutEnumVariables.INVALID_ZIPCODE.getValue();
 }

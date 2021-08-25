@@ -5,6 +5,7 @@ import UtilitiesFactory.PropertyLoaderFactory;
 public enum CheckoutEnumVariables {
 
     VALID_EMAIL_ADDRESS(""),
+	VALID_DATA_EMAIL_ADDRESS(""),
     VALID_FIRSTNAME(""),
 	VALID_LASTNAME(""),
 	VALID_ADDRESS(""),
@@ -14,6 +15,9 @@ public enum CheckoutEnumVariables {
 	VALID_ZIPCODE(""),
 	VALID_CC_NUM(""),
 	VALID_CC_EXPIRY(""),
+	INVALID_EMAIL_ADDRESS(""),
+	INVALID_PH_NO(""),
+	INVALID_ZIPCODE(""),
 	VALID_CC_CVV("");
 
     private String checkoutVariables;
@@ -33,6 +37,7 @@ public enum CheckoutEnumVariables {
 	    	String userDataFile = "checkout.properties";
 
 			VALID_EMAIL_ADDRESS.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.email.address");
+			VALID_DATA_EMAIL_ADDRESS.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.data.email.address");
 			VALID_FIRSTNAME.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.first.name");
 			VALID_LASTNAME.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.last.name");
 			VALID_ADDRESS.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.address");
@@ -43,6 +48,9 @@ public enum CheckoutEnumVariables {
 			VALID_CC_NUM.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.cc.number");
 			VALID_CC_EXPIRY.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.cc.expiry");
 			VALID_CC_CVV.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.cc.cvv");
+			INVALID_EMAIL_ADDRESS.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("invalid.email.address");
+			INVALID_ZIPCODE.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("invalid.zip.code");
+			INVALID_PH_NO.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("invalid.ph.no");
         } catch (Exception e) {
 
             e.printStackTrace();

@@ -9,6 +9,7 @@ public class CheckoutStepsDef extends HarnessVariables {
 
     CheckoutPageFactory checkoutPage;
     protected String checkoutPropFile = "checkout.properties";
+    protected String errorMsgPropFile = "errorMsg.properties";
 
     public CheckoutStepsDef() throws Exception {
         checkoutPage = new CheckoutPageFactory();
@@ -112,7 +113,7 @@ public class CheckoutStepsDef extends HarnessVariables {
         if (expectedCondition.equals("true")) {
             checkoutPage.validateShippingMethodValue(shippingMethodName, true);
         } else {
-            checkoutPage.validateShippingMethodValue(shippingMethodName, true);
+            checkoutPage.validateShippingMethodValue(shippingMethodName, false);
         }
     }
 
@@ -162,6 +163,76 @@ public class CheckoutStepsDef extends HarnessVariables {
             checkoutPage.clickOnShippingDetailTitle();
     }
 
+    @Then("User Validates {string} Method Name on Summary Section of Checkout Page")
+    public void userValidatesMethodNameOnSummarySectionOfCheckoutPage(String shippingMethod) throws Exception {
+        String shippingMethodName = new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(shippingMethod);
+        checkoutPage.validateShippingMethodNameOnSummarySection(shippingMethodName);
+    }
+
+    @And("User Validates Successful Loaded Checkout Page")
+    public void userValidatesSuccessfulLoadedCheckoutPage() {
+        checkoutPage.validateCheckoutPageTriggered();
+    }
+
+    @And("User Enters Invalid Email Address on Checkout Page")
+    public void userEntersInvalidEmailAddressOnCheckoutPage()throws Exception {
+        checkoutPage.enterEmailAddress(INVALID_EMAIL_ADDRESS);
+    }
+
+    @And("User Enters Invalid Zip Code on Checkout Page")
+    public void userEntersInvalidZipCodeOnCheckoutPage()throws Exception {
+        checkoutPage.enterZipCode(INVALID_ZIPCODE);
+    }
+
+    @And("User Enters Invalid Phone No on Checkout Page")
+    public void userEntersInvalidPhoneNoOnCheckoutPage()throws Exception {
+        checkoutPage.enterPhNo(INVALID_PH_NO);
+    }
+
+    @Then("User Clears the Email Field on Checkout Page")
+    public void userClearsTheEmailFieldOnCheckoutPage() throws Exception{
+        checkoutPage.clearEmailField();
+    }
+
+    @Then("User Clears the Zip Code Field on Checkout Page")
+    public void userClearsTheZipCodeFieldOnCheckoutPage()throws Exception {
+        checkoutPage.clearZipCodeField();
+    }
+
+    @Then("User Validates Add New Address Visibility {string}")
+    public void userValidatesAddNewAddressVisibility(String expectedCondition) {
+        if (expectedCondition.equals("true")) {
+            checkoutPage.validateAddNewAddressOption(true);
+        } else {
+            checkoutPage.validateAddNewAddressOption(false);
+        }
+    }
+
+    @Then("User Validates First Name and Last Name in Shipping Detail Section")
+    public void userValidatesFirstNameAndLastNameInShippingDetailSection() {
+        checkoutPage.validateFirstAndLastNameInShippingDetailSection(VALID_FIRSTNAME+" "+VALID_LASTNAME);
+    }
+
+    @Then("User Validates Address in Shipping Detail Section")
+    public void userValidatesAddressInShippingDetailSection() {
+        checkoutPage.validateAddressInShippingDetailSection(VALID_ADDRESS);
+    }
+
+    @Then("User Validates State City and Zip Code in Shipping Detail Section")
+    public void userValidatesStateCityAndZipCodeInShippingDetailSection() {
+        checkoutPage.validateStateCityZipCode(VALID_STATE+", "+VALID_CITY+ " "+VALID_ZIPCODE + " US");
+    }
+
+    @Then("User Validates Phone No in Shipping Detail Section")
+    public void userValidatesPhoneNoInShippingDetailSection() {
+        checkoutPage.validatePhoneNoInDetailSection(VALID_PH_NO);
+    }
+
+    @Then("User Validates Email Address in Shipping Detail Section")
+    public void userValidatesEmailAddressInShippingDetailSection() {
+        checkoutPage.validateEmailAddressInDetailSection(VALID_DATA_EMAIL_ADDRESS);
+    }
+
     @And("User Clicks on Email Address Field on Checkout Page")
     public void userClicksOnEmailAddressFieldOnCheckoutPage() {
         checkoutPage.clickOnEmailAddressField();
@@ -173,10 +244,10 @@ public class CheckoutStepsDef extends HarnessVariables {
     }
 
     @Then("User Validates Required Field Error Message {string} on {string} Field of Checkout Page")
-    public void userValidatesRequiredFieldErrorMessageVisibilityOnFieldOfCheckoutPage(String inputField, String errorMsgText) throws Exception {
+    public void userValidatesRequiredFieldErrorMessageVisibilityOnFieldOfCheckoutPage(String errorMsgText, String inputField) throws Exception {
         String expectedinputField = new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(inputField);
-        //String expectedErrorMsgText = new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(errorMsgText);
-        //checkoutPage.validateRequiredErrorMessageText(expectedinputField,expectedErrorMsgText);
+        String expectedErrorMsgText = new PropertyLoaderFactory().getPropertyFile(errorMsgPropFile).getProperty(errorMsgText);
+        checkoutPage.validateRequiredErrorMessageText(expectedinputField,expectedErrorMsgText);
     }
 
     @And("User Clicks on Last Name Field on Checkout Page")
