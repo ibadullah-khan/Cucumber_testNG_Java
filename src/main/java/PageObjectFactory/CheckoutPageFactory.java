@@ -1,6 +1,5 @@
 package PageObjectFactory;
 
-import EnumFactory.AccountMenuPageEnum;
 import EnumFactory.CheckoutPageEnum;
 import UtilitiesFactory.UtilFactory;
 import com.aventstack.extentreports.Status;
@@ -819,6 +818,134 @@ public class CheckoutPageFactory extends UtilFactory {
         } catch (Exception e) {
             failureException = e.toString();
             scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
+    }
+
+    public void clickOnEmailAddressField() {
+        String locator = CheckoutPageEnum.XPATH_EMAIL_ADDRESS_FIELD.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS,"Clicked on Email Address Field on Checkout Page");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Click on Email Address Field on Checkout Page");
+            throw e;
+        }
+    }
+
+    public void clickOnFirstNameField() {
+        String locator = CheckoutPageEnum.XPATH_FIRST_NAME_FIELD.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS,"Clicked on First Name Field on Checkout Page");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Click on First Name Field on Checkout Page");
+            throw e;
+        }
+    }
+
+    public void clickOnLastNameField() {
+        String locator = CheckoutPageEnum.XPATH_LAST_NAME_FIELD.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS,"Clicked on Last Name Field on Checkout Page");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Click on Last Name Field on Checkout Page");
+            throw e;
+        }
+    }
+
+    public void clickOnAddressField() {
+        String locator = CheckoutPageEnum.XPATH_ADDRESS_FIELD.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS,"Clicked on Address Field on Checkout Page");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Click on Address Field on Checkout Page");
+            throw e;
+        }
+    }
+
+    public void clickOnCityField() {
+        String locator = CheckoutPageEnum.XPATH_CITY_FIELD.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS,"Clicked on City Field on Checkout Page");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Click on City Field on Checkout Page");
+            throw e;
+        }
+    }
+
+    public void clickOnStateField() {
+        String locator = CheckoutPageEnum.XPATH_STATE_DROPDOWN_FIELD.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS,"Clicked on State Field on Checkout Page");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Click on State Field on Checkout Page");
+            throw e;
+        }
+    }
+
+    public void clickOnZipCodeField() {
+        String locator = CheckoutPageEnum.XPATH_ZIPCODE_FIELD.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS,"Clicked on Zip Code Field on Checkout Page");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Click on Zip Code Field on Checkout Page");
+            throw e;
+        }
+    }
+
+    public void clickOnPhoneNoField() {
+        String locator = CheckoutPageEnum.XPATH_PH_NO_FIELD.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS,"Clicked on Phone No Field on Checkout Page");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Click on Phone No Field on Checkout Page");
+            throw e;
+        }
+    }
+
+    public void validateRequiredErrorMessageText(String expectedField, String expectedErrorMsgText) {
+        String locator = CheckoutPageEnum.XPATH_REQ_FIELD_MESSAGE_START.getValue() +expectedField+CheckoutPageEnum.XPATH_REQ_FIELD_MESSAGE_END.getValue();
+        String errorMsg = null;
+        String actualText;
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            actualText = getText(locator).trim();
+            if (actualText.contains(expectedErrorMsgText)) {
+                scenarioDef.log(Status.PASS, "Validated Error Message on "+expectedField+" Field of Checkout Page as Expected: " + expectedErrorMsgText);
+            } else {
+                errorMsg = "Could not validate Error Message on "+expectedField+" Field of Checkout Page as Expected: " + expectedErrorMsgText + " , Actual Value: " + actualText;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Error Message Element on "+expectedField+" Field of Checkout Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
             throw e;
         }
     }
