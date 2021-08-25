@@ -28,7 +28,6 @@ public enum CheckoutPageEnum {
     XPATH_SHIPPING_METHOD_SELECTED_END("']/parent::span/parent::label/input[@checked]"),
     XPATH_SHIPPING_METHOD_LABEL("//span[@class='priceSummary-lineItemLabel-1zJ' and contains(text(),'Shipping')]"),
     XPATH_CHECKOUT_HEADING("//*[@class='checkoutPage-heading-1gt']"),
-    XPATH_SHIPPING_LOADER("//*[@class='paymentInformation-loading-3aw']"),
     XPATH_SHIPPING_DETAIL_EDIT_STATE("//*[@id='js-checkoutForm']"),
     XPATH_SHIPPING_DETAIL_OPEN_STATE("//*[@class='section-contents_container-t-j']"),
     XPATH_SHIPPING_DETAIL_CLOSED_STATE("//*[@class='section-contents_container_closed-35H']"),
@@ -39,8 +38,10 @@ public enum CheckoutPageEnum {
     XPATH_CITY_STATE_ZIPCODE("(//*[@class='card-address-33x']/span)[2]"),
     XPATH_PHONE_NO("(//*[@class='card-root-3nz']/span)[2]"),
     XPATH_EMAIL_ADDRESS("//*[@class='card-emailBundle-1IB']"),
+    XPATH_SHIPPING_LOADER("//*[@class='paymentInformation-loading-3aw']"),
+    XPATH_REQ_FIELD_MESSAGE_START("//*[@for='"),
+    XPATH_REQ_FIELD_MESSAGE_END("']/following-sibling::p"),
     XPATH_SHIPPING_METHOD_CHECKBOX("//*[@class='shippingRadios-radioLabel-3S0']/span"),
-    XPATH_SHIPPING_DETAIL_ACTIVE("//*[@class='checkoutPage-shipping_information_container-1Ro']//child::h3[not(@disabled)]"),
     XPATH_PAYMENT_METHOD_INACTIVE("//*[@class='checkoutPage-payment_information_container-3zC']//h3"),
     XPATH_PAYMENT_METHOD_ACTIVE("///*[@class='checkoutPage-price_adjustments_container-jA3']");
 

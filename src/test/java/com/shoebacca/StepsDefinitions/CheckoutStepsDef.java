@@ -9,6 +9,7 @@ public class CheckoutStepsDef extends HarnessVariables {
 
     CheckoutPageFactory checkoutPage;
     protected String checkoutPropFile = "checkout.properties";
+    protected String errorMsgPropFile = "errorMsg.properties";
 
     public CheckoutStepsDef() throws Exception {
         checkoutPage = new CheckoutPageFactory();
@@ -230,6 +231,53 @@ public class CheckoutStepsDef extends HarnessVariables {
     @Then("User Validates Email Address in Shipping Detail Section")
     public void userValidatesEmailAddressInShippingDetailSection() {
         checkoutPage.validateEmailAddressInDetailSection(VALID_DATA_EMAIL_ADDRESS);
+    }
+
+    @And("User Clicks on Email Address Field on Checkout Page")
+    public void userClicksOnEmailAddressFieldOnCheckoutPage() {
+        checkoutPage.clickOnEmailAddressField();
+    }
+
+    @And("User Clicks on First Name Field on Checkout Page")
+    public void userClicksOnFirstNameFieldOnCheckoutPage() {
+        checkoutPage.clickOnFirstNameField();
+    }
+
+    @Then("User Validates Required Field Error Message {string} on {string} Field of Checkout Page")
+    public void userValidatesRequiredFieldErrorMessageVisibilityOnFieldOfCheckoutPage(String errorMsgText, String inputField) throws Exception {
+        String expectedinputField = new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(inputField);
+        String expectedErrorMsgText = new PropertyLoaderFactory().getPropertyFile(errorMsgPropFile).getProperty(errorMsgText);
+        checkoutPage.validateRequiredErrorMessageText(expectedinputField,expectedErrorMsgText);
+    }
+
+    @And("User Clicks on Last Name Field on Checkout Page")
+    public void userClicksOnLastNameFieldOnCheckoutPage() {
+        checkoutPage.clickOnLastNameField();
+    }
+
+    @And("User Clicks on Address Field on Checkout Page")
+    public void userClicksOnAddressFieldOnCheckoutPage() {
+        checkoutPage.clickOnAddressField();
+    }
+
+    @And("User Clicks on City Field on Checkout Page")
+    public void userClicksOnCityFieldOnCheckoutPage() {
+        checkoutPage.clickOnCityField();
+    }
+
+    @And("User Clicks on State Field on Checkout Page")
+    public void userClicksOnStateFieldOnCheckoutPage() {
+        checkoutPage.clickOnStateField();
+    }
+
+    @And("User Clicks on Zip Code Field on Checkout Page")
+    public void userClicksOnZipCodeFieldOnCheckoutPage() {
+        checkoutPage.clickOnZipCodeField();
+    }
+
+    @And("User Clicks on Phone No Field on Checkout Page")
+    public void userClicksOnPhoneNoFieldOnCheckoutPage() {
+        checkoutPage.clickOnPhoneNoField();
     }
 
     @Then("User Validates Shipping Method on Checkout Page")
