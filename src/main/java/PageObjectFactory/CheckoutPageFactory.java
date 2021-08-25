@@ -498,7 +498,7 @@ public class CheckoutPageFactory extends UtilFactory {
     }
 
     public void clickOnShippingDetailTitle() throws Exception {
-        String locator = CheckoutPageEnum.XPATH_SHIPPING_DETAIl_TITLE.getValue();
+        String locator = CheckoutPageEnum.XPATH_SHIPPING_DETAIL_TITLE.getValue();
         try{
             waitFactory.waitForElementToBeClickable(locator);
             click(locator);
@@ -517,11 +517,11 @@ public class CheckoutPageFactory extends UtilFactory {
         Boolean actualVisibility;
         try {
             if(expectedState.contains("edit")){
-                locator = CheckoutPageEnum.XPATH_SHIPPING_DETAIl_EDIT_STATE.getValue();
+                locator = CheckoutPageEnum.XPATH_SHIPPING_DETAIL_EDIT_STATE.getValue();
             } else if (expectedState.contains("open")){
-                locator = CheckoutPageEnum.XPATH_SHIPPING_DETAIl_OPEN_STATE.getValue();
+                locator = CheckoutPageEnum.XPATH_SHIPPING_DETAIL_OPEN_STATE.getValue();
             }else if (expectedState.contains("close")){
-                locator = CheckoutPageEnum.XPATH_SHIPPING_DETAIl_CLOSED_STATE.getValue();
+                locator = CheckoutPageEnum.XPATH_SHIPPING_DETAIL_CLOSED_STATE.getValue();
             }
             waitFactory.waitForElementToBeInVisible(loader);
             actualVisibility = isVisible(locator);
@@ -598,6 +598,154 @@ public class CheckoutPageFactory extends UtilFactory {
         } catch (Exception e) {
             failureException = e.toString();
             scenarioDef.log(Status.FAIL, "Could not Clear Zip Code Field on Checkout Page");
+            throw e;
+        }
+    }
+
+    public void validateAddNewAddressOption(boolean expectedVisibility) {
+        String locator = CheckoutPageEnum.XPATH_ADD_NEW_ADDRESS.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try {
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Add New Address Option is Display as Expected on Checkout Page");
+            } else if (!actualVisibility && !expectedVisibility) {
+                scenarioDef.log(Status.PASS, "ValidatedAdd New Address Option is not Display as Expected on Checkout Page");
+            } else if (actualVisibility && !expectedVisibility) {
+                errorMsg = "Add New Address Option is Display on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
+                errorMsg = "Add New Address Option is not Display on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Add New Address Element on Checkout Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void validateFirstAndLastNameInShippingDetailSection(String expectedFirstAndLastName){
+        String locator = CheckoutPageEnum.XPATH_FIRST_AND_LAST_NAME.getValue();
+        String errorMsg = null;
+        String actualText;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            actualText = getText(locator).trim();
+            if (actualText.contains(expectedFirstAndLastName)){
+                scenarioDef.log(Status.PASS,"Validated First and Last Name as Expected: "+expectedFirstAndLastName);
+            }else {
+                errorMsg = "Could not validate First and Last Name as Expected: "+expectedFirstAndLastName+" , Actual Value: "+actualText;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        }catch (Exception e){
+            failureException = e.toString();
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL,"Unable to get the First and Last Name Element on Checkout Page");
+            }else {
+                scenarioDef.log(Status.FAIL,errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void validateAddressInShippingDetailSection(String address){
+        String locator = CheckoutPageEnum.XPATH_ADDRESS.getValue();
+        String errorMsg = null;
+        String actualText;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            actualText = getText(locator).trim();
+            if (actualText.contains(address)){
+                scenarioDef.log(Status.PASS,"Validated Address as Expected: "+address);
+            }else {
+                errorMsg = "Could not Validate Address as Expected: "+address+" , Actual Value: "+actualText;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        }catch (Exception e){
+            failureException = e.toString();
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL,"Unable to get the Address Element on Checkout Page");
+            }else {
+                scenarioDef.log(Status.FAIL,errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void validateStateCityZipCode(String expectedStateCityZipCode){
+        String locator = CheckoutPageEnum.XPATH_CITY_STATE_ZIPCODE.getValue();
+        String errorMsg = null;
+        String actualText;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            actualText = getText(locator).trim();
+            if (actualText.contains(expectedStateCityZipCode)){
+                scenarioDef.log(Status.PASS,"Validated State City Zip Code as Expected: "+expectedStateCityZipCode);
+            }else {
+                errorMsg = "Could not Validate State City Code as Expected: "+expectedStateCityZipCode+" , Actual Value: "+actualText;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        }catch (Exception e){
+            failureException = e.toString();
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL,"Unable to get the State City Code Element on Checkout Page");
+            }else {
+                scenarioDef.log(Status.FAIL,errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void validatePhoneNoInDetailSection(String expectedPhoneNo){
+        String locator = CheckoutPageEnum.XPATH_PHONE_NO.getValue();
+        String errorMsg = null;
+        String actualText;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            actualText = getText(locator).trim().replace("-","");
+            if (actualText.contains(expectedPhoneNo)){
+                scenarioDef.log(Status.PASS,"Validated Phone No as Expected: "+expectedPhoneNo);
+            }else {
+                errorMsg = "Could not Validate Phone No on as Expected: "+expectedPhoneNo+" , Actual Value: "+actualText;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        }catch (Exception e){
+            failureException = e.toString();
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL,"Unable to get the Phone No Element on Checkout Page");
+            }else {
+                scenarioDef.log(Status.FAIL,errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void validateEmailAddressInDetailSection(String expectedEmail){
+        String locator = CheckoutPageEnum.XPATH_EMAIL_ADDRESS.getValue();
+        String errorMsg = null;
+        String actualText;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            actualText = getText(locator).trim();
+            if (actualText.contains(expectedEmail)){
+                scenarioDef.log(Status.PASS,"Validated Email Address as Expected: "+expectedEmail);
+            }else {
+                errorMsg = "Could not Validate Email Address as Expected: "+expectedEmail+" , Actual Value: "+actualText;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        }catch (Exception e){
+            failureException = e.toString();
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL,"Unable to get the Email Element on Checkout Page");
+            }else {
+                scenarioDef.log(Status.FAIL,errorMsg);
+            }
             throw e;
         }
     }

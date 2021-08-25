@@ -111,17 +111,35 @@ Feature: Checkout Feature File
     Then User Clicks Save and Continue Button on Checkout Page
     Then User Validates "expedited.shipping" Method Name on Summary Section of Checkout Page
 
-    @Regression
-    Scenario: Validate Sign In Without Entering Any Values
+  @Regression
+  Scenario: Verify There is an Option for Logged in User to Add New Address or Change it
 
-      Given User Setups the Web Browser
-      When User Navigates to "shoebacca.first.bag.pdt" Url
-      And User Clicks Add to Cart Button on PDP
-      And User Validates Successful Triggered Mini Cart
-      And User Clicks Checkout Button on Mini Cart View
-      Then User Clicks on Member Checkout Button
-      Then User Clicks the Login Button on Account Menu
-      Then User Validates Error Message Visibility "true" on Email Field on Account Menu
-      Then User Validates Error Message Visibility "true" on Password Field on Account Menu
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.home" Url
+    And User Clicks the Account Icon on Header
+    Then User Enters Valid Login Data Username on Account Menu
+    And User Enters Valid Login Password on Account Menu
+    Then User Clicks the Login Button on Account Menu
+    Then User Validates Successful Login on Account Menu
+    And User Clicks the Mini Cart Icon on Header
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Should Redirect Toward "shopping.checkout" Page
+    Then User Validates First Name and Last Name in Shipping Detail Section
+    Then User Validates Address in Shipping Detail Section
+    Then User Validates State City and Zip Code in Shipping Detail Section
+    Then User Validates Phone No in Shipping Detail Section
+    Then User Validates Email Address in Shipping Detail Section
+    Then User Validates Add New Address Visibility "true"
 
+  @Regression
+  Scenario: Validate Sign In Without Entering Any Values
 
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Clicks on Member Checkout Button
+    Then User Clicks the Login Button on Account Menu
+    Then User Validates Error Message Visibility "true" on Email Field on Account Menu
+    Then User Validates Error Message Visibility "true" on Password Field on Account Menu
