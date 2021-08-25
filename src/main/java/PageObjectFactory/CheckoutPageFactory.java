@@ -551,7 +551,7 @@ public class CheckoutPageFactory extends UtilFactory {
             if (shippingMethod.contains(expectedShippingMethodName)) {
                 scenarioDef.log(Status.PASS, " Validated Shipping Method " + expectedShippingMethodName + " Same as Expected on Summary Section of Checkout Page");
             } else {
-                errorMsg = " Validate Shipping Method " + expectedShippingMethodName + " Not Same as Expected Same as Expected on Summary Section of Checkout Page";
+                errorMsg = "Could not Validate Shipping Method " + expectedShippingMethodName + " Not Same as Expected Same as Expected on Summary Section of Checkout Page";
                 throw new NoSuchContextException("Actual and Expected Value Differs");
             }
         } catch (Exception e) {
