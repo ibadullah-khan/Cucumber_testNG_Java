@@ -153,11 +153,13 @@ Feature: Checkout Feature File
     And User Validates Successful Triggered Mini Cart
     And User Clicks Checkout Button on Mini Cart View
     Then User Clicks on Member Checkout Button
-
     Then User Enters Invalid Email Address on Account Menu
-
     Then User Clicks the Login Button on Account Menu
     Then User Validates Validation Error Message Visibility "true" on Account Menu
+
+    Then User Clears the Email Field on Account Menu
+
+#    Then User Enters Invalid Email Address on Account Menu
 
 
 

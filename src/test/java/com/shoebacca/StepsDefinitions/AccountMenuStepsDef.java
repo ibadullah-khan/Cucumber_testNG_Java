@@ -87,4 +87,9 @@ public class AccountMenuStepsDef extends HarnessVariables{
             accountMenuPage.validatesValidationErrorMessageVisibilityOnEmail(false);
         }
     }
+
+    @Then("User Clears the Email Field on Account Menu")
+    public void userClearsTheEmailFieldOnAccountMenu()throws Exception {
+        accountMenuPage.clearEmailField();
+    }
 }
