@@ -46,7 +46,7 @@ public class HarnessVariables extends UtilFactory {
     protected final String MISMATCH_PASSWORD_ERROR=ErrorMsgEnumVariables.MISMATCH_PASSWORD_ERROR.getValue();
     protected final String INVALID_EMAIL_ADDRESS = CheckoutEnumVariables.INVALID_EMAIL_ADDRESS.getValue();
     protected final String EMAIL_ADDRESS_WITHOUT_DOMAIN = CheckoutEnumVariables.EMAIL_ADDRESS_WITHOUT_DOMAIN.getValue();
-    protected final String EMAIL_ADDRESS_WITHOUT_Recipient = CheckoutEnumVariables.EMAIL_ADDRESS_WITHOUT_Recipient.getValue();
+    protected final String EMAIL_ADDRESS_WITHOUT_RECIPIENT = CheckoutEnumVariables.EMAIL_ADDRESS_WITHOUT_RECIPIENT.getValue();
     protected final String INVALID_PH_NO = CheckoutEnumVariables.INVALID_PH_NO.getValue();
     protected final String INVALID_ZIPCODE = CheckoutEnumVariables.INVALID_ZIPCODE.getValue();
 }

@@ -76,7 +76,7 @@ public class AccountMenuStepsDef extends HarnessVariables{
 
     @Then("User Enters Invalid Email Address on Account Menu")
     public void userEntersInvalidEmailAddressOnAccountMenu()throws Exception {
-        accountMenuPage.enterEmailAddress(INVALID_EMAIL_ADDRESS);
+        accountMenuPage.enterUsername(INVALID_EMAIL_ADDRESS);
         }
 
     @Then("User Validates Validation Error Message Visibility {string} on Account Menu")
@@ -95,11 +95,11 @@ public class AccountMenuStepsDef extends HarnessVariables{
 
     @Then("User Enters Invalid Email Address Without Domain Name on Account Menu")
     public void userEntersInvalidEmailAddressWithoutDomainNameOnAccountMenu()throws Exception {
-            accountMenuPage.enterEmailAddress(EMAIL_ADDRESS_WITHOUT_DOMAIN);
+            accountMenuPage.enterUsername(EMAIL_ADDRESS_WITHOUT_DOMAIN);
         }
 
     @Then("User Enters Invalid Email Address Without Recipient Name on Account Menu")
     public void userEntersInvalidEmailAddressWithoutRecipientNameOnAccountMenu()throws Exception {
-        accountMenuPage.enterEmailAddress(EMAIL_ADDRESS_WITHOUT_Recipient);
+        accountMenuPage.enterUsername(EMAIL_ADDRESS_WITHOUT_RECIPIENT);
     }
 }

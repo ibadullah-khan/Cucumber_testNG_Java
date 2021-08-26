@@ -135,19 +135,6 @@ public class AccountMenuPageFactory extends UtilFactory{
         }
     }
 
-    public void enterEmailAddress(String email)throws Exception {
-        String locator = AccountMenuPageEnum.XPATH_ACCOUNT_MENU_USERNAME.getValue();
-        try{
-            waitFactory.waitForElementToBeClickable(locator);
-            enterString(locator,email);
-            scenarioDef.log(Status.PASS,"Entered Text: "+email+" on Username Field on Account Menu");
-        }catch (Exception e) {
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL, "Could not Enter Text on Username Field on Account Menu");
-            throw e;
-        }
-    }
-
     public void validatesValidationErrorMessageVisibilityOnEmail(boolean expectedVisibility) {
         String locator = AccountMenuPageEnum.XPATH_ACCOUNT_MENU_USERNAME.getValue();
         String errorMsg = null;

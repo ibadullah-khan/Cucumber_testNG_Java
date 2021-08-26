@@ -17,7 +17,7 @@ public enum CheckoutEnumVariables {
 	VALID_CC_EXPIRY(""),
 	INVALID_EMAIL_ADDRESS(""),
 	EMAIL_ADDRESS_WITHOUT_DOMAIN(""),
-	EMAIL_ADDRESS_WITHOUT_Recipient(""),
+	EMAIL_ADDRESS_WITHOUT_RECIPIENT(""),
 	INVALID_PH_NO(""),
 	INVALID_ZIPCODE(""),
 	VALID_CC_CVV("");
@@ -53,8 +53,8 @@ public enum CheckoutEnumVariables {
 			INVALID_EMAIL_ADDRESS.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("invalid.email.address");
 			INVALID_ZIPCODE.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("invalid.zip.code");
 			INVALID_PH_NO.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("invalid.ph.no");
-			EMAIL_ADDRESS_WITHOUT_DOMAIN.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("invalid.email.nodomain");
-			EMAIL_ADDRESS_WITHOUT_Recipient.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("invalid.email.norecipient");
+			EMAIL_ADDRESS_WITHOUT_DOMAIN.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("nodomain");
+			EMAIL_ADDRESS_WITHOUT_RECIPIENT.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("norecipient");
         } catch (Exception e) {
 
             e.printStackTrace();
