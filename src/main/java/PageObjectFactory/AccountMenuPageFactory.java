@@ -60,11 +60,11 @@ public class AccountMenuPageFactory extends UtilFactory{
         }
     }
 
-    public void clickOnLoginButton(){
+    public void clickOnLoginButton() throws Exception {
         String locator = AccountMenuPageEnum.XPATH_ACCOUNT_MENU_LOGIN_BUTTON.getValue();
         try{
             waitFactory.waitForElementToBeClickable(locator);
-            click(locator);
+            jsClick(locator);
             scenarioDef.log(Status.PASS,"Clicked on Login Button on Account Menu");
         }catch (Exception e){
             failureException = e.toString();

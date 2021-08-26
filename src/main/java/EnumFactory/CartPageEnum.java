@@ -61,7 +61,9 @@ public enum CartPageEnum {
     XPATH_PREDICT_INSPECTOR_SECTION("//*[@id='sc-inspector']"),
     XPATH_PREDICT_INSPECTOR_ITEM_DESCRIPTION_START("//*[@class='sc-event-caption-title' and text()='"),
     XPATH_SOCIAL_MEDIA_BUTTON("//*[@class='checkoutProcess-body-2hF']//*[@class='facebookLogin-btnFacebook-21h metro']"),
-    XPATH_PREDICT_INSPECTOR_ITEM_DESCRIPTION_END("']//following-sibling::span");
+    XPATH_PREDICT_INSPECTOR_ITEM_DESCRIPTION_END("']//following-sibling::span"),
+    XPATH_CHECKOUT_PROCESS_POP_UP("//*[@class='checkoutProcess-root_open-1vk checkoutProcess-root-3_2']"),
+    XPATH_SIGN_IN_POP_UP("//*[@class='memberCheckout-root_open-3BF']");
 
     private String cartPageVariables;
 
