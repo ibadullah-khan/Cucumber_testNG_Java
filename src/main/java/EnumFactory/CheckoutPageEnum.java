@@ -40,7 +40,7 @@ public enum CheckoutPageEnum {
     XPATH_EMAIL_ADDRESS("//*[@class='card-emailBundle-1IB']"),
     XPATH_SHIPPING_LOADER("//*[@class='paymentInformation-loading-3aw']"),
     XPATH_REQ_FIELD_MESSAGE_START("//*[@for='"),
-    XPATH_EDIT_BUTTON_TEXT("//*[@class='completedView-editButtonText-2Xe']"),
+    XPATH_EDIT_BUTTON("//*[@class='completedView-editButtonText-2Xe']"),
     XPATH_REQ_FIELD_MESSAGE_END("']/following-sibling::p");
 
     private String checkoutPageVariables;

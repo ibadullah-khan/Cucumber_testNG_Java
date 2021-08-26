@@ -878,8 +878,8 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
-    public void clickOnEditButtonText()throws Exception {
-            String locator = CheckoutPageEnum.XPATH_EDIT_BUTTON_TEXT.getValue();
+    public void clickOnEditButton()throws Exception {
+            String locator = CheckoutPageEnum.XPATH_EDIT_BUTTON.getValue();
             try{
                 waitFactory.waitForElementToBeClickable(locator);
                 click(locator);
