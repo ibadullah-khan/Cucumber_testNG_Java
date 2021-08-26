@@ -177,6 +177,20 @@ Feature: Checkout Feature File
     Then User Validates Required Field Error Message "invalid.zip.code.error.msg" on "zip.code" Field of Checkout Page
     Then User Enters Invalid Phone No on Checkout Page
     Then User Validates Required Field Error Message "invalid.ph.no.error.msg" on "phone" Field of Checkout Page
+
+  @Regression
+  Scenario: Verify the Header in Checkout
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
+    Then User Validates Header Visibility "true" on Checkout Page
+    Then User Validates Logo Visibility "true" in Header on Checkout Page
+    Then User Validates Help icon Visibility "true" on Checkout Page
   @Regression
   Scenario: Validate the UI for Active and Inactive Steps
 
