@@ -73,4 +73,33 @@ public class AccountMenuStepsDef extends HarnessVariables{
             accountMenuPage.validateErrorMessageVisibilityOnPassword(false);
         }
     }
+
+    @Then("User Enters Invalid Email Address on Account Menu")
+    public void userEntersInvalidEmailAddressOnAccountMenu()throws Exception {
+        accountMenuPage.enterUsername(INVALID_EMAIL_ADDRESS);
+        }
+
+    @Then("User Validates Validation Error Message Visibility {string} on Account Menu")
+    public void userValidatesValidationErrorMessageVisibilityOnAccountMenu(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            accountMenuPage.validatesValidationErrorMessageVisibilityOnEmail(true);
+        }else {
+            accountMenuPage.validatesValidationErrorMessageVisibilityOnEmail(false);
+        }
+    }
+
+    @Then("User Clears the Email Field on Account Menu")
+    public void userClearsTheEmailFieldOnAccountMenu()throws Exception {
+        accountMenuPage.clearEmailField();
+    }
+
+    @Then("User Enters Invalid Email Address Without Domain Name on Account Menu")
+    public void userEntersInvalidEmailAddressWithoutDomainNameOnAccountMenu()throws Exception {
+            accountMenuPage.enterUsername(EMAIL_ADDRESS_WITHOUT_DOMAIN);
+        }
+
+    @Then("User Enters Invalid Email Address Without Recipient Name on Account Menu")
+    public void userEntersInvalidEmailAddressWithoutRecipientNameOnAccountMenu()throws Exception {
+        accountMenuPage.enterUsername(EMAIL_ADDRESS_WITHOUT_RECIPIENT);
+    }
 }
