@@ -497,6 +497,30 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
+    public void validateShippingMethod(String expectedText) {
+        String locator = CheckoutPageEnum.XPATH_SHIPPING_METHOD_SELECTED_OPTION.getValue();
+        String errorMsg = null;
+        String actualText;
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            actualText = getText(locator).trim();
+            if (actualText.equalsIgnoreCase(expectedText)) {
+                scenarioDef.log(Status.PASS, "Validated Shipping Method on Checkout as Expected: " + expectedText);
+            } else {
+                errorMsg = "Could not validate Shipping Method on Checkout as Expected: " + expectedText + " , Actual Value: " + actualText;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Shipping Element on Cart Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
+
     public void clickOnShippingDetailTitle() throws Exception {
         String locator = CheckoutPageEnum.XPATH_SHIPPING_DETAIL_TITLE.getValue();
         try{
@@ -542,6 +566,30 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
+    public void validatePaymentMethodState(String expectedState) {
+        String locator = CheckoutPageEnum.XPATH_PAYMENT_METHOD_FORM.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try {
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedState.equals("active")) {
+                scenarioDef.log(Status.PASS, "Validated Shipping Payment Method Section is Displayed as Expected on Checkout Page");
+            } else if (!actualVisibility && !expectedState.equals("inactive")) {
+                scenarioDef.log(Status.PASS, "Validated Shipping Payment Method Section is Not Displayed as Expected on Checkout Page");
+            } else if (actualVisibility && !expectedState.equals("inactive")) {
+                errorMsg = "Validated Shipping Payment Method Section is Displayed Unexpected on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedState.equals("active")) {
+                errorMsg = "Validated Payment Method Section is not Displayed Unexpected on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
+    }
+
     public void validateShippingMethodNameOnSummarySection(String expectedShippingMethodName) {
         String locator = CheckoutPageEnum.XPATH_SHIPPING_METHOD_LABEL.getValue();
         String errorMsg = null;
@@ -568,6 +616,7 @@ public class CheckoutPageFactory extends UtilFactory {
         String locator = CheckoutPageEnum.XPATH_CHECKOUT_HEADING.getValue();
         try {
             waitFactory.waitForElementToBeClickable(locator);
+            customWait(2000);
             scenarioDef.log(Status.PASS, "Successfully Loaded Checkout Page");
         } catch (Exception e) {
             failureException = e.toString();
@@ -946,6 +995,32 @@ public class CheckoutPageFactory extends UtilFactory {
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
+            throw e;
+        }
+    }
+
+    public void clickOnEditButton()throws Exception {
+            String locator = CheckoutPageEnum.XPATH_EDIT_BUTTON.getValue();
+            try{
+                waitFactory.waitForElementToBeClickable(locator);
+                click(locator);
+                scenarioDef.log(Status.PASS,"Clicked on Edit Button Text on Checkout Page");
+            }catch (Exception e){
+                failureException = e.toString();
+                scenarioDef.log(Status.FAIL,"Could not Click on Edit Button Text on Checkout Page");
+                throw e;
+            }
+    }
+
+    public void validateInactiveShippingDetailsSection() {
+        String locator = CheckoutPageEnum.XPATH_SHIPPING_DETAIL_TITLE_INACTIVE.getValue();
+        try {
+            waitFactory.waitForElementToBeVisible(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS, "Successfully Loaded Shipping Section on Checkout Page");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Load Shipping Section on Checkout Page");
             throw e;
         }
     }

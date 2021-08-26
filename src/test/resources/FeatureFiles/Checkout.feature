@@ -231,3 +231,56 @@ Feature: Checkout Feature File
     Then User Clicks the Login Button on Account Menu
     Then User Validates Successful Loaded Checkout Page
     Then User Should Redirect Toward "shopping.checkout" Page
+
+    @Regression
+    Scenario: Validate "Edit" Link For Shipping Details Expands Section
+
+      Given User Setups the Web Browser
+      When User Navigates to "shoebacca.first.bag.pdt" Url
+      Then User Clicks Add to Cart Button on PDP
+      And User Validates Successful Triggered Mini Cart
+      And User Clicks Checkout Button on Mini Cart View
+      Then User Clicks on Guest Checkout Button
+      Then User Should Redirect Toward "shopping.checkout" Page
+      And User Enters Valid Email Address on Checkout Page
+      And User Enters Valid First Name on Checkout Page
+      And User Enters Valid Last Name on Checkout Page
+      And User Enters Valid Address on Checkout Page
+      And User Enters Valid City on Checkout Page
+      And User Selects Valid State on Checkout Page
+      And User Enters Valid Zip Code on Checkout Page
+      And User Enters Valid Phone No on Checkout Page
+      Then User Clicks Save and Continue Button on Checkout Page
+      Then User Click on Shipping Details Section Title
+      Then User Clicks on Shipping Details Edit Button on Checkout Page
+      Then User Validates Shipping Detail Section is in "edit" State
+
+  @Regression
+  Scenario: Verify Active Section of Checkout Cannot be Collapsed
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
+    And User Validates Successful Loaded Checkout Page
+    Then User Validates Shipping Detail Section is in "edit" State
+    Then User Click on Inactive Shipping Details Section Title
+    Then User Validates Shipping Detail Section is in "edit" State
+
+  @Regression
+  Scenario: Validate the UI for Active and Inactive Steps
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    Then User Fetches Shipping Method on Cart Page
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Clicks on Guest Checkout Button
+    Then User Validates Successful Loaded Checkout Page
+    Then User Validates Shipping Detail Section is in "edit" State
+    Then User Validates Shipping Method on Checkout Page
+    Then User Validates Payment Method Section is in "inactive" State
