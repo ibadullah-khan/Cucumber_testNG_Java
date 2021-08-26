@@ -73,4 +73,22 @@ public class AccountMenuStepsDef extends HarnessVariables{
             accountMenuPage.validateErrorMessageVisibilityOnPassword(false);
         }
     }
+
+    @Then("User Validates Checkout Process Pop Up Visibility {string}")
+    public void userValidatesCheckoutProcessPopUpVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            accountMenuPage.validateCheckoutProcessPopUpVisibility(true);
+        }else {
+            accountMenuPage.validateCheckoutProcessPopUpVisibility(false);
+        }
+    }
+
+    @Then("User Validates Sign In Pop Up Visibility {string}")
+    public void userValidatesSignInPopUpVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            accountMenuPage.validateSignInPopUpVisibility(true);
+        }else {
+            accountMenuPage.validateSignInPopUpVisibility(false);
+        }
+    }
 }

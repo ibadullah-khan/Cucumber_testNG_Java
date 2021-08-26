@@ -543,22 +543,4 @@ public class CartStepsDef extends HarnessVariables{
         String socialButtonColor = new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(expectedValue);
         cartPage.validateSocialButtonColor(socialButtonColor);
     }
-
-    @Then("User Validates Checkout Process Pop Up Visibility {string}")
-    public void userValidatesCheckoutProcessPopUpVisibility(String expectedCondition) {
-        if(expectedCondition.equals("true")){
-            cartPage.validateCheckoutProcessPopUpVisibility(true);
-        }else {
-            cartPage.validateCheckoutProcessPopUpVisibility(false);
-        }
-    }
-
-    @Then("User Validates Sign In Pop Up Visibility {string}")
-    public void userValidatesSignInPopUpVisibility(String expectedCondition) {
-        if(expectedCondition.equals("true")){
-            cartPage.validateSignInPopUpVisibility(true);
-        }else {
-            cartPage.validateSignInPopUpVisibility(false);
-        }
-    }
 }
