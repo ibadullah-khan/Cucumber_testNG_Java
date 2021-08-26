@@ -954,8 +954,8 @@ public class CheckoutPageFactory extends UtilFactory {
     public void validateInactiveShippingDetailsSection() {
         String locator = CheckoutPageEnum.XPATH_SHIPPING_DETAIL_TITLE_INACTIVE.getValue();
         try {
-            waitFactory.waitForElementToBeClickable(locator);
-            customWait(2000);
+            waitFactory.waitForElementToBeVisible(locator);
+            click(locator);
             scenarioDef.log(Status.PASS, "Successfully Loaded Shipping Section on Checkout Page");
         } catch (Exception e) {
             failureException = e.toString();
