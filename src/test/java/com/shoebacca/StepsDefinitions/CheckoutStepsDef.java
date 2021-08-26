@@ -307,6 +307,11 @@ public class CheckoutStepsDef extends HarnessVariables {
         }
     }
 
+    @Then("User Clicks on Shipping Details Edit Button on Checkout Page")
+    public void userClicksOnShippingDetailsEditButtonOnCheckoutPage()throws Exception {
+        checkoutPage.clickOnEditButton();
+    }
+
     @Then("User Validates Shipping Method on Checkout Page")
     public void userValidatesShippingMethodOnCheckoutPage() {
         checkoutPage.validateShippingMethod(SHIPPING_METHOD);
