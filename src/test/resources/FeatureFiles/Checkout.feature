@@ -179,7 +179,7 @@ Feature: Checkout Feature File
     Then User Validates Required Field Error Message "invalid.ph.no.error.msg" on "phone" Field of Checkout Page
 
     @Regression
-    Scenario: Validate "Edit" Link For Completed Section Expands Section.
+    Scenario: Validate "Edit" Link For Shipping Details Expands Section
 
       Given User Setups the Web Browser
       When User Navigates to "shoebacca.first.bag.pdt" Url
