@@ -498,7 +498,7 @@ public class CheckoutPageFactory extends UtilFactory {
     }
 
     public void validateShippingMethod(String expectedText) {
-        String locator = CheckoutPageEnum.XPATH_SHIPPING_METHOD_CHECKBOX.getValue();
+        String locator = CheckoutPageEnum.XPATH_SHIPPING_METHOD_SELECTED_OPTION.getValue();
         String errorMsg = null;
         String actualText;
         try {

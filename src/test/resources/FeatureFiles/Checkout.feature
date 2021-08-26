@@ -254,6 +254,7 @@ Feature: Checkout Feature File
       Then User Click on Shipping Details Section Title
       Then User Clicks on Shipping Details Edit Button on Checkout Page
       Then User Validates Shipping Detail Section is in "edit" State
+
   @Regression
   Scenario: Validate the UI for Active and Inactive Steps
 
