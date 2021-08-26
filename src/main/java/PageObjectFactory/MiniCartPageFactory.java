@@ -791,4 +791,27 @@ public class MiniCartPageFactory extends UtilFactory {
 
     }
 
+    public void validateCheckoutProcessPopUpVisibility(boolean expectedVisibility) {
+        String locator = MiniCartPageEnum.XPATH_CHECKOUT_PROCESS_POP_UP.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try {
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Checkout Process Pop Up is Displayed as Expected");
+            } else if (!actualVisibility && !expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Checkout Process Pop Up is Not Displayed as Expected");
+            } else if (actualVisibility && !expectedVisibility) {
+                errorMsg = "Validated Checkout Process Pop Up is Displayed Unexpected";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
+                errorMsg = "Validated Checkout Process Pop Up is not Displayed Unexpected";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
+    }
 }

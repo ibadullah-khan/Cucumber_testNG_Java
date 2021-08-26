@@ -250,5 +250,14 @@ public class MiniCartStepsDef extends HarnessVariables{
     public void userOpensNewTab() {
         switchesNewTab();
     }
+
+    @Then("User Validates Checkout Process Pop Up Visibility {string}")
+    public void userValidatesCheckoutProcessPopUpVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            miniCartPage.validateCheckoutProcessPopUpVisibility(true);
+        }else {
+            miniCartPage.validateCheckoutProcessPopUpVisibility(false);
+        }
+    }
 }
 
