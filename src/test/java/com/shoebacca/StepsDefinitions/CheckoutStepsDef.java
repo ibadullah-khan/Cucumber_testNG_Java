@@ -306,4 +306,9 @@ public class CheckoutStepsDef extends HarnessVariables {
             checkoutPage.validateHeaderIconVisibility(false);
         }
     }
+
+    @Then("User Clicks on Shipping Details Edit Button on Checkout Page")
+    public void userClicksOnShippingDetailsEditButtonOnCheckoutPage()throws Exception {
+        checkoutPage.clickOnEditButton();
+    }
 }
