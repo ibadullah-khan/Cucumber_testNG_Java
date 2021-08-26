@@ -312,6 +312,12 @@ public class CheckoutStepsDef extends HarnessVariables {
         checkoutPage.clickOnEditButton();
     }
 
+    @Then("User Click on Inactive Shipping Details Section Title")
+    public void userClickOnInactiveShippingDetailsSectionTitle() {
+        checkoutPage.validateInactiveShippingDetailsSection();
+
+    }
+
     @Then("User Validates Shipping Method on Checkout Page")
     public void userValidatesShippingMethodOnCheckoutPage() {
         checkoutPage.validateShippingMethod(SHIPPING_METHOD);

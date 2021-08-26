@@ -46,7 +46,8 @@ public enum CheckoutPageEnum {
     XPATH_EDIT_BUTTON("//*[@class='completedView-editButtonText-2Xe']"),
     XPATH_HEADER_ICON("//*[@class='helpTrigger-help-RY1']"),
     XPATH_PAYMENT_METHOD_FORM("//*[@class='checkoutPage-payment_information_container-3zC']/form"),
-    XPATH_SHIPPING_METHOD_SELECTED_OPTION("//input[@class='radio-input-IKa' and @checked]//following-sibling::*[@class='shippingRadios-radioLabel-3S0']/span[not(@class)]");
+    XPATH_SHIPPING_METHOD_SELECTED_OPTION("//input[@class='radio-input-IKa' and @checked]//following-sibling::*[@class='shippingRadios-radioLabel-3S0']/span[not(@class)]"),
+    XPATH_SHIPPING_DETAIL_TITLE_INACTIVE("//*[@class='checkoutPage-section_title-2GW' and contains(text(),'Shipping Details')]");
 
     private String checkoutPageVariables;
 
