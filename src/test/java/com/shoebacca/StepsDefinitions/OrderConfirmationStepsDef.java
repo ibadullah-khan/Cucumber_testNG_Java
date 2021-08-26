@@ -42,7 +42,7 @@ public class OrderConfirmationStepsDef extends HarnessVariables {
         orderConfirmationPageFactory.clickPrintSlip();
     }
 
-    @Then("User Validates Print Button Visibility on Print Tab {string}")
+    @Then("User Clicks Validates Print Slip Button on Confirmation Page {string}")
     public void userValidatesPrintButtonVisibilityOnPrintTab(String expectedCondition) {
         if(expectedCondition.equals("true")){
             orderConfirmationPageFactory.validatePrintButtonVisibility(true);
