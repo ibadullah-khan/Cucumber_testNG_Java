@@ -223,7 +223,7 @@ public class MiniCartStepsDef extends HarnessVariables{
     }
 
     @Then("User Clicks on Member Checkout Button")
-    public void userClicksOnMemberCheckoutButton() {
+    public void userClicksOnMemberCheckoutButton() throws Exception {
         miniCartPage.clickOnMemberCheckoutButton();
     }
 
@@ -254,6 +254,15 @@ public class MiniCartStepsDef extends HarnessVariables{
     @Then("User Switches New Tab")
     public void userOpensNewTab() {
         switchesNewTab();
+    }
+
+    @Then("User Validates Checkout Process Pop Up Visibility {string}")
+    public void userValidatesCheckoutProcessPopUpVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            miniCartPage.validateCheckoutProcessPopUpVisibility(true);
+        }else {
+            miniCartPage.validateCheckoutProcessPopUpVisibility(false);
+        }
     }
 }
 
