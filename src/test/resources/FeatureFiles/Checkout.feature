@@ -193,6 +193,27 @@ Feature: Checkout Feature File
     Then User Validates Help icon Visibility "true" on Checkout Page
 
   @Regression
+  Scenario: Verify Email Address is Validated When Entered to Sign In
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Clicks on Member Checkout Button
+    Then User Enters Invalid Email Address on Account Menu
+    Then User Clicks the Login Button on Account Menu
+    Then User Validates Validation Error Message Visibility "true" on Account Menu
+    Then User Clears the Email Field on Account Menu
+    Then User Enters Invalid Email Address Without Domain Name on Account Menu
+    Then User Clicks the Login Button on Account Menu
+    Then User Validates Validation Error Message Visibility "true" on Account Menu
+    Then User Clears the Email Field on Account Menu
+    Then User Enters Invalid Email Address Without Recipient Name on Account Menu
+    Then User Clicks the Login Button on Account Menu
+    Then User Validates Validation Error Message Visibility "true" on Account Menu
+
+  @Regression
   Scenario:Validate Registered Customer When Signs in with Valid Credentials is Landed on Checkout page.
 
     Given User Setups the Web Browser

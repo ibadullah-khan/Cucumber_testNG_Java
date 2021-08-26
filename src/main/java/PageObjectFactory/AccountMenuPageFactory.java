@@ -134,6 +134,43 @@ public class AccountMenuPageFactory extends UtilFactory{
         }
     }
 
+    public void validatesValidationErrorMessageVisibilityOnEmail(boolean expectedVisibility) {
+        String locator = AccountMenuPageEnum.XPATH_ACCOUNT_MENU_USERNAME.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try {
+            actualVisibility = !(getAttribute(locator,"validationMessage").isEmpty());
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Validation Message is Displayed as Expected on Email Field on Account Menu");
+            } else if (!actualVisibility && !expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Validation Error Message is Not Displayed as Expected on Email Field on Account Menu");
+            } else if (actualVisibility && !expectedVisibility) {
+                errorMsg = "Validated Validation Error Message is Displayed Unexpected on Email Field";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
+                errorMsg = "Validated Validation Error Message is Displayed Unexpectedly on Email Field on Account Menu";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
+    }
+
+    public void clearEmailField()throws Exception {
+        String locator = AccountMenuPageEnum.XPATH_ACCOUNT_MENU_USERNAME.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            clearField(locator);
+            scenarioDef.log(Status.PASS, "Email Field is Clear on Account Menu");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Clear Email Field on on Account Menu");
+            throw e;
+        }
+    }
+
     public void validateSignInPopUpVisibility(boolean expectedVisibility) {
         String locator = AccountMenuPageEnum.XPATH_SIGN_IN_POP_UP.getValue();
         String errorMsg = null;
