@@ -32,7 +32,7 @@ public class AccountMenuStepsDef extends HarnessVariables{
     }
 
     @Then("User Clicks the Login Button on Account Menu")
-    public void userClicksTheLoginButtonOnAccountMenu() {
+    public void userClicksTheLoginButtonOnAccountMenu() throws Exception {
         accountMenuPage.clickOnLoginButton();
     }
 

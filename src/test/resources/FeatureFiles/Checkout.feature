@@ -177,3 +177,22 @@ Feature: Checkout Feature File
     Then User Validates Required Field Error Message "invalid.zip.code.error.msg" on "zip.code" Field of Checkout Page
     Then User Enters Invalid Phone No on Checkout Page
     Then User Validates Required Field Error Message "invalid.ph.no.error.msg" on "phone" Field of Checkout Page
+
+  @Regression
+  Scenario:Validate Registered Customer When Signs in with Valid Credentials is Landed on Checkout page.
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks on View Cart Button
+    Then User Should Redirect Toward "shopping.cart" Page
+    Then User Clicks Checkout Button on Cart View
+    Then User Validates Checkout Process Pop Up Visibility "true"
+    Then User Clicks on Member Checkout Button
+    Then User Validates Sign In Pop Up Visibility "true"
+    Then User Enters Valid Login Username on Account Menu
+    Then User Enters Valid Login Password on Account Menu
+    Then User Clicks the Login Button on Account Menu
+    Then User Validates Successful Loaded Checkout Page
+    Then User Should Redirect Toward "shopping.checkout" Page

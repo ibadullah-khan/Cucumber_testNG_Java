@@ -728,11 +728,11 @@ public class MiniCartPageFactory extends UtilFactory {
         }
     }
 
-    public void clickOnMemberCheckoutButton() {
+    public void clickOnMemberCheckoutButton() throws Exception {
         String locator = MiniCartPageEnum.XPATH_MEMBER_CHECKOUT.getValue();
         try{
             waitFactory.waitForElementToBeClickable(locator);
-            click(locator);
+            jsClick(locator);
             scenarioDef.log(Status.PASS,"Clicked on Member Checkout Button on Mini Cart View");
         }catch (Exception e){
             failureException = e.toString();
