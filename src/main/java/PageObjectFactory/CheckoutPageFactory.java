@@ -568,6 +568,7 @@ public class CheckoutPageFactory extends UtilFactory {
         String locator = CheckoutPageEnum.XPATH_CHECKOUT_HEADING.getValue();
         try {
             waitFactory.waitForElementToBeClickable(locator);
+            customWait(2000);
             scenarioDef.log(Status.PASS, "Successfully Loaded Checkout Page");
         } catch (Exception e) {
             failureException = e.toString();
@@ -961,5 +962,18 @@ public class CheckoutPageFactory extends UtilFactory {
                 scenarioDef.log(Status.FAIL,"Could not Click on Edit Button Text on Checkout Page");
                 throw e;
             }
+    }
+
+    public void validateInactiveShippingDetailsSection() {
+        String locator = CheckoutPageEnum.XPATH_SHIPPING_DETAIL_TITLE_INACTIVE.getValue();
+        try {
+            waitFactory.waitForElementToBeVisible(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS, "Successfully Loaded Shipping Section on Checkout Page");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Load Shipping Section on Checkout Page");
+            throw e;
+        }
     }
 }

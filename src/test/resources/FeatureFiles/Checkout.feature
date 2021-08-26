@@ -254,3 +254,18 @@ Feature: Checkout Feature File
       Then User Click on Shipping Details Section Title
       Then User Clicks on Shipping Details Edit Button on Checkout Page
       Then User Validates Shipping Detail Section is in "edit" State
+
+  @Regression
+  Scenario: Verify Active Section of Checkout Cannot be Collapsed
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
+    And User Validates Successful Loaded Checkout Page
+    Then User Validates Shipping Detail Section is in "edit" State
+    Then User Click on Inactive Shipping Details Section Title
+    Then User Validates Shipping Detail Section is in "edit" State

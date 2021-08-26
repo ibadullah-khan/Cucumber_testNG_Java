@@ -44,7 +44,8 @@ public enum CheckoutPageEnum {
     XPATH_HEADER("//*[@class='header-desktopSecondaryActions-n-W']"),
     XPATH_HEADER_LOGO("//*[@class='header-logo-2jr image-loaded-ktU']"),
     XPATH_EDIT_BUTTON("//*[@class='completedView-editButtonText-2Xe']"),
-    XPATH_HEADER_ICON("//*[@class='helpTrigger-help-RY1']");
+    XPATH_HEADER_ICON("//*[@class='helpTrigger-help-RY1']"),
+    XPATH_SHIPPING_DETAIL_TITLE_INACTIVE("//*[@class='checkoutPage-section_title-2GW' and contains(text(),'Shipping Details')]");
 
     private String checkoutPageVariables;
 

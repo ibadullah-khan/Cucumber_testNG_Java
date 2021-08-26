@@ -311,4 +311,10 @@ public class CheckoutStepsDef extends HarnessVariables {
     public void userClicksOnShippingDetailsEditButtonOnCheckoutPage()throws Exception {
         checkoutPage.clickOnEditButton();
     }
+
+    @Then("User Click on Inactive Shipping Details Section Title")
+    public void userClickOnInactiveShippingDetailsSectionTitle() {
+        checkoutPage.validateInactiveShippingDetailsSection();
+
+    }
 }
