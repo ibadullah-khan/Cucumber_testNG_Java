@@ -202,6 +202,7 @@ Feature: Checkout Feature File
       And User Clicks Checkout Button on Mini Cart View
       Then User Clicks on Guest Checkout Button
       Then User Should Redirect Toward "shopping.checkout" Page
+      And User Validates Successful Loaded Checkout Page
       Then User Validates Shipping Detail Section is in "edit" State
-      Then User Clicks Save and Continue Button on Checkout Page
+      Then User Click on Inactive Shipping Details Section Title
       Then User Validates Shipping Detail Section is in "edit" State

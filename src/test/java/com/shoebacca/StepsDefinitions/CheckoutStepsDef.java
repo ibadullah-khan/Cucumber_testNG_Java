@@ -306,4 +306,10 @@ public class CheckoutStepsDef extends HarnessVariables {
             checkoutPage.validateHeaderIconVisibility(false);
         }
     }
+
+    @Then("User Click on Inactive Shipping Details Section Title")
+    public void userClickOnInactiveShippingDetailsSectionTitle() {
+        checkoutPage.validateInactiveShippingDetailsSection();
+
+    }
 }

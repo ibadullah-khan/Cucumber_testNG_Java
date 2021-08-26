@@ -568,6 +568,7 @@ public class CheckoutPageFactory extends UtilFactory {
         String locator = CheckoutPageEnum.XPATH_CHECKOUT_HEADING.getValue();
         try {
             waitFactory.waitForElementToBeClickable(locator);
+            customWait(2000);
             scenarioDef.log(Status.PASS, "Successfully Loaded Checkout Page");
         } catch (Exception e) {
             failureException = e.toString();
@@ -946,6 +947,19 @@ public class CheckoutPageFactory extends UtilFactory {
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
+            throw e;
+        }
+    }
+
+    public void validateInactiveShippingDetailsSection() {
+        String locator = CheckoutPageEnum.XPATH_SHIPPING_DETAIL_TITLE_INACTIVE.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            customWait(2000);
+            scenarioDef.log(Status.PASS, "Successfully Loaded Shipping Section on Checkout Page");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Load Shipping Section on Checkout Page");
             throw e;
         }
     }
