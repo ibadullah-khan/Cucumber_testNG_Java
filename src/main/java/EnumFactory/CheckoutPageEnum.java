@@ -45,7 +45,7 @@ public enum CheckoutPageEnum {
     XPATH_HEADER_LOGO("//*[@class='header-logo-2jr image-loaded-ktU']"),
     XPATH_HEADER_ICON("//*[@class='helpTrigger-help-RY1']"),
     XPATH_PAYMENT_METHOD_FORM("//*[@class='checkoutPage-payment_information_container-3zC']/form"),
-    XPATH_SHIPPING_METHOD_CHECKBOX("//*[@class='shippingRadios-radioLabel-3S0']/span");
+    XPATH_SHIPPING_METHOD_CHECKBOX("//*[@class='radioGroup-radioContainer-1B_ customshippingrate|customshippingrate']//following-sibling::*[@class='shippingRadios-radioLabel-3S0']/span[not(@class)]");
 
     private String checkoutPageVariables;
 
