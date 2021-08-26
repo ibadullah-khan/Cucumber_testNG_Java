@@ -24,7 +24,8 @@ public enum MiniCartPageEnum {
     XPATH_EDIT_BUTTON("//*[@class='miniCart-contents_open-ubc']//*[contains(text(),'Edit')]"),
     XPATH_PRODUCT_COUNT_TEXT("//*[@class='miniCart-quantity-2K5']"),
     XPATH_SOCIAL_MEDIA_BUTTON("//*[@class='checkoutProcess-body-2hF']//*[@class='facebookLogin-btnFacebook-21h metro']"),
-    XPATH_PRODUCT_TAX("//*[text()='Tax']//following-sibling::*[@class='priceSummary-price-12K']");
+    XPATH_PRODUCT_TAX("//*[text()='Tax']//following-sibling::*[@class='priceSummary-price-12K']"),
+    XPATH_CHECKOUT_PROCESS_POP_UP("//*[@class='checkoutProcess-root_open-1vk checkoutProcess-root-3_2']");
 
 
     private String miniCartPageVariables;

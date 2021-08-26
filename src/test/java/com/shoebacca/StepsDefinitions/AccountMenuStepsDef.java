@@ -32,7 +32,7 @@ public class AccountMenuStepsDef extends HarnessVariables{
     }
 
     @Then("User Clicks the Login Button on Account Menu")
-    public void userClicksTheLoginButtonOnAccountMenu() {
+    public void userClicksTheLoginButtonOnAccountMenu() throws Exception {
         accountMenuPage.clickOnLoginButton();
     }
 
@@ -101,5 +101,14 @@ public class AccountMenuStepsDef extends HarnessVariables{
     @Then("User Enters Invalid Email Address Without Recipient Name on Account Menu")
     public void userEntersInvalidEmailAddressWithoutRecipientNameOnAccountMenu()throws Exception {
         accountMenuPage.enterUsername(EMAIL_ADDRESS_WITHOUT_RECIPIENT);
+    }
+
+    @Then("User Validates Sign In Pop Up Visibility {string}")
+    public void userValidatesSignInPopUpVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            accountMenuPage.validateSignInPopUpVisibility(true);
+        }else {
+            accountMenuPage.validateSignInPopUpVisibility(false);
+        }
     }
 }
