@@ -92,4 +92,14 @@ public class AccountMenuStepsDef extends HarnessVariables{
     public void userClearsTheEmailFieldOnAccountMenu()throws Exception {
         accountMenuPage.clearEmailField();
     }
+
+    @Then("User Enters Invalid Email Address Without Domain Name on Account Menu")
+    public void userEntersInvalidEmailAddressWithoutDomainNameOnAccountMenu()throws Exception {
+            accountMenuPage.enterEmailAddress(EMAIL_ADDRESS_WITHOUT_DOMAIN);
+        }
+
+    @Then("User Enters Invalid Email Address Without Recipient Name on Account Menu")
+    public void userEntersInvalidEmailAddressWithoutRecipientNameOnAccountMenu()throws Exception {
+        accountMenuPage.enterEmailAddress(EMAIL_ADDRESS_WITHOUT_Recipient);
+    }
 }

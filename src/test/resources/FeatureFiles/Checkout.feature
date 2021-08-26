@@ -159,10 +159,17 @@ Feature: Checkout Feature File
 
     Then User Clears the Email Field on Account Menu
 
-#    Then User Enters Invalid Email Address on Account Menu
+    Then User Enters Invalid Email Address Without Domain Name on Account Menu
 
+    Then User Clicks the Login Button on Account Menu
+    Then User Validates Validation Error Message Visibility "true" on Account Menu
 
+    Then User Clears the Email Field on Account Menu
 
-#    Then User Validates Error Message Visibility "true" on Email Field on Account Menu
+    Then User Enters Invalid Email Address Without Recipient Name on Account Menu
+
+    Then User Clicks the Login Button on Account Menu
+    Then User Validates Validation Error Message Visibility "true" on Account Menu
+
 
 
