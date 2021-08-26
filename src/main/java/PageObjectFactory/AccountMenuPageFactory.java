@@ -1,7 +1,6 @@
 package PageObjectFactory;
 
 import EnumFactory.AccountMenuPageEnum;
-import EnumFactory.CheckoutPageEnum;
 import UtilitiesFactory.UtilFactory;
 import com.aventstack.extentreports.Status;
 import org.openqa.selenium.NoSuchElementException;
