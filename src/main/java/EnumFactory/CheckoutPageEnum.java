@@ -41,9 +41,8 @@ public enum CheckoutPageEnum {
     XPATH_SHIPPING_LOADER("//*[@class='paymentInformation-loading-3aw']"),
     XPATH_REQ_FIELD_MESSAGE_START("//*[@for='"),
     XPATH_REQ_FIELD_MESSAGE_END("']/following-sibling::p"),
-    XPATH_SHIPPING_METHOD_CHECKBOX("//*[@class='shippingRadios-radioLabel-3S0']/span"),
-    XPATH_PAYMENT_METHOD_INACTIVE("//*[@class='checkoutPage-payment_information_container-3zC']//h3"),
-    XPATH_PAYMENT_METHOD_ACTIVE("///*[@class='checkoutPage-price_adjustments_container-jA3']");
+    XPATH_PAYMENT_METHOD_FORM("//*[@class='checkoutPage-payment_information_container-3zC']/form"),
+    XPATH_SHIPPING_METHOD_CHECKBOX("//*[@class='shippingRadios-radioLabel-3S0']/span");
 
     private String checkoutPageVariables;
 

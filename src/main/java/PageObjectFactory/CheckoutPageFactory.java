@@ -568,31 +568,25 @@ public class CheckoutPageFactory extends UtilFactory {
     }
 
     public void validatePaymentMethodState(String expectedState) {
-        String loader = CheckoutPageEnum.XPATH_SHIPPING_LOADER.getValue();
-        String locator =null;
+        String locator = CheckoutPageEnum.XPATH_PAYMENT_METHOD_FORM.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
         try {
-            if(expectedState.equals("active")){
-                locator = CheckoutPageEnum.XPATH_PAYMENT_METHOD_ACTIVE.getValue();
-            } else if (expectedState.equals("inactive")){
-                locator = CheckoutPageEnum.XPATH_PAYMENT_METHOD_INACTIVE.getValue();
-            }
-            waitFactory.waitForElementToBeInVisible(loader);
             actualVisibility = isVisible(locator);
-            if (actualVisibility) {
-                scenarioDef.log(Status.PASS, "Validated Shipping Section is in "+expectedState+" State on Checkout Page");
-            } else {
-                errorMsg = "Validated  Shipping Section is not "+expectedState+" State on Checkout Page";
+            if (actualVisibility && expectedState.equals("active")) {
+                scenarioDef.log(Status.PASS, "Validated Shipping Payment Method Section is Displayed as Expected on Checkout Page");
+            } else if (!actualVisibility && !expectedState.equals("inactive")) {
+                scenarioDef.log(Status.PASS, "Validated Shipping Payment Method Section is Not Displayed as Expected on Checkout Page");
+            } else if (actualVisibility && !expectedState.equals("inactive")) {
+                errorMsg = "Validated Shipping Payment Method Section is Displayed Unexpected on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedState.equals("active")) {
+                errorMsg = "Validated Payment Method Section is not Displayed Unexpected on Checkout Page";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             }
         } catch (Exception e) {
             failureException = e.toString();
-            if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the Shipping Section State Element on Checkout Page");
-            } else {
-                scenarioDef.log(Status.FAIL, errorMsg);
-            }
+            scenarioDef.log(Status.FAIL, errorMsg);
             throw e;
         }
     }
