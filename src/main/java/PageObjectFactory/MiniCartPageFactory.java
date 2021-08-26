@@ -1,6 +1,5 @@
 package PageObjectFactory;
 
-import EnumFactory.CartPageEnum;
 import EnumFactory.MiniCartPageEnum;
 import UtilitiesFactory.ElementFactory;
 import UtilitiesFactory.UtilFactory;
