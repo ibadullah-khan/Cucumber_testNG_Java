@@ -246,6 +246,11 @@ public class MiniCartStepsDef extends HarnessVariables{
         miniCartPage.clickOnSocialMediaButton();
     }
 
+    @Then("User Fetches Shipping Method on Cart Page")
+    public void userFetchesShippingMethodOnCartPage() {
+        SHIPPING_METHOD=miniCartPage.getShippingMethod();
+    }
+
     @Then("User Switches New Tab")
     public void userOpensNewTab() {
         switchesNewTab();

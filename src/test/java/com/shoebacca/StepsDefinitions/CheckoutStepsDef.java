@@ -317,4 +317,14 @@ public class CheckoutStepsDef extends HarnessVariables {
         checkoutPage.validateInactiveShippingDetailsSection();
 
     }
+
+    @Then("User Validates Shipping Method on Checkout Page")
+    public void userValidatesShippingMethodOnCheckoutPage() {
+        checkoutPage.validateShippingMethod(SHIPPING_METHOD);
+    }
+
+    @Then("User Validates Payment Method Section is in {string} State")
+    public void userValidatesPaymentMethodSectionIsInState(String state) {
+        checkoutPage.validatePaymentMethodState(state);
+    }
 }
