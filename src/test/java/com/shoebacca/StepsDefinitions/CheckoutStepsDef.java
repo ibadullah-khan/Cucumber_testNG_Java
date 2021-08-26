@@ -327,4 +327,27 @@ public class CheckoutStepsDef extends HarnessVariables {
     public void userValidatesPaymentMethodSectionIsInState(String state) {
         checkoutPage.validatePaymentMethodState(state);
     }
+
+    @Then("User Enter {string} in Promo Code on Checkout Page")
+    public void userEnterInPromoCodeOnCartPage(String coupon)throws Exception {
+        String couponValue= new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(coupon);
+        checkoutPage.enterCouponCode(couponValue);
+    }
+
+    @Then("User Validates {string} Coupon Error Message Text on Checkout Page")
+    public void userValidatedCouponErrorMessageTextOnCheckoutPage(String errorMsgValue) throws Exception {
+        String errorMsg= new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(errorMsgValue);
+        checkoutPage.validateErrorMsgText(errorMsg);
+    }
+
+    @Then("User Clicks on Add Promo Code Button on Checkout Page")
+    public void userClicksOnAddPromoCodeButtonOnCheckoutPage() {
+        checkoutPage.clickOnAddPromoCodeButton(); }
+
+    @Then("User Validates Total Amount using blank Coupon on Checkout Page")
+    public void userValidatesTotalAmountUsingBlankCouponOnCheckoutPage() {
+        checkoutPage.validateTotalAmountAfterUsingBlankCoupon();}
+
+    @Then("User Clears the Promo Code on Checkout Page")
+    public void userClearPromoCodeOnCheckoutPage() throws Exception { checkoutPage.clearPromoCode();}
 }

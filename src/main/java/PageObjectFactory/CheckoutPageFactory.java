@@ -1,5 +1,6 @@
 package PageObjectFactory;
 
+import EnumFactory.CartPageEnum;
 import EnumFactory.CheckoutPageEnum;
 import UtilitiesFactory.UtilFactory;
 import com.aventstack.extentreports.Status;
@@ -999,6 +1000,19 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
+    public void enterCouponCode(String expectedCoupon) throws Exception {
+        String locator = CheckoutPageEnum.XPATH_PROMO_CODE_FIELD.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            enterString(locator, expectedCoupon);
+            scenarioDef.log(Status.PASS, "Entered Coupon " + expectedCoupon + " on Promo Code Field on Checkout Page");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Enter Coupon on Promo Code Field on Checkout Page");
+            throw e;
+        }
+    }
+
     public void clickOnEditButton()throws Exception {
             String locator = CheckoutPageEnum.XPATH_EDIT_BUTTON.getValue();
             try{
@@ -1021,6 +1035,89 @@ public class CheckoutPageFactory extends UtilFactory {
         } catch (Exception e) {
             failureException = e.toString();
             scenarioDef.log(Status.FAIL, "Could not Load Shipping Section on Checkout Page");
+            throw e;
+        }
+    }
+
+    public void clickOnAddPromoCodeButton() {
+        String locator = CheckoutPageEnum.XPATH_ADD_COUPON_BUTTON.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS, "Clicked on Add Promo Code Button on Checkout Page");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Click on Add Promo Code Button on Checkout Page");
+            throw e;
+        }
+    }
+
+    public void validateErrorMsgText(String expectedErrorMsgText) {
+        String locator = CheckoutPageEnum.XPATH_INVALID_COUPON_MESSAGE.getValue();
+        String errorMsg = null;
+        String actualText;
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            actualText = getText(locator).trim();
+            if (actualText.contains(expectedErrorMsgText)) {
+                scenarioDef.log(Status.PASS, "Validated Error Message on Checkout Page as Expected: " + expectedErrorMsgText);
+            } else {
+                errorMsg = "Could not validate Error Message on Checkout Page as Expected: " + expectedErrorMsgText + " , Actual Value: " + actualText;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Error Message Element on Checkout Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
+    public void clearPromoCode() throws Exception {
+        String locator = CheckoutPageEnum.XPATH_PROMO_CODE_FIELD.getValue();
+        String errorMsg = null;
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            clearField(locator);
+            scenarioDef.log(Status.PASS, "Cleared Add Promo Code Field on Checkout Page ");
+        }
+        catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to clear Add Promo Code Field on Checkout Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void validateTotalAmountAfterUsingBlankCoupon() {
+        String subAmountLocator = CheckoutPageEnum.XPATH_SUB_TOTAL_AMOUNT.getValue();
+        String totalAmountLocator = CheckoutPageEnum.XPATH_TOTAL_AMOUNT.getValue();
+        String taxAmountLocator = CheckoutPageEnum.XPATH_TAX_VALUE.getValue();
+        String errorMsg = null;
+        try {
+            waitFactory.waitForElementToBeClickable(totalAmountLocator);
+            double totalAmount = Double.parseDouble(getText(totalAmountLocator).trim().substring(1));
+            double subAmount = Double.parseDouble(getText(subAmountLocator).trim().substring(1));
+            double TaxAmount = Double.parseDouble(getText(taxAmountLocator).trim().substring(1));
+            if (totalAmount == subAmount + TaxAmount) {
+                scenarioDef.log(Status.PASS, "Validate Total Amount $" + totalAmount + " is Same as Expected on Checkout Page");
+            }
+            else {
+                errorMsg = "Validate Total Amount $" + totalAmount + " is not Same as Expected on Checkout Page";
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Price Element on Summary Section of Checkout Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
             throw e;
         }
     }
