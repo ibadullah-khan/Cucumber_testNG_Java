@@ -1129,8 +1129,6 @@ public class CheckoutPageFactory extends UtilFactory {
         String errorMsg = null;
         Boolean actualVisibility;
         try {
-            waitFactory.waitForElementToBeClickable(locator);
-            click(locator);
             actualVisibility = isVisible(locator);
             if (actualVisibility && expectedVisibility) {
                 scenarioDef.log(Status.PASS, "Validated Product Size is Displayed as Expected on Checkout Page");
@@ -1155,8 +1153,6 @@ public class CheckoutPageFactory extends UtilFactory {
         String errorMsg = null;
         Boolean actualVisibility;
         try {
-            waitFactory.waitForElementToBeClickable(locator);
-            click(locator);
             actualVisibility = isVisible(locator);
             if (actualVisibility && expectedVisibility) {
                 scenarioDef.log(Status.PASS, "Validated Product Color is Displayed as Expected on Checkout Page");
@@ -1181,8 +1177,6 @@ public class CheckoutPageFactory extends UtilFactory {
         String errorMsg = null;
         Boolean actualVisibility;
         try {
-            waitFactory.waitForElementToBeClickable(locator);
-            click(locator);
             actualVisibility = isVisible(locator);
             if (actualVisibility && expectedVisibility) {
                 scenarioDef.log(Status.PASS, "Validated Estimated Delivery is Displayed as Expected on Checkout Page");
@@ -1207,8 +1201,6 @@ public class CheckoutPageFactory extends UtilFactory {
         String errorMsg = null;
         Boolean actualVisibility;
         try {
-            waitFactory.waitForElementToBeClickable(locator);
-            click(locator);
             actualVisibility = isVisible(locator);
             if (actualVisibility && expectedVisibility) {
                 scenarioDef.log(Status.PASS, "Validated Product Quantity is Displayed as Expected on Checkout Page");
@@ -1233,8 +1225,6 @@ public class CheckoutPageFactory extends UtilFactory {
         String errorMsg = null;
         Boolean actualVisibility;
         try {
-            waitFactory.waitForElementToBeClickable(locator);
-            click(locator);
             actualVisibility = isVisible(locator);
             if (actualVisibility && expectedVisibility) {
                 scenarioDef.log(Status.PASS, "Validated Product Name is Displayed as Expected on Checkout Page");
