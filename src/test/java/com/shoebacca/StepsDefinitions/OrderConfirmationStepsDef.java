@@ -37,12 +37,7 @@ public class OrderConfirmationStepsDef extends HarnessVariables {
         orderConfirmationPageFactory.validateMismatchPasswordErrorMsg(MISMATCH_PASSWORD_ERROR);
     }
 
-    @Then("User Clicks Print Slip Button on Confirmation Page")
-    public void userClicksPrintSlipButtonOnConfirmationPage() throws Exception {
-        orderConfirmationPageFactory.clickPrintSlip();
-    }
-
-    @Then("User Clicks Validates Print Slip Button on Confirmation Page {string}")
+    @Then("User Validates Print Slip Button on Confirmation Page {string}")
     public void userValidatesPrintButtonVisibilityOnPrintTab(String expectedCondition) {
         if(expectedCondition.equals("true")){
             orderConfirmationPageFactory.validatePrintButtonVisibility(true);

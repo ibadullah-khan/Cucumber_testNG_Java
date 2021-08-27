@@ -68,19 +68,6 @@ public class OrderConfirmationPageFactory extends UtilFactory {
         }
     }
 
-    public void clickPrintSlip() throws Exception {
-
-        String locator = OrderConfirmationPageEnum.XPATH_PRINT_SLIP.getValue();
-        try {
-            waitFactory.waitForElementToBeClickable(locator);
-            click(locator);
-            scenarioDef.log(Status.PASS,"Clicked Print Slip Button on Order Confirmation Page");
-        }
-        catch (Exception e) {
-            scenarioDef.log(Status.PASS,"Clicked Print Slip Button on Order Confirmation Page");
-        }
-    }
-
     public void validatePrintButtonVisibility(boolean expectedVisibility) {
         String locator = OrderConfirmationPageEnum.XPATH_PRINT_SLIP.getValue();
         String errorMsg = null;
