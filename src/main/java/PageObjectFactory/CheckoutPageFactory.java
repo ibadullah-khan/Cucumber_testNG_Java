@@ -1259,8 +1259,6 @@ public class CheckoutPageFactory extends UtilFactory {
         String errorMsg = null;
         Boolean actualVisibility;
         try {
-            waitFactory.waitForElementToBeClickable(locator);
-            click(locator);
             actualVisibility = isVisible(locator);
             if (actualVisibility && expectedVisibility) {
                 scenarioDef.log(Status.PASS, "Validated Product Brand Name is Displayed as Expected on Checkout Page");
@@ -1285,8 +1283,6 @@ public class CheckoutPageFactory extends UtilFactory {
         String errorMsg = null;
         Boolean actualVisibility;
         try {
-            waitFactory.waitForElementToBeClickable(locator);
-            click(locator);
             actualVisibility = isVisible(locator);
             if (actualVisibility && expectedVisibility) {
                 scenarioDef.log(Status.PASS, "Validated Actual Amount is Displayed as Expected on Checkout Page");
@@ -1311,8 +1307,6 @@ public class CheckoutPageFactory extends UtilFactory {
         String errorMsg = null;
         Boolean actualVisibility;
         try {
-            waitFactory.waitForElementToBeClickable(locator);
-            click(locator);
             actualVisibility = isVisible(locator);
             if (actualVisibility && expectedVisibility) {
                 scenarioDef.log(Status.PASS, "Validated Original Amount is Displayed as Expected on Checkout Page");
@@ -1337,8 +1331,6 @@ public class CheckoutPageFactory extends UtilFactory {
         String errorMsg = null;
         Boolean actualVisibility;
         try {
-            waitFactory.waitForElementToBeClickable(locator);
-            click(locator);
             actualVisibility = isVisible(locator);
             if (actualVisibility && expectedVisibility) {
                 scenarioDef.log(Status.PASS, "Validated Save Amount is Displayed as Expected on Checkout Page");
