@@ -418,7 +418,7 @@ public class CheckoutStepsDef extends HarnessVariables {
         }
     }
 
-    @Then("USer Validates Actual Amount Visibility {string} on Checkout Page")
+    @Then("User Validates Actual Amount Visibility {string} on Checkout Page")
     public void userValidatesActualAmountVisibilityOnCheckoutPage(String expectedCondition) {
         if (expectedCondition.equals("true")) {
             checkoutPage.ValidatesActualAmountVisibility(true);
@@ -427,7 +427,7 @@ public class CheckoutStepsDef extends HarnessVariables {
         }
     }
 
-    @Then("USer Validates Original Amount Visibility {string} on Checkout Page")
+    @Then("User Validates Original Amount Visibility {string} on Checkout Page")
     public void userValidatesOriginalAmountVisibilityOnCheckoutPage(String expectedCondition) {
         if (expectedCondition.equals("true")) {
             checkoutPage.ValidatesOriginalAmountVisibility(true);
@@ -436,7 +436,7 @@ public class CheckoutStepsDef extends HarnessVariables {
         }
     }
 
-    @Then("USer Validates Save Amount Visibility {string} on Checkout Page")
+    @Then("User Validates Save Amount Visibility {string} on Checkout Page")
     public void userValidatesSaveAmountVisibilityOnCheckoutPage(String expectedCondition) {
         if (expectedCondition.equals("true")) {
             checkoutPage.ValidatesSaveAmountVisibility(true);

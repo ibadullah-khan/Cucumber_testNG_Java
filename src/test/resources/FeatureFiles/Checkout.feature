@@ -306,6 +306,6 @@ Feature: Checkout Feature File
     Then User Validates Product Quantity "true" on Checkout Page
     Then User Validates Products Name Visibility "true" on Checkout Page
     Then User Validates Brand Name Visibility "true" on Checkout Page
-    Then USer Validates Actual Amount Visibility "true" on Checkout Page
-    Then USer Validates Original Amount Visibility "true" on Checkout Page
-    Then USer Validates Save Amount Visibility "true" on Checkout Page
+    Then User Validates Actual Amount Visibility "true" on Checkout Page
+    Then User Validates Original Amount Visibility "true" on Checkout Page
+    Then User Validates Save Amount Visibility "true" on Checkout Page
