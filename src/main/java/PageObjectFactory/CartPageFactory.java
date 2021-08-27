@@ -803,6 +803,7 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
+
     public void validateTaxValue(String expectedText) {
         String locator = CartPageEnum.XPATH_PRODUCT_TAX.getValue();
         String errorMsg = null;
