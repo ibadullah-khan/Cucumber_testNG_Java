@@ -269,3 +269,28 @@ Feature: Checkout Feature File
     Then User Validates Shipping Detail Section is in "edit" State
     Then User Click on Inactive Shipping Details Section Title
     Then User Validates Shipping Detail Section is in "edit" State
+
+  @Regression
+  Scenario: Verify Summary Details,Shipping Details,Payment Method Content on Checkout Page
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
+    Then User Validates Subtotal Price "true" on Checkout Page
+    Then User Validates "standard.shipping" Method Name on Summary Section of Checkout Page
+    Then User Validates Tax Value "true" on Checkout Page
+    Then User Validates total Amount Value "true" on Summary Section of Checkout Page
+    Then User Validates Product Image Visibility "true" on Summary Section of Checkout Page
+    Then User Validates Product Size Visibility "true" on Checkout Page
+    Then User Validates Product Color Visibility "true" on Checkout Page
+    Then User Validates Estimated Delivery Date Visibility "true" on Checkout Page
+    Then User Validates Product Quantity "true" on Checkout Page
+    Then User Validates Products Name Visibility "true" on Checkout Page
+    Then User Validates Brand Name Visibility "true" on Checkout Page
+    Then USer Validates Actual Amount Visibility "true" on Checkout Page
+    Then USer Validates Original Amount Visibility "true" on Checkout Page
+    Then USer Validates Save Amount Visibility "true" on Checkout Page
