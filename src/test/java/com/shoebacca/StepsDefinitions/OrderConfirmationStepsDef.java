@@ -36,4 +36,14 @@ public class OrderConfirmationStepsDef extends HarnessVariables {
     public void verifyValidationTextAppearOnOrderConfirmationPage() throws Exception{
         orderConfirmationPageFactory.validateMismatchPasswordErrorMsg(MISMATCH_PASSWORD_ERROR);
     }
+
+    @Then("User Enters Confirm Password on Order Confirmation Page")
+    public void userEntersConfirmPasswordOnOrderConfirmationPage() throws Exception {
+        orderConfirmationPageFactory.enterConfirmPasswordOnOrderConfirmation(CONFIRM_PASSWORD);
+    }
+
+    @Then("User Validate Email Validation Text on Order Confirmation Page")
+    public void userValidateEmailValidationTextOnOrderConfirmationPage() throws Exception {
+        orderConfirmationPageFactory.validateSameEmailExistErrorMsg(SAME_EMAIL_ERROR);
+    }
 }

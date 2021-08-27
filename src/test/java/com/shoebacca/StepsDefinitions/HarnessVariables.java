@@ -23,6 +23,7 @@ public class HarnessVariables extends UtilFactory {
     protected final String VALID_DATA_USERNAME = GlobalEnumVariables.VALID_LOGIN_DATA_USERNAME.getValue();
     protected final String INVALID_USERNAME = GlobalEnumVariables.INVALID_LOGIN_USERNAME.getValue();
     protected final String VALID_PASSWORD = GlobalEnumVariables.VALID_LOGIN_PASSWORD.getValue();
+    protected final String CONFIRM_PASSWORD = GlobalEnumVariables.CONFIRM_LOGIN_PASSWORD.getValue();
     protected final String INVALID_PASSWORD = GlobalEnumVariables.INVALID_LOGIN_PASSWORD.getValue();
     protected final String VALID_EMAIL_ADDRESS = CheckoutEnumVariables.VALID_EMAIL_ADDRESS.getValue();
     protected final String VALID_DATA_EMAIL_ADDRESS = CheckoutEnumVariables.VALID_DATA_EMAIL_ADDRESS.getValue();
@@ -45,6 +46,7 @@ public class HarnessVariables extends UtilFactory {
     protected final String QUANTITY_CONTENT=CartEnumVariables.QUANTITY_CONTENT.getValue();
     protected final String ITEM_TOTAL_CONTENT=CartEnumVariables.ITEM_TOTAL_CONTENT.getValue();
     protected final String MISMATCH_PASSWORD_ERROR=ErrorMsgEnumVariables.MISMATCH_PASSWORD_ERROR.getValue();
+    protected final String SAME_EMAIL_ERROR=ErrorMsgEnumVariables.SAME_EMAIL_EXIST_ERROR.getValue();
     protected final String INVALID_EMAIL_ADDRESS = CheckoutEnumVariables.INVALID_EMAIL_ADDRESS.getValue();
     protected final String EMAIL_ADDRESS_WITHOUT_DOMAIN = CheckoutEnumVariables.EMAIL_ADDRESS_WITHOUT_DOMAIN.getValue();
     protected final String EMAIL_ADDRESS_WITHOUT_RECIPIENT = CheckoutEnumVariables.EMAIL_ADDRESS_WITHOUT_RECIPIENT.getValue();

@@ -52,6 +52,20 @@ public class OrderConfirmationPageFactory extends UtilFactory {
         }
     }
 
+    public void enterConfirmPasswordOnOrderConfirmation(String password) throws Exception{
+        String locator = OrderConfirmationPageEnum.XPATH_CONFIRM_PASSWORD_FIELD.getValue();
+        try{
+            waitFactory.waitForElementToBeVisible(locator);
+            enterString(locator,password);
+            scenarioDef.log(Status.PASS,"Entered Confirm Password: "+ password +" on Order Confirmation Page");
+        }
+        catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Enter Confirm Password: "+ password +" on Order Confirmation Page");
+            throw e;
+        }
+    }
+
     public void clickCreateAccount() throws Exception {
         
         String locator = OrderConfirmationPageEnum.XPATH_CREATE_ACCOUNT_BUTTON.getValue();
@@ -83,6 +97,26 @@ public class OrderConfirmationPageFactory extends UtilFactory {
         catch (Exception e){
             failureException = e.toString();
             scenarioDef.log(Status.FAIL,"Could not Get Mis-Match error message element on Order Confirmation Page");
+            throw e;
+        }
+    }
+
+    public void validateSameEmailExistErrorMsg(String expectedErrorMsg) {
+        String locator = OrderConfirmationPageEnum.XPATH_SAME_EMAIL_EXIST_ERROR_MSG.getValue();
+        String actualErrorMsg;
+        try{
+            customWait(2000);
+            actualErrorMsg = getText(locator).trim();
+            if (actualErrorMsg.equals(expectedErrorMsg)) {
+                scenarioDef.log(Status.PASS,"Validated Same Email Exist error message as Expected: "+expectedErrorMsg+" on Order Confirmation Page");
+            }
+            else{
+                scenarioDef.log(Status.FAIL,"Could not Validate Same Email Exist error message as Expected: "+expectedErrorMsg+" on Order Confirmation Page, Actual was: "+actualErrorMsg);
+            }
+        }
+        catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Get Same Email Exist error message element on Order Confirmation Page");
             throw e;
         }
     }
