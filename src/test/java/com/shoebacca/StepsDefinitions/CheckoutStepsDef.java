@@ -344,7 +344,7 @@ public class CheckoutStepsDef extends HarnessVariables {
     public void userClicksOnAddPromoCodeButtonOnCheckoutPage() {
         checkoutPage.clickOnAddPromoCodeButton(); }
 
-    @Then("User Validates Total Amount using blank Coupon on Checkout Page")
+    @Then("User Validates Total Amount Using Blank Coupon on Checkout Page")
     public void userValidatesTotalAmountUsingBlankCouponOnCheckoutPage() {
         checkoutPage.validateTotalAmountAfterUsingBlankCoupon();}
 

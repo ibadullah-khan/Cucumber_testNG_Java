@@ -51,7 +51,7 @@ public enum CheckoutPageEnum {
     XPATH_PROMO_CODE_FIELD("//*[@id='couponCode']"),
     XPATH_ADD_COUPON_BUTTON("//button[@type='submit']"),
     XPATH_SUB_TOTAL_AMOUNT("//*[text()='Subtotal']//following::span[@class='priceSummary-price-12K'][1]"),
-    XPATH_DISCOUNT_AMOUNT("(//*[contains(text(),'Discount')]//following::span[@class='priceSummary-price-12K'][1]"),
+    XPATH_DISCOUNT_AMOUNT("(//*[contains(text(),'Discount')]//following::span[@class='priceSummary-price-12K']"),
     XPATH_TOTAL_AMOUNT("//div[@class='priceSummary-itemTotals-G6J']//*[@class='priceSummary-totalPrice-rZa']"),
     XPATH_INVALID_COUPON_MESSAGE("//p[text()='No such entity.']");
 

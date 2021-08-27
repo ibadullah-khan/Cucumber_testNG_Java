@@ -1,6 +1,5 @@
 package PageObjectFactory;
 
-import EnumFactory.CartPageEnum;
 import EnumFactory.CheckoutPageEnum;
 import UtilitiesFactory.UtilFactory;
 import com.aventstack.extentreports.Status;
@@ -1101,10 +1100,11 @@ public class CheckoutPageFactory extends UtilFactory {
         String errorMsg = null;
         try {
             waitFactory.waitForElementToBeClickable(totalAmountLocator);
-            double totalAmount = Double.parseDouble(getText(totalAmountLocator).trim().substring(1));
-            double subAmount = Double.parseDouble(getText(subAmountLocator).trim().substring(1));
-            double TaxAmount = Double.parseDouble(getText(taxAmountLocator).trim().substring(1));
-            if (totalAmount == subAmount + TaxAmount) {
+            double totalAmount = Double.parseDouble(getText(totalAmountLocator).trim().replace("$",""));
+            double subAmount = Double.parseDouble(getText(subAmountLocator).trim().replace("$",""));
+            double taxAmount = Double.parseDouble(getText(taxAmountLocator).trim().replace("$",""));
+            System.out.println(totalAmount + " "+ taxAmount);
+            if (totalAmount == subAmount + taxAmount) {
                 scenarioDef.log(Status.PASS, "Validate Total Amount $" + totalAmount + " is Same as Expected on Checkout Page");
             }
             else {

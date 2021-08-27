@@ -286,7 +286,7 @@ Feature: Checkout Feature File
     Then User Validates Payment Method Section is in "inactive" State
 
   @Regression
-  Scenario: Validate customer cannot apply an invalid/empty coupon code.
+  Scenario: Validate Customer Cannot Apply an Invalid/Empty Coupon Code.
     Given User Setups the Web Browser
     When User Navigates to "shoebacca.first.bag.pdt" Url
     And User Clicks Add to Cart Button on PDP
@@ -309,4 +309,4 @@ Feature: Checkout Feature File
     Then User Clears the Promo Code on Checkout Page
     Then User Clicks on Add Promo Code Button on Checkout Page
     Then User Validates "blank.coupon.error.msg" Coupon Error Message Text on Checkout Page
-    Then User Validates Total Amount using blank Coupon on Checkout Page
+    Then User Validates Total Amount Using Blank Coupon on Checkout Page
