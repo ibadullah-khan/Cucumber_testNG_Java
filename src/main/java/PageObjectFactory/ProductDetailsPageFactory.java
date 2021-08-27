@@ -125,22 +125,6 @@ public class ProductDetailsPageFactory extends UtilFactory {
         }
     }
 
-    public void validateProductNameToRelatedProduct(String productNamePdp,String productNameRp) {
-        String errorMsg = null;
-        try {
-            if (productNamePdp.contains(productNameRp)) {
-                scenarioDef.log(Status.PASS, "Validated Product Name From PDP is Similar to The Related Product Name: " + productNamePdp);
-            } else {
-                errorMsg = "Could not validate Expected  Product : " + productNamePdp + " , Actual Value: " + productNameRp;
-                throw new NoSuchContextException("Actual and Expected Name is Differs");
-            }
-        } catch (Exception e) {
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL, errorMsg);
-            throw e;
-        }
-    }
-
     public void validateDateColor(String expectedDateColor){
         String dateLocator = ProductDetailsPageEnum.XPATH_ESTIMATED_DELIVERY_DATE.getValue();
         String errorMsg = null;

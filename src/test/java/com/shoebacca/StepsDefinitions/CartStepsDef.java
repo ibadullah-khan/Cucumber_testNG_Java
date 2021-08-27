@@ -306,16 +306,6 @@ public class CartStepsDef extends HarnessVariables{
         cartPage.validateErrorMsgText(expectedErrorMsgText);
     }
 
-
-    @Then("User Validates Related Product Section Visibility on Cart Page {string}")
-    public void userValidatesRelatedProductSectionVisibilityOnCartPage(String expectedCondition) {
-        if(expectedCondition.equals("true")){
-            cartPage.validateRelatedProductSectionVisibility(true);
-        }else {
-            cartPage.validateRelatedProductSectionVisibility(false);
-        }
-    }
-
     @Then("User Validates UnSuccessful Login Error Visibility {string} on Cart Page")
     public void userValidatesUnSuccessfulLoginErrorVisibilityOnCartPage(String expectedCondition) {
         if(expectedCondition.equals("true")){
@@ -340,26 +330,6 @@ public class CartStepsDef extends HarnessVariables{
         cartPage.clickOnCategory(expectedCategory);
     }
 
-    @Then("User Validates {string} Related Products Quantity on Related Product Section on Cart Page")
-    public void userValidatesProductsQuantityOnCartPage(String expectedValue) {
-        cartPage.validateRelatedProductQuantity((Integer.parseInt(expectedValue)));
-    }
-
-    @Then("User Validates {string} Related Products Name on Related Product Section on Cart Page")
-    public void userValidatesRelatedProductsNameOnRelatedProductSectionOnCartPage(String expectedValue) {
-        cartPage.validateRelatedProductName((Integer.parseInt(expectedValue)));
-    }
-
-    @Then("User Validates {string} Related Products Brand on Related Product Section on Cart Page")
-    public void userValidatesRelatedProductsBrandOnRelatedProductSectionOnCartPage(String expectedValue) {
-        cartPage.validateRelatedProductBrand((Integer.parseInt(expectedValue)));
-    }
-
-    @Then("User Validates {string} Related Products Price on Related Product Section on Cart Page")
-    public void userValidatesRelatedProductsPriceOnRelatedProductSectionOnCartPage(String expectedValue) {
-        cartPage.validateRelatedProductPrice((Integer.parseInt(expectedValue)));
-    }
-
     @And("User Validates {string} Displayed on Cart Page")
     public void userValidatesDisplayedOnCartPage(String expectedValue)throws Exception {
         String expectedErrorMsgText= new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(expectedValue);
@@ -370,24 +340,6 @@ public class CartStepsDef extends HarnessVariables{
     public void userValidatesImageOnCartPage(String expectedValue)throws Exception {
         String expectedErrorMsgText= new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(expectedValue);
         cartPage.validateImageOnCart(expectedErrorMsgText);
-    }
-
-    @Then("User Validates Left Side Carousal of Product Section Visibility {string}")
-    public void userValidatesLeftSideCarousalOfProductSectionVisibility(String expectedCondition) {
-        if(expectedCondition.equals("true")){
-            cartPage.validateProductSectionLeftSideCarousalVisibility(true);
-        }else {
-            cartPage.validateProductSectionLeftSideCarousalVisibility(false);
-        }
-    }
-
-    @Then("User Validates Right Side Carousal of Product Section Visibility {string}")
-    public void userValidatesRightSideCarousalOfProductSectionVisibility(String expectedCondition) {
-        if(expectedCondition.equals("true")){
-            cartPage.validateProductSectionRightSideCarousalVisibility(true);
-        }else {
-            cartPage.validateProductSectionRightSideCarousalVisibility(false);
-        }
     }
 
     @And("User Validates Login Link Visibility on Cart Page {string}")
@@ -471,16 +423,6 @@ public class CartStepsDef extends HarnessVariables{
         String expectedPredictInspectorMenuItemDescription= new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(PredictInspectorMenuItemDescription);
         cartPage.validatePredictItemDescription(expectedPredictInspectorMenuItem,expectedPredictInspectorMenuItemDescription);
 
-    }
-
-    @And("User Fetches First Related Product Name From Cart Page")
-    public void userFetchesFirstRelatedProductNameFromCartPage() {
-        RELATED_PRODUCT_NAME = cartPage.getProductNameFromCarousal();
-    }
-
-    @Then("User Select First Related Product From Cart Page")
-    public void userSelectFirstRelatedProductFromCartPage() {
-        cartPage.selectFirstAvailableProductFromRelatedProductSection();
     }
 
     @Then("User Validates Checkout Button Disabled Visibility {string}")
