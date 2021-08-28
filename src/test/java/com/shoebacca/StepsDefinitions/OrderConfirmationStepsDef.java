@@ -13,27 +13,37 @@ public class OrderConfirmationStepsDef extends HarnessVariables {
     }
 
     @Then("User Closes Feedback Window on Confirmation Page")
-    public void userClosesFeedbackWindowOnConfirmationPage() throws Exception{
+    public void userClosesFeedbackWindowOnConfirmationPage() throws Exception {
         orderConfirmationPageFactory.closeFeedbackWindow();
     }
 
     @Then("User Enters Password on Order Confirmation Page")
-    public void userEntersPasswordOnOrderConfirmationPage() throws Exception{
+    public void userEntersPasswordOnOrderConfirmationPage() throws Exception {
         orderConfirmationPageFactory.enterPasswordOnOrderConfirmation(VALID_PASSWORD);
     }
 
     @Then("User Enters Mismatch Password on Order Confirmation Page")
-    public void userEntersMismatchPasswordOnOrderConfirmationPage() throws Exception{
+    public void userEntersMismatchPasswordOnOrderConfirmationPage() throws Exception {
         orderConfirmationPageFactory.reEnterPasswordOnOrderConfirmation(INVALID_PASSWORD);
     }
 
     @Then("User Clicks on Create Account Button on Order Confirmation Page")
-    public void userClicksOnCreateAccountButtonOnOrderConfirmationPage() throws Exception{
+    public void userClicksOnCreateAccountButtonOnOrderConfirmationPage() throws Exception {
         orderConfirmationPageFactory.clickCreateAccount();
     }
 
     @Then("Verify Validation Text Appear on Order Confirmation Page")
-    public void verifyValidationTextAppearOnOrderConfirmationPage() throws Exception{
+    public void verifyValidationTextAppearOnOrderConfirmationPage() throws Exception {
         orderConfirmationPageFactory.validateMismatchPasswordErrorMsg(MISMATCH_PASSWORD_ERROR);
     }
-}
+
+    @Then("User Validates Print Slip Button on Confirmation Page {string}")
+    public void userValidatesPrintButtonVisibilityOnPrintTab(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            orderConfirmationPageFactory.validatePrintButtonVisibility(true);
+        }else {
+            orderConfirmationPageFactory.validatePrintButtonVisibility(false);
+        }
+    }
+
+    }
