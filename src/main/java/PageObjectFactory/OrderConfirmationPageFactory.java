@@ -112,10 +112,10 @@ public class OrderConfirmationPageFactory extends UtilFactory {
     }
 
     public void validateAlreadyExistEmailErrorMsg(String expectedErrorMsg) {
-        String locator = OrderConfirmationPageEnum.XPATH_SAME_EMAIL_EXIST_ERROR_MSG.getValue();
+        String locator = OrderConfirmationPageEnum.XPATH_ERROR_MSG.getValue();
         String actualErrorMsg;
         try{
-            customWait(2000);
+            waitFactory.waitForElementToBeVisible(locator);
             actualErrorMsg = getText(locator).trim();
             if (actualErrorMsg.equals(expectedErrorMsg)) {
                 scenarioDef.log(Status.PASS,"Validated Already Exist Email error message as Expected: "+expectedErrorMsg+" on Order Confirmation Page");
