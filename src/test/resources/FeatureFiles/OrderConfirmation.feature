@@ -2,7 +2,7 @@ Feature: Order Confirmation Feature File
   Contains All Order Confirmation Module Test Cases
 
   @Regression
-  Scenario: Verify account is not created if incorrect password is entered
+  Scenario: Verify Account not Created for MisMatch Confirm Password
     Given User Setups the Web Browser
     When User Navigates to "shoebacca.first.bag.pdt" Url
     And User Clicks Add to Cart Button on PDP
@@ -53,10 +53,10 @@ Feature: Order Confirmation Feature File
     And User Enters Valid Credit Card CVV on Checkout Page
     Then User Clicks Place Order Button on Checkout Page
     Then User Closes Feedback Window on Confirmation Page
-    Then User Clicks Validates Print Slip Button on Confirmation Page "true"
+    Then User Validates Print Slip Button on Confirmation Page "true"
 
   @Regression
-  Scenario: Verify Account is not Created if Guest Email Already Exist
+  Scenario: Verify Account not Created for Already Exist Email
 
     Given User Setups the Web Browser
     When User Navigates to "shoebacca.first.bag.pdt" Url
@@ -82,4 +82,4 @@ Feature: Order Confirmation Feature File
     Then User Enters Password on Order Confirmation Page
     Then User Enters Confirm Password on Order Confirmation Page
     Then User Clicks on Create Account Button on Order Confirmation Page
-    Then User Validate Email Validation Text on Order Confirmation Page
+    Then User Validates "oc.exist.user" Error Message on Order Confirmation Page

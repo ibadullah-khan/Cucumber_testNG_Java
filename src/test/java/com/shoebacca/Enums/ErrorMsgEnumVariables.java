@@ -4,8 +4,7 @@ import UtilitiesFactory.PropertyLoaderFactory;
 
 public enum ErrorMsgEnumVariables {
 
-    MISMATCH_PASSWORD_ERROR(""),
-	SAME_EMAIL_EXIST_ERROR("");
+    MISMATCH_PASSWORD_ERROR("");
 
     private String errorMsgVariables;
 
@@ -24,8 +23,7 @@ public enum ErrorMsgEnumVariables {
 	    	String userDataFile = "errorMsg.properties";
 
 			MISMATCH_PASSWORD_ERROR.errorMsgVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("oc.password.mismatch");
-			SAME_EMAIL_EXIST_ERROR.errorMsgVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("oc.email.exist");
-        } catch (Exception e) {
+		} catch (Exception e) {
 
             e.printStackTrace();
         }

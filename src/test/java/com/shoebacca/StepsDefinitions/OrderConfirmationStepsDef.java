@@ -1,12 +1,13 @@
 package com.shoebacca.StepsDefinitions;
 
 import PageObjectFactory.OrderConfirmationPageFactory;
+import UtilitiesFactory.PropertyLoaderFactory;
 import io.cucumber.java.en.Then;
 
 public class OrderConfirmationStepsDef extends HarnessVariables {
 
     OrderConfirmationPageFactory orderConfirmationPageFactory;
-
+    protected String errorMsgPropFile = "errorMsg.properties";
 
     public OrderConfirmationStepsDef() throws Exception {
         orderConfirmationPageFactory = new OrderConfirmationPageFactory();
@@ -24,7 +25,7 @@ public class OrderConfirmationStepsDef extends HarnessVariables {
 
     @Then("User Enters Mismatch Password on Order Confirmation Page")
     public void userEntersMismatchPasswordOnOrderConfirmationPage() throws Exception{
-        orderConfirmationPageFactory.reEnterPasswordOnOrderConfirmation(INVALID_PASSWORD);
+        orderConfirmationPageFactory.enterConfirmPasswordOnOrderConfirmation(INVALID_PASSWORD);
     }
 
     @Then("User Clicks on Create Account Button on Order Confirmation Page")
@@ -48,11 +49,12 @@ public class OrderConfirmationStepsDef extends HarnessVariables {
 
     @Then("User Enters Confirm Password on Order Confirmation Page")
     public void userEntersConfirmPasswordOnOrderConfirmationPage() throws Exception {
-        orderConfirmationPageFactory.enterConfirmPasswordOnOrderConfirmation(CONFIRM_PASSWORD);
+        orderConfirmationPageFactory.enterConfirmPasswordOnOrderConfirmation(VALID_PASSWORD);
     }
 
-    @Then("User Validate Email Validation Text on Order Confirmation Page")
-    public void userValidateEmailValidationTextOnOrderConfirmationPage() throws Exception {
-        orderConfirmationPageFactory.validateSameEmailExistErrorMsg(SAME_EMAIL_ERROR);
+    @Then("User Validates {string} Error Message on Order Confirmation Page")
+    public void userValidatesErrorMessageOnOrderConfirmationPage(String errorMsg) throws Exception {
+        String errorText = new PropertyLoaderFactory().getPropertyFile(errorMsgPropFile).getProperty(errorMsg);
+        orderConfirmationPageFactory.validateAlreadyExistEmailErrorMsg(errorText);
     }
 }
