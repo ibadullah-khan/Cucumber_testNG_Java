@@ -53,7 +53,7 @@ Feature: Order Confirmation Feature File
     And User Enters Valid Credit Card CVV on Checkout Page
     Then User Clicks Place Order Button on Checkout Page
     Then User Closes Feedback Window on Confirmation Page
-    Then User Clicks Validates Print Slip Button on Confirmation Page "true"
+    Then User Validates Print Slip Button on Confirmation Page "true"
 
   @Regression
   Scenario: Verify User can Print Receipt after Placing an Order
@@ -79,7 +79,7 @@ Feature: Order Confirmation Feature File
     And User Enters Valid Credit Card CVV on Checkout Page
     Then User Clicks Place Order Button on Checkout Page
     Then User Closes Feedback Window on Confirmation Page
-    Then User Clicks Validates Print Slip Button on Confirmation Page "true"
+    Then User Validates Print Slip Button on Confirmation Page "true"
 
 
   @Regression
