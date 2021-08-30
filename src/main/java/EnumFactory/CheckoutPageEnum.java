@@ -52,13 +52,13 @@ public enum CheckoutPageEnum {
     XPATH_PRODUCT_IMAGE("//*[@class='image-image-3YO image-loaded-ktU']"),
     XPATH_PRODUCT_SIZE("//*[@class='item-options-1Di']"),
     XPATH_PRODUCT_COLOR("//*[@class='item-colorName-2wM']"),
-    XPATH_PRODUCT_QUANTITY("//*[@class='item-estimatedDate-2Aa']"),
+    XPATH_PRODUCT_QUANTITY("//*[@class='item-quantity-1vq']"),
     XPATH_PRODUCT_NAME("//*[@class='item-name-2FI']"),
     XPATH_PRODUCT_BRAND_NAME("//*[@class='item-brand-1ux']"),
     XPATH_PRODUCT_ACTUAL_AMOUNT("//*[@class='item-price-2wY']"),
     XPATH_PRODUCT_ORIGINAL_AMOUNT("//*[@class='item-salePrice-1Fb']"),
     XPATH_PRODUCT_SAVE_AMOUNT("//*[@class='item-saveAmount-3UV']"),
-    XPATH_SUBTOTAL_TEXT("//*[text()='Subtotal']//following-sibling::*[@class='priceSummary-lineItemLabel-1zJ'][1]");
+    XPATH_SUBTOTAL_TEXT("//*[@class='priceSummary-lineItemLabel-1zJ' and text()='Subtotal']");
 
 
     private String checkoutPageVariables;
