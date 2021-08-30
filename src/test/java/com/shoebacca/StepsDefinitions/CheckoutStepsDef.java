@@ -329,7 +329,7 @@ public class CheckoutStepsDef extends HarnessVariables {
     }
 
     @Then("User Enter {string} in Promo Code on Checkout Page")
-    public void userEnterInPromoCodeOnCartPage(String coupon)throws Exception {
+    public void userEnterPromoCodeOnCheckoutPage(String coupon)throws Exception {
         String couponValue= new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(coupon);
         checkoutPage.enterCouponCode(couponValue);
     }
@@ -350,4 +350,13 @@ public class CheckoutStepsDef extends HarnessVariables {
 
     @Then("User Clears the Promo Code on Checkout Page")
     public void userClearPromoCodeOnCheckoutPage() throws Exception { checkoutPage.clearPromoCode();}
+
+    @Then("User Validates Discounted Amount on Checkout Page")
+    public void userValidatesDiscountedAmountOnCheckoutPage() { checkoutPage.validateDiscountedAmount();}
+
+    @Then("User Clicks on Remove Promo Code Button on Checkout Page")
+    public void userClicksOnRemovePromoCodeOnCheckoutPage() { checkoutPage.clickOnRemovePromoCodeButton();}
+
+    @Then("User Validates Total Amount After Removing Promo Code on Checkout Page")
+    public void userValidatesTotalAmountAfterRemovingCouponOnCheckoutPage() { checkoutPage.validateTotalAmountAfterRemovingPromoCode();}
 }

@@ -1051,6 +1051,19 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
+    public void clickOnRemovePromoCodeButton() {
+        String locator = CheckoutPageEnum.XPATH_REMOVE_COUPON_BUTTON.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS, "Clicked on Remove Promo Code Button on Checkout Page");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Click on Remove Promo Code Button on Checkout Page");
+            throw e;
+        }
+    }
+
     public void validateErrorMsgText(String expectedErrorMsgText) {
         String locator = CheckoutPageEnum.XPATH_INVALID_COUPON_MESSAGE.getValue();
         String errorMsg = null;
@@ -1103,7 +1116,67 @@ public class CheckoutPageFactory extends UtilFactory {
             double totalAmount = Double.parseDouble(getText(totalAmountLocator).trim().replace("$",""));
             double subAmount = Double.parseDouble(getText(subAmountLocator).trim().replace("$",""));
             double taxAmount = Double.parseDouble(getText(taxAmountLocator).trim().replace("$",""));
-            System.out.println(totalAmount + " "+ taxAmount);
+            if (totalAmount == subAmount + taxAmount) {
+                scenarioDef.log(Status.PASS, "Validate Total Amount $" + totalAmount + " is Same as Expected on Checkout Page");
+            }
+            else {
+                errorMsg = "Validate Total Amount $" + totalAmount + " is not Same as Expected on Checkout Page";
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Price Element on Summary Section of Checkout Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void validateDiscountedAmount() {
+        String subAmountLocator = CheckoutPageEnum.XPATH_SUB_TOTAL_AMOUNT.getValue();
+        String totalAmountLocator = CheckoutPageEnum.XPATH_TOTAL_AMOUNT.getValue();
+        String taxAmountLocator = CheckoutPageEnum.XPATH_TAX_VALUE.getValue();
+        String discountAmountLocator = CheckoutPageEnum.XPATH_DISCOUNT_AMOUNT.getValue();
+        String errorMsg = null;
+        try {
+            waitFactory.waitForElementToBeClickable(discountAmountLocator);
+            double subAmount = Double.parseDouble(getText(subAmountLocator).trim().replace("$",""));
+            double taxAmount = Double.parseDouble(getText(taxAmountLocator).trim().replace("$",""));
+            double discAmount = Double.parseDouble(getText(discountAmountLocator).trim().replace("-$",""));
+            double totalAmount = Double.parseDouble(getText(totalAmountLocator).trim().replace("$",""));
+            double actualValue = subAmount + taxAmount;
+            double checkDisc = actualValue - totalAmount;
+            String discValue = String.format("%.2f",checkDisc);
+            String promoCode = String.format("%.2f",discAmount);
+            if (discValue.equals(promoCode)) {
+                scenarioDef.log(Status.PASS, "Discount Price $" + discValue + " is Validated as Expected on Checkout Page");
+            } else {
+                errorMsg = "Validate Discount Price $" + discValue + " is not Same on Checkout Page";
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Discount Element on Checkout Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void validateTotalAmountAfterRemovingPromoCode() {
+        String subAmountLocator = CheckoutPageEnum.XPATH_SUB_TOTAL_AMOUNT.getValue();
+        String totalAmountLocator = CheckoutPageEnum.XPATH_TOTAL_AMOUNT.getValue();
+        String taxAmountLocator = CheckoutPageEnum.XPATH_TAX_VALUE.getValue();
+        String errorMsg = null;
+        try {
+            waitFactory.waitForElementToBeClickable(totalAmountLocator);
+            double totalAmount = Double.parseDouble(getText(totalAmountLocator).trim().replace("$",""));
+            double subAmount = Double.parseDouble(getText(subAmountLocator).trim().replace("$",""));
+            double taxAmount = Double.parseDouble(getText(taxAmountLocator).trim().replace("$",""));
             if (totalAmount == subAmount + taxAmount) {
                 scenarioDef.log(Status.PASS, "Validate Total Amount $" + totalAmount + " is Same as Expected on Checkout Page");
             }

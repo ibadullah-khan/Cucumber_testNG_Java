@@ -10,6 +10,9 @@ dist/
 # Compiled Java class files
 *.class
 
+#Intelij File
+ShoeBacca.iml
+
 # Compiled Python bytecode
 *.py[cod]
 
