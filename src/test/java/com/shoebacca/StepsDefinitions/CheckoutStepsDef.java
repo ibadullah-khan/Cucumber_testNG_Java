@@ -350,4 +350,13 @@ public class CheckoutStepsDef extends HarnessVariables {
 
     @Then("User Clears the Promo Code on Checkout Page")
     public void userClearPromoCodeOnCheckoutPage() throws Exception { checkoutPage.clearPromoCode();}
+
+    @Then("User Validates Credit Card Section Visibility {string} by Default")
+    public void userValidatesCreditCardSectionVisibilityByDefault(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateCreditCardSectionVisibility(true);
+        }else {
+            checkoutPage.validateCreditCardSectionVisibility(false);
+        }
+    }
 }

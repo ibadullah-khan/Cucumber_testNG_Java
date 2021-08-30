@@ -288,3 +288,24 @@ Feature: Checkout Feature File
       Then User Clicks on Add Promo Code Button on Checkout Page
       Then User Validates "blank.coupon.error.msg" Coupon Error Message Text on Checkout Page
       Then User Validates Total Amount Using Blank Coupon on Checkout Page
+
+  @Regression
+  Scenario: Verify Credit Card Payment Method is Opened by Default for Guest/First Time Logged in User
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks Checkout Button on Mini Cart View
+    And User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
+    And User Enters Valid Email Address on Checkout Page
+    And User Enters Valid First Name on Checkout Page
+    And User Enters Valid Last Name on Checkout Page
+    And User Enters Valid Address on Checkout Page
+    And User Enters Valid City on Checkout Page
+    And User Selects Valid State on Checkout Page
+    And User Enters Valid Zip Code on Checkout Page
+    And User Enters Valid Phone No on Checkout Page
+    Then User Clicks Save and Continue Button on Checkout Page
+    Then User Validates Credit Card Section Visibility "true" by Default
