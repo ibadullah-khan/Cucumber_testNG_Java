@@ -231,3 +231,21 @@ Feature: Checkout Feature File
     Then User Validates Shipping Detail Section is in "edit" State
     Then User Validates Shipping Method on Checkout Page
     Then User Validates Payment Method Section is in "inactive" State
+
+  @Regression
+  Scenario: Validate Logged in Customer can Proceed to Checkout Page
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.home" Url
+    And User Clicks the Account Icon on Header
+    Then User Enters Valid Login Data Username on Account Menu
+    And User Enters Valid Login Password on Account Menu
+    Then User Clicks the Login Button on Account Menu
+    Then User Validates Successful Login on Account Menu
+    And User Clicks the Mini Cart Icon on Header
+    Then User Clicks on View Cart Button
+    Then User Should Redirect Toward "shopping.cart" Page
+    Then User Validates Successful Loaded Cart Page
+    Then User Clicks Checkout Button on Cart View
+    Then User Should Redirect Toward "shopping.checkout" Page
+    Then User Validates Successful Loaded Checkout Page
