@@ -10,6 +10,14 @@
         <listener class-name="Runner.TestRunnerListener" />
     </listeners>
 
+    <test name="Account Menu Feature">
+        <parameter name="browser" value= "&browser;" />
+        <parameter name="emailReport" value="&emailReport;" />
+        <classes>
+            <class name="Runner.AccountMenuTest" />
+        </classes>
+    </test>
+
     <test name="Mini Cart Feature">
         <parameter name="browser" value= "&browser;" />
         <parameter name="emailReport" value="&emailReport;" />
