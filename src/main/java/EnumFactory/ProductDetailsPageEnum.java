@@ -10,11 +10,7 @@ public enum ProductDetailsPageEnum {
     XPATH_PRODUCT_BRAND("//*[@id='productFullDetail']//*[@class='productFullDetail-brandName-38D']"),
     XPATH_SELECT_FIRST_AVAILABLE_PRODUCT_SIZE("//*[@class='tileList-root-3cR']//button[not(@disabled)]"),
     XPATH_ESTIMATED_DELIVERY_DATE("//*[@class='productFullDetail-delievryMessage-Cl1']/span"),
-    XPATH_PRODUCT_PRICE("//*[@id='productFullDetail']//*[@class='productFullDetail-price-hNW']"),
-    XPATH_DROPDOWN_BUTTON("(//*[@id='products-orderby']//option)[5]"),
-    XPATH_SELECT_VALUE("//*[@class='product-item']"),
-    XPATH_GENDER("XPATH_GENDER"),
-    XPATH_REGISTER("//*[@class='ico-register']");
+    XPATH_PRODUCT_PRICE("//*[@id='productFullDetail']//*[@class='productFullDetail-price-hNW']");
 
     private String pdpVariables;
 
