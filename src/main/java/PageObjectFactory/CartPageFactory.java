@@ -91,98 +91,6 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
-    public void validateRelatedProductQuantity(int expectedValue) {
-        String locator = CartPageEnum.XPATH_RELATED_PRODUCTS.getValue();
-        String errorMsg = null;
-        List<WebElement> elements;
-        try {
-            elements = elementFactory.getElementsList(locator);
-            if (expectedValue == elements.size()) {
-                scenarioDef.log(Status.PASS, "Validated " + expectedValue + " Related Products is Displayed as Expected on Cart Page");
-            } else {
-                errorMsg = "Validated " + expectedValue + " Related Products is not Displayed as Expected on Cart Page";
-                throw new NoSuchContextException("Actual and Expected Value Differs");
-            }
-        } catch (Exception e) {
-            failureException = e.toString();
-            if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the Related Products Element on Cart Page");
-            } else {
-                scenarioDef.log(Status.FAIL, errorMsg);
-            }
-            throw e;
-        }
-    }
-
-    public void validateRelatedProductName(int expectedValue) {
-        String locator = CartPageEnum.XPATH_RELATED_PRODUCTS_NAME.getValue();
-        String errorMsg = null;
-        List<WebElement> elements;
-        try {
-            elements = elementFactory.getElementsList(locator);
-            if (expectedValue == elements.size()) {
-                scenarioDef.log(Status.PASS, "Validated " + expectedValue + " Related Products Name is Displayed as Expected on Cart Page");
-            } else {
-                errorMsg = "Validated " + expectedValue + " Related Products Name is not Displayed as Expected on Cart Page";
-                throw new NoSuchContextException("Actual and Expected Value Differs");
-            }
-        } catch (Exception e) {
-            failureException = e.toString();
-            if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the Related Products Name Element on Cart Page");
-            } else {
-                scenarioDef.log(Status.FAIL, errorMsg);
-            }
-            throw e;
-        }
-    }
-
-    public void validateRelatedProductBrand(int expectedValue) {
-        String locator = CartPageEnum.XPATH_RELATED_PRODUCTS_BRAND.getValue();
-        String errorMsg = null;
-        List<WebElement> elements;
-        try {
-            elements = elementFactory.getElementsList(locator);
-            if (expectedValue == elements.size()) {
-                scenarioDef.log(Status.PASS, "Validated " + expectedValue + " Related Products Brand is Displayed as Expected on Cart Page");
-            } else {
-                errorMsg = "Validated " + expectedValue + " Related Products Brand is not Displayed as Expected on Cart Page";
-                throw new NoSuchContextException("Actual and Expected Value Differs");
-            }
-        } catch (Exception e) {
-            failureException = e.toString();
-            if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the Related Products Brand Element on Cart Page");
-            } else {
-                scenarioDef.log(Status.FAIL, errorMsg);
-            }
-            throw e;
-        }
-    }
-
-    public void validateRelatedProductPrice(int expectedValue) {
-        String locator = CartPageEnum.XPATH_RELATED_PRODUCTS_PRICE.getValue();
-        String errorMsg = null;
-        List<WebElement> elements;
-        try {
-            elements = elementFactory.getElementsList(locator);
-            if (expectedValue == elements.size()) {
-                scenarioDef.log(Status.PASS, "Validated " + expectedValue + " Related Products Price is Displayed as Expected on Cart Page");
-            } else {
-                errorMsg = "Validated " + expectedValue + " Related Products Price is not Displayed as Expected on Cart Page";
-                throw new NoSuchContextException("Actual and Expected Value Differs");
-            }
-        } catch (Exception e) {
-            failureException = e.toString();
-            if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the Related Products Price Element on Cart Page");
-            } else {
-                scenarioDef.log(Status.FAIL, errorMsg);
-            }
-            throw e;
-        }
-    }
-
     public void validateQuantityOfProductAdded(String expectedValue) {
         String locator = CartPageEnum.XPATH_PRODUCT_QUANTITY.getValue();
         String errorMsg = null;
@@ -856,35 +764,6 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
-    public void validateRelatedProductSectionVisibility(Boolean expectedVisibility) {
-        String locator = CartPageEnum.XPATH_RELATED_PRODUCT_SECTION.getValue();
-        String errorMsg = null;
-        Boolean actualVisibility;
-        try {
-            waitFactory.waitForElementToBeClickable(locator);
-            actualVisibility = isVisible(locator);
-            if (actualVisibility && expectedVisibility) {
-                scenarioDef.log(Status.PASS, "Validated Related Product Section is Displayed as Expected on Cart Page");
-            } else if (!actualVisibility && !expectedVisibility) {
-                scenarioDef.log(Status.PASS, "Validated Related Product Section is Not Displayed as Expected on Cart Page");
-            } else if (actualVisibility && !expectedVisibility) {
-                errorMsg = "Validated Related Product Section is Displayed Unexpected on Cart Page";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
-            } else if (!actualVisibility && expectedVisibility) {
-                errorMsg = "Validated Related Product Section is not Displayed Unexpected on Cart Page";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
-            }
-        } catch (Exception e) {
-            failureException = e.toString();
-            if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the Related Product Section Element on Cart Page");
-            } else {
-                scenarioDef.log(Status.FAIL, errorMsg);
-            }
-            throw e;
-        }
-    }
-
     public void clickOnChangeShippingOption() {
         String locator = CartPageEnum.XPATH_CHANGE_SHIPPING_LINK.getValue();
         try {
@@ -1348,54 +1227,6 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
-    public void validateProductSectionLeftSideCarousalVisibility(Boolean expectedVisibility) {
-        String locator = CartPageEnum.XPATH_RELATED_PRODUCT_SECTION_LEFT_SLIDER.getValue();
-        String errorMsg = null;
-        Boolean actualVisibility;
-        try {
-            actualVisibility = isVisible(locator);
-            if (actualVisibility && expectedVisibility) {
-                scenarioDef.log(Status.PASS, "Validated Product Section Left Side Carousal is Displayed as Expected on Cart Page");
-            } else if (!actualVisibility && !expectedVisibility) {
-                scenarioDef.log(Status.PASS, "Validated Product Section Left Side Carousal is Not Displayed as Expected on Cart Page");
-            } else if (actualVisibility && !expectedVisibility) {
-                errorMsg = "Validated Product Section Left Side Carousal is Displayed Unexpected on Cart Page";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
-            } else if (!actualVisibility && expectedVisibility) {
-                errorMsg = "Validated Product Section Left Side Carousal is not Displayed Unexpected on Cart Page";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
-            }
-        } catch (Exception e) {
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL, errorMsg);
-            throw e;
-        }
-    }
-
-    public void validateProductSectionRightSideCarousalVisibility(Boolean expectedVisibility) {
-        String locator = CartPageEnum.XPATH_RELATED_PRODUCT_SECTION_RIGHT_SLIDER.getValue();
-        String errorMsg = null;
-        Boolean actualVisibility;
-        try {
-            actualVisibility = isVisible(locator);
-            if (actualVisibility && expectedVisibility) {
-                scenarioDef.log(Status.PASS, "Validated Product Section Right Side Carousal is Displayed as Expected on Cart Page");
-            } else if (!actualVisibility && !expectedVisibility) {
-                scenarioDef.log(Status.PASS, "Validated Product Section Right Side Carousal is Not Displayed as Expected on Cart Page");
-            } else if (actualVisibility && !expectedVisibility) {
-                errorMsg = "Validated Product Section Right Side Carousal is Displayed Unexpected on Cart Page";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
-            } else if (!actualVisibility && expectedVisibility) {
-                errorMsg = "Validated Product Section Right Side Carousal is not Displayed Unexpected on Cart Page";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
-            }
-        } catch (Exception e) {
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL, errorMsg);
-            throw e;
-        }
-    }
-
     public void validateLoginLinkVisibility(boolean expectedVisibility) {
         String locator = CartPageEnum.XPATH_CART_LOGIN_LINK.getValue();
         String errorMsg = null;
@@ -1725,34 +1556,6 @@ public class CartPageFactory extends UtilFactory {
         } catch (Exception e) {
             failureException = e.toString();
             scenarioDef.log(Status.FAIL, errorMsg);
-            throw e;
-        }
-    }
-
-    public String getProductNameFromCarousal() {
-        String locator = CartPageEnum.XPATH_PRODUCT_NAME_CAROUSAL.getValue();
-        String productName;
-        try {
-            waitFactory.waitForElementToBeClickable(locator);
-            productName = getText(locator);
-            scenarioDef.log(Status.PASS, "Fetched Product Name: " + productName + " from Related Product");
-            return productName;
-        } catch (Exception e) {
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL, "Could not Fetch Product Name from Related Product");
-            throw e;
-        }
-    }
-
-    public void selectFirstAvailableProductFromRelatedProductSection() {
-        String locator = CartPageEnum.XPATH_PRODUCT_NAME_CAROUSAL.getValue();
-        try {
-            waitFactory.waitForElementToBeClickable(locator);
-            click(locator);
-            scenarioDef.log(Status.PASS, "Clicked on First Available Product on Related Product Carousal");
-        } catch (Exception e) {
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL, "Could not Click on First Available Product on Related Product Carousal");
             throw e;
         }
     }
