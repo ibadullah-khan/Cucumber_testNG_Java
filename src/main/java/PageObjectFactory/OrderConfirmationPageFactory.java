@@ -39,12 +39,12 @@ public class OrderConfirmationPageFactory extends UtilFactory {
         }
     }
     
-    public void reEnterPasswordOnOrderConfirmation(String password) throws Exception{
+    public void enterConfirmPasswordOnOrderConfirmation(String password) throws Exception{
         String locator = OrderConfirmationPageEnum.XPATH_CONFIRM_PASSWORD_FIELD.getValue();
         try{
             waitFactory.waitForElementToBeVisible(locator);
             enterString(locator,password);
-            scenarioDef.log(Status.PASS,"Entered Re-Password: "+ password +" on Order Confirmation Page");
+            scenarioDef.log(Status.PASS,"Entered Confirm Password: "+ password +" on Order Confirmation Page");
         }
         catch (Exception e) {
             failureException = e.toString();
@@ -107,6 +107,26 @@ public class OrderConfirmationPageFactory extends UtilFactory {
         catch (Exception e){
             failureException = e.toString();
             scenarioDef.log(Status.FAIL,"Could not Get Mis-Match error message element on Order Confirmation Page");
+            throw e;
+        }
+    }
+
+    public void validateAlreadyExistEmailErrorMsg(String expectedErrorMsg) {
+        String locator = OrderConfirmationPageEnum.XPATH_ERROR_MSG.getValue();
+        String actualErrorMsg;
+        try{
+            waitFactory.waitForElementToBeVisible(locator);
+            actualErrorMsg = getText(locator).trim();
+            if (actualErrorMsg.equals(expectedErrorMsg)) {
+                scenarioDef.log(Status.PASS,"Validated Already Exist Email error message as Expected: "+expectedErrorMsg+" on Order Confirmation Page");
+            }
+            else{
+                scenarioDef.log(Status.FAIL,"Could not Validate Already Exist Email  error message as Expected: "+expectedErrorMsg+" on Order Confirmation Page, Actual was: "+actualErrorMsg);
+            }
+        }
+        catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Get Already Exist Email  error message element on Order Confirmation Page");
             throw e;
         }
     }
