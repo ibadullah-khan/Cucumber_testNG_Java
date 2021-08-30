@@ -132,19 +132,6 @@ Feature: Checkout Feature File
     Then User Validates Add New Address Visibility "true"
 
   @Regression
-  Scenario: Validate Sign In Without Entering Any Values
-
-    Given User Setups the Web Browser
-    When User Navigates to "shoebacca.first.bag.pdt" Url
-    And User Clicks Add to Cart Button on PDP
-    And User Validates Successful Triggered Mini Cart
-    And User Clicks Checkout Button on Mini Cart View
-    Then User Clicks on Member Checkout Button
-    Then User Clicks the Login Button on Account Menu
-    Then User Validates Error Message Visibility "true" on Email Field on Account Menu
-    Then User Validates Error Message Visibility "true" on Password Field on Account Menu
-
-  @Regression
   Scenario: Validate Error Messages are Shown for Required Fields on Checkout Page
 
     Given User Setups the Web Browser
@@ -191,46 +178,6 @@ Feature: Checkout Feature File
     Then User Validates Header Visibility "true" on Checkout Page
     Then User Validates Logo Visibility "true" in Header on Checkout Page
     Then User Validates Help icon Visibility "true" on Checkout Page
-
-  @Regression
-  Scenario: Verify Email Address is Validated When Entered to Sign In
-
-    Given User Setups the Web Browser
-    When User Navigates to "shoebacca.first.bag.pdt" Url
-    And User Clicks Add to Cart Button on PDP
-    And User Validates Successful Triggered Mini Cart
-    And User Clicks Checkout Button on Mini Cart View
-    Then User Clicks on Member Checkout Button
-    Then User Enters Invalid Email Address on Account Menu
-    Then User Clicks the Login Button on Account Menu
-    Then User Validates Validation Error Message Visibility "true" on Account Menu
-    Then User Clears the Email Field on Account Menu
-    Then User Enters Invalid Email Address Without Domain Name on Account Menu
-    Then User Clicks the Login Button on Account Menu
-    Then User Validates Validation Error Message Visibility "true" on Account Menu
-    Then User Clears the Email Field on Account Menu
-    Then User Enters Invalid Email Address Without Recipient Name on Account Menu
-    Then User Clicks the Login Button on Account Menu
-    Then User Validates Validation Error Message Visibility "true" on Account Menu
-
-  @Regression
-  Scenario:Validate Registered Customer When Signs in with Valid Credentials is Landed on Checkout page.
-
-    Given User Setups the Web Browser
-    When User Navigates to "shoebacca.first.bag.pdt" Url
-    And User Clicks Add to Cart Button on PDP
-    And User Validates Successful Triggered Mini Cart
-    And User Clicks on View Cart Button
-    Then User Should Redirect Toward "shopping.cart" Page
-    Then User Clicks Checkout Button on Cart View
-    Then User Validates Checkout Process Pop Up Visibility "true"
-    Then User Clicks on Member Checkout Button
-    Then User Validates Sign In Pop Up Visibility "true"
-    Then User Enters Valid Login Username on Account Menu
-    Then User Enters Valid Login Password on Account Menu
-    Then User Clicks the Login Button on Account Menu
-    Then User Validates Successful Loaded Checkout Page
-    Then User Should Redirect Toward "shopping.checkout" Page
 
     @Regression
     Scenario: Validate "Edit" Link For Shipping Details Expands Section
@@ -302,6 +249,45 @@ Feature: Checkout Feature File
     Then User Clicks Checkout Button on Cart View
     Then User Should Redirect Toward "shopping.checkout" Page
     Then User Validates Successful Loaded Checkout Page
+
+  @Regression
+  Scenario: Validate Guest Customer can Continue as Guest and Lands on the Checkout Page
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks on View Cart Button
+    Then User Clicks Checkout Button on Cart View
+    Then User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
+
+  @Regression
+    Scenario: Validate Customer Cannot Apply an Invalid/Empty Coupon Code.
+
+      Given User Setups the Web Browser
+      When User Navigates to "shoebacca.first.bag.pdt" Url
+      And User Clicks Add to Cart Button on PDP
+      And User Validates Successful Triggered Mini Cart
+      And User Clicks Checkout Button on Mini Cart View
+      And User Clicks on Guest Checkout Button
+      Then User Should Redirect Toward "shopping.checkout" Page
+      And User Enters Valid Email Address on Checkout Page
+      And User Enters Valid First Name on Checkout Page
+      And User Enters Valid Last Name on Checkout Page
+      And User Enters Valid Address on Checkout Page
+      And User Enters Valid City on Checkout Page
+      And User Selects Valid State on Checkout Page
+      And User Enters Valid Zip Code on Checkout Page
+      And User Enters Valid Phone No on Checkout Page
+      Then User Clicks Save and Continue Button on Checkout Page
+      Then User Enter "invalid.coupon" in Promo Code on Checkout Page
+      Then User Clicks on Add Promo Code Button on Checkout Page
+      Then User Validates "invalid.coupon.error.msg" Coupon Error Message Text on Checkout Page
+      Then User Clears the Promo Code on Checkout Page
+      Then User Clicks on Add Promo Code Button on Checkout Page
+      Then User Validates "blank.coupon.error.msg" Coupon Error Message Text on Checkout Page
+      Then User Validates Total Amount Using Blank Coupon on Checkout Page
 
   @Regression
   Scenario: Validate Logged in Customer can Use any of Saved Addresses

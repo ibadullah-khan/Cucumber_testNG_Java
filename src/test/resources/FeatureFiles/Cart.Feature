@@ -224,21 +224,6 @@ Feature: Cart Feature File
     Then User Validates Your Cart is Empty Section Visibility "true"
 
   @Regression
-  Scenario: Verify Related Products Section is Displayed with Four Products on Cart Page
-
-    Given User Setups the Web Browser
-    Then User Navigates to "shoebacca.first.bag.pdt" Url
-    Then User Clicks Add to Cart Button on PDP
-    And User Validates Successful Triggered Mini Cart
-    And User Clicks on View Cart Button
-    Then User Should Redirect Toward "shopping.cart" Page
-    Then User Validates Related Product Section Visibility on Cart Page "true"
-    Then User Validates "4" Related Products Quantity on Related Product Section on Cart Page
-    Then User Validates "4" Related Products Name on Related Product Section on Cart Page
-    Then User Validates "4" Related Products Brand on Related Product Section on Cart Page
-    Then User Validates "4" Related Products Price on Related Product Section on Cart Page
-
-  @Regression
   Scenario: Verify Price is not Discounted When Invalid Coupon is Entered
 
     Given User Setups the Web Browser
@@ -308,16 +293,6 @@ Feature: Cart Feature File
     And User Validates "shoebacca.alt" Image on Cart Page
 
   @Regression
-  Scenario: Verify Related Product Carousal Section Should Display
-
-    Given User Setups the Web Browser
-    When User Navigates to "shoebacca.cart" Url
-    Then User Should Redirect Toward "shopping.cart" Page
-    Then User Validates Related Product Section Visibility on Cart Page "true"
-    Then User Validates Left Side Carousal of Product Section Visibility "true"
-    Then User Validates Right Side Carousal of Product Section Visibility "true"
-
-  @Regression
   Scenario: Verify Login Link Should Open The Login Popup For Guest User
 
     Given User Setups the Web Browser
@@ -376,34 +351,12 @@ Feature: Cart Feature File
     Then User Should Redirect Toward "shopping.home" Page
 
   @Regression
-  Scenario: Validate Guest Customer can Continue as Guest and Lands on the Checkout Page
-
-    Given User Setups the Web Browser
-    When User Navigates to "shoebacca.first.bag.pdt" Url
-    Then User Clicks Add to Cart Button on PDP
-    And User Validates Successful Triggered Mini Cart
-    And User Clicks on View Cart Button
-    Then User Clicks Checkout Button on Cart View
-    Then User Clicks on Guest Checkout Button
-    Then User Should Redirect Toward "shopping.checkout" Page
-
-  @Regression
   Scenario: Verify the recommended login is Personal
 
     Given User Setups the Web Browser
     When User Navigates to "shoebacca.cart.predict.inspector" Url
     Then User Verify Predict Inspector Section Visibility "true"
     Then User Verify that on "predict.inspecter.item" Column "predict.inspector.item.description" Description is Display
-
-  @Regression
-  Scenario:Verify Clicking on Product Carousel(s) is Redirecting to Relevant PDP
-
-    Given User Setups the Web Browser
-    When User Navigates to "shoebacca.cart" Url
-    And User Fetches First Related Product Name From Cart Page
-    Then User Select First Related Product From Cart Page
-    And User Fetches Product Name from PDP
-    Then User Validates Product Name from PDP to Related Product Name
 
   @Regression
   Scenario: Verify Summary Section not Loaded, if Shipping Method is not Updated
@@ -435,7 +388,7 @@ Feature: Cart Feature File
     Then User Click on Remove Link on "shoebacca.first.bag.name" Product on Cart Page
 
   @Regression
-  Scenario: Estimated Delivery Date is Only Diplayed After Shipping Methods are Loaded
+  Scenario: Estimated Delivery Date is Only Displayed After Shipping Methods are Loaded
 
     Given User Setups the Web Browser
     When User Navigates to "shoebacca.first.bag.pdt" Url
