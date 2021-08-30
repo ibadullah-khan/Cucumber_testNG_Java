@@ -263,6 +263,33 @@ Feature: Checkout Feature File
     Then User Should Redirect Toward "shopping.checkout" Page
 
   @Regression
+    Scenario: Validate Customer Cannot Apply an Invalid/Empty Coupon Code.
+
+      Given User Setups the Web Browser
+      When User Navigates to "shoebacca.first.bag.pdt" Url
+      And User Clicks Add to Cart Button on PDP
+      And User Validates Successful Triggered Mini Cart
+      And User Clicks Checkout Button on Mini Cart View
+      And User Clicks on Guest Checkout Button
+      Then User Should Redirect Toward "shopping.checkout" Page
+      And User Enters Valid Email Address on Checkout Page
+      And User Enters Valid First Name on Checkout Page
+      And User Enters Valid Last Name on Checkout Page
+      And User Enters Valid Address on Checkout Page
+      And User Enters Valid City on Checkout Page
+      And User Selects Valid State on Checkout Page
+      And User Enters Valid Zip Code on Checkout Page
+      And User Enters Valid Phone No on Checkout Page
+      Then User Clicks Save and Continue Button on Checkout Page
+      Then User Enter "invalid.coupon" in Promo Code on Checkout Page
+      Then User Clicks on Add Promo Code Button on Checkout Page
+      Then User Validates "invalid.coupon.error.msg" Coupon Error Message Text on Checkout Page
+      Then User Clears the Promo Code on Checkout Page
+      Then User Clicks on Add Promo Code Button on Checkout Page
+      Then User Validates "blank.coupon.error.msg" Coupon Error Message Text on Checkout Page
+      Then User Validates Total Amount Using Blank Coupon on Checkout Page
+
+  @Regression
   Scenario: Verify Summary Details,Shipping Details,Payment Method Content on Checkout Page
 
     Given User Setups the Web Browser
