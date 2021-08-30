@@ -111,4 +111,14 @@ public class AccountMenuStepsDef extends HarnessVariables{
             accountMenuPage.validateSignInPopUpVisibility(false);
         }
     }
+
+    @Then("User Enters Valid All Login Data Username on Account Menu")
+    public void userEntersValidAllLoginDataUsernameOnAccountMenu() throws Exception {
+        accountMenuPage.enterUsername(VALID_ALL_USERNAME);
+    }
+
+    @And("User Enters Valid All Login Data Password on Account Menu")
+    public void userEntersValidAllLoginPasswordOnAccountMenu() throws Exception {
+        accountMenuPage.enterPassword(VALID_ALL_PASSWORD);
+    }
 }

@@ -327,4 +327,32 @@ public class CheckoutStepsDef extends HarnessVariables {
     public void userValidatesPaymentMethodSectionIsInState(String state) {
         checkoutPage.validatePaymentMethodState(state);
     }
+
+    @Then("User Validates Shipping Address Visibility on Checkout Page {string}")
+    public void userValidatesShippingAddressVisibilityOnCheckoutPage(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateShippingAddressVisibility(true);
+        }else {
+            checkoutPage.validateShippingAddressVisibility(false);
+        }
+    }
+
+    @Then("User Clicks on Change Address Button on Checkout Page")
+    public void userClicksOnChangeAddressButtonOnCheckoutPage() {
+        checkoutPage.clickChangeAddressButton();
+    }
+
+    @Then("User Validates Saved Addresses Visibility on Checkout Page {string}")
+    public void userValidatesSavedAddressesVisibilityOnCheckoutPage(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateSavedAddressVisibility(true);
+        }else {
+            checkoutPage.validateSavedAddressVisibility(false);
+        }
+    }
+
+    @Then("User Select First Saved Address on Checkout Page")
+    public void userSelectFirstSavedAddressOnCheckoutPage() {
+        checkoutPage.selectSavedAddress();
+    }
 }

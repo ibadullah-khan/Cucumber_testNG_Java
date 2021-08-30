@@ -30,6 +30,19 @@ public class HomePageFactory extends UtilFactory {
         }
     }
 
+    public void clickOnAddressBook(){
+        String locator = HomePageEnum.XPATH_ADDRESS_BOOK.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS,"Clicked on Address Book on Account Menu");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not click on Address Book on Account Menu");
+            throw e;
+        }
+    }
+
     public void validateMiniCartIconVisibility(Boolean expectedVisibility){
         String locator = HomePageEnum.XPATH_MINI_CART_ICON.getValue();
         String errorMsg = null;

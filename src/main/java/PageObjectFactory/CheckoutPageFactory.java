@@ -871,6 +871,55 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
+    public void validateShippingAddressVisibility(boolean expectedVisibility) {
+        String locator = CheckoutPageEnum.XPATH_SHIPPING_ADDRESS.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try {
+            customWait(2000);
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Shipping Address is Displayed as Expected on Checkout Page");
+            } else if (!actualVisibility && !expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Shipping Address is not Displayed as Expected on Checkout Page");
+            } else if (actualVisibility && !expectedVisibility) {
+                errorMsg = "Validated Shipping Address is Displayed Unexpected on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
+                errorMsg = "Validated Shipping Address is Displayed Unexpectedly on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateSavedAddressVisibility(boolean expectedVisibility) {
+        String locator = CheckoutPageEnum.XPATH_SAVED_SHIPPING_ADDRESS.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try {
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Saved Addresses are Displayed as Expected on Checkout Page");
+            } else if (!actualVisibility && !expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Saved Addresses are not Displayed as Expected on Checkout Page");
+            } else if (actualVisibility && !expectedVisibility) {
+                errorMsg = "Validated Saved Addresses are Displayed Unexpected on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
+                errorMsg = "Validated Saved Addresses are Displayed Unexpectedly on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
+    }
+
     public void clickOnEmailAddressField() {
         String locator = CheckoutPageEnum.XPATH_EMAIL_ADDRESS_FIELD.getValue();
         try{
@@ -880,6 +929,32 @@ public class CheckoutPageFactory extends UtilFactory {
         }catch (Exception e){
             failureException = e.toString();
             scenarioDef.log(Status.FAIL,"Could not Click on Email Address Field on Checkout Page");
+            throw e;
+        }
+    }
+
+    public void clickChangeAddressButton() {
+        String locator = CheckoutPageEnum.XPATH_CHANGE_SHIPPING_ADDRESS.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS,"Clicked on Change Shipping Method on Checkout Page");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Click on Change Shipping Method on Checkout Page");
+            throw e;
+        }
+    }
+
+    public void selectSavedAddress() {
+        String locator = CheckoutPageEnum.XPATH_SAVED_FIRST_SHIPPING_ADDRESS.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS,"Selected First Saved Address on Checkout Page");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Select First Saved Address on Checkout Page");
             throw e;
         }
     }

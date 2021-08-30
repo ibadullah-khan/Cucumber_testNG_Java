@@ -302,3 +302,28 @@ Feature: Checkout Feature File
     Then User Clicks Checkout Button on Cart View
     Then User Should Redirect Toward "shopping.checkout" Page
     Then User Validates Successful Loaded Checkout Page
+
+  @Regression
+  Scenario: Validate Logged in Customer can Use any of Saved Addresses
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.home" Url
+    And User Clicks the Account Icon on Header
+    Then User Enters Valid All Login Data Username on Account Menu
+    And User Enters Valid All Login Data Password on Account Menu
+    Then User Clicks the Login Button on Account Menu
+    Then User Validates Successful Login on Account Menu
+    And User Clicks the Mini Cart Icon on Header
+    Then User Clicks Checkout Button on Mini Cart View
+    Then User Validates Shipping Address Visibility on Checkout Page "true"
+    Then User Clicks on Change Address Button on Checkout Page
+    Then User Validates Saved Addresses Visibility on Checkout Page "true"
+    Then User Select First Saved Address on Checkout Page
+    Then User Clicks Save and Continue Button on Checkout Page
+    And User Enters Valid Credit Card Number on Checkout Page
+    And User Enters Valid Credit Card Expiry Date on Checkout Page
+    And User Enters Valid Credit Card CVV on Checkout Page
+    Then User Clicks Place Order Button on Checkout Page
+    Then User Clicks the Account Icon on Header
+    Then User Clicks on Address Book on Account Menu
+    Then User Validates Saved Addresses Visibility on Address Book Page "true"
