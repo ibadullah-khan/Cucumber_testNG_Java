@@ -23,7 +23,7 @@ public enum ErrorMsgEnumVariables {
 	    	String userDataFile = "errorMsg.properties";
 
 			MISMATCH_PASSWORD_ERROR.errorMsgVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("oc.password.mismatch");
-        } catch (Exception e) {
+		} catch (Exception e) {
 
             e.printStackTrace();
         }

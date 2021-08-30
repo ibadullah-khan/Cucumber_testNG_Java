@@ -159,7 +159,7 @@ public class CheckoutPageFactory extends UtilFactory {
         String loader = CheckoutPageEnum.XPATH_SHIPPING_LOADER.getValue();
         try{
             waitFactory.waitForElementToBeClickable(locator);
-            customWait(4000);
+            customWait(5000);
             click(locator);
             waitFactory.waitForElementToBeVisible(loader);
             scenarioDef.log(Status.PASS,"Clicked on Save and Continue Button on Checkout Page");
