@@ -498,7 +498,7 @@ Feature: Checkout Feature File
 #    Then User Select "paypal.payment" Payment Method
 
   @Regression
-  Scenario: Validate Customer can Select PayPal as a Payment Method
+  Scenario: Verify Customer can not Proceed with Phone Number Greater than Teb Digits
 
     Given User Setups the Web Browser
     When User Navigates to "shoebacca.first.bag.pdt" Url
