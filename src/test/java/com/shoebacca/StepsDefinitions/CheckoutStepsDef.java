@@ -527,4 +527,9 @@ public class CheckoutStepsDef extends HarnessVariables {
         String errorMsg = new PropertyLoaderFactory().getPropertyFile(errorMsgPropFile).getProperty(expectedError);
         checkoutPage.validatePaymentMethodFormErrorMsg(errorMsg,field);
     }
+
+    @Then("User Enters Wrong Phone No on Checkout Page")
+    public void userEntersWrongPhoneNoOnCheckoutPage() throws Exception {
+        checkoutPage.enterWrongNo(WRONG_PH_NO);
+    }
 }
