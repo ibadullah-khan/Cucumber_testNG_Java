@@ -58,7 +58,20 @@ public enum CheckoutPageEnum {
     XPATH_START_PAYMENT_METHOD("//*[@class='paymentMethods-options-2KE']//*[text()='"),
     XPATH_END_PAYMENT_METHOD("']"),
     XPATH_SELECTED_PAYMENT_METHOD("//*[@class='radio-input-IKa' and @checked]"),
-    XPATH_CREDIT_CARD_SECTION("//*[@class='creditCard-root-2AP']");
+    XPATH_CREDIT_CARD_SECTION("//*[@class='creditCard-root-2AP']"),
+    XPATH_TOTAL_COST_VALUE("//*[text()='Tax']//following-sibling::*[@class='priceSummary-itemTotals-G6J']"),
+    XPATH_PRODUCT_IMAGE("//*[@class='image-image-3YO image-loaded-ktU']"),
+    XPATH_PRODUCT_SIZE("//*[@class='item-options-1Di']"),
+    XPATH_PRODUCT_COLOR("//*[@class='item-colorName-2wM']"),
+    XPATH_PRODUCT_QUANTITY("//*[@class='item-quantity-1vq']"),
+    XPATH_PRODUCT_NAME("//*[@class='item-name-2FI']"),
+    XPATH_PRODUCT_BRAND_NAME("//*[@class='item-brand-1ux']"),
+    XPATH_PRODUCT_ACTUAL_AMOUNT("//*[@class='item-price-2wY']"),
+    XPATH_PRODUCT_ORIGINAL_AMOUNT("//*[@class='item-salePrice-1Fb']"),
+    XPATH_PRODUCT_SAVE_AMOUNT("//*[@class='item-saveAmount-3UV']"),
+    XPATH_PRODUCT_IMAGE_LOADER("//*[@class='checkoutPage-summaryContainer-2kD']//span[@class='icon-root-2Hz']"),
+    XPATH_SUBTOTAL_TEXT("//*[@class='priceSummary-lineItemLabel-1zJ' and text()='Subtotal']");
+
 
     private String checkoutPageVariables;
 
