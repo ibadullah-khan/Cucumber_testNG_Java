@@ -486,7 +486,7 @@ Feature: Checkout Feature File
     And User Clicks Checkout Button on Mini Cart View
     And User Clicks on Guest Checkout Button
     Then User Should Redirect Toward "shopping.checkout" Page
-    And User Enters Random Email Address on Checkout Page
+    And User Enters Valid Email Address on Checkout Page
     And User Enters Valid First Name on Checkout Page
     And User Enters Valid Last Name on Checkout Page
     And User Enters Valid Address on Checkout Page
@@ -500,4 +500,4 @@ Feature: Checkout Feature File
     And User Enters Valid Credit Card CVV on Checkout Page
     Then User Clicks Place Order Button on Checkout Page
     Then User Closes Feedback Window on Confirmation Page
-    Then User Validates Password Button on Confirmation Page
+    Then User Validates Password Button on Confirmation Page "true"
