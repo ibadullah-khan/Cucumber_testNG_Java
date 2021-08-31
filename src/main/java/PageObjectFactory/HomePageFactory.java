@@ -8,8 +8,6 @@ import com.aventstack.extentreports.Status;
 import org.openqa.selenium.NoSuchContextException;
 import org.openqa.selenium.NoSuchElementException;
 
-import java.io.IOException;
-
 public class HomePageFactory extends UtilFactory {
 
     private WaitFactory waitFactory = new WaitFactory(BrowserFactory.getDriver());
@@ -26,19 +24,6 @@ public class HomePageFactory extends UtilFactory {
         }catch (Exception e){
             failureException = e.toString();
             scenarioDef.log(Status.FAIL,"Could not click on Account Icon on Header");
-            throw e;
-        }
-    }
-
-    public void clickOnAddressBook(){
-        String locator = HomePageEnum.XPATH_ADDRESS_BOOK.getValue();
-        try{
-            waitFactory.waitForElementToBeClickable(locator);
-            click(locator);
-            scenarioDef.log(Status.PASS,"Clicked on Address Book on Account Menu");
-        }catch (Exception e){
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not click on Address Book on Account Menu");
             throw e;
         }
     }

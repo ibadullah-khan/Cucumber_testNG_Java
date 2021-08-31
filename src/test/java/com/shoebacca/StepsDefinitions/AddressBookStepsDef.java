@@ -13,12 +13,8 @@ public class AddressBookStepsDef extends HarnessVariables{
         addressbookPage = new AddressBookPageFactory();
     }
 
-    @Then("User Validates Saved Addresses Visibility on Address Book Page {string}")
-    public void userValidatesSavedAddressesVisibilityOnAddressBookPageString(String expectedCondition) {
-        if(expectedCondition.equals("true")){
-            addressbookPage.validateSavedAddressVisibility(true);
-        }else {
-            addressbookPage.validateSavedAddressVisibility(false);
-        }
-    }
+@Then("User Validates Shipping Address Quantity on Address Book")
+public void userValidatesShippingAddressQuantityOnAddressBook() {
+    addressbookPage.validateShippingAddressQuantityVisibility();
+}
 }

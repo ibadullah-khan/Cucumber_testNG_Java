@@ -299,11 +299,16 @@ Feature: Checkout Feature File
     And User Enters Valid All Login Data Password on Account Menu
     Then User Clicks the Login Button on Account Menu
     Then User Validates Successful Login on Account Menu
+    Then User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
     And User Clicks the Mini Cart Icon on Header
     Then User Clicks Checkout Button on Mini Cart View
-    Then User Validates Shipping Address Visibility on Checkout Page "true"
+    Then User Fetches Shipping Address on Checkout Page
     Then User Clicks on Change Address Button on Checkout Page
-    Then User Validates Saved Addresses Visibility on Checkout Page "true"
+    Then User Validates Shipping Address User Name on Checkout Page
+    Then User Validates Default Shipping Address on Checkout Page
+    Then User Validates Shipping Address Quantity on Checkout Page
     Then User Select First Saved Address on Checkout Page
     Then User Clicks Save and Continue Button on Checkout Page
     And User Enters Valid Credit Card Number on Checkout Page
@@ -312,4 +317,4 @@ Feature: Checkout Feature File
     Then User Clicks Place Order Button on Checkout Page
     Then User Clicks the Account Icon on Header
     Then User Clicks on Address Book on Account Menu
-    Then User Validates Saved Addresses Visibility on Address Book Page "true"
+    Then User Validates Shipping Address Quantity on Address Book

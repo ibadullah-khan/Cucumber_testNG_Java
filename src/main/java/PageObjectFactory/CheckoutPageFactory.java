@@ -1,104 +1,113 @@
 package PageObjectFactory;
 
+import EnumFactory.CartPageEnum;
 import EnumFactory.CheckoutPageEnum;
+import UtilitiesFactory.ElementFactory;
 import UtilitiesFactory.UtilFactory;
 import com.aventstack.extentreports.Status;
 import org.openqa.selenium.NoSuchContextException;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.Color;
 
+import java.util.List;
+
 public class CheckoutPageFactory extends UtilFactory {
+
+    static int checkoutCountAddress;
+
+    ElementFactory elementFactory = new ElementFactory();
 
     public CheckoutPageFactory() throws Exception {
     }
 
     public void enterEmailAddress(String textToEnter) throws Exception {
         String locator = CheckoutPageEnum.XPATH_EMAIL_ADDRESS_FIELD.getValue();
-        try{
+        try {
             waitFactory.waitForElementToBeClickable(locator);
-            enterString(locator,textToEnter);
-            scenarioDef.log(Status.PASS,"Entered Text: "+textToEnter+" on Email Field on Checkout Page");
-        }catch (Exception e){
+            enterString(locator, textToEnter);
+            scenarioDef.log(Status.PASS, "Entered Text: " + textToEnter + " on Email Field on Checkout Page");
+        } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Enter Text on Email Field on Checkout Page");
+            scenarioDef.log(Status.FAIL, "Could not Enter Text on Email Field on Checkout Page");
             throw e;
         }
     }
 
     public void enterFirstName(String textToEnter) throws Exception {
         String locator = CheckoutPageEnum.XPATH_FIRST_NAME_FIELD.getValue();
-        try{
+        try {
             waitFactory.waitForElementToBeClickable(locator);
-            enterString(locator,textToEnter);
-            scenarioDef.log(Status.PASS,"Entered Text: "+textToEnter+" on First Name Field on Checkout Page");
-        }catch (Exception e){
+            enterString(locator, textToEnter);
+            scenarioDef.log(Status.PASS, "Entered Text: " + textToEnter + " on First Name Field on Checkout Page");
+        } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Enter Text on First Name Field on Checkout Page");
+            scenarioDef.log(Status.FAIL, "Could not Enter Text on First Name Field on Checkout Page");
             throw e;
         }
     }
 
     public void enterLastName(String textToEnter) throws Exception {
         String locator = CheckoutPageEnum.XPATH_LAST_NAME_FIELD.getValue();
-        try{
+        try {
             waitFactory.waitForElementToBeClickable(locator);
-            enterString(locator,textToEnter);
-            scenarioDef.log(Status.PASS,"Entered Text: "+textToEnter+" on Last Name Field on Checkout Page");
-        }catch (Exception e){
+            enterString(locator, textToEnter);
+            scenarioDef.log(Status.PASS, "Entered Text: " + textToEnter + " on Last Name Field on Checkout Page");
+        } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Enter Text on Last Name Field on Checkout Page");
+            scenarioDef.log(Status.FAIL, "Could not Enter Text on Last Name Field on Checkout Page");
             throw e;
         }
     }
 
     public void enterAddress(String textToEnter) throws Exception {
         String locator = CheckoutPageEnum.XPATH_ADDRESS_FIELD.getValue();
-        try{
+        try {
             waitFactory.waitForElementToBeClickable(locator);
-            enterString(locator,textToEnter);
-            scenarioDef.log(Status.PASS,"Entered Text: "+textToEnter+" on Address Field on Checkout Page");
-        }catch (Exception e){
+            enterString(locator, textToEnter);
+            scenarioDef.log(Status.PASS, "Entered Text: " + textToEnter + " on Address Field on Checkout Page");
+        } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Enter Text on Address Field on Checkout Page");
+            scenarioDef.log(Status.FAIL, "Could not Enter Text on Address Field on Checkout Page");
             throw e;
         }
     }
 
     public void enterCity(String textToEnter) throws Exception {
         String locator = CheckoutPageEnum.XPATH_CITY_FIELD.getValue();
-        try{
+        try {
             waitFactory.waitForElementToBeClickable(locator);
-            enterString(locator,textToEnter);
-            scenarioDef.log(Status.PASS,"Entered Text: "+textToEnter+" on City Field on Checkout Page");
-        }catch (Exception e){
+            enterString(locator, textToEnter);
+            scenarioDef.log(Status.PASS, "Entered Text: " + textToEnter + " on City Field on Checkout Page");
+        } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Enter Text on City Field on Checkout Page");
+            scenarioDef.log(Status.FAIL, "Could not Enter Text on City Field on Checkout Page");
             throw e;
         }
     }
 
     public void enterZipCode(String textToEnter) throws Exception {
         String locator = CheckoutPageEnum.XPATH_ZIPCODE_FIELD.getValue();
-        try{
+        try {
             waitFactory.waitForElementToBeClickable(locator);
-            enterString(locator,textToEnter);
-            scenarioDef.log(Status.PASS,"Entered Text: "+textToEnter+" on ZipCode Field on Checkout Page");
-        }catch (Exception e){
+            enterString(locator, textToEnter);
+            scenarioDef.log(Status.PASS, "Entered Text: " + textToEnter + " on ZipCode Field on Checkout Page");
+        } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Enter Text on ZipCode Field on Checkout Page");
+            scenarioDef.log(Status.FAIL, "Could not Enter Text on ZipCode Field on Checkout Page");
             throw e;
         }
     }
 
     public void enterPhNo(String textToEnter) throws Exception {
         String locator = CheckoutPageEnum.XPATH_PH_NO_FIELD.getValue();
-        try{
+        try {
             waitFactory.waitForElementToBeClickable(locator);
-            enterString(locator,textToEnter);
-            scenarioDef.log(Status.PASS,"Entered Text: "+textToEnter+" on Phone Number Field on Checkout Page");
-        }catch (Exception e){
+            enterString(locator, textToEnter);
+            scenarioDef.log(Status.PASS, "Entered Text: " + textToEnter + " on Phone Number Field on Checkout Page");
+        } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Enter Text on Phone Number Field on Checkout Page");
+            scenarioDef.log(Status.FAIL, "Could not Enter Text on Phone Number Field on Checkout Page");
             throw e;
         }
     }
@@ -106,16 +115,16 @@ public class CheckoutPageFactory extends UtilFactory {
     public void enterCreditCardNumber(String textToEnter) throws Exception {
         String locator = CheckoutPageEnum.XPATH_CREDIT_CARD_NUMBER_FIELD.getValue();
         String iframeLocator = CheckoutPageEnum.XPATH_CREDIT_CARD_NO_IFRAME.getValue();
-        try{
+        try {
             waitFactory.waitForElementToBeClickable(iframeLocator);
             switchToIframe(iframeLocator);
             waitFactory.waitForElementToBeClickable(locator);
-            enterString(locator,textToEnter);
+            enterString(locator, textToEnter);
             switchToDefaultContent();
-            scenarioDef.log(Status.PASS,"Entered Text: "+textToEnter+" on Credit Card Number Field on Checkout Page");
-        }catch (Exception e){
+            scenarioDef.log(Status.PASS, "Entered Text: " + textToEnter + " on Credit Card Number Field on Checkout Page");
+        } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Enter Text on Credit Card Number Field on Checkout Page");
+            scenarioDef.log(Status.FAIL, "Could not Enter Text on Credit Card Number Field on Checkout Page");
             throw e;
         }
     }
@@ -123,16 +132,16 @@ public class CheckoutPageFactory extends UtilFactory {
     public void enterCreditCardExpiryDate(String textToEnter) throws Exception {
         String locator = CheckoutPageEnum.XPATH_CREDIT_CARD_EXPIRY_FIELD.getValue();
         String iframeLocator = CheckoutPageEnum.XPATH_CREDIT_CARD_EXP_IFRAME.getValue();
-        try{
+        try {
             waitFactory.waitForElementToBeClickable(iframeLocator);
             switchToIframe(iframeLocator);
             waitFactory.waitForElementToBeClickable(locator);
-            enterString(locator,textToEnter);
+            enterString(locator, textToEnter);
             switchToDefaultContent();
-            scenarioDef.log(Status.PASS,"Entered Text: "+textToEnter+" on Credit Card Expiry Date Field on Checkout Page");
-        }catch (Exception e){
+            scenarioDef.log(Status.PASS, "Entered Text: " + textToEnter + " on Credit Card Expiry Date Field on Checkout Page");
+        } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Enter Text on Credit Card Expiry Date Field on Checkout Page");
+            scenarioDef.log(Status.FAIL, "Could not Enter Text on Credit Card Expiry Date Field on Checkout Page");
             throw e;
         }
     }
@@ -140,16 +149,16 @@ public class CheckoutPageFactory extends UtilFactory {
     public void enterCreditCardCVV(String textToEnter) throws Exception {
         String locator = CheckoutPageEnum.XPATH_CREDIT_CARD_CVV_FIELD.getValue();
         String iframeLocator = CheckoutPageEnum.XPATH_CREDIT_CARD_CVV_IFRAME.getValue();
-        try{
+        try {
             waitFactory.waitForElementToBeClickable(iframeLocator);
             switchToIframe(iframeLocator);
             waitFactory.waitForElementToBeClickable(locator);
-            enterString(locator,textToEnter);
+            enterString(locator, textToEnter);
             switchToDefaultContent();
-            scenarioDef.log(Status.PASS,"Entered Text: "+textToEnter+" on Credit Card CVV Field on Checkout Page");
-        }catch (Exception e){
+            scenarioDef.log(Status.PASS, "Entered Text: " + textToEnter + " on Credit Card CVV Field on Checkout Page");
+        } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Enter Text on Credit Card CVV Field on Checkout Page");
+            scenarioDef.log(Status.FAIL, "Could not Enter Text on Credit Card CVV Field on Checkout Page");
             throw e;
         }
     }
@@ -157,28 +166,28 @@ public class CheckoutPageFactory extends UtilFactory {
     public void clickSaveAndContinueButton() throws Exception {
         String locator = CheckoutPageEnum.XPATH_SAVE_AND_CONTINUE_BUTTON.getValue();
         String loader = CheckoutPageEnum.XPATH_SHIPPING_LOADER.getValue();
-        try{
+        try {
             waitFactory.waitForElementToBeClickable(locator);
             customWait(5000);
             click(locator);
             waitFactory.waitForElementToBeVisible(loader);
-            scenarioDef.log(Status.PASS,"Clicked on Save and Continue Button on Checkout Page");
-        }catch (Exception e){
+            scenarioDef.log(Status.PASS, "Clicked on Save and Continue Button on Checkout Page");
+        } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not click on Save and Continue Button on Checkout Page");
+            scenarioDef.log(Status.FAIL, "Could not click on Save and Continue Button on Checkout Page");
             throw e;
         }
     }
 
     public void clickPlaceOrderButton() throws Exception {
         String locator = CheckoutPageEnum.XPATH_PLACE_ORDER_BUTTON.getValue();
-        try{
+        try {
             waitFactory.waitForElementToBeClickable(locator);
             click(locator);
-            scenarioDef.log(Status.PASS,"Clicked on Place Order Button Button on Checkout Page");
-        }catch (Exception e){
+            scenarioDef.log(Status.PASS, "Clicked on Place Order Button Button on Checkout Page");
+        } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not click on Place Order Button on Checkout Page");
+            scenarioDef.log(Status.FAIL, "Could not click on Place Order Button on Checkout Page");
             throw e;
         }
     }
@@ -187,64 +196,79 @@ public class CheckoutPageFactory extends UtilFactory {
         String locator = CheckoutPageEnum.XPATH_STATE_DROPDOWN_FIELD.getValue();
         String optionLocator = CheckoutPageEnum.XPATH_STATE_DROPDOWN_OPTION_START.getValue() + stateToSelect +
                 CheckoutPageEnum.XPATH_STATE_DROPDOWN_OPTION_END.getValue();
-        try{
+        try {
             waitFactory.waitForElementToBeClickable(locator);
             click(locator);
             waitFactory.waitForElementToBeClickable(optionLocator);
             click(optionLocator);
-            scenarioDef.log(Status.PASS,"Selected State: "+stateToSelect+" on Checkout Page");
-        }catch (Exception e){
+            scenarioDef.log(Status.PASS, "Selected State: " + stateToSelect + " on Checkout Page");
+        } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Select State on Checkout Page");
+            scenarioDef.log(Status.FAIL, "Could not Select State on Checkout Page");
             throw e;
         }
     }
 
-    public String getTaxValue(){
+    public String getTaxValue() {
         String locator = CheckoutPageEnum.XPATH_TAX_VALUE.getValue();
         String taxvalue;
-        try{
+        try {
             waitFactory.waitForElementToBeClickable(locator);
             taxvalue = getText(locator);
-            scenarioDef.log(Status.PASS,"Fetched Tax Value: "+ taxvalue +" from Checkout");
+            scenarioDef.log(Status.PASS, "Fetched Tax Value: " + taxvalue + " from Checkout");
             return taxvalue;
-        }catch (Exception e){
+        } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Fetch Tax Value from Checkout");
+            scenarioDef.log(Status.FAIL, "Could not Fetch Tax Value from Checkout");
             throw e;
         }
     }
 
-    public void validateTaxValue(String expectedText){
-        String locator = CheckoutPageEnum. XPATH_TAX_VALUE.getValue();
+    public String getShippingUserName() {
+        String locator = CheckoutPageEnum.XPATH_SHIPPING_USER.getValue();
+        String shippinguser;
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            shippinguser = getText(locator);
+            scenarioDef.log(Status.PASS, "Fetched Shipping User: " + shippinguser + " from Checkout");
+            return shippinguser;
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Fetch Shipping User from Checkout");
+            throw e;
+        }
+    }
+
+    public void validateTaxValue(String expectedText) {
+        String locator = CheckoutPageEnum.XPATH_TAX_VALUE.getValue();
         String errorMsg = null;
         String actualText;
-        try{
+        try {
             waitFactory.waitForElementToBeClickable(locator);
             actualText = getText(locator).trim();
-            if (actualText.contains(expectedText)){
-                scenarioDef.log(Status.PASS,"Validated Tax on Checkout as Expected: "+expectedText);
-            }else {
-                errorMsg = "Could not validate Tax on Checkout as Expected: "+expectedText+" , Actual Value: "+actualText;
+            if (actualText.contains(expectedText)) {
+                scenarioDef.log(Status.PASS, "Validated Tax on Checkout as Expected: " + expectedText);
+            } else {
+                errorMsg = "Could not validate Tax on Checkout as Expected: " + expectedText + " , Actual Value: " + actualText;
                 throw new NoSuchContextException("Actual and Expected Value Differs");
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             failureException = e.toString();
-            if (errorMsg == null){
-                scenarioDef.log(Status.FAIL,"Unable to get the Tax Element on Checkout");
-            }else {
-                scenarioDef.log(Status.FAIL,errorMsg);
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Tax Element on Checkout");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
             }
             throw e;
         }
     }
 
-    public void validateDateColor(String expectedDateColor){
+    public void validateDateColor(String expectedDateColor) {
         String dateLocator = CheckoutPageEnum.XPATH_ESTIMATED_DELIVERY_DATE.getValue();
         String errorMsg = null;
         try {
             waitFactory.waitForElementToBeClickable(dateLocator);
-            String actualValue=getCSS(dateLocator,"color");
+            String actualValue = getCSS(dateLocator, "color");
             String hex = Color.fromString(actualValue).asHex();
             if (hex.contains(expectedDateColor)) {
                 scenarioDef.log(Status.PASS, "Validated Date Color is " + expectedDateColor + " on Checkout");
@@ -252,8 +276,7 @@ public class CheckoutPageFactory extends UtilFactory {
                 errorMsg = "Could not validate Date Color is: " + expectedDateColor + " on Checkout, Actual Value is: " + actualValue;
                 throw new NoSuchContextException("Actual and Expected Value Differs");
             }
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             failureException = e.toString();
             if (errorMsg == null) {
                 scenarioDef.log(Status.FAIL, "Unable to get the Date Color Checkout");
@@ -451,7 +474,7 @@ public class CheckoutPageFactory extends UtilFactory {
         String actualValue;
         try {
             waitFactory.waitForElementToBeClickable(locator);
-            actualValue = getAttribute(locator, "value").replace("-","");
+            actualValue = getAttribute(locator, "value").replace("-", "");
             if (actualValue.contains(expectedValue)) {
                 scenarioDef.log(Status.PASS, "Validated Phone No is " + expectedValue + " on Checkout Page");
             } else {
@@ -469,7 +492,7 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
-    public void validateShippingMethodValue(String expecetedShippingMethodName,Boolean expectedVisibility) {
+    public void validateShippingMethodValue(String expecetedShippingMethodName, Boolean expectedVisibility) {
         String locator = CheckoutPageEnum.XPATH_SHIPPING_METHOD_SELECTED_START.getValue() + expecetedShippingMethodName + CheckoutPageEnum.XPATH_SHIPPING_METHOD_SELECTED_END.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
@@ -523,36 +546,36 @@ public class CheckoutPageFactory extends UtilFactory {
 
     public void clickOnShippingDetailTitle() throws Exception {
         String locator = CheckoutPageEnum.XPATH_SHIPPING_DETAIL_TITLE.getValue();
-        try{
+        try {
             waitFactory.waitForElementToBeClickable(locator);
             click(locator);
-            scenarioDef.log(Status.PASS,"Clicked on Shipping Detail Title on Checkout Page");
-        }catch (Exception e){
+            scenarioDef.log(Status.PASS, "Clicked on Shipping Detail Title on Checkout Page");
+        } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not click on Shipping Detail Title on Checkout Page");
+            scenarioDef.log(Status.FAIL, "Could not click on Shipping Detail Title on Checkout Page");
             throw e;
         }
     }
 
     public void validateShippingSectionState(String expectedState) {
         String loader = CheckoutPageEnum.XPATH_SHIPPING_LOADER.getValue();
-        String locator =null;
+        String locator = null;
         String errorMsg = null;
         Boolean actualVisibility;
         try {
-            if(expectedState.contains("edit")){
+            if (expectedState.contains("edit")) {
                 locator = CheckoutPageEnum.XPATH_SHIPPING_DETAIL_EDIT_STATE.getValue();
-            } else if (expectedState.contains("open")){
+            } else if (expectedState.contains("open")) {
                 locator = CheckoutPageEnum.XPATH_SHIPPING_DETAIL_OPEN_STATE.getValue();
-            }else if (expectedState.contains("close")){
+            } else if (expectedState.contains("close")) {
                 locator = CheckoutPageEnum.XPATH_SHIPPING_DETAIL_CLOSED_STATE.getValue();
             }
             waitFactory.waitForElementToBeInVisible(loader);
             actualVisibility = isVisible(locator);
             if (actualVisibility) {
-                scenarioDef.log(Status.PASS, "Validated Shipping Section is in "+expectedState+" State on Checkout Page");
+                scenarioDef.log(Status.PASS, "Validated Shipping Section is in " + expectedState + " State on Checkout Page");
             } else {
-                errorMsg = "Validated  Shipping Section is not "+expectedState+" State on Checkout Page";
+                errorMsg = "Validated  Shipping Section is not " + expectedState + " State on Checkout Page";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             }
         } catch (Exception e) {
@@ -679,121 +702,121 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
-    public void validateFirstAndLastNameInShippingDetailSection(String expectedFirstAndLastName){
+    public void validateFirstAndLastNameInShippingDetailSection(String expectedFirstAndLastName) {
         String locator = CheckoutPageEnum.XPATH_FIRST_AND_LAST_NAME.getValue();
         String errorMsg = null;
         String actualText;
-        try{
+        try {
             waitFactory.waitForElementToBeClickable(locator);
             actualText = getText(locator).trim();
-            if (actualText.contains(expectedFirstAndLastName)){
-                scenarioDef.log(Status.PASS,"Validated First and Last Name as Expected: "+expectedFirstAndLastName);
-            }else {
-                errorMsg = "Could not validate First and Last Name as Expected: "+expectedFirstAndLastName+" , Actual Value: "+actualText;
+            if (actualText.contains(expectedFirstAndLastName)) {
+                scenarioDef.log(Status.PASS, "Validated First and Last Name as Expected: " + expectedFirstAndLastName);
+            } else {
+                errorMsg = "Could not validate First and Last Name as Expected: " + expectedFirstAndLastName + " , Actual Value: " + actualText;
                 throw new NoSuchContextException("Actual and Expected Value Differs");
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             failureException = e.toString();
-            if (errorMsg == null){
-                scenarioDef.log(Status.FAIL,"Unable to get the First and Last Name Element on Checkout Page");
-            }else {
-                scenarioDef.log(Status.FAIL,errorMsg);
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the First and Last Name Element on Checkout Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
             }
             throw e;
         }
     }
 
-    public void validateAddressInShippingDetailSection(String address){
+    public void validateAddressInShippingDetailSection(String address) {
         String locator = CheckoutPageEnum.XPATH_ADDRESS.getValue();
         String errorMsg = null;
         String actualText;
-        try{
+        try {
             waitFactory.waitForElementToBeClickable(locator);
             actualText = getText(locator).trim();
-            if (actualText.contains(address)){
-                scenarioDef.log(Status.PASS,"Validated Address as Expected: "+address);
-            }else {
-                errorMsg = "Could not Validate Address as Expected: "+address+" , Actual Value: "+actualText;
+            if (actualText.contains(address)) {
+                scenarioDef.log(Status.PASS, "Validated Address as Expected: " + address);
+            } else {
+                errorMsg = "Could not Validate Address as Expected: " + address + " , Actual Value: " + actualText;
                 throw new NoSuchContextException("Actual and Expected Value Differs");
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             failureException = e.toString();
-            if (errorMsg == null){
-                scenarioDef.log(Status.FAIL,"Unable to get the Address Element on Checkout Page");
-            }else {
-                scenarioDef.log(Status.FAIL,errorMsg);
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Address Element on Checkout Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
             }
             throw e;
         }
     }
 
-    public void validateStateCityZipCode(String expectedStateCityZipCode){
+    public void validateStateCityZipCode(String expectedStateCityZipCode) {
         String locator = CheckoutPageEnum.XPATH_CITY_STATE_ZIPCODE.getValue();
         String errorMsg = null;
         String actualText;
-        try{
+        try {
             waitFactory.waitForElementToBeClickable(locator);
             actualText = getText(locator).trim();
-            if (actualText.contains(expectedStateCityZipCode)){
-                scenarioDef.log(Status.PASS,"Validated State City Zip Code as Expected: "+expectedStateCityZipCode);
-            }else {
-                errorMsg = "Could not Validate State City Code as Expected: "+expectedStateCityZipCode+" , Actual Value: "+actualText;
+            if (actualText.contains(expectedStateCityZipCode)) {
+                scenarioDef.log(Status.PASS, "Validated State City Zip Code as Expected: " + expectedStateCityZipCode);
+            } else {
+                errorMsg = "Could not Validate State City Code as Expected: " + expectedStateCityZipCode + " , Actual Value: " + actualText;
                 throw new NoSuchContextException("Actual and Expected Value Differs");
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             failureException = e.toString();
-            if (errorMsg == null){
-                scenarioDef.log(Status.FAIL,"Unable to get the State City Code Element on Checkout Page");
-            }else {
-                scenarioDef.log(Status.FAIL,errorMsg);
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the State City Code Element on Checkout Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
             }
             throw e;
         }
     }
 
-    public void validatePhoneNoInDetailSection(String expectedPhoneNo){
+    public void validatePhoneNoInDetailSection(String expectedPhoneNo) {
         String locator = CheckoutPageEnum.XPATH_PHONE_NO.getValue();
         String errorMsg = null;
         String actualText;
-        try{
+        try {
             waitFactory.waitForElementToBeClickable(locator);
-            actualText = getText(locator).trim().replace("-","");
-            if (actualText.contains(expectedPhoneNo)){
-                scenarioDef.log(Status.PASS,"Validated Phone No as Expected: "+expectedPhoneNo);
-            }else {
-                errorMsg = "Could not Validate Phone No on as Expected: "+expectedPhoneNo+" , Actual Value: "+actualText;
+            actualText = getText(locator).trim().replace("-", "");
+            if (actualText.contains(expectedPhoneNo)) {
+                scenarioDef.log(Status.PASS, "Validated Phone No as Expected: " + expectedPhoneNo);
+            } else {
+                errorMsg = "Could not Validate Phone No on as Expected: " + expectedPhoneNo + " , Actual Value: " + actualText;
                 throw new NoSuchContextException("Actual and Expected Value Differs");
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             failureException = e.toString();
-            if (errorMsg == null){
-                scenarioDef.log(Status.FAIL,"Unable to get the Phone No Element on Checkout Page");
-            }else {
-                scenarioDef.log(Status.FAIL,errorMsg);
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Phone No Element on Checkout Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
             }
             throw e;
         }
     }
 
-    public void validateEmailAddressInDetailSection(String expectedEmail){
+    public void validateEmailAddressInDetailSection(String expectedEmail) {
         String locator = CheckoutPageEnum.XPATH_EMAIL_ADDRESS.getValue();
         String errorMsg = null;
         String actualText;
-        try{
+        try {
             waitFactory.waitForElementToBeClickable(locator);
             actualText = getText(locator).trim();
-            if (actualText.contains(expectedEmail)){
-                scenarioDef.log(Status.PASS,"Validated Email Address as Expected: "+expectedEmail);
-            }else {
-                errorMsg = "Could not Validate Email Address as Expected: "+expectedEmail+" , Actual Value: "+actualText;
+            if (actualText.contains(expectedEmail)) {
+                scenarioDef.log(Status.PASS, "Validated Email Address as Expected: " + expectedEmail);
+            } else {
+                errorMsg = "Could not Validate Email Address as Expected: " + expectedEmail + " , Actual Value: " + actualText;
                 throw new NoSuchContextException("Actual and Expected Value Differs");
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             failureException = e.toString();
-            if (errorMsg == null){
-                scenarioDef.log(Status.FAIL,"Unable to get the Email Element on Checkout Page");
-            }else {
-                scenarioDef.log(Status.FAIL,errorMsg);
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Email Element on Checkout Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
             }
             throw e;
         }
@@ -871,23 +894,14 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
-    public void validateShippingAddressVisibility(boolean expectedVisibility) {
-        String locator = CheckoutPageEnum.XPATH_SHIPPING_ADDRESS.getValue();
+    public void validateDefaultAddressVisibility(boolean expectedVisibility) {
+        String locator = CheckoutPageEnum.XPATH_DEFAULT_SHIPPING_ADDRESS.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
         try {
-            customWait(2000);
             actualVisibility = isVisible(locator);
             if (actualVisibility && expectedVisibility) {
                 scenarioDef.log(Status.PASS, "Validated Shipping Address is Displayed as Expected on Checkout Page");
-            } else if (!actualVisibility && !expectedVisibility) {
-                scenarioDef.log(Status.PASS, "Validated Shipping Address is not Displayed as Expected on Checkout Page");
-            } else if (actualVisibility && !expectedVisibility) {
-                errorMsg = "Validated Shipping Address is Displayed Unexpected on Checkout Page";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
-            } else if (!actualVisibility && expectedVisibility) {
-                errorMsg = "Validated Shipping Address is Displayed Unexpectedly on Checkout Page";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             }
         } catch (Exception e) {
             failureException = e.toString();
@@ -896,177 +910,180 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
-    public void validateSavedAddressVisibility(boolean expectedVisibility) {
-        String locator = CheckoutPageEnum.XPATH_SAVED_SHIPPING_ADDRESS.getValue();
+    public void validateShippingAddressQuantityVisibility() {
+        String locator = CheckoutPageEnum.XPATH_SHIPPING_DETAILS.getValue();
         String errorMsg = null;
-        Boolean actualVisibility;
+        List<WebElement> elements;
+
         try {
-            actualVisibility = isVisible(locator);
-            if (actualVisibility && expectedVisibility) {
-                scenarioDef.log(Status.PASS, "Validated Saved Addresses are Displayed as Expected on Checkout Page");
-            } else if (!actualVisibility && !expectedVisibility) {
-                scenarioDef.log(Status.PASS, "Validated Saved Addresses are not Displayed as Expected on Checkout Page");
-            } else if (actualVisibility && !expectedVisibility) {
-                errorMsg = "Validated Saved Addresses are Displayed Unexpected on Checkout Page";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
-            } else if (!actualVisibility && expectedVisibility) {
-                errorMsg = "Validated Saved Addresses are Displayed Unexpectedly on Checkout Page";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            customWait(2000);
+            elements = elementFactory.getElementsList(locator);
+            waitFactory.waitForElementToBeVisible(locator);
+            checkoutCountAddress = elements.size();
+            if (checkoutCountAddress >= 1) {
+                scenarioDef.log(Status.PASS, "Validated " + checkoutCountAddress + " Shipping Details are Displayed as Expected on Checkout Page");
+            } else {
+                errorMsg = "Validated " + checkoutCountAddress + " Shipping Details are not Displayed as Expected on Checkout Page";
+                throw new NoSuchContextException("Actual and Expected Value Differs");
             }
         } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL, errorMsg);
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Expected Date Element on Cart Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
             throw e;
         }
     }
 
     public void clickOnEmailAddressField() {
         String locator = CheckoutPageEnum.XPATH_EMAIL_ADDRESS_FIELD.getValue();
-        try{
+        try {
             waitFactory.waitForElementToBeClickable(locator);
             click(locator);
-            scenarioDef.log(Status.PASS,"Clicked on Email Address Field on Checkout Page");
-        }catch (Exception e){
+            scenarioDef.log(Status.PASS, "Clicked on Email Address Field on Checkout Page");
+        } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Click on Email Address Field on Checkout Page");
+            scenarioDef.log(Status.FAIL, "Could not Click on Email Address Field on Checkout Page");
             throw e;
         }
     }
 
     public void clickChangeAddressButton() {
         String locator = CheckoutPageEnum.XPATH_CHANGE_SHIPPING_ADDRESS.getValue();
-        try{
+        try {
             waitFactory.waitForElementToBeClickable(locator);
             click(locator);
-            scenarioDef.log(Status.PASS,"Clicked on Change Shipping Method on Checkout Page");
-        }catch (Exception e){
+            scenarioDef.log(Status.PASS, "Clicked on Change Shipping Method on Checkout Page");
+        } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Click on Change Shipping Method on Checkout Page");
+            scenarioDef.log(Status.FAIL, "Could not Click on Change Shipping Method on Checkout Page");
             throw e;
         }
     }
 
     public void selectSavedAddress() {
         String locator = CheckoutPageEnum.XPATH_SAVED_FIRST_SHIPPING_ADDRESS.getValue();
-        try{
+        try {
             waitFactory.waitForElementToBeClickable(locator);
             click(locator);
-            scenarioDef.log(Status.PASS,"Selected First Saved Address on Checkout Page");
-        }catch (Exception e){
+            scenarioDef.log(Status.PASS, "Selected First Saved Address on Checkout Page");
+        } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Select First Saved Address on Checkout Page");
+            scenarioDef.log(Status.FAIL, "Could not Select First Saved Address on Checkout Page");
             throw e;
         }
     }
 
     public void clickOnFirstNameField() {
         String locator = CheckoutPageEnum.XPATH_FIRST_NAME_FIELD.getValue();
-        try{
+        try {
             waitFactory.waitForElementToBeClickable(locator);
             click(locator);
-            scenarioDef.log(Status.PASS,"Clicked on First Name Field on Checkout Page");
-        }catch (Exception e){
+            scenarioDef.log(Status.PASS, "Clicked on First Name Field on Checkout Page");
+        } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Click on First Name Field on Checkout Page");
+            scenarioDef.log(Status.FAIL, "Could not Click on First Name Field on Checkout Page");
             throw e;
         }
     }
 
     public void clickOnLastNameField() {
         String locator = CheckoutPageEnum.XPATH_LAST_NAME_FIELD.getValue();
-        try{
+        try {
             waitFactory.waitForElementToBeClickable(locator);
             click(locator);
-            scenarioDef.log(Status.PASS,"Clicked on Last Name Field on Checkout Page");
-        }catch (Exception e){
+            scenarioDef.log(Status.PASS, "Clicked on Last Name Field on Checkout Page");
+        } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Click on Last Name Field on Checkout Page");
+            scenarioDef.log(Status.FAIL, "Could not Click on Last Name Field on Checkout Page");
             throw e;
         }
     }
 
     public void clickOnAddressField() {
         String locator = CheckoutPageEnum.XPATH_ADDRESS_FIELD.getValue();
-        try{
+        try {
             waitFactory.waitForElementToBeClickable(locator);
             click(locator);
-            scenarioDef.log(Status.PASS,"Clicked on Address Field on Checkout Page");
-        }catch (Exception e){
+            scenarioDef.log(Status.PASS, "Clicked on Address Field on Checkout Page");
+        } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Click on Address Field on Checkout Page");
+            scenarioDef.log(Status.FAIL, "Could not Click on Address Field on Checkout Page");
             throw e;
         }
     }
 
     public void clickOnCityField() {
         String locator = CheckoutPageEnum.XPATH_CITY_FIELD.getValue();
-        try{
+        try {
             waitFactory.waitForElementToBeClickable(locator);
             click(locator);
-            scenarioDef.log(Status.PASS,"Clicked on City Field on Checkout Page");
-        }catch (Exception e){
+            scenarioDef.log(Status.PASS, "Clicked on City Field on Checkout Page");
+        } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Click on City Field on Checkout Page");
+            scenarioDef.log(Status.FAIL, "Could not Click on City Field on Checkout Page");
             throw e;
         }
     }
 
     public void clickOnStateField() {
         String locator = CheckoutPageEnum.XPATH_STATE_DROPDOWN_FIELD.getValue();
-        try{
+        try {
             waitFactory.waitForElementToBeClickable(locator);
             click(locator);
-            scenarioDef.log(Status.PASS,"Clicked on State Field on Checkout Page");
-        }catch (Exception e){
+            scenarioDef.log(Status.PASS, "Clicked on State Field on Checkout Page");
+        } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Click on State Field on Checkout Page");
+            scenarioDef.log(Status.FAIL, "Could not Click on State Field on Checkout Page");
             throw e;
         }
     }
 
     public void clickOnZipCodeField() {
         String locator = CheckoutPageEnum.XPATH_ZIPCODE_FIELD.getValue();
-        try{
+        try {
             waitFactory.waitForElementToBeClickable(locator);
             click(locator);
-            scenarioDef.log(Status.PASS,"Clicked on Zip Code Field on Checkout Page");
-        }catch (Exception e){
+            scenarioDef.log(Status.PASS, "Clicked on Zip Code Field on Checkout Page");
+        } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Click on Zip Code Field on Checkout Page");
+            scenarioDef.log(Status.FAIL, "Could not Click on Zip Code Field on Checkout Page");
             throw e;
         }
     }
 
     public void clickOnPhoneNoField() {
         String locator = CheckoutPageEnum.XPATH_PH_NO_FIELD.getValue();
-        try{
+        try {
             waitFactory.waitForElementToBeClickable(locator);
             click(locator);
-            scenarioDef.log(Status.PASS,"Clicked on Phone No Field on Checkout Page");
-        }catch (Exception e){
+            scenarioDef.log(Status.PASS, "Clicked on Phone No Field on Checkout Page");
+        } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Click on Phone No Field on Checkout Page");
+            scenarioDef.log(Status.FAIL, "Could not Click on Phone No Field on Checkout Page");
             throw e;
         }
     }
 
     public void validateRequiredErrorMessageText(String expectedField, String expectedErrorMsgText) {
-        String locator = CheckoutPageEnum.XPATH_REQ_FIELD_MESSAGE_START.getValue() +expectedField+CheckoutPageEnum.XPATH_REQ_FIELD_MESSAGE_END.getValue();
+        String locator = CheckoutPageEnum.XPATH_REQ_FIELD_MESSAGE_START.getValue() + expectedField + CheckoutPageEnum.XPATH_REQ_FIELD_MESSAGE_END.getValue();
         String errorMsg = null;
         String actualText;
         try {
             waitFactory.waitForElementToBeClickable(locator);
             actualText = getText(locator).trim();
             if (actualText.contains(expectedErrorMsgText)) {
-                scenarioDef.log(Status.PASS, "Validated Error Message on "+expectedField+" Field of Checkout Page as Expected: " + expectedErrorMsgText);
+                scenarioDef.log(Status.PASS, "Validated Error Message on " + expectedField + " Field of Checkout Page as Expected: " + expectedErrorMsgText);
             } else {
-                errorMsg = "Could not validate Error Message on "+expectedField+" Field of Checkout Page as Expected: " + expectedErrorMsgText + " , Actual Value: " + actualText;
+                errorMsg = "Could not validate Error Message on " + expectedField + " Field of Checkout Page as Expected: " + expectedErrorMsgText + " , Actual Value: " + actualText;
                 throw new NoSuchContextException("Actual and Expected Value Differs");
             }
         } catch (Exception e) {
             failureException = e.toString();
             if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the Error Message Element on "+expectedField+" Field of Checkout Page");
+                scenarioDef.log(Status.FAIL, "Unable to get the Error Message Element on " + expectedField + " Field of Checkout Page");
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
@@ -1087,17 +1104,17 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
-    public void clickOnEditButton()throws Exception {
-            String locator = CheckoutPageEnum.XPATH_EDIT_BUTTON.getValue();
-            try{
-                waitFactory.waitForElementToBeClickable(locator);
-                click(locator);
-                scenarioDef.log(Status.PASS,"Clicked on Edit Button Text on Checkout Page");
-            }catch (Exception e){
-                failureException = e.toString();
-                scenarioDef.log(Status.FAIL,"Could not Click on Edit Button Text on Checkout Page");
-                throw e;
-            }
+    public void clickOnEditButton() throws Exception {
+        String locator = CheckoutPageEnum.XPATH_EDIT_BUTTON.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS, "Clicked on Edit Button Text on Checkout Page");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Click on Edit Button Text on Checkout Page");
+            throw e;
+        }
     }
 
     public void validateInactiveShippingDetailsSection() {
@@ -1149,6 +1166,7 @@ public class CheckoutPageFactory extends UtilFactory {
             throw e;
         }
     }
+
     public void clearPromoCode() throws Exception {
         String locator = CheckoutPageEnum.XPATH_PROMO_CODE_FIELD.getValue();
         String errorMsg = null;
@@ -1156,11 +1174,34 @@ public class CheckoutPageFactory extends UtilFactory {
             waitFactory.waitForElementToBeClickable(locator);
             clearField(locator);
             scenarioDef.log(Status.PASS, "Cleared Add Promo Code Field on Checkout Page ");
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             failureException = e.toString();
             if (errorMsg == null) {
                 scenarioDef.log(Status.FAIL, "Unable to clear Add Promo Code Field on Checkout Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void validateShippingAddressName(String expectedText) {
+        String locator = CheckoutPageEnum.XPATH_SHIPPING_USERNAME.getValue();
+        String errorMsg = null;
+        String actualText;
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            actualText = getText(locator).trim();
+            if (actualText.contains(expectedText)) {
+                scenarioDef.log(Status.PASS, "Validated Shipping User on Checkout as Expected: " + expectedText);
+            } else {
+                errorMsg = "Could not validate Shipping User on Checkout as Expected: " + expectedText + " , Actual Value: " + actualText;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Shipping User Element on Checkout");
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
@@ -1175,14 +1216,13 @@ public class CheckoutPageFactory extends UtilFactory {
         String errorMsg = null;
         try {
             waitFactory.waitForElementToBeClickable(totalAmountLocator);
-            double totalAmount = Double.parseDouble(getText(totalAmountLocator).trim().replace("$",""));
-            double subAmount = Double.parseDouble(getText(subAmountLocator).trim().replace("$",""));
-            double taxAmount = Double.parseDouble(getText(taxAmountLocator).trim().replace("$",""));
-            System.out.println(totalAmount + " "+ taxAmount);
+            double totalAmount = Double.parseDouble(getText(totalAmountLocator).trim().replace("$", ""));
+            double subAmount = Double.parseDouble(getText(subAmountLocator).trim().replace("$", ""));
+            double taxAmount = Double.parseDouble(getText(taxAmountLocator).trim().replace("$", ""));
+            System.out.println(totalAmount + " " + taxAmount);
             if (totalAmount == subAmount + taxAmount) {
                 scenarioDef.log(Status.PASS, "Validate Total Amount $" + totalAmount + " is Same as Expected on Checkout Page");
-            }
-            else {
+            } else {
                 errorMsg = "Validate Total Amount $" + totalAmount + " is not Same as Expected on Checkout Page";
                 throw new NoSuchContextException("Actual and Expected Value Differs");
             }

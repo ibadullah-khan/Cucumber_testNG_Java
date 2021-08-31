@@ -121,4 +121,10 @@ public class AccountMenuStepsDef extends HarnessVariables{
     public void userEntersValidAllLoginPasswordOnAccountMenu() throws Exception {
         accountMenuPage.enterPassword(VALID_ALL_PASSWORD);
     }
+
+
+    @Then("User Clicks on Address Book on Account Menu")
+    public void userClicksOnAddressBookOnAccountMenu() {
+        accountMenuPage.clickOnAddressBook();
+    }
 }

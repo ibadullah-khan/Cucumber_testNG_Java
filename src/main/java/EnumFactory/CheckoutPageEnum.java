@@ -54,8 +54,12 @@ public enum CheckoutPageEnum {
     XPATH_TOTAL_AMOUNT("//div[@class='priceSummary-itemTotals-G6J']//*[@class='priceSummary-totalPrice-rZa']"),
     XPATH_INVALID_COUPON_MESSAGE("//p[@class='message-root-35v']"),
     XPATH_SHIPPING_ADDRESS("//*[@class='shippingInformation-cardContainer-3l1']"),
+    XPATH_SHIPPING_USER("//*[@class='card-name-1C0']"),
+    XPATH_SHIPPING_USERNAME("//*[@class='addressCard-root_selected-XwX']//*[@class='addressCard-name-Tby']"),
     XPATH_CHANGE_SHIPPING_ADDRESS("//*[@id='change_button']//span[@class='icon-root-2Hz']"),
+    XPATH_DEFAULT_SHIPPING_ADDRESS("//button[@class='addressCard-root_selected-XwX']/span[@class='addressCard-defaultBadge-1w4']"),
     XPATH_SAVED_SHIPPING_ADDRESS("//*[@class='addressBook-content-34e']"),
+    XPATH_SHIPPING_DETAILS("//div[@class='addressBook-content-34e']//button"),
     XPATH_SAVED_FIRST_SHIPPING_ADDRESS("//*[@class='addressCard-root_selected-XwX']");
     private String checkoutPageVariables;
 

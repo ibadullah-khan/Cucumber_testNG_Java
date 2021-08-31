@@ -351,31 +351,51 @@ public class CheckoutStepsDef extends HarnessVariables {
     @Then("User Clears the Promo Code on Checkout Page")
     public void userClearPromoCodeOnCheckoutPage() throws Exception { checkoutPage.clearPromoCode();}
 
-    @Then("User Validates Shipping Address Visibility on Checkout Page {string}")
-    public void userValidatesShippingAddressVisibilityOnCheckoutPage(String expectedCondition) {
-        if(expectedCondition.equals("true")){
-            checkoutPage.validateShippingAddressVisibility(true);
-        }else {
-            checkoutPage.validateShippingAddressVisibility(false);
-        }
-    }
+//    @Then("User Validates Shipping Address Visibility on Checkout Page {string}")
+//    public void userValidatesShippingAddressVisibilityOnCheckoutPage(String expectedCondition) {
+//        if(expectedCondition.equals("true")){
+//            checkoutPage.validateShippingAddressVisibility(true);
+//        }else {
+//            checkoutPage.validateShippingAddressVisibility(false);
+//        }
+//    }
 
     @Then("User Clicks on Change Address Button on Checkout Page")
     public void userClicksOnChangeAddressButtonOnCheckoutPage() {
         checkoutPage.clickChangeAddressButton();
     }
 
-    @Then("User Validates Saved Addresses Visibility on Checkout Page {string}")
-    public void userValidatesSavedAddressesVisibilityOnCheckoutPage(String expectedCondition) {
-        if(expectedCondition.equals("true")){
-            checkoutPage.validateSavedAddressVisibility(true);
-        }else {
-            checkoutPage.validateSavedAddressVisibility(false);
-        }
-    }
+//    @Then("User Validates Saved Addresses Visibility on Checkout Page {string}")
+//    public void userValidatesSavedAddressesVisibilityOnCheckoutPage(String expectedCondition) {
+//        if(expectedCondition.equals("true")){
+//            checkoutPage.validateSavedAddressVisibility(true);
+//        }else {
+//            checkoutPage.validateSavedAddressVisibility(false);
+//        }
+//    }
 
     @Then("User Select First Saved Address on Checkout Page")
     public void userSelectFirstSavedAddressOnCheckoutPage() {
         checkoutPage.selectSavedAddress();
+    }
+
+    @Then("User Fetches Shipping Address on Checkout Page")
+    public void userFetchesShippingAddressOnCheckoutPage() {
+        SHIPPING_METHOD_USERNAME=checkoutPage.getShippingUserName();
+    }
+
+    @Then("User Validates Shipping Address User Name on Checkout Page")
+    public void userValidatesShippingAddressUserNameOnCheckoutPage() {
+        checkoutPage.validateShippingAddressName(SHIPPING_METHOD_USERNAME);
+    }
+
+    @Then("User Validates Default Shipping Address on Checkout Page")
+    public void userValidatesDefaultShippingAddressOnCheckoutPage() {
+            checkoutPage.validateDefaultAddressVisibility(true);
+        }
+
+    @Then("User Validates Shipping Address Quantity on Checkout Page")
+    public void userValidatesShippingAddressQuantityOnCheckoutPage() {
+        checkoutPage.validateShippingAddressQuantityVisibility();
     }
 }

@@ -2,7 +2,7 @@ package EnumFactory;
 
 public enum AddressBookPageEnum {
 
-    XPATH_SAVED_SHIPPING_ADDRESS("//*[@class='addressBookPage-content-29g']");
+    XPATH_SHIPPING_DETAILS("//div[@class='addressBookPage-addressCard-sWS']");
 
     private String addressbookPageVariables;
 

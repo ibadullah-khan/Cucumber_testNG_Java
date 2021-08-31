@@ -90,9 +90,4 @@ public class HomePageStepsDef extends HarnessVariables {
         openNewTab();
         closeOldTab();
     }
-
-    @Then("User Clicks on Address Book on Account Menu")
-    public void userClicksOnAddressBookOnAccountMenu() {
-        homePage.clickOnAddressBook();
-    }
 }
