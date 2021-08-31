@@ -1199,8 +1199,7 @@ public class CheckoutPageFactory extends UtilFactory {
         String errorMsg = null;
         Boolean actualVisibility;
         try {
-            waitFactory.waitForElementToBeClickable(locator);
-            click(locator);
+            waitFactory.waitForElementToBeVisible(locator);
             actualVisibility = isVisible(locator);
             if (actualVisibility && expectedVisibility) {
                 scenarioDef.log(Status.PASS, "Validated Product Image Visibility is Displayed as Expected on Checkout Page");
