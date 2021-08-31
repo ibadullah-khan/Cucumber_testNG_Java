@@ -1,5 +1,6 @@
 package PageObjectFactory;
 
+import EnumFactory.AccountMenuPageEnum;
 import EnumFactory.CheckoutPageEnum;
 import UtilitiesFactory.ElementFactory;
 import UtilitiesFactory.UtilFactory;

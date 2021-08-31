@@ -57,4 +57,13 @@ public class OrderConfirmationStepsDef extends HarnessVariables {
         String errorText = new PropertyLoaderFactory().getPropertyFile(errorMsgPropFile).getProperty(errorMsg);
         orderConfirmationPageFactory.validateAlreadyExistEmailErrorMsg(errorText);
     }
+
+    @Then("User Validates Password Button on Confirmation Page")
+    public void validatePasswordButtonVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            orderConfirmationPageFactory.validatePasswordButtonVisibility(true);
+        }else {
+            orderConfirmationPageFactory.validatePasswordButtonVisibility(false);
+        }
+    }
 }
