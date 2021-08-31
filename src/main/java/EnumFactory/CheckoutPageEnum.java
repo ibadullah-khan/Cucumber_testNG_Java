@@ -56,7 +56,8 @@ public enum CheckoutPageEnum {
     XPATH_INVALID_COUPON_MESSAGE("//p[@class='message-root-35v']"),
     XPATH_START_PAYMENT_METHOD("//*[@class='paymentMethods-options-2KE']//*[text()='"),
     XPATH_END_PAYMENT_METHOD("']"),
-    XPATH_SELECTED_PAYMENT_METHOD("//*[@class='radio-input-IKa' and @checked]");
+    XPATH_SELECTED_PAYMENT_METHOD("//*[@class='radio-input-IKa' and @checked]"),
+    XPATH_CREDIT_CARD_SECTION("//*[@class='creditCard-root-2AP']");
 
     private String checkoutPageVariables;
 
