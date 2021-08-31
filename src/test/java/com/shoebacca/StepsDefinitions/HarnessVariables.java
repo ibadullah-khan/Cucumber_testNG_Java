@@ -36,6 +36,9 @@ public class HarnessVariables extends UtilFactory {
     protected final String VALID_CC_NUM = CheckoutEnumVariables.VALID_CC_NUM.getValue();
     protected final String VALID_CC_EXPIRY = CheckoutEnumVariables.VALID_CC_EXPIRY.getValue();
     protected final String VALID_CC_CVV = CheckoutEnumVariables.VALID_CC_CVV.getValue();
+    protected final String INVALID_CC_NUM = CheckoutEnumVariables.INVALID_CC_NUM.getValue();
+    protected final String INVALID_CC_EXPIRY = CheckoutEnumVariables.INVALID_CC_EXPIRY.getValue();
+    protected final String INVALID_CC_CVV = CheckoutEnumVariables.INVALID_CC_CVV.getValue();
     protected final String ITEM_HEADING=CartEnumVariables.ITEM_HEADING.getValue();
     protected final String DESCRIPTION_HEADING=CartEnumVariables.DESCRIPTION_HEADING.getValue();
     protected final String QUANTITY_HEADING=CartEnumVariables.QUANTITY_HEADING.getValue();
