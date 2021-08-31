@@ -13,6 +13,6 @@ public class AddressBookStepsDef extends HarnessVariables{
 
 @Then("User Validates Shipping Address Quantity on Address Book")
 public void userValidatesShippingAddressQuantityOnAddressBook() {
-    addressbookPage.validateShippingAddressQuantityVisibility();
+    addressbookPage.validateShippingAddressQuantityVisibility(SHIPPING_ADDRESS);
 }
 }

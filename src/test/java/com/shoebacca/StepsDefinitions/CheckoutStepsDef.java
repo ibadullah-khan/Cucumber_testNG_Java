@@ -393,11 +393,20 @@ public class CheckoutStepsDef extends HarnessVariables {
 
     @Then("User Validates Default Shipping Address on Checkout Page")
     public void userValidatesDefaultShippingAddressOnCheckoutPage() {
-            checkoutPage.validateDefaultAddressVisibility(true);
+            checkoutPage.validateDefaultAddressVisibility();
         }
 
     @Then("User Validates Shipping Address Quantity on Checkout Page")
     public void userValidatesShippingAddressQuantityOnCheckoutPage() {
-        checkoutPage.validateShippingAddressQuantityVisibility();
+        SHIPPING_ADDRESS = checkoutPage.validateShippingAddressQuantityVisibility();
+    }
+
+    @Then("User Validates Default Address is on Top {string} on Checkout Page")
+    public void userValidatesDefaultAddressIsOnTopOnCheckoutPage(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateDefaultAddressonTopVisibility(true);
+        }else {
+            checkoutPage.validateDefaultAddressonTopVisibility(false);
+        }
     }
 }

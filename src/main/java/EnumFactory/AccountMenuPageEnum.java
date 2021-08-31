@@ -10,7 +10,7 @@ public enum AccountMenuPageEnum {
     XPATH_REQUIRED_PASSWORD_FIELD_ERROR("//*[@class='message-root_error-1YZ']/parent::*//input[@name='password']"),
     XPATH_ACCOUNT_MENU_GREET_HEADING("//*[contains(text(),'Hi,')]"),
     XPATH_SIGN_IN_POP_UP("//*[@class='memberCheckout-root_open-3BF']"),
-    XPATH_ADDRESS_BOOK("(//*[@class='accountMenuItems-accountButton-3U9'])[4]");
+    XPATH_ADDRESS_BOOK("//*[contains(@class,'accountMenuItems-accountButton-3U9') and contains(text(),'Address')]");
 
 
     private String accountMenuPageVariables;

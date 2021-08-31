@@ -52,16 +52,18 @@ public enum CheckoutPageEnum {
     XPATH_ADD_COUPON_BUTTON("//button[@type='submit']"),
     XPATH_SUB_TOTAL_AMOUNT("//*[@class='priceSummary-lineItems-3ov']//following::span[@class='priceSummary-price-12K'][1]"),
     XPATH_TOTAL_AMOUNT("//div[@class='priceSummary-itemTotals-G6J']//*[@class='priceSummary-totalPrice-rZa']"),
+    XPATH_DISCOUNT_AMOUNT("//*[contains(text(),'Discount')]//following::span[@class='priceSummary-price-12K']"),
     XPATH_INVALID_COUPON_MESSAGE("//p[@class='message-root-35v']"),
     XPATH_START_PAYMENT_METHOD("//*[@class='paymentMethods-options-2KE']//*[text()='"),
     XPATH_END_PAYMENT_METHOD("']"),
     XPATH_SELECTED_PAYMENT_METHOD("//*[@class='radio-input-IKa' and @checked]"),
     XPATH_CREDIT_CARD_SECTION("//*[@class='creditCard-root-2AP']"),
-    XPATH_SHIPPING_USER("//*[@class='card-name-1C0']"),
+    XPATH_SHIPPING_ADDRESS_USER("//*[@class='card-name-1C0']"),
     XPATH_SHIPPING_USERNAME("//*[@class='addressCard-root_selected-XwX']//*[@class='addressCard-name-Tby']"),
     XPATH_CHANGE_SHIPPING_ADDRESS("//*[@id='change_button']//span[@class='icon-root-2Hz']"),
-    XPATH_DEFAULT_SHIPPING_ADDRESS("//button[@class='addressCard-root_selected-XwX']/span[@class='addressCard-defaultBadge-1w4']"),
+    XPATH_DEFAULT_SHIPPING_ADDRESS("(//span[@class='addressCard-name-Tby'])[1]"),
     XPATH_SHIPPING_DETAILS("//div[@class='addressBook-content-34e']//button"),
+    XPATH_SHIPPING_ADDRESS_DEFAULT("//button[@class='addressCard-root-yCU']//span[@class='addressCard-defaultBadge-1w4']"),
     XPATH_SAVED_FIRST_SHIPPING_ADDRESS("//*[@class='addressCard-root_selected-XwX']");
     private String checkoutPageVariables;
 

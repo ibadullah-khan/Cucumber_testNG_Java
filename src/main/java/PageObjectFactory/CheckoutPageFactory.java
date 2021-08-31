@@ -225,7 +225,7 @@ public class CheckoutPageFactory extends UtilFactory {
     }
 
     public String getShippingUserName() {
-        String locator = CheckoutPageEnum.XPATH_SHIPPING_USER.getValue();
+        String locator = CheckoutPageEnum.XPATH_SHIPPING_ADDRESS_USER.getValue();
         String shippinguser;
         try {
             waitFactory.waitForElementToBeClickable(locator);
@@ -894,14 +894,17 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
-    public void validateDefaultAddressVisibility(boolean expectedVisibility) {
+    public void validateDefaultAddressVisibility() {
         String locator = CheckoutPageEnum.XPATH_DEFAULT_SHIPPING_ADDRESS.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
         try {
             actualVisibility = isVisible(locator);
-            if (actualVisibility && expectedVisibility) {
+            if (actualVisibility) {
                 scenarioDef.log(Status.PASS, "Validated Shipping Address is Displayed as Expected on Checkout Page");
+            }
+            else{
+                scenarioDef.log(Status.FAIL,"Validated Shipping Address is not Displayed as Expected on Checkout Page");
             }
         } catch (Exception e) {
             failureException = e.toString();
@@ -910,26 +913,28 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
-    public void validateShippingAddressQuantityVisibility() {
+    public String[] validateShippingAddressQuantityVisibility() {
         String locator = CheckoutPageEnum.XPATH_SHIPPING_DETAILS.getValue();
         String errorMsg = null;
+        String[] getAllShippingAddress;
         List<WebElement> elements;
 
         try {
             customWait(2000);
             elements = elementFactory.getElementsList(locator);
             waitFactory.waitForElementToBeVisible(locator);
-            checkoutCountAddress = elements.size();
-            if (checkoutCountAddress >= 1) {
-                scenarioDef.log(Status.PASS, "Validated " + checkoutCountAddress + " Shipping Details are Displayed as Expected on Checkout Page");
+            getAllShippingAddress = new String[elements.size()];
+            if (getAllShippingAddress.length >= 1) {
+                scenarioDef.log(Status.PASS, "Validated " + getAllShippingAddress + " Shipping Details are Displayed as Expected on Checkout Page");
             } else {
-                errorMsg = "Validated " + checkoutCountAddress + " Shipping Details are not Displayed as Expected on Checkout Page";
+                errorMsg = "Validated " + getAllShippingAddress + " Shipping Details are not Displayed as Expected on Checkout Page";
                 throw new NoSuchContextException("Actual and Expected Value Differs");
             }
+            return getAllShippingAddress;
         } catch (Exception e) {
             failureException = e.toString();
             if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the Expected Date Element on Cart Page");
+                scenarioDef.log(Status.FAIL, "Unable to get the Expected Shipping Element on Checkout Page");
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
@@ -1292,6 +1297,30 @@ public class CheckoutPageFactory extends UtilFactory {
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             } else if (!actualVisibility && expectedVisibility) {
                 errorMsg = "Validated Credit Card Section is Displayed Unexpectedly on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateDefaultAddressonTopVisibility(boolean expectedVisibility) {
+        String locator = CheckoutPageEnum.XPATH_SHIPPING_ADDRESS_DEFAULT.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try {
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Default Address is Displayed as Expected on Checkout Page");
+            } else if (!actualVisibility && !expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Default Address is not Displayed as Expected on Checkout Page");
+            } else if (actualVisibility && !expectedVisibility) {
+                errorMsg = "Validated Default Address is Displayed Unexpected on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
+                errorMsg = "Validated Default Address is Displayed Unexpectedly on Checkout Page";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             }
         } catch (Exception e) {

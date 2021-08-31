@@ -13,6 +13,7 @@ public class HarnessVariables extends UtilFactory {
     protected static String SHIPPING_METHOD_USERNAME;
     protected static String SHIPPING_METHOD;
     protected static String[] ALL_EXPECTED_DATE;
+    protected static String[] SHIPPING_ADDRESS;
     protected static String TAX_VALUE;
     protected static String PRODUCT_PRICE;
     protected static String PRODUCT_COLOUR;
