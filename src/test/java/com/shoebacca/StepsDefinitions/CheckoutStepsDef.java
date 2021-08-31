@@ -350,4 +350,15 @@ public class CheckoutStepsDef extends HarnessVariables {
 
     @Then("User Clears the Promo Code on Checkout Page")
     public void userClearPromoCodeOnCheckoutPage() throws Exception { checkoutPage.clearPromoCode();}
+
+    @Then("User Select {string} Payment Method")
+    public void userSelectPaymentMethod(String paymentoption) throws Exception {
+        String paymentOption= new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(paymentoption);
+        checkoutPage.clickOnPaymentMethod(paymentOption);
+    }
+
+    @Then("User Validates Only One Payment Method is Selected")
+    public void userValidatesOnlyOnePaymentMethodisSelected() {
+        checkoutPage.validateOnlyOnePaymentSelected();
+    }
 }
