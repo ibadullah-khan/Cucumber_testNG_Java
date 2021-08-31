@@ -70,8 +70,9 @@ public enum CheckoutPageEnum {
     XPATH_PRODUCT_ORIGINAL_AMOUNT("//*[@class='item-salePrice-1Fb']"),
     XPATH_PRODUCT_SAVE_AMOUNT("//*[@class='item-saveAmount-3UV']"),
     XPATH_PRODUCT_IMAGE_LOADER("//*[@class='checkoutPage-summaryContainer-2kD']//span[@class='icon-root-2Hz']"),
-    XPATH_SUBTOTAL_TEXT("//*[@class='priceSummary-lineItemLabel-1zJ' and text()='Subtotal']");
-
+    XPATH_SUBTOTAL_TEXT("//*[@class='priceSummary-lineItemLabel-1zJ' and text()='Subtotal']"),
+    XPATH_PAYMENT_LOADER("//*[@class='indicator-root-2nl']"),
+    XPATH_PAYMENT_ERROR_MESSAGE("//*[@data-braintree-id='sheet-error']");
 
     private String checkoutPageVariables;
 
