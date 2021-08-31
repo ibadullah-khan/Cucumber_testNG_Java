@@ -1,20 +1,19 @@
 package PageObjectFactory;
 
-import EnumFactory.CartPageEnum;
 import EnumFactory.CheckoutPageEnum;
-import UtilitiesFactory.ElementFactory;
 import UtilitiesFactory.UtilFactory;
 import com.aventstack.extentreports.Status;
 import org.openqa.selenium.NoSuchContextException;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.Color;
 
-import java.util.List;
+
 
 public class CheckoutPageFactory extends UtilFactory {
 
     static int checkoutCountAddress;
+
+    ElementFactory elementFactory = new ElementFactory();
 
     ElementFactory elementFactory = new ElementFactory();
 
@@ -1233,6 +1232,70 @@ public class CheckoutPageFactory extends UtilFactory {
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
+            throw e;
+        }
+    }
+
+    public void clickOnPaymentMethod(String expectedPaymentOption) {
+        String locator = CheckoutPageEnum.XPATH_START_PAYMENT_METHOD.getValue() + expectedPaymentOption + CheckoutPageEnum.XPATH_END_PAYMENT_METHOD.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS, "Clicked on " + expectedPaymentOption + " Payment Method on Checkout Page");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Click " + expectedPaymentOption + " Payment Method on Checkout Page");
+            throw e;
+        }
+
+    }
+
+    public void validateOnlyOnePaymentSelected() {
+        String locator = CheckoutPageEnum.XPATH_SELECTED_PAYMENT_METHOD.getValue();
+        String errorMsg = null;
+        List<WebElement> elements;
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            elements = elementFactory.getElementsList(locator);
+            if(elements.size()==1){
+                scenarioDef.log(Status.PASS, "Validate Only One Payment Method is Selected on Checkout Page");
+            }else{
+                errorMsg = "Validate More Than One Payment Method is Selected on Checkout Page";
+                throw new NoSuchContextException("More Than One Payment Method Selected");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Payment Method Element on Summary Section of Checkout Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void validateCreditCardSectionVisibility(boolean expectedVisibility) {
+        String locator = CheckoutPageEnum.XPATH_CREDIT_CARD_SECTION.getValue();
+        String loader = CheckoutPageEnum.XPATH_SHIPPING_LOADER.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try {
+            waitFactory.waitForElementToBeInVisible(loader);
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Credit Card Section is Displayed as Expected on Checkout Page");
+            } else if (!actualVisibility && !expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Credit Card Section is not Displayed as Expected on Checkout Page");
+            } else if (actualVisibility && !expectedVisibility) {
+                errorMsg = "Validated Credit Card Section is not Displayed Unexpected on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
+                errorMsg = "Validated Credit Card Section is Displayed Unexpectedly on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
             throw e;
         }
     }

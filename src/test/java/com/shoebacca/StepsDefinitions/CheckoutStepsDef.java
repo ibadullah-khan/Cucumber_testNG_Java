@@ -351,6 +351,26 @@ public class CheckoutStepsDef extends HarnessVariables {
     @Then("User Clears the Promo Code on Checkout Page")
     public void userClearPromoCodeOnCheckoutPage() throws Exception { checkoutPage.clearPromoCode();}
 
+    @Then("User Select {string} Payment Method")
+    public void userSelectPaymentMethod(String paymentoption) throws Exception {
+        String paymentOption= new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(paymentoption);
+        checkoutPage.clickOnPaymentMethod(paymentOption);
+    }
+
+    @Then("User Validates Only One Payment Method is Selected")
+    public void userValidatesOnlyOnePaymentMethodisSelected() {
+        checkoutPage.validateOnlyOnePaymentSelected();
+    }
+
+    @Then("User Validates Credit Card Section Visibility {string} by Default")
+    public void userValidatesCreditCardSectionVisibilityByDefault(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateCreditCardSectionVisibility(true);
+        }else {
+            checkoutPage.validateCreditCardSectionVisibility(false);
+        }
+    }
+
 //    @Then("User Validates Shipping Address Visibility on Checkout Page {string}")
 //    public void userValidatesShippingAddressVisibilityOnCheckoutPage(String expectedCondition) {
 //        if(expectedCondition.equals("true")){
