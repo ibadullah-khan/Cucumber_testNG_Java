@@ -329,7 +329,7 @@ public class CheckoutStepsDef extends HarnessVariables {
     }
 
     @Then("User Enter {string} in Promo Code on Checkout Page")
-    public void userEnterInPromoCodeOnCartPage(String coupon)throws Exception {
+    public void userEnterPromoCodeOnCheckoutPage(String coupon)throws Exception {
         String couponValue= new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(coupon);
         checkoutPage.enterCouponCode(couponValue);
     }
@@ -351,6 +351,15 @@ public class CheckoutStepsDef extends HarnessVariables {
     @Then("User Clears the Promo Code on Checkout Page")
     public void userClearPromoCodeOnCheckoutPage() throws Exception { checkoutPage.clearPromoCode();}
 
+    @Then("User Validates Discounted Amount on Checkout Page")
+    public void userValidatesDiscountedAmountOnCheckoutPage() { checkoutPage.validateDiscountedAmount();}
+
+    @Then("User Clicks on Remove Promo Code Button on Checkout Page")
+    public void userClicksOnRemovePromoCodeOnCheckoutPage() { checkoutPage.clickOnRemovePromoCodeButton();}
+
+    @Then("User Validates Total Amount After Removing Promo Code on Checkout Page")
+    public void userValidatesTotalAmountAfterRemovingCouponOnCheckoutPage() { checkoutPage.validateTotalAmountAfterRemovingPromoCode();}
+
     @Then("User Select {string} Payment Method")
     public void userSelectPaymentMethod(String paymentoption) throws Exception {
         String paymentOption= new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(paymentoption);
@@ -369,5 +378,153 @@ public class CheckoutStepsDef extends HarnessVariables {
         }else {
             checkoutPage.validateCreditCardSectionVisibility(false);
         }
+    }
+
+    @Then("User Validates Subtotal Price {string} on Checkout Page")
+    public void userValidatesSubtotalPriceOnCheckoutPage(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validatesSubtotalPriceVisibility(true);
+        }else {
+            checkoutPage.validatesSubtotalPriceVisibility(false);
+        }
+    }
+
+    @Then("User Validates Tax Value {string} on Checkout Page")
+    public void userValidatesTaxValueOnCheckoutPage(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validatesTaxValueVisibility(true);
+        }else {
+            checkoutPage.validatesTaxValueVisibility(false);
+        }
+    }
+
+    @Then("User Validates total Amount Value {string} on Summary Section of Checkout Page")
+    public void userValidatesTotalAmountValueOnSummarySectionOfCheckoutPage(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validatesTotalAmountValueVisibility(true);
+        }else {
+            checkoutPage.validatesTotalAmountValueVisibility(false);
+        }
+    }
+
+    @Then("User Validates Product Image Visibility {string} on Summary Section of Checkout Page")
+    public void userValidatesProductImageVisibilityOnSummarySectionOfCheckoutPage(String expectedCondition) {
+        if (expectedCondition.equals("true")) {
+            checkoutPage.validateProductImageVisibility(true);
+        } else {
+            checkoutPage.validateProductImageVisibility(false);
+        }
+    }
+
+    @Then("User Validates Product Size Visibility {string} on Checkout Page")
+    public void userValidatesProductSizeVisibilityOnCheckoutPage(String expectedCondition) {
+        if (expectedCondition.equals("true")) {
+            checkoutPage.validateProductSizeVisibility(true);
+        } else {
+            checkoutPage.validateProductSizeVisibility(false);
+        }
+    }
+
+    @Then("User Validates Product Color Visibility {string} on Checkout Page")
+    public void userValidatesProductColorVisibilityOnCheckoutPage(String expectedCondition) {
+        if (expectedCondition.equals("true")) {
+            checkoutPage.validateProductColorVisibility(true);
+        } else {
+            checkoutPage.validateProductColorVisibility(false);
+        }
+    }
+
+    @Then("User Validates Estimated Delivery Date Visibility {string} on Checkout Page")
+    public void userValidatesEstimatedDeliveryDateVisibilityOnCheckoutPage(String expectedCondition) {
+        if (expectedCondition.equals("true")) {
+            checkoutPage.validateEstimatedDeliveryDateVisibility(true);
+        } else {
+            checkoutPage.validateEstimatedDeliveryDateVisibility(false);
+        }
+    }
+
+    @Then("User Validates Product Quantity {string} on Checkout Page")
+    public void userValidatesProductQuantityOnCheckoutPage(String expectedCondition) {
+        if (expectedCondition.equals("true")) {
+            checkoutPage.validateProductQuantityVisibility(true);
+        } else {
+            checkoutPage.validateProductQuantityVisibility(false);
+        }
+    }
+
+    @Then("User Validates Products Name Visibility {string} on Checkout Page")
+    public void userValidatesProductsNameVisibilityOnCheckoutPage(String expectedCondition) {
+        if (expectedCondition.equals("true")) {
+            checkoutPage.ValidatesProductsNameVisibility(true);
+        } else {
+            checkoutPage.ValidatesProductsNameVisibility(false);
+        }
+    }
+
+    @Then("User Validates Brand Name Visibility {string} on Checkout Page")
+    public void userValidatesBrandNameVisibilityOnCheckoutPage(String expectedCondition) {
+        if (expectedCondition.equals("true")) {
+            checkoutPage.ValidatesBrandNameVisibility(true);
+        } else {
+            checkoutPage.ValidatesBrandNameVisibility(false);
+        }
+    }
+
+    @Then("User Validates Actual Amount Visibility {string} on Checkout Page")
+    public void userValidatesActualAmountVisibilityOnCheckoutPage(String expectedCondition) {
+        if (expectedCondition.equals("true")) {
+            checkoutPage.ValidatesActualAmountVisibility(true);
+        } else {
+            checkoutPage.ValidatesActualAmountVisibility(false);
+        }
+    }
+
+    @Then("User Validates Original Amount Visibility {string} on Checkout Page")
+    public void userValidatesOriginalAmountVisibilityOnCheckoutPage(String expectedCondition) {
+        if (expectedCondition.equals("true")) {
+            checkoutPage.ValidatesOriginalAmountVisibility(true);
+        } else {
+            checkoutPage.ValidatesOriginalAmountVisibility(false);
+        }
+    }
+
+    @Then("User Validates Save Amount Visibility {string} on Checkout Page")
+    public void userValidatesSaveAmountVisibilityOnCheckoutPage(String expectedCondition) {
+        if (expectedCondition.equals("true")) {
+            checkoutPage.ValidatesSaveAmountVisibility(true);
+        } else {
+            checkoutPage.ValidatesSaveAmountVisibility(false);
+        }
+    }
+
+    @And("User Enters Invalid Credit Card Number on Checkout Page")
+    public void userEntersInvalidCreditCardNumberOnCheckoutPage() throws Exception {
+        checkoutPage.enterCreditCardNumber(INVALID_CC_NUM);
+    }
+
+    @And("User Enters Invalid Credit Card Expiry Date on Checkout Page")
+    public void userEntersInvalidCreditCardExpiryDateOnCheckoutPage() throws Exception {
+        checkoutPage.enterCreditCardExpiryDate(INVALID_CC_EXPIRY);
+    }
+
+    @And("User Enters Invalid Credit Card CVV on Checkout Page")
+    public void userEntersInvalidCreditCardCVVOnCheckoutPage() throws Exception {
+        checkoutPage.enterCreditCardCVV(INVALID_CC_CVV);
+    }
+
+    @Then("User Validates Payment Method Error Visibility {string}")
+    public void userValidatesPaymentMethodErrorVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validatePaymentErrorMessageVisibility(true);
+        }else {
+            checkoutPage.validatePaymentErrorMessageVisibility(false);
+        }
+    }
+
+    @Then("User Validates {string} Text from {string} on Checkout Page")
+    public void userValidatesTextFromOnCheckoutPage(String expectedError, String errorField) throws Exception {
+        String field = new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(errorField);
+        String errorMsg = new PropertyLoaderFactory().getPropertyFile(errorMsgPropFile).getProperty(expectedError);
+        checkoutPage.validatePaymentMethodFormErrorMsg(errorMsg,field);
     }
 }
