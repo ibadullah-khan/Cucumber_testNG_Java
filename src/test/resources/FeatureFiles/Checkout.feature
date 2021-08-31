@@ -450,3 +450,28 @@ Feature: Checkout Feature File
     Then User Validates "invalid.cc.number.error" Text from "cc.number.error.field" on Checkout Page
     Then User Validates "invalid.exp.date.error" Text from "exp.date.error.field" on Checkout Page
     Then User Validates "invalid.cvv.error" Text from "cvv.error.field" on Checkout Page
+
+  @Regression
+  Scenario: Verify Error Message for Passed Expire Date for Credit Card
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks Checkout Button on Mini Cart View
+    And User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
+    And User Enters Valid Email Address on Checkout Page
+    And User Enters Valid First Name on Checkout Page
+    And User Enters Valid Last Name on Checkout Page
+    And User Enters Valid Address on Checkout Page
+    And User Enters Valid City on Checkout Page
+    And User Selects Valid State on Checkout Page
+    And User Enters Valid Zip Code on Checkout Page
+    And User Enters Valid Phone No on Checkout Page
+    Then User Clicks Save and Continue Button on Checkout Page
+    And User Enters Valid Credit Card Number on Checkout Page
+    And User Enters Invalid Credit Card Expiry Date on Checkout Page
+    And User Enters Valid Credit Card CVV on Checkout Page
+    Then User Clicks Place Order Button on Checkout Page
+    Then User Validates "invalid.exp.date.error" Text from "exp.date.error.field" on Checkout Page
