@@ -486,7 +486,7 @@ Feature: Checkout Feature File
     And User Clicks Checkout Button on Mini Cart View
     And User Clicks on Guest Checkout Button
     Then User Should Redirect Toward "shopping.checkout" Page
-    And User Enters Email Address on Checkout Page
+    And User Enters Random Email Address on Checkout Page
     And User Enters Valid First Name on Checkout Page
     And User Enters Valid Last Name on Checkout Page
     And User Enters Valid Address on Checkout Page
@@ -503,7 +503,5 @@ Feature: Checkout Feature File
     And User Enters Password on Order Confirmation Page
     And User Enters Confirm Password on Order Confirmation Page
     Then User Clicks on Create Account Button on Order Confirmation Page
-    Then User Clicks The Account Menu Button
+    Then User Clicks the Account Icon on Header
     Then User Validates Successful Login on Account Menu
-    Then User Clicks on My Profile Button on Account Menu
-    Then User Clicks on Change Email Checkbox on Account Menu

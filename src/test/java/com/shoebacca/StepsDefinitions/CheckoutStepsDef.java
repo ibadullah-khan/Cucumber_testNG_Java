@@ -367,8 +367,8 @@ public class CheckoutStepsDef extends HarnessVariables {
         checkoutPage.clickOnPaymentMethod(paymentOption);
     }
 
-    @And("User Enters Email Address on Checkout Page")
-    public void userEntersEmailAddressOnCheckoutPage() throws Exception {
+    @And("User Enters Random Email Address on Checkout Page")
+    public void userEntersRandomEmailAddressOnCheckoutPage() throws Exception {
         String rndName = UtilFactory.randomStrings();
         checkoutPage.enterEmailAddress(rndName + EMAIL_ADDRESS_WITHOUT_RECIPIENT);
     }
