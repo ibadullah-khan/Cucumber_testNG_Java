@@ -1,19 +1,20 @@
 package PageObjectFactory;
 
 import EnumFactory.CheckoutPageEnum;
+import UtilitiesFactory.ElementFactory;
 import UtilitiesFactory.UtilFactory;
 import com.aventstack.extentreports.Status;
 import org.openqa.selenium.NoSuchContextException;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.Color;
 
+import java.util.List;
 
 
 public class CheckoutPageFactory extends UtilFactory {
 
     static int checkoutCountAddress;
-
-    ElementFactory elementFactory = new ElementFactory();
 
     ElementFactory elementFactory = new ElementFactory();
 
