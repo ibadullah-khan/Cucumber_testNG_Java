@@ -370,4 +370,13 @@ public class CheckoutStepsDef extends HarnessVariables {
     public void userValidatesOnlyOnePaymentMethodisSelected() {
         checkoutPage.validateOnlyOnePaymentSelected();
     }
+
+    @Then("User Validates Credit Card Section Visibility {string} by Default")
+    public void userValidatesCreditCardSectionVisibilityByDefault(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateCreditCardSectionVisibility(true);
+        }else {
+            checkoutPage.validateCreditCardSectionVisibility(false);
+        }
+    }
 }
