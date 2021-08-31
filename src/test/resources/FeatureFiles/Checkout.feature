@@ -496,3 +496,24 @@ Feature: Checkout Feature File
     And User Enters Valid Phone No on Checkout Page
     Then User Clicks Save and Continue Button on Checkout Page
     Then User Select "paypal.payment" Payment Method
+
+  @Regression
+  Scenario: Verify Customer Cannot Save Address with Providing Phone Number Less than Ten Digits
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
+    And User Enters Valid Email Address on Checkout Page
+    And User Enters Valid First Name on Checkout Page
+    And User Enters Valid Last Name on Checkout Page
+    And User Enters Valid Address on Checkout Page
+    And User Enters Valid City on Checkout Page
+    And User Selects Valid State on Checkout Page
+    And User Enters Valid Zip Code on Checkout Page
+    And User Enters Invalid Phone No on Checkout Page
+    Then User Clicks Save and Continue Button on Checkout Page
+    Then User Validates "invalid.phone.number" Error Message on Checkout Page

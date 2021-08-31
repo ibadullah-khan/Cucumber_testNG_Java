@@ -75,6 +75,7 @@ public enum CheckoutPageEnum {
     XPATH_PAYMENT_LOADER("//*[@class='indicator-root-2nl']"),
     XPATH_PAYMENT_ERROR_MESSAGE("//*[@data-braintree-id='sheet-error']"),
     XPATH_PAYMENT_FORM_ERROR_MSG_START("//*[@data-braintree-id='"),
+    XPATH_INVALID_PHONE_NUMBER_ERROR_MSG("//*[@class='message-root_error-1YZ']"),
     XPATH_PAYMENT_FORM_ERROR_MSG_END("-field-error']");
 
     private String checkoutPageVariables;
