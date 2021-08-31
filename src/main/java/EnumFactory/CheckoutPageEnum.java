@@ -54,7 +54,10 @@ public enum CheckoutPageEnum {
     XPATH_SUB_TOTAL_AMOUNT("//*[@class='priceSummary-lineItems-3ov']//following::span[@class='priceSummary-price-12K'][1]"),
     XPATH_DISCOUNT_AMOUNT("//*[contains(text(),'Discount')]//following::span[@class='priceSummary-price-12K']"),
     XPATH_TOTAL_AMOUNT("//div[@class='priceSummary-itemTotals-G6J']//*[@class='priceSummary-totalPrice-rZa']"),
-    XPATH_INVALID_COUPON_MESSAGE("//p[@class='message-root-35v']");
+    XPATH_INVALID_COUPON_MESSAGE("//p[@class='message-root-35v']"),
+    XPATH_START_PAYMENT_METHOD("//*[@class='paymentMethods-options-2KE']//*[text()='"),
+    XPATH_END_PAYMENT_METHOD("']"),
+    XPATH_SELECTED_PAYMENT_METHOD("//*[@class='radio-input-IKa' and @checked]");
 
     private String checkoutPageVariables;
 
