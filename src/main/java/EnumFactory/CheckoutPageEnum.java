@@ -20,6 +20,7 @@ public enum CheckoutPageEnum {
     XPATH_CREDIT_CARD_EXPIRY_FIELD("//input[@id='expiration']"),
     XPATH_CREDIT_CARD_CVV_FIELD("//input[@id='cvv']"),
     XPATH_PLACE_ORDER_BUTTON("//span[text()='Place Order']"),
+    XPATH_CARD_LOGOS("//*[@class='creditCard-icons-7ec']"),
     XPATH_ESTIMATED_DELIVERY_DATE("//*[@class='item-estimatedDate-2Aa']"),
     XPATH_TAX_VALUE("//*[text()='Tax']//following-sibling::*[@class='priceSummary-price-12K']"),
     XPATH_SHIPPING_METHOD_START("//*[@class='shippingRadios-radioLabel-3S0']/span[text()='"),
@@ -49,7 +50,8 @@ public enum CheckoutPageEnum {
     XPATH_SHIPPING_METHOD_SELECTED_OPTION("//input[@class='radio-input-IKa' and @checked]//following-sibling::*[@class='shippingRadios-radioLabel-3S0']/span[not(@class)]"),
     XPATH_SHIPPING_DETAIL_TITLE_INACTIVE("//*[@class='checkoutPage-section_title-2GW' and contains(text(),'Shipping Details')]"),
     XPATH_PROMO_CODE_FIELD("//*[@id='couponCode']"),
-    XPATH_ADD_COUPON_BUTTON("//button[@type='submit']"),
+    XPATH_ADD_COUPON_BUTTON("//*[@type='submit']/span[text()='Add']"),
+    XPATH_REMOVE_COUPON_BUTTON("//*[@type='submit']/span[text()='Remove']"),
     XPATH_SUB_TOTAL_AMOUNT("//*[@class='priceSummary-lineItems-3ov']//following::span[@class='priceSummary-price-12K'][1]"),
     XPATH_DISCOUNT_AMOUNT("//*[contains(text(),'Discount')]//following::span[@class='priceSummary-price-12K']"),
     XPATH_TOTAL_AMOUNT("//div[@class='priceSummary-itemTotals-G6J']//*[@class='priceSummary-totalPrice-rZa']"),
@@ -58,7 +60,24 @@ public enum CheckoutPageEnum {
     XPATH_END_PAYMENT_METHOD("']"),
     XPATH_SELECTED_PAYMENT_METHOD("//*[@class='radio-input-IKa' and @checked]"),
     XPATH_ACCOUNT_MENU("//button[@class='accountTrigger-trigger-1tg']"),
-    XPATH_CREDIT_CARD_SECTION("//*[@class='creditCard-root-2AP']");
+    XPATH_CREDIT_CARD_SECTION("//*[@class='creditCard-root-2AP']"),
+    XPATH_TOTAL_COST_VALUE("//*[text()='Tax']//following-sibling::*[@class='priceSummary-itemTotals-G6J']"),
+    XPATH_PRODUCT_IMAGE("//*[@class='image-image-3YO image-loaded-ktU']"),
+    XPATH_PRODUCT_SIZE("//*[@class='item-options-1Di']"),
+    XPATH_PRODUCT_COLOR("//*[@class='item-colorName-2wM']"),
+    XPATH_PRODUCT_QUANTITY("//*[@class='item-quantity-1vq']"),
+    XPATH_PRODUCT_NAME("//*[@class='item-name-2FI']"),
+    XPATH_PRODUCT_BRAND_NAME("//*[@class='item-brand-1ux']"),
+    XPATH_PRODUCT_ACTUAL_AMOUNT("//*[@class='item-price-2wY']"),
+    XPATH_PRODUCT_ORIGINAL_AMOUNT("//*[@class='item-salePrice-1Fb']"),
+    XPATH_PRODUCT_SAVE_AMOUNT("//*[@class='item-saveAmount-3UV']"),
+    XPATH_PRODUCT_IMAGE_LOADER("//*[@class='checkoutPage-summaryContainer-2kD']//span[@class='icon-root-2Hz']"),
+    XPATH_SUBTOTAL_TEXT("//*[@class='priceSummary-lineItemLabel-1zJ' and text()='Subtotal']"),
+    XPATH_PAYMENT_LOADER("//*[@class='indicator-root-2nl']"),
+    XPATH_PAYMENT_ERROR_MESSAGE("//*[@data-braintree-id='sheet-error']"),
+    XPATH_PAYMENT_FORM_ERROR_MSG_START("//*[@data-braintree-id='"),
+    XPATH_PAYMENT_FORM_ERROR_MSG_END("-field-error']");
+
 
     private String checkoutPageVariables;
 
