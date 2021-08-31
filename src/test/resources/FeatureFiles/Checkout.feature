@@ -478,13 +478,12 @@ Feature: Checkout Feature File
 
   @Regression
   Scenario: Validate Guest Customer is Given Option To Enter Password To Create Account.
-
     Given User Setups the Web Browser
     When User Navigates to "shoebacca.first.bag.pdt" Url
     And User Clicks Add to Cart Button on PDP
     And User Validates Successful Triggered Mini Cart
     And User Clicks Checkout Button on Mini Cart View
-    And User Clicks on Guest Checkout Button
+    Then User Clicks on Guest Checkout Button
     Then User Should Redirect Toward "shopping.checkout" Page
     And User Enters Valid Email Address on Checkout Page
     And User Enters Valid First Name on Checkout Page
@@ -501,3 +500,24 @@ Feature: Checkout Feature File
     Then User Clicks Place Order Button on Checkout Page
     Then User Closes Feedback Window on Confirmation Page
     Then User Validates Password Button on Confirmation Page "true"
+
+  @Regression
+  Scenario: Validate Customer can Select PayPal as a Payment Method
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
+    And User Enters Valid Email Address on Checkout Page
+    And User Enters Valid First Name on Checkout Page
+    And User Enters Valid Last Name on Checkout Page
+    And User Enters Valid Address on Checkout Page
+    And User Enters Valid City on Checkout Page
+    And User Selects Valid State on Checkout Page
+    And User Enters Valid Zip Code on Checkout Page
+    And User Enters Valid Phone No on Checkout Page
+    Then User Clicks Save and Continue Button on Checkout Page
+    Then User Select "paypal.payment" Payment Method
