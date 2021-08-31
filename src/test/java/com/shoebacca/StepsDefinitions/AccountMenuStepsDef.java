@@ -111,4 +111,14 @@ public class AccountMenuStepsDef extends HarnessVariables{
             accountMenuPage.validateSignInPopUpVisibility(false);
         }
     }
+
+    @Then("User Clicks on My Profile Button on Account Menu")
+    public void userClicksTheMyProfileButtonOnAccountMenu() throws Exception {
+        accountMenuPage.clickOnMyProfileButton();
+    }
+
+    @Then("User Clicks on Change Email Checkbox on Account Menu")
+    public void userClicksChangeEmail() throws Exception {
+        accountMenuPage.clickOnChangeEmail();
+    }
 }

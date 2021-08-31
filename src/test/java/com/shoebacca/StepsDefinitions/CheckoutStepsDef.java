@@ -4,6 +4,7 @@ import PageObjectFactory.CheckoutPageFactory;
 import UtilitiesFactory.PropertyLoaderFactory;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import org.apache.commons.lang.RandomStringUtils;
 
 public class CheckoutStepsDef extends HarnessVariables {
 
@@ -357,6 +358,12 @@ public class CheckoutStepsDef extends HarnessVariables {
         checkoutPage.clickOnPaymentMethod(paymentOption);
     }
 
+    @And("User Enters Email Address on Checkout Page")
+    public void userEntersEmailAddressOnCheckoutPage() throws Exception {
+        String rndName = RandomStringUtils.randomAlphabetic(5).toLowerCase();
+        checkoutPage.enterEmailAddress(rndName + EMAIL_ADDRESS_WITHOUT_RECIPIENT);
+    }
+
     @Then("User Validates Only One Payment Method is Selected")
     public void userValidatesOnlyOnePaymentMethodisSelected() {
         checkoutPage.validateOnlyOnePaymentSelected();
@@ -370,4 +377,8 @@ public class CheckoutStepsDef extends HarnessVariables {
             checkoutPage.validateCreditCardSectionVisibility(false);
         }
     }
+
+    @Then("User Clicks The Account Menu Button")
+    public void UserClicksTheAccountMenuButton() {
+        checkoutPage.clickOnAccountMenuButton(); }
 }

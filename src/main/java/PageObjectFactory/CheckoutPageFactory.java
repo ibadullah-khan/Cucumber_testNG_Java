@@ -1080,6 +1080,7 @@ public class CheckoutPageFactory extends UtilFactory {
             throw e;
         }
     }
+
     public void clearPromoCode() throws Exception {
         String locator = CheckoutPageEnum.XPATH_PROMO_CODE_FIELD.getValue();
         String errorMsg = null;
@@ -1191,4 +1192,18 @@ public class CheckoutPageFactory extends UtilFactory {
             throw e;
         }
     }
+
+    public void clickOnAccountMenuButton() {
+        String locator = CheckoutPageEnum.XPATH_ACCOUNT_MENU.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS, "Clicked on Account Menu Button");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Click on Account Menu Button");
+            throw e;
+        }
+    }
+
 }
