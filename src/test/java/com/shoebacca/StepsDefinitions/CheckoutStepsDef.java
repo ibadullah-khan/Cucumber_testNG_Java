@@ -370,4 +370,28 @@ public class CheckoutStepsDef extends HarnessVariables {
             checkoutPage.validateCreditCardSectionVisibility(false);
         }
     }
+
+    @And("User Enters Invalid Credit Card Number on Checkout Page")
+    public void userEntersInvalidCreditCardNumberOnCheckoutPage() throws Exception {
+        checkoutPage.enterCreditCardNumber(INVALID_CC_NUM);
+    }
+
+    @And("User Enters Invalid Credit Card Expiry Date on Checkout Page")
+    public void userEntersInvalidCreditCardExpiryDateOnCheckoutPage() throws Exception {
+        checkoutPage.enterCreditCardExpiryDate(INVALID_CC_EXPIRY);
+    }
+
+    @And("User Enters Invalid Credit Card CVV on Checkout Page")
+    public void userEntersInvalidCreditCardCVVOnCheckoutPage() throws Exception {
+        checkoutPage.enterCreditCardCVV(INVALID_CC_CVV);
+    }
+
+    @Then("User Validates Payment Method Error Visibility {string}")
+    public void userValidatesPaymentMethodErrorVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validatePaymentErrorMessageVisibility(true);
+        }else {
+            checkoutPage.validatePaymentErrorMessageVisibility(false);
+        }
+    }
 }

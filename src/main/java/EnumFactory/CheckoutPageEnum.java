@@ -57,7 +57,9 @@ public enum CheckoutPageEnum {
     XPATH_START_PAYMENT_METHOD("//*[@class='paymentMethods-options-2KE']//*[text()='"),
     XPATH_END_PAYMENT_METHOD("']"),
     XPATH_SELECTED_PAYMENT_METHOD("//*[@class='radio-input-IKa' and @checked]"),
-    XPATH_CREDIT_CARD_SECTION("//*[@class='creditCard-root-2AP']");
+    XPATH_CREDIT_CARD_SECTION("//*[@class='creditCard-root-2AP']"),
+    XPATH_PAYMENT_LOADER("//*[@class='indicator-root-2nl']"),
+    XPATH_PAYMENT_ERROR_MESSAGE("//*[@data-braintree-id='sheet-error']");
 
     private String checkoutPageVariables;
 
