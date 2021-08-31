@@ -2,9 +2,9 @@ package com.shoebacca.StepsDefinitions;
 
 import PageObjectFactory.CheckoutPageFactory;
 import UtilitiesFactory.PropertyLoaderFactory;
+import UtilitiesFactory.UtilFactory;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
-import org.apache.commons.lang.RandomStringUtils;
 
 public class CheckoutStepsDef extends HarnessVariables {
 
@@ -369,7 +369,7 @@ public class CheckoutStepsDef extends HarnessVariables {
 
     @And("User Enters Email Address on Checkout Page")
     public void userEntersEmailAddressOnCheckoutPage() throws Exception {
-        String rndName = RandomStringUtils.randomAlphabetic(5).toLowerCase();
+        String rndName = UtilFactory.randomStrings();
         checkoutPage.enterEmailAddress(rndName + EMAIL_ADDRESS_WITHOUT_RECIPIENT);
     }
 

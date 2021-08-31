@@ -4,6 +4,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang.RandomStringUtils;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.TakesScreenshot;
@@ -351,5 +352,10 @@ public class UtilFactory {
         driver.switchTo().window(tabs[0]);
         driver.close();
         driver.switchTo().window(tabs[1]);
+    }
+
+    public static String randomStrings(){
+        String rndName = RandomStringUtils.randomAlphabetic(5).toLowerCase();
+        return rndName;
     }
 }

@@ -8,7 +8,6 @@ import org.openqa.selenium.NoSuchContextException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.Color;
-
 import java.util.List;
 
 public class CheckoutPageFactory extends UtilFactory {
@@ -1645,4 +1644,5 @@ public class CheckoutPageFactory extends UtilFactory {
             throw e;
         }
     }
+
 }
