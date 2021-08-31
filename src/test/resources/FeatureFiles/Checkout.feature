@@ -328,7 +328,32 @@ Feature: Checkout Feature File
     Then User Validates Credit Card Section Visibility "true" by Default
 
   @Regression
-  Scenario: Guest User Checkout Selected Product to Order Confirmation Page
+  Scenario: Verify Summary Details,Shipping Details,Payment Method Content on Checkout Page
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
+    Then User Validates Subtotal Price "true" on Checkout Page
+    Then User Validates "standard.shipping" Method Name on Summary Section of Checkout Page
+    Then User Validates Tax Value "true" on Checkout Page
+    Then User Validates total Amount Value "true" on Summary Section of Checkout Page
+    Then User Validates Product Image Visibility "true" on Summary Section of Checkout Page
+    Then User Validates Product Size Visibility "true" on Checkout Page
+    Then User Validates Product Color Visibility "true" on Checkout Page
+    Then User Validates Estimated Delivery Date Visibility "true" on Checkout Page
+    Then User Validates Product Quantity "true" on Checkout Page
+    Then User Validates Products Name Visibility "true" on Checkout Page
+    Then User Validates Brand Name Visibility "true" on Checkout Page
+    Then User Validates Actual Amount Visibility "true" on Checkout Page
+    Then User Validates Original Amount Visibility "true" on Checkout Page
+    Then User Validates Save Amount Visibility "true" on Checkout Page
+
+  @Regression
+  Scenario: Verify Order Cannot be Placed with Invalid Payment Details
 
     Given User Setups the Web Browser
     When User Navigates to "shoebacca.first.bag.pdt" Url
