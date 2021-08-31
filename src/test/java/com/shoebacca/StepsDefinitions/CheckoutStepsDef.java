@@ -520,4 +520,11 @@ public class CheckoutStepsDef extends HarnessVariables {
             checkoutPage.validatePaymentErrorMessageVisibility(false);
         }
     }
+
+    @Then("User Validates {string} Text from {string} on Checkout Page")
+    public void userValidatesTextFromOnCheckoutPage(String expectedError, String errorField) throws Exception {
+        String field = new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(errorField);
+        String errorMsg = new PropertyLoaderFactory().getPropertyFile(errorMsgPropFile).getProperty(expectedError);
+        checkoutPage.validatePaymentMethodFormErrorMsg(errorMsg,field);
+    }
 }

@@ -224,7 +224,7 @@ public class CheckoutPageFactory extends UtilFactory {
     }
 
     public void validateTaxValue(String expectedText){
-        String locator = CheckoutPageEnum. XPATH_TAX_VALUE.getValue();
+        String locator = CheckoutPageEnum.XPATH_TAX_VALUE.getValue();
         String errorMsg = null;
         String actualText;
         try{
@@ -1604,6 +1604,30 @@ public class CheckoutPageFactory extends UtilFactory {
         } catch (Exception e) {
             failureException = e.toString();
             scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
+    }
+
+    public void validatePaymentMethodFormErrorMsg(String expectedText,String errorField){
+        String locator = CheckoutPageEnum.XPATH_PAYMENT_FORM_ERROR_MSG_START.getValue() +errorField+ CheckoutPageEnum.XPATH_PAYMENT_FORM_ERROR_MSG_END.getValue();
+        String errorMsg = null;
+        String actualText;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            actualText = getText(locator).trim();
+            if (actualText.contains(expectedText)){
+                scenarioDef.log(Status.PASS,"Validated Payment Form Error Message as Expected: "+expectedText +" on field: " + errorField);
+            }else {
+                errorMsg = "Could not validate Payment Form Error Message as Expected: "+expectedText +" on field: " + errorField +" Actual was: "+actualText;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        }catch (Exception e){
+            failureException = e.toString();
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL,"Unable to get the Payment Form Error Message on Checkout Page");
+            }else {
+                scenarioDef.log(Status.FAIL,errorMsg);
+            }
             throw e;
         }
     }
