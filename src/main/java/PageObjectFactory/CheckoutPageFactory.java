@@ -178,7 +178,9 @@ public class CheckoutPageFactory extends UtilFactory {
 
     public void clickPlaceOrderButton() throws Exception {
         String locator = CheckoutPageEnum.XPATH_PLACE_ORDER_BUTTON.getValue();
+        String loader = CheckoutPageEnum.XPATH_CARD_LOGOS.getValue();
         try{
+            waitFactory.waitForElementToBeClickable(loader);
             waitFactory.waitForElementToBeClickable(locator);
             click(locator);
             scenarioDef.log(Status.PASS,"Clicked on Place Order Button Button on Checkout Page");
