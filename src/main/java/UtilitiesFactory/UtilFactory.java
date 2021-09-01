@@ -359,11 +359,10 @@ public class UtilFactory {
         driver.switchTo().window(tabs[1]);
     }
 
-<<<<<<< HEAD
-    protected String getRandomStrings(){
+    protected String getRandomStrings() {
         String rndName = RandomStringUtils.randomAlphabetic(6).toLowerCase();
         return rndName;
-=======
+    }
     protected String getCurrentDate() {
         SimpleDateFormat format = new SimpleDateFormat("M/dd/yyyy");
         format.setTimeZone(TimeZone.getTimeZone("CST"));
@@ -384,6 +383,5 @@ public class UtilFactory {
         c.setTime(oldDate);
         int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
         return dayOfWeek;
->>>>>>> master
     }
 }

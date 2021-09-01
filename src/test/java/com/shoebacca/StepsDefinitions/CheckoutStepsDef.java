@@ -553,7 +553,7 @@ public class CheckoutStepsDef extends HarnessVariables {
     public void userValidatesShippingValueOnSummarySectionOnCheckoutPage() {
         checkoutPage.validateShippingValueonSummary(SHIPPING_VALUE);
     }
-    
+
     @And("User Enters Alphabets in Phone Number Field on Checkout Page")
     public void userEntersAlphabetsInPhoneNumberFieldOnCheckoutPage() throws Exception {
         checkoutPage.enterPhNo(getRandomStrings());
