@@ -529,6 +529,56 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
+    public void validateShippingMethodonSummary (String expectedText){
+        String locator = CheckoutPageEnum.XPATH_SHIPPING_METHOD_LABEL.getValue();
+        String errorMsg = null;
+        String actualText;
+        try {
+            customWait(4000);
+            waitFactory.waitForElementToBeClickable(locator);
+            actualText = getText(locator).trim();
+            if (actualText.equalsIgnoreCase(expectedText)) {
+                scenarioDef.log(Status.PASS, "Validated Shipping Method on Summary Section as Expected: " + expectedText);
+            } else {
+                errorMsg = "Could not validate Shipping Method on Summary Section as Expected: " + expectedText + " , Actual Value: " + actualText;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Shipping Element on Summary Section on Checkout Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void validateShippingValueonSummary (String expectedText){
+        String locator = CheckoutPageEnum.XPATH_SHIPPING_METHOD_VALUE.getValue();
+        String errorMsg = null;
+        String actualText;
+        try {
+            customWait(4000);
+            waitFactory.waitForElementToBeClickable(locator);
+            actualText = getText(locator).trim();
+            if (actualText.equalsIgnoreCase(expectedText)) {
+                scenarioDef.log(Status.PASS, "Validated Shipping Value on Summary Section as Expected: " + expectedText);
+            } else {
+                errorMsg = "Could not validate Shipping Value on Summary Section as Expected: " + expectedText + " , Actual Value: " + actualText;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Shipping Element on Summary Section on Checkout Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
+
     public void clickOnShippingDetailTitle() throws Exception {
         String locator = CheckoutPageEnum.XPATH_SHIPPING_DETAIL_TITLE.getValue();
         try{
