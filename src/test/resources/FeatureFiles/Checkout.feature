@@ -477,7 +477,7 @@ Feature: Checkout Feature File
     Then User Validates "invalid.exp.date.error" Text from "exp.date.error.field" on Checkout Page
 
   @Regression
-  Scenario: Verify Customer can Select PayPal as a Payment Method
+  Scenario: Verify Select PayPal as a Payment Method
 
     Given User Setups the Web Browser
     When User Navigates to "shoebacca.first.bag.pdt" Url
@@ -558,7 +558,7 @@ Feature: Checkout Feature File
     Then User Validates Required Field Error Message "invalid.phone.no.error" on "phone" Field of Checkout Page
 
   @Regression
-  Scenario: Verify Customer is Redirected to PayPal When Clicked On Pay with Paypal
+  Scenario: Verify Redirection to PayPal When Clicked On Pay with Paypal
 
     Given User Setups the Web Browser
     When User Navigates to "shoebacca.first.bag.pdt" Url
@@ -604,3 +604,31 @@ Feature: Checkout Feature File
     Then User Clicks Save and Continue Button on Checkout Page
     Then User Validates Tax is Calculated on Checkout Page
 
+  @Regression
+  Scenario: Verify Cancel PayPal Payment and Return to Checkout Page
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
+    And User Enters Valid Email Address on Checkout Page
+    And User Enters Valid First Name on Checkout Page
+    And User Enters Valid Last Name on Checkout Page
+    And User Enters Valid Address on Checkout Page
+    And User Enters Valid City on Checkout Page
+    And User Selects Valid State on Checkout Page
+    And User Enters Valid Zip Code on Checkout Page
+    And User Enters Valid Phone No on Checkout Page
+    Then User Clicks Save and Continue Button on Checkout Page
+    Then User Select "paypal.payment" Payment Method
+    Then User Validates PayPal Section Visibility "true"
+    Then User Clicks on Pay with PayPal Button on Checkout Page
+    Then User Switches New Tab
+    Then User Validates Successful Loaded PayPal Page
+    Then User Should Redirect Toward "checkout.paypal.payment" Page
+    Then User Click on Cancel and Return To Shoebacca Button on PayPal Payment Page
+    Then User Switches to Parent Tab
+    Then User Should Redirect Toward "shopping.checkout" Page
