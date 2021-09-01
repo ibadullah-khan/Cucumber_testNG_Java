@@ -130,4 +130,5 @@ public class OrderConfirmationPageFactory extends UtilFactory {
             throw e;
         }
     }
+
 }

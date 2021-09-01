@@ -366,6 +366,12 @@ public class CheckoutStepsDef extends HarnessVariables {
         checkoutPage.clickOnPaymentMethod(paymentOption);
     }
 
+    @And("User Enters Random Email Address on Checkout Page")
+    public void userEntersRandomEmailAddressOnCheckoutPage() throws Exception {
+        String rndName = getRandomStrings();
+        checkoutPage.enterEmailAddress(rndName + EMAIL_ADDRESS_WITHOUT_RECIPIENT);
+    }
+
     @Then("User Validates Only One Payment Method is Selected")
     public void userValidatesOnlyOnePaymentMethodisSelected() {
         checkoutPage.validateOnlyOnePaymentSelected();

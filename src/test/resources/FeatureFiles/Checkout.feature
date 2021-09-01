@@ -555,5 +555,4 @@ Feature: Checkout Feature File
     And User Selects Valid State on Checkout Page
     And User Enters Valid Zip Code on Checkout Page
     And User Enters Alphabets in Phone No Field on Checkout Page
-
-
+    

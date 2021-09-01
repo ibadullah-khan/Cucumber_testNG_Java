@@ -8,7 +8,6 @@ import org.openqa.selenium.NoSuchContextException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.Color;
-
 import java.util.List;
 
 public class CheckoutPageFactory extends UtilFactory {
@@ -1250,6 +1249,7 @@ public class CheckoutPageFactory extends UtilFactory {
             }
         }
 
+
         public void clickOnPaymentMethod (String expectedPaymentOption){
             String locator = CheckoutPageEnum.XPATH_START_PAYMENT_METHOD.getValue() + expectedPaymentOption + CheckoutPageEnum.XPATH_END_PAYMENT_METHOD.getValue();
             try {
@@ -1261,7 +1261,6 @@ public class CheckoutPageFactory extends UtilFactory {
                 scenarioDef.log(Status.FAIL, "Could not Click " + expectedPaymentOption + " Payment Method on Checkout Page");
                 throw e;
             }
-
         }
 
         public void validateOnlyOnePaymentSelected () {
@@ -1708,3 +1707,4 @@ public class CheckoutPageFactory extends UtilFactory {
             }
         }
     }
+

@@ -79,6 +79,7 @@ public enum CheckoutPageEnum {
     XPATH_DISCOUNT_AMOUNT("//*[contains(text(),'Discount')]//following::span[@class='priceSummary-price-12K']"),
     XPATH_PAYMENT_FORM_ERROR_MSG_END("-field-error']");
 
+
     private String checkoutPageVariables;
 
     private CheckoutPageEnum(String checkoutPageVariables) {
