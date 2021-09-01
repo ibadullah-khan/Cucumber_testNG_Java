@@ -589,4 +589,5 @@ Feature: Checkout Feature File
     Then User Validates Successful Loaded PayPal Page
     Then User Should Redirect Toward "checkout.paypal.payment" Page
     Then User Click on Cancel and Return To Shoebacca Button on PayPal Payment Page
+    Then User Switches to Parent Tab
     Then User Should Redirect Toward "shopping.checkout" Page

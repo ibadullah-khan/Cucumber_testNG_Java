@@ -16,7 +16,7 @@ public class PayPalPaymentPageFactory extends UtilFactory {
             waitFactory.waitForElementToBeClickable(locator);
             click(locator);
             scenarioDef.log(Status.PASS,"Clicked on Cancel and Return to Shoebacca Button on PayPal Payment Page");
-            switchToDefaultContent();
+            customWait(2000);
         }catch (Exception e){
             failureException = e.toString();
             scenarioDef.log(Status.FAIL,"Could not Click Cancel and Return to Shoebacca Button on PayPal Payment Page");

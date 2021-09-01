@@ -19,4 +19,9 @@ public class PayPalPaymentStepDef extends HarnessVariables{
     public void userClickOnCancelAndReturnToShoebaccaButtonOnPayPalPaymentPage() throws Exception {
         payPalPaymentPageFactory.clickOnCancelAndReturnToShoebacca();
     }
+
+    @Then("User Switches to Parent Tab")
+    public void userSwitchesToParentTab() {
+        switchToParentTab();
+    }
 }
