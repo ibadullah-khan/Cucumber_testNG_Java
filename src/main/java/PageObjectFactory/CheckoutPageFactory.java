@@ -1752,10 +1752,12 @@ public class CheckoutPageFactory extends UtilFactory {
 
     public void validateStoredCardSectionVisibility(boolean expectedVisibility) {
         String locator = CheckoutPageEnum.XPATH_STORED_CARD_SELECTED_SECTION.getValue();
+        String loader = CheckoutPageEnum.XPATH_PAYMENT_LOADER.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
         try {
-            customWait(2000);
+            waitFactory.waitForElementToBeInVisible(loader);
+            waitFactory.waitForElementToBeClickable(locator);
             actualVisibility = isVisible(locator);
             if (actualVisibility && expectedVisibility) {
                 scenarioDef.log(Status.PASS, "Validated Stored Card Section is Displayed as Expected on Checkout Page");
