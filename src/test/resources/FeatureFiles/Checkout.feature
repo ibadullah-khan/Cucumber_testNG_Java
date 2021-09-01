@@ -554,8 +554,8 @@ Feature: Checkout Feature File
     And User Enters Valid City on Checkout Page
     And User Selects Valid State on Checkout Page
     And User Enters Valid Zip Code on Checkout Page
-    And User Enters Alphabets in Phone Number Field on Checkout Page
-    Then User Validates "invalid.phone.no.error" Text from Phone Number Field on Checkout Page
+    Then User Enters Invalid Phone No on Checkout Page
+    Then User Validates Required Field Error Message "invalid.phone.no.error" on "phone" Field of Checkout Page
 
   @Regression
   Scenario: Verify Customer is Redirected to PayPal When Clicked On Pay with Paypal
