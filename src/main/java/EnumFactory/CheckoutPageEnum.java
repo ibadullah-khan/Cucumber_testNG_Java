@@ -9,7 +9,7 @@ public enum CheckoutPageEnum {
     XPATH_CITY_FIELD("//input[@name='city']"),
     XPATH_ZIPCODE_FIELD("//input[@name='postcode']"),
     XPATH_PH_NO_FIELD("//input[@field='telephone']"),
-    XPATH_SAVE_AND_CONTINUE_BUTTON("//span[text()='Save & Continue']"),
+    XPATH_SAVE_AND_CONTINUE_BUTTON("//span[text()='Save & Continue' and not(@disabled)]"),
     XPATH_STATE_DROPDOWN_FIELD("//select[@name='region']"),
     XPATH_STATE_DROPDOWN_OPTION_START("//select[@name='region']//option[text()='"),
     XPATH_STATE_DROPDOWN_OPTION_END("']"),
@@ -28,6 +28,7 @@ public enum CheckoutPageEnum {
     XPATH_SHIPPING_METHOD_SELECTED_START("//*[@class='shippingRadios-radioLabel-3S0']/span[text()='"),
     XPATH_SHIPPING_METHOD_SELECTED_END("']/parent::span/parent::label/input[@checked]"),
     XPATH_SHIPPING_METHOD_LABEL("//span[@class='priceSummary-lineItemLabel-1zJ' and contains(text(),'Shipping')]"),
+    XPATH_SHIPPING_METHOD_VALUE("(//span[@class='priceSummary-lineItemLabel-1zJ' and contains(text(),'Shipping')]/following::span[contains(@class, 'priceSummary-price-12K')])[1]"),
     XPATH_CHECKOUT_HEADING("//*[@class='checkoutPage-heading-1gt']"),
     XPATH_SHIPPING_DETAIL_EDIT_STATE("//*[@id='js-checkoutForm']"),
     XPATH_SHIPPING_DETAIL_OPEN_STATE("//*[@class='section-contents_container-t-j']"),
@@ -47,13 +48,12 @@ public enum CheckoutPageEnum {
     XPATH_HEADER_ICON("//*[@class='helpTrigger-help-RY1']"),
     XPATH_PAYMENT_METHOD_FORM("//*[@class='checkoutPage-payment_information_container-3zC']/form"),
     XPATH_SHIPPING_METHOD_SELECTED_OPTION("//input[@class='radio-input-IKa' and @checked]//following-sibling::*[@class='shippingRadios-radioLabel-3S0']/span[not(@class)]"),
+    XPATH_SHIPPING_VALUE_SELECTED_OPTION("//input[@class='radio-input-IKa' and @checked]//following-sibling::*[@class='shippingRadios-radioLabel-3S0']/span[@class='shippingRadio-price-2Ml']"),
     XPATH_SHIPPING_DETAIL_TITLE_INACTIVE("//*[@class='checkoutPage-section_title-2GW' and contains(text(),'Shipping Details')]"),
     XPATH_PROMO_CODE_FIELD("//*[@id='couponCode']"),
     XPATH_ADD_COUPON_BUTTON("//*[@type='submit']/span[text()='Add']"),
     XPATH_REMOVE_COUPON_BUTTON("//*[@type='submit']/span[text()='Remove']"),
     XPATH_SUB_TOTAL_AMOUNT("//*[@class='priceSummary-lineItems-3ov']//following::span[@class='priceSummary-price-12K'][1]"),
-    XPATH_DISCOUNT_AMOUNT("//*[contains(text(),'Discount')]//following::span[@class='priceSummary-price-12K']"),
-    XPATH_TOTAL_AMOUNT("//div[@class='priceSummary-itemTotals-G6J']//*[@class='priceSummary-totalPrice-rZa']"),
     XPATH_INVALID_COUPON_MESSAGE("//p[@class='message-root-35v']"),
     XPATH_START_PAYMENT_METHOD("//*[@class='paymentMethods-options-2KE']//*[text()='"),
     XPATH_END_PAYMENT_METHOD("']"),
@@ -74,7 +74,12 @@ public enum CheckoutPageEnum {
     XPATH_PAYMENT_LOADER("//*[@class='indicator-root-2nl']"),
     XPATH_PAYMENT_ERROR_MESSAGE("//*[@data-braintree-id='sheet-error']"),
     XPATH_PAYMENT_FORM_ERROR_MSG_START("//*[@data-braintree-id='"),
-    XPATH_PAYMENT_FORM_ERROR_MSG_END("-field-error']");
+    XPATH_TOTAL_AMOUNT("//div[@class='priceSummary-itemTotals-G6J']//*[@class='priceSummary-totalPrice-rZa']"),
+    XPATH_DISCOUNT_AMOUNT("//*[contains(text(),'Discount')]//following::span[@class='priceSummary-price-12K']"),
+    XPATH_PAYMENT_FORM_ERROR_MSG_END("-field-error']"),
+    XPATH_PAYPAL_SECTION("//*[@id='paypal-button']"),
+    XPATH_PAY_WITH_PAYPAL_BUTTON("//*[@class='paypal-button-label-container']"),
+    XPATH_PAYPAL_PAYMENT_IFRAME("//*[@class='zoid-component-frame zoid-visible']");
 
     private String checkoutPageVariables;
 

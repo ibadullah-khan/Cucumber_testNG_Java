@@ -7,6 +7,11 @@ import com.aventstack.extentreports.Status;
 import org.openqa.selenium.NoSuchContextException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.Color;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import org.openqa.selenium.NoSuchElementException;
 
@@ -1618,6 +1623,103 @@ public class CartPageFactory extends UtilFactory {
         } catch (Exception e) {
             failureException = e.toString();
             scenarioDef.log(Status.FAIL, "Could not Hovered on Social Button on Cart Page");
+        }
+    }
+
+    public String dateAfterCutOffRule(String currentDate, int currentTime, int noOfDaysToExtend,int cutOffTime) throws ParseException {
+        String dateAfterCutoffRule;
+        if(currentTime>cutOffTime){
+            dateAfterCutoffRule=addDate(currentDate,noOfDaysToExtend);
+        }else {
+            dateAfterCutoffRule=addDate(currentDate,noOfDaysToExtend-1);
+        }
+        return dateAfterCutoffRule;
+    }
+
+    public String dateAfterHolidayRule(String startDate,String endDate,String holidays) throws ParseException {
+        String splitter[];
+        String tempDate;
+        int counter=1;
+        while (counter!=0){
+            counter=0;
+            while(!startDate.equals(addDate(endDate,1))){
+                splitter=startDate.split("/");
+                tempDate=splitter[0]+"/"+splitter[1];
+                if(holidays.contains(tempDate)){
+                    counter++;
+                    startDate=addDate(startDate,1);
+                }else{
+                    startDate=addDate(startDate,1);
+                }
+            }
+            endDate=addDate(endDate,counter);
+        }
+        return endDate;
+    }
+
+    public String dateAfterWeekendRule(String startDate,String endDate,int currentDay) throws ParseException {
+        int noOfDays=0;
+        if (currentDay==1){
+            noOfDays++;
+        }
+        while(!startDate.equals(addDate(endDate,1))){
+            startDate=addDate(startDate,1);
+            currentDay++;
+        }
+        currentDay--;
+        if(currentDay>6){
+            noOfDays+=2;
+        }
+        return addDate(endDate,noOfDays);
+    }
+
+    public String addDate(String currentDate,int noOfDays) throws ParseException {
+        String newDateAfterAddition;
+        Date oldDate=new SimpleDateFormat("M/dd/yyyy").parse(currentDate);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(oldDate);
+        cal.add(Calendar.DAY_OF_MONTH, noOfDays);
+        DateFormat dateFormat = new SimpleDateFormat("M/dd/yyyy");
+        newDateAfterAddition = dateFormat.format(cal.getTime());
+        return newDateAfterAddition;
+    }
+
+    public String calculateEstimateDeliveryDate(int expectedDays,int cutOffTime,String holidays) throws ParseException {
+        String expectedDeliveryDate=null;
+        String startDate= getCurrentDate();
+        int currentDay= getCurrentDay(startDate);
+        int currentTime=getCurrentTime();
+
+        String dateAfterCutOffRule=dateAfterCutOffRule(startDate,currentTime,expectedDays,cutOffTime);
+        String dateAfterHoliday=dateAfterHolidayRule(startDate,dateAfterCutOffRule,holidays);
+        String dateAfterWeekend=dateAfterWeekendRule(startDate,dateAfterHoliday,currentDay);
+        String dateAfterHolidays1=dateAfterHolidayRule(dateAfterHoliday,dateAfterWeekend,holidays);
+        expectedDeliveryDate=dateAfterWeekendRule(dateAfterWeekend,dateAfterHolidays1,getCurrentDay(dateAfterWeekend));
+        return expectedDeliveryDate;
+    }
+
+    public void validatEstimatedDeliveryDate(int expectedDays,int cutofftime,String holiday) throws ParseException {
+        String locator = CartPageEnum.XPATH_PRODUCT_DATE.getValue();
+        String errorMsg = null;
+        String actualValue;
+        try {
+            String expectedDelieveryDate = calculateEstimateDeliveryDate(expectedDays,cutofftime,holiday);
+            waitFactory.waitForElementToBeClickable(locator);
+            actualValue = getText(locator);
+            if (actualValue.contains(expectedDelieveryDate)) {
+                scenarioDef.log(Status.PASS,  "Validated Expected Estimated Delivery Date: " + expectedDelieveryDate + " as Expected ");
+            } else {
+                errorMsg = "Could not validate Expected Estimated Delivery Date: " + expectedDelieveryDate + ", Actual Value is: " + actualValue;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Estimated Delivery Date Element on Cart Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
         }
     }
 }

@@ -361,6 +361,12 @@ public class CheckoutStepsDef extends HarnessVariables {
         checkoutPage.clickOnPaymentMethod(paymentOption);
     }
 
+    @And("User Enters Random Email Address on Checkout Page")
+    public void userEntersRandomEmailAddressOnCheckoutPage() throws Exception {
+        String rndName = getRandomStrings();
+        checkoutPage.enterEmailAddress(rndName + EMAIL_ADDRESS_WITHOUT_RECIPIENT);
+    }
+
     @Then("User Validates Only One Payment Method is Selected")
     public void userValidatesOnlyOnePaymentMethodisSelected() {
         checkoutPage.validateOnlyOnePaymentSelected();
@@ -521,6 +527,45 @@ public class CheckoutStepsDef extends HarnessVariables {
         String field = new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(errorField);
         String errorMsg = new PropertyLoaderFactory().getPropertyFile(errorMsgPropFile).getProperty(expectedError);
         checkoutPage.validatePaymentMethodFormErrorMsg(errorMsg,field);
+    }
+
+    @Then("User Fetches Shipping Name from Checkout Page")
+    public void userFetchesShippingNameFromCheckoutPage() {
+        SHIPPING_METHOD=checkoutPage.getShippingMethod();
+    }
+
+    @Then("User Fetches Shipping Value From Checkout Page")
+    public void userFetchesShippingValueFromCheckoutPage() {
+        SHIPPING_VALUE=checkoutPage.getShippingValue();
+    }
+
+    @Then("User Validates Shipping Name on Summary Section on Checkout Page")
+    public void userValidatesShippingNameOnSummarySectionOnCheckoutPage() {
+        checkoutPage.validateShippingMethodonSummary(SHIPPING_METHOD);
+    }
+
+    @Then("User Validates Shipping Value on Summary Section on Checkout Page")
+    public void userValidatesShippingValueOnSummarySectionOnCheckoutPage() {
+        checkoutPage.validateShippingValueonSummary(SHIPPING_VALUE);
+    }
+
+
+    @Then("User Validates PayPal Section Visibility {string}")
+    public void userValidatesPayPalSectionVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validatePayPalSectionVisibility(true);
+        }else {
+            checkoutPage.validatePayPalSectionVisibility(false);
+        }
+    }
+    @Then("User Clicks on Pay with PayPal Button on Checkout Page")
+    public void userClicksPayWithPayPalButtonOnCheckoutPage() throws Exception {
+        checkoutPage.clickPayWithPayPalButton();
+    }
+
+    @Then("User Validates Tax is Calculated on Checkout Page")
+    public void userValidatesTaxIsCalculatedOnCheckoutPage() {
+        checkoutPage.validateTaxValue(CALCULATED_TAX_VALUE);
     }
 
     @Then("User Enters Wrong Phone No on Checkout Page")
