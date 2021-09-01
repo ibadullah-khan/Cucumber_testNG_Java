@@ -138,14 +138,14 @@ public class OrderConfirmationPageFactory extends UtilFactory {
         try {
             actualVisibility = isVisible(locator);
             if (actualVisibility && expectedVisibility) {
-                scenarioDef.log(Status.PASS, "Validated Password Button is Displayed as Expected on Confirmation Page");
+                scenarioDef.log(Status.PASS, "Validated Password Field is Displayed as Expected on Confirmation Page");
             } else if (!actualVisibility && !expectedVisibility) {
-                scenarioDef.log(Status.PASS, "Validated Password Button is not Displayed as Expected on Confirmation Page");
+                scenarioDef.log(Status.PASS, "Validated Password Field is not Displayed as Expected on Confirmation Page");
             } else if (actualVisibility && !expectedVisibility) {
-                errorMsg = "Validated Password Button is Displayed Unexpected on Confirmation Page";
+                errorMsg = "Validated Password Field is Displayed Unexpected on Confirmation Page";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             } else if (!actualVisibility && expectedVisibility) {
-                errorMsg = "Validated Password Button is Displayed Unexpectedly on Confirmation Page";
+                errorMsg = "Validated Password Field is Displayed Unexpectedly on Confirmation Page";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             }
         } catch (Exception e) {
