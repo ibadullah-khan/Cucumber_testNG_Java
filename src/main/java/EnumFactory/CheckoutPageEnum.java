@@ -83,6 +83,7 @@ public enum CheckoutPageEnum {
     XPATH_PAYPAL_PAYMENT_IFRAME("//*[@class='zoid-component-frame zoid-visible']"),
     XPATH_INVALID_PHONE_NUMBER_ERROR_MSG("//*[@class='message-root_error-1YZ']");
 
+
     private String checkoutPageVariables;
 
     private CheckoutPageEnum(String checkoutPageVariables) {
