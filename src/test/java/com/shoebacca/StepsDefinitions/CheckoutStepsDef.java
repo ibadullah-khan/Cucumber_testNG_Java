@@ -528,6 +528,26 @@ public class CheckoutStepsDef extends HarnessVariables {
         checkoutPage.validatePaymentMethodFormErrorMsg(errorMsg,field);
     }
 
+    @Then("User Fetches Shipping Name from Checkout Page")
+    public void userFetchesShippingNameFromCheckoutPage() {
+        SHIPPING_METHOD=checkoutPage.getShippingMethod();
+    }
+
+    @Then("User Fetches Shipping Value From Checkout Page")
+    public void userFetchesShippingValueFromCheckoutPage() {
+        SHIPPING_VALUE=checkoutPage.getShippingValue();
+    }
+
+    @Then("User Validates Shipping Name on Summary Section on Checkout Page")
+    public void userValidatesShippingNameOnSummarySectionOnCheckoutPage() {
+        checkoutPage.validateShippingMethodonSummary(SHIPPING_METHOD);
+    }
+
+    @Then("User Validates Shipping Value on Summary Section on Checkout Page")
+    public void userValidatesShippingValueOnSummarySectionOnCheckoutPage() {
+        checkoutPage.validateShippingValueonSummary(SHIPPING_VALUE);
+    }
+
     @Then("User Validates PayPal Section Visibility {string}")
     public void userValidatesPayPalSectionVisibility(String expectedCondition) {
         if(expectedCondition.equals("true")){

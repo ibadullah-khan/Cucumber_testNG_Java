@@ -1631,6 +1631,34 @@ public class CheckoutPageFactory extends UtilFactory {
             throw e;
         }
     }
+    public String getShippingMethod () {
+        String locator = CheckoutPageEnum.XPATH_SHIPPING_METHOD_SELECTED_OPTION.getValue();
+        String shippingmethod = null;
+        try {
+            shippingmethod = getText(locator);
+            scenarioDef.log(Status.PASS, "Fetched Shipping Method: " + shippingmethod + " from Checkout");
+            return shippingmethod;
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Fetch Shipping Method from Checkout");
+            throw e;
+        }
+    }
+
+    public String getShippingValue () {
+        String locator = CheckoutPageEnum.XPATH_SHIPPING_VALUE_SELECTED_OPTION.getValue();
+        String shippingvalue;
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            shippingvalue = getText(locator);
+            scenarioDef.log(Status.PASS, "Fetched Shipping Value: " + shippingvalue + " from Checkout");
+            return shippingvalue;
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Fetch Shipping Value from Checkout");
+            throw e;
+        }
+    }
 
     public void validatePayPalSectionVisibility(boolean expectedVisibility) {
         String locator = CheckoutPageEnum.XPATH_PAYPAL_SECTION.getValue();
