@@ -223,11 +223,6 @@ public class CheckoutStepsDef extends HarnessVariables {
         checkoutPage.validateStateCityZipCode(VALID_STATE+", "+VALID_CITY+ " "+VALID_ZIPCODE + " US");
     }
 
-    @Then("User Validates Phone No in Shipping Detail Section")
-    public void userValidatesPhoneNoInShippingDetailSection() {
-        checkoutPage.validatePhoneNoInDetailSection(VALID_PH_NO);
-    }
-
     @Then("User Validates Email Address in Shipping Detail Section")
     public void userValidatesEmailAddressInShippingDetailSection() {
         checkoutPage.validateEmailAddressInDetailSection(VALID_DATA_EMAIL_ADDRESS);
@@ -531,5 +526,10 @@ public class CheckoutStepsDef extends HarnessVariables {
     @Then("User Enters Wrong Phone No on Checkout Page")
     public void userEntersWrongPhoneNoOnCheckoutPage() throws Exception {
         checkoutPage.enterWrongNo(WRONG_PH_NO);
+    }
+
+    @Then("User Validates Wrong Phone No in Shipping Detail Section")
+    public void userValidatesWrongPhoneNoInShippingDetailSection() {
+        checkoutPage.validateWrongPhoneNo(WRONG_PH_NO);
     }
 }
