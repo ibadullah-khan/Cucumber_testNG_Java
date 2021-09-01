@@ -554,11 +554,6 @@ public class CheckoutStepsDef extends HarnessVariables {
         checkoutPage.validateShippingValueonSummary(SHIPPING_VALUE);
     }
 
-    @Then("User Validates {string} Text from Phone Number Field on Checkout Page")
-    public void userValidatesErrorTextFromPhoneNumberOnCheckoutPage(String expectedError) throws Exception {
-        String errorMsg = new PropertyLoaderFactory().getPropertyFile(errorMsgPropFile).getProperty(expectedError);
-        checkoutPage.validatePhoneNoFieldErrorMsg(errorMsg);
-    }
 
     @Then("User Validates PayPal Section Visibility {string}")
     public void userValidatesPayPalSectionVisibility(String expectedCondition) {
