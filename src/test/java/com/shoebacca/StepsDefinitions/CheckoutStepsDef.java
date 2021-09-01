@@ -560,4 +560,9 @@ public class CheckoutStepsDef extends HarnessVariables {
     public void userClicksPayWithPayPalButtonOnCheckoutPage() throws Exception {
         checkoutPage.clickPayWithPayPalButton();
     }
+
+    @Then("User Validates Tax is Calculated on Checkout Page")
+    public void userValidatesTaxIsCalculatedOnCheckoutPage() {
+        checkoutPage.validateTaxValue(CALCULATED_TAX_VALUE);
+    }
 }
