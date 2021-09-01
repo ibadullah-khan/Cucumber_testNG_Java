@@ -14,8 +14,6 @@ import java.util.List;
 
 public class CheckoutPageFactory extends UtilFactory {
 
-    static int checkoutCountAddress;
-
     ElementFactory elementFactory = new ElementFactory();
 
     public CheckoutPageFactory() throws Exception {
@@ -924,7 +922,7 @@ public class CheckoutPageFactory extends UtilFactory {
             elements = elementFactory.getElementsList(locator);
             waitFactory.waitForElementToBeVisible(locator);
             getAllShippingAddress = new String[elements.size()];
-            if (getAllShippingAddress.length >= 1) {
+            if (getAllShippingAddress.length>= 1) {
                 scenarioDef.log(Status.PASS, "Validated " + getAllShippingAddress + " Shipping Details are Displayed as Expected on Checkout Page");
             } else {
                 errorMsg = "Validated " + getAllShippingAddress + " Shipping Details are not Displayed as Expected on Checkout Page";

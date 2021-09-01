@@ -12,7 +12,6 @@ import java.util.List;
 public class AddressBookPageFactory extends UtilFactory {
 
     ElementFactory elementFactory = new ElementFactory();
-    int addressBookCount;
 
     public AddressBookPageFactory() throws Exception {
     }
@@ -21,17 +20,17 @@ public class AddressBookPageFactory extends UtilFactory {
         String locator = AddressBookPageEnum.XPATH_SHIPPING_ADDRESS_DETAILS.getValue();
         String errorMsg = null;
         List<WebElement> elements;
-        String[] AddressBookAddress;
+        String[] AddressBookShippingAddress;
 
         try {
             customWait(2000);
             elements = elementFactory.getElementsList(locator);
             waitFactory.waitForElementToBeVisible(locator);
-            AddressBookAddress = new String[elements.size()];
-            if (AddressBookAddress == shippingAddress) {
-                scenarioDef.log(Status.PASS, "Validated " + AddressBookAddress + " Shipping Details are Displayed as Expected on Address Book");
+            AddressBookShippingAddress = new String[elements.size()];
+            if (AddressBookShippingAddress.length == shippingAddress.length) {
+                scenarioDef.log(Status.PASS, "Validated " + AddressBookShippingAddress + " Shipping Details are Displayed as Expected on Address Book");
             } else {
-                errorMsg = "Validated " + AddressBookAddress + " Shipping Details are not Displayed as Expected on Address Book";
+                errorMsg = "Validated " + AddressBookShippingAddress + " Shipping Details are not Displayed as Expected on Address Book";
                 throw new NoSuchContextException("Actual and Expected Value Differs");
             }
         } catch (Exception e) {

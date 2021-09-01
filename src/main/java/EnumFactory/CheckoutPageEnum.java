@@ -63,7 +63,7 @@ public enum CheckoutPageEnum {
     XPATH_CHANGE_SHIPPING_ADDRESS("//*[@id='change_button']//span[@class='icon-root-2Hz']"),
     XPATH_DEFAULT_SHIPPING_ADDRESS("(//span[@class='addressCard-name-Tby'])[1]"),
     XPATH_SHIPPING_DETAILS("//div[@class='addressBook-content-34e']//button"),
-    XPATH_SHIPPING_ADDRESS_DEFAULT("//button[@class='addressCard-root-yCU']//span[@class='addressCard-defaultBadge-1w4']"),
+    XPATH_SHIPPING_ADDRESS_DEFAULT("//button[@class='addressCard-root_selected-XwX']//span[@class='addressCard-defaultBadge-1w4']"),
     XPATH_SAVED_FIRST_SHIPPING_ADDRESS("//*[@class='addressCard-root_selected-XwX']");
     private String checkoutPageVariables;
 
