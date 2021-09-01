@@ -355,7 +355,7 @@ public class UtilFactory {
     }
 
     protected String getRandomStrings(){
-        String rndName = RandomStringUtils.randomAlphabetic(5).toLowerCase();
+        String rndName = RandomStringUtils.randomAlphabetic(6).toLowerCase();
         return rndName;
     }
 }

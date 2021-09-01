@@ -1706,5 +1706,29 @@ public class CheckoutPageFactory extends UtilFactory {
                 throw e;
             }
         }
+
+    public void validatePhoneNoFieldErrorMsg (String expectedText){
+        String locator = CheckoutPageEnum.XPATH_PHONE_NO_FIELD_ERROR.getValue();
+        String errorMsg = null;
+        String actualText;
+        try {
+            waitFactory.waitForElementToBeVisible(locator);
+            actualText = getText(locator).trim();
+            if (actualText.contains(expectedText)) {
+                scenarioDef.log(Status.PASS, "Validated Phone Number Field Error Message as Expected: " + expectedText);
+            } else {
+                errorMsg = "Could not validate Phone Number Field Error Message as Expected: " + expectedText + " Actual was: " + actualText;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Payment Form Error Message on Checkout Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
     }
 
