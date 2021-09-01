@@ -61,9 +61,9 @@ public class OrderConfirmationStepsDef extends HarnessVariables {
     @Then("User Validates Order Number Text Visibility {string} on Confirmation Page")
     public void userValidatesOrderNumberVisibilityOnConfirmationPage(String expectedCondition) {
         if (expectedCondition.equals("true")) {
-            orderConfirmationPageFactory.ValidatesOrderNumberVisibility(true);
+            orderConfirmationPageFactory.validatesOrderNumberVisibility(true);
         } else {
-            orderConfirmationPageFactory.ValidatesOrderNumberVisibility(false);
+            orderConfirmationPageFactory.validatesOrderNumberVisibility(false);
         }
     }
 

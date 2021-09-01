@@ -131,7 +131,7 @@ public class OrderConfirmationPageFactory extends UtilFactory {
         }
     }
 
-    public void ValidatesOrderNumberVisibility(boolean expectedVisibility) {
+    public void validatesOrderNumberVisibility(boolean expectedVisibility) {
         String locator = OrderConfirmationPageEnum.XPATH_ORDER_NUMBER_TEXT.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
