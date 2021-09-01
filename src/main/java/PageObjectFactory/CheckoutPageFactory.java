@@ -1748,7 +1748,32 @@ public class CheckoutPageFactory extends UtilFactory {
             failureException = e.toString();
             scenarioDef.log(Status.FAIL, "Could not Click on Pay with PayPal Button on Checkout Page");
             throw e;
-        }}
+        }
+    }
+    public void validateShippingMethodSectionVisibility(boolean expectedVisibility) {
+        String locator = CheckoutPageEnum.XPATH_SHIPPING_METHOD_SECTION.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Shipping Method Section is Displayed as Expected on Checkout Page");
+            } else if (!actualVisibility && !expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Shipping Method Section is not Displayed as Expected on Checkout Page");
+            } else if (actualVisibility && !expectedVisibility) {
+                errorMsg = "Validated Shipping Method Section is not Displayed Unexpected on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
+                errorMsg = "Validated Shipping Method Section is Displayed Unexpectedly on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
+    }
 
     }
 

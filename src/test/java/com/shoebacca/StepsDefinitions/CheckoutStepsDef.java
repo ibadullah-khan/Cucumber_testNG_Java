@@ -572,4 +572,13 @@ public class CheckoutStepsDef extends HarnessVariables {
     public void userValidatesTaxIsCalculatedOnCheckoutPage() {
         checkoutPage.validateTaxValue(CALCULATED_TAX_VALUE);
     }
+
+    @Then("User Validates Shipping Method Section Visibility {string} on Checkout Page")
+    public void userValidatesShippingMethodSectionVisibilityOnCheckoutPage(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateShippingMethodSectionVisibility(true);
+        }else {
+            checkoutPage.validateShippingMethodSectionVisibility(false);
+        }
+    }
 }
