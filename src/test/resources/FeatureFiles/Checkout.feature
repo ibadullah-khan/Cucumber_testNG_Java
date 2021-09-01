@@ -584,7 +584,6 @@ Feature: Checkout Feature File
     Then User Clicks Save and Continue Button on Checkout Page
     Then User Validates Tax is Calculated on Checkout Page
 
-
   @Regression
   Scenario: Verify Saved Credit Cards for Logged in Customers if Available
 
@@ -599,6 +598,6 @@ Feature: Checkout Feature File
     Then User Clicks Checkout Button on Mini Cart View
     Then User Clicks Save and Continue Button on Checkout Page
     Then User Validates Stored Cards Visibility "true" on Checkout Page
-    Then User Validates "credit.last.digits" Last Four Digits of Credit Card on Checkout Page
+    Then User Validates Credit Card Last Digits Visibility "true" on Checkout Page
     Then User Validates Credit Card Expiry Date Visibility "true" on Checkout Page
     Then User Validates Credit Card Logo Visibility "true" on Checkout Page

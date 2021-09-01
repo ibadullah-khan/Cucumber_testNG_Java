@@ -581,12 +581,6 @@ public class CheckoutStepsDef extends HarnessVariables {
         }
     }
 
-    @Then("User Validates {string} Last Four Digits of Credit Card on Checkout Page")
-    public void userValidatesLastFourDigitsOfCreditCardOnCheckoutPage(String lastdigitsValue) throws Exception {
-        String lastdigits= new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(lastdigitsValue);
-        checkoutPage.validateLastDigits(lastdigits);
-    }
-
     @Then("User Validates Credit Card Expiry Date Visibility {string} on Checkout Page")
     public void userValidatesCreditCardExpiryDateVisibilityOnCheckoutPage(String expectedCondition) {
         if(expectedCondition.equals("true")){
@@ -602,6 +596,15 @@ public class CheckoutStepsDef extends HarnessVariables {
             checkoutPage.validateCardLogoVisibility(true);
         }else {
             checkoutPage.validateCardLogoVisibility(false);
+        }
+    }
+
+    @Then("User Validates Credit Card Last Digits Visibility {string} on Checkout Page")
+    public void userValidatesCreditCardLastDigitsVisibilityOnCheckoutPage(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateCardLastDigitsVisibility(true);
+        }else {
+            checkoutPage.validateCardLastDigitsVisibility(false);
         }
     }
 }

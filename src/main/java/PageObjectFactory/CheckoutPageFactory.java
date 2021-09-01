@@ -1823,24 +1823,29 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
-    public void validateLastDigits(String expectedLastDigits) {
+    public void validateCardLastDigitsVisibility(boolean expectedVisibility) {
         String locator = CheckoutPageEnum.XPATH_CREDIT_CARD_LAST_DIGITS.getValue();
+        String loader = CheckoutPageEnum.XPATH_PAYMENT_LOADER.getValue();
         String errorMsg = null;
+        Boolean actualVisibility;
         try {
-            String lastdigits = getText(locator);
-            if (lastdigits.contains(expectedLastDigits)) {
-                scenarioDef.log(Status.PASS, " Validated Last Digits " + expectedLastDigits + " Same as Expected on Checkout Page");
-            } else {
-                errorMsg = "Could not Validate Last Digits " + expectedLastDigits + " Not Same as Expected Same as Expected on Checkout Page";
-                throw new NoSuchContextException("Actual and Expected Value Differs");
+            waitFactory.waitForElementToBeInVisible(loader);
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Last Digits are Displayed as Expected on Checkout Page");
+            } else if (!actualVisibility && !expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Last Digits are not Displayed as Expected on Checkout Page");
+            } else if (actualVisibility && !expectedVisibility) {
+                errorMsg = "Validated Last Digits are not Displayed Unexpected on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
+                errorMsg = "Validated Last Digits are Displayed Unexpectedly on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             }
         } catch (Exception e) {
             failureException = e.toString();
-            if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the Last Digits on Checkout Page");
-            } else {
-                scenarioDef.log(Status.FAIL, errorMsg);
-            }
+            scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
         }
     }
 }
