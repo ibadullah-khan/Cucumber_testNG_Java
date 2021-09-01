@@ -561,6 +561,11 @@ public class CheckoutStepsDef extends HarnessVariables {
         checkoutPage.clickPayWithPayPalButton();
     }
 
+    @Then("User Validates Tax is Calculated on Checkout Page")
+    public void userValidatesTaxIsCalculatedOnCheckoutPage() {
+        checkoutPage.validateTaxValue(CALCULATED_TAX_VALUE);
+    }
+
     @Then("User Validates {string} Error Message on Checkout Page")
     public void userValidatesErrorMessageOnCheckoutPage(String errorMsg) throws Exception {
         String errorText = new PropertyLoaderFactory().getPropertyFile(errorMsgPropFile).getProperty(errorMsg);
