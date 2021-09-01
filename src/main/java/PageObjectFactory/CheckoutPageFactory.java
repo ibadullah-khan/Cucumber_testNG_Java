@@ -1762,24 +1762,4 @@ public class CheckoutPageFactory extends UtilFactory {
             throw e;
         }
     }
-
-    public void validateInvalidPhoneNumberErrorMsg(String expectedErrorMsg) {
-        String locator = CheckoutPageEnum.XPATH_INVALID_PHONE_NUMBER_ERROR_MSG.getValue();
-        String actualErrorMsg;
-        try{
-            waitFactory.waitForElementToBeVisible(locator);
-            actualErrorMsg = getText(locator).trim();
-            if (actualErrorMsg.equals(expectedErrorMsg)) {
-                scenarioDef.log(Status.PASS,"Validated Invalid Phone Number error message as Expected: "+expectedErrorMsg+" on Checkout Page");
-            }
-            else{
-                scenarioDef.log(Status.FAIL,"Could not Validate Invalid Phone Number  error message as Expected: "+expectedErrorMsg+" on Checkout Page, Actual was: "+actualErrorMsg);
-            }
-        }
-        catch (Exception e){
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Get Invalid Phone Number error message element on Checkout Page");
-            throw e;
-        }
-    }
 }

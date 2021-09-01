@@ -602,4 +602,4 @@ Feature: Checkout Feature File
     And User Selects Valid State on Checkout Page
     And User Enters Valid Zip Code on Checkout Page
     And User Enters Not Full Phone No on Checkout Page
-    Then User Validates "invalid.phone.number" Error Message on Checkout Page
+    Then User Validates Required Field Error Message "invalid.ph.no.error.msg" on "phone" Field of Checkout Page

@@ -572,12 +572,6 @@ public class CheckoutStepsDef extends HarnessVariables {
         checkoutPage.validateTaxValue(CALCULATED_TAX_VALUE);
     }
 
-    @Then("User Validates {string} Error Message on Checkout Page")
-    public void userValidatesErrorMessageOnCheckoutPage(String errorMsg) throws Exception {
-        String errorText = new PropertyLoaderFactory().getPropertyFile(errorMsgPropFile).getProperty(errorMsg);
-        checkoutPage.validateInvalidPhoneNumberErrorMsg(errorText);
-    }
-
     @And("User Enters Not Full Phone No on Checkout Page")
     public void userEntersNotFullPhoneNoOnCheckoutPage() throws Exception {
         checkoutPage.enterNotFullPhNo(NOTFULL_PH_NO);
