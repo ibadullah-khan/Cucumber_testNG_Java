@@ -77,7 +77,10 @@ public enum CheckoutPageEnum {
     XPATH_PAYMENT_FORM_ERROR_MSG_START("//*[@data-braintree-id='"),
     XPATH_TOTAL_AMOUNT("//div[@class='priceSummary-itemTotals-G6J']//*[@class='priceSummary-totalPrice-rZa']"),
     XPATH_DISCOUNT_AMOUNT("//*[contains(text(),'Discount')]//following::span[@class='priceSummary-price-12K']"),
-    XPATH_PAYMENT_FORM_ERROR_MSG_END("-field-error']");
+    XPATH_PAYMENT_FORM_ERROR_MSG_END("-field-error']"),
+    XPATH_PAYPAL_SECTION("//*[@id='paypal-button']"),
+    XPATH_PAY_WITH_PAYPAL_BUTTON("//*[@class='paypal-button-label-container']"),
+    XPATH_PAYPAL_PAYMENT_IFRAME("//*[@class='zoid-component-frame zoid-visible']");
 
     private String checkoutPageVariables;
 
