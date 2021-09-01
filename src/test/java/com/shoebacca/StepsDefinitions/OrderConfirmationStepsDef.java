@@ -58,4 +58,13 @@ public class OrderConfirmationStepsDef extends HarnessVariables {
         orderConfirmationPageFactory.validateAlreadyExistEmailErrorMsg(errorText);
     }
 
+    @Then("User Validates Order Number Text Visibility {string} on Confirmation Page")
+    public void userValidatesOrderNumberVisibilityOnConfirmationPage(String expectedCondition) {
+        if (expectedCondition.equals("true")) {
+            orderConfirmationPageFactory.ValidatesOrderNumberVisibility(true);
+        } else {
+            orderConfirmationPageFactory.ValidatesOrderNumberVisibility(false);
+        }
+    }
+
 }
