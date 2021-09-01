@@ -1,7 +1,6 @@
 package PageObjectFactory;
 
 import EnumFactory.CheckoutPageEnum;
-import EnumFactory.OrderConfirmationPageEnum;
 import UtilitiesFactory.ElementFactory;
 import UtilitiesFactory.UtilFactory;
 import com.aventstack.extentreports.Status;
@@ -523,6 +522,56 @@ public class CheckoutPageFactory extends UtilFactory {
             failureException = e.toString();
             if (errorMsg == null) {
                 scenarioDef.log(Status.FAIL, "Unable to get the Shipping Element on Cart Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void validateShippingMethodonSummary (String expectedText){
+        String locator = CheckoutPageEnum.XPATH_SHIPPING_METHOD_LABEL.getValue();
+        String errorMsg = null;
+        String actualText;
+        try {
+            customWait(4000);
+            waitFactory.waitForElementToBeClickable(locator);
+            actualText = getText(locator).trim();
+            if (actualText.equalsIgnoreCase(expectedText)) {
+                scenarioDef.log(Status.PASS, "Validated Shipping Method on Summary Section as Expected: " + expectedText);
+            } else {
+                errorMsg = "Could not validate Shipping Method on Summary Section as Expected: " + expectedText + " , Actual Value: " + actualText;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Shipping Element on Summary Section on Checkout Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void validateShippingValueonSummary (String expectedText){
+        String locator = CheckoutPageEnum.XPATH_SHIPPING_METHOD_VALUE.getValue();
+        String errorMsg = null;
+        String actualText;
+        try {
+            customWait(4000);
+            waitFactory.waitForElementToBeClickable(locator);
+            actualText = getText(locator).trim();
+            if (actualText.equalsIgnoreCase(expectedText)) {
+                scenarioDef.log(Status.PASS, "Validated Shipping Value on Summary Section as Expected: " + expectedText);
+            } else {
+                errorMsg = "Could not validate Shipping Value on Summary Section as Expected: " + expectedText + " , Actual Value: " + actualText;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Shipping Element on Summary Section on Checkout Page");
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
@@ -1629,6 +1678,78 @@ public class CheckoutPageFactory extends UtilFactory {
             }else {
                 scenarioDef.log(Status.FAIL,errorMsg);
             }
+            throw e;
+        }
+    }
+    public String getShippingMethod () {
+        String locator = CheckoutPageEnum.XPATH_SHIPPING_METHOD_SELECTED_OPTION.getValue();
+        String shippingmethod = null;
+        try {
+            shippingmethod = getText(locator);
+            scenarioDef.log(Status.PASS, "Fetched Shipping Method: " + shippingmethod + " from Checkout");
+            return shippingmethod;
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Fetch Shipping Method from Checkout");
+            throw e;
+        }
+    }
+
+    public String getShippingValue () {
+        String locator = CheckoutPageEnum.XPATH_SHIPPING_VALUE_SELECTED_OPTION.getValue();
+        String shippingvalue;
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            shippingvalue = getText(locator);
+            scenarioDef.log(Status.PASS, "Fetched Shipping Value: " + shippingvalue + " from Checkout");
+            return shippingvalue;
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Fetch Shipping Value from Checkout");
+            throw e;
+        }
+    }
+
+    public void validatePayPalSectionVisibility(boolean expectedVisibility) {
+        String locator = CheckoutPageEnum.XPATH_PAYPAL_SECTION.getValue();
+        String loader = CheckoutPageEnum.XPATH_PAYMENT_LOADER.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try {
+            waitFactory.waitForElementToBeInVisible(loader);
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated PayPal Section is Displayed as Expected on Checkout Page");
+            } else if (!actualVisibility && !expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated PayPal Section is not Displayed as Expected on Checkout Page");
+            } else if (actualVisibility && !expectedVisibility) {
+                errorMsg = "Validated PayPal Section is not Displayed Unexpected on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
+                errorMsg = "Validated PayPal Section is Displayed Unexpectedly on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
+    }
+
+    public void clickPayWithPayPalButton() throws Exception {
+
+        String iframeLocator = CheckoutPageEnum.XPATH_PAYPAL_PAYMENT_IFRAME.getValue();
+        String locator = CheckoutPageEnum.XPATH_PAY_WITH_PAYPAL_BUTTON.getValue();
+        try {
+            waitFactory.waitForElementToBeVisible(iframeLocator);
+            switchToIframe(iframeLocator);
+            waitFactory.waitForElementToBeClickable(locator);
+            jsClick(locator);
+            scenarioDef.log(Status.PASS, "Clicked on Pay with PayPal Button on Checkout Page");
+
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Click on Pay with PayPal Button on Checkout Page");
             throw e;
         }
     }
