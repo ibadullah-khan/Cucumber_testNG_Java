@@ -425,7 +425,7 @@ Feature: Checkout Feature File
     Then User Validates Payment Method Error Visibility "true"
 
   @Regression
-  Scenario: Verify Order Cannot be Placed with Invalid Payment Details
+  Scenario: Verify Error Messages on Payment Form for Invalid Data
 
     Given User Setups the Web Browser
     When User Navigates to "shoebacca.first.bag.pdt" Url
