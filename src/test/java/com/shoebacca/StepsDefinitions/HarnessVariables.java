@@ -55,4 +55,5 @@ public class HarnessVariables extends UtilFactory {
     protected final String INVALID_ZIPCODE = CheckoutEnumVariables.INVALID_ZIPCODE.getValue();
     protected final String EXPECTED_HOLIDAYS = CartEnumVariables.EXPECTED_HOLIDAYS.getValue();
     protected final String EXPECTED_CUT_OFF_TIME = CartEnumVariables.EXPECTED_CUT_OFF_TIME.getValue();
+    protected final String CALCULATED_TAX_VALUE = CheckoutEnumVariables.CALCULATED_TAX_VALUE.getValue();
 }

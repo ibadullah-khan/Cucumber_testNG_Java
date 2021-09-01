@@ -11,8 +11,7 @@ dist/
 *.class
 
 #Intelij File
-ShoeBacca.iml
-.gitignore
+*.iml
 
 # Compiled Python bytecode
 *.py[cod]

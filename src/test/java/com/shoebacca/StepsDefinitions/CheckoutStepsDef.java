@@ -366,6 +366,12 @@ public class CheckoutStepsDef extends HarnessVariables {
         checkoutPage.clickOnPaymentMethod(paymentOption);
     }
 
+    @And("User Enters Random Email Address on Checkout Page")
+    public void userEntersRandomEmailAddressOnCheckoutPage() throws Exception {
+        String rndName = getRandomStrings();
+        checkoutPage.enterEmailAddress(rndName + EMAIL_ADDRESS_WITHOUT_RECIPIENT);
+    }
+
     @Then("User Validates Only One Payment Method is Selected")
     public void userValidatesOnlyOnePaymentMethodisSelected() {
         checkoutPage.validateOnlyOnePaymentSelected();
@@ -548,6 +554,7 @@ public class CheckoutStepsDef extends HarnessVariables {
         checkoutPage.validateShippingValueonSummary(SHIPPING_VALUE);
     }
 
+
     @Then("User Validates PayPal Section Visibility {string}")
     public void userValidatesPayPalSectionVisibility(String expectedCondition) {
         if(expectedCondition.equals("true")){
@@ -559,5 +566,10 @@ public class CheckoutStepsDef extends HarnessVariables {
     @Then("User Clicks on Pay with PayPal Button on Checkout Page")
     public void userClicksPayWithPayPalButtonOnCheckoutPage() throws Exception {
         checkoutPage.clickPayWithPayPalButton();
+    }
+
+    @Then("User Validates Tax is Calculated on Checkout Page")
+    public void userValidatesTaxIsCalculatedOnCheckoutPage() {
+        checkoutPage.validateTaxValue(CALCULATED_TAX_VALUE);
     }
 }
