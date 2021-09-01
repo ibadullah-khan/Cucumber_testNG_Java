@@ -526,3 +526,43 @@ Feature: Checkout Feature File
     Then User Clicks on Create Account Button on Order Confirmation Page
     Then User Clicks the Account Icon on Header
     Then User Validates Successful Login on Account Menu
+
+  @Regression
+  Scenario: Validate Shipping Methods and their Prices
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
+    And User Enters Valid Email Address on Checkout Page
+    And User Enters Valid First Name on Checkout Page
+    And User Enters Valid Last Name on Checkout Page
+    And User Enters Valid Address on Checkout Page
+    And User Enters Valid City on Checkout Page
+    And User Selects Valid State on Checkout Page
+    And User Enters Valid Zip Code on Checkout Page
+    And User Enters Valid Phone No on Checkout Page
+    Then User Select "rush.shipping" Shipping Method on Checkout Page
+    Then User Refresh the Page
+    Then User Refresh the Page
+    Then User Fetches Shipping Name from Checkout Page
+    Then User Fetches Shipping Value From Checkout Page
+    Then User Validates Shipping Name on Summary Section on Checkout Page
+    Then User Validates Shipping Value on Summary Section on Checkout Page
+    Then User Select "expedited.shipping" Shipping Method on Checkout Page
+    Then User Refresh the Page
+    Then User Refresh the Page
+    Then User Fetches Shipping Name from Checkout Page
+    Then User Fetches Shipping Value From Checkout Page
+    Then User Validates Shipping Name on Summary Section on Checkout Page
+    Then User Validates Shipping Value on Summary Section on Checkout Page
+    Then User Select "standard.shipping" Shipping Method on Checkout Page
+    Then User Refresh the Page
+    Then User Refresh the Page
+    Then User Fetches Shipping Name from Checkout Page
+    Then User Fetches Shipping Value From Checkout Page
+    Then User Validates Shipping Name on Summary Section on Checkout Page
+    Then User Validates Shipping Value on Summary Section on Checkout Page
