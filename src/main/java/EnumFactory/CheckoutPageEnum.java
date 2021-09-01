@@ -80,7 +80,11 @@ public enum CheckoutPageEnum {
     XPATH_PAYMENT_FORM_ERROR_MSG_END("-field-error']"),
     XPATH_PAYPAL_SECTION("//*[@id='paypal-button']"),
     XPATH_PAY_WITH_PAYPAL_BUTTON("//*[@class='paypal-button-label-container']"),
-    XPATH_PAYPAL_PAYMENT_IFRAME("//*[@class='zoid-component-frame zoid-visible']");
+    XPATH_PAYPAL_PAYMENT_IFRAME("//*[@class='zoid-component-frame zoid-visible']"),
+    XPATH_STORED_CARD_SELECTED_SECTION("//input[@class='radio-input-IKa' and @checked]//following-sibling::*[@class='paymentMethods-radio_label-1gr']"),
+    XPATH_CREDIT_CARD_LAST_DIGITS("//*[@class='radio-input-IKa' and @checked]//following-sibling::*//span[not(@class)]"),
+    XPATH_CREDIT_CARD_EXPIRY_DATE("//div[@class='storedPaymentInformation-savedPayments-20v']//p[not(@class)]"),
+    XPATH_CREDIT_CARD_LOGO("//*[@class='radio-input-IKa' and @checked]//following-sibling::*//span[@class='storedPaymentInformation-cardType-kvp storedPaymentInformation-mVisa-nVm']");
 
     private String checkoutPageVariables;
 

@@ -583,3 +583,21 @@ Feature: Checkout Feature File
     And User Enters Valid Phone No on Checkout Page
     Then User Clicks Save and Continue Button on Checkout Page
     Then User Validates Tax is Calculated on Checkout Page
+
+  @Regression
+  Scenario: Verify Saved Credit Cards for Logged in Customers if Available
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.home" Url
+    And User Clicks the Account Icon on Header
+    Then User Enters Valid Login Data Username on Account Menu
+    And User Enters Valid Login Password on Account Menu
+    Then User Clicks the Login Button on Account Menu
+    Then User Validates Successful Login on Account Menu
+    And User Clicks the Mini Cart Icon on Header
+    Then User Clicks Checkout Button on Mini Cart View
+    Then User Clicks Save and Continue Button on Checkout Page
+    Then User Validates Stored Cards Visibility "true" on Checkout Page
+    Then User Validates "credit.last.digits" Last Four Digits of Credit Card on Checkout Page
+    Then User Validates Credit Card Expiry Date Visibility "true" on Checkout Page
+    Then User Validates Credit Card Logo Visibility "true" on Checkout Page

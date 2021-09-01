@@ -565,4 +565,37 @@ public class CheckoutStepsDef extends HarnessVariables {
     public void userValidatesTaxIsCalculatedOnCheckoutPage() {
         checkoutPage.validateTaxValue(CALCULATED_TAX_VALUE);
     }
+
+    @Then("User Validates Stored Cards Visibility {string} on Checkout Page")
+    public void userValidatesStoredCardsVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateStoredCardSectionVisibility(true);
+        }else {
+            checkoutPage.validateStoredCardSectionVisibility(false);
+        }
+    }
+
+    @Then("User Validates {string} Last Four Digits of Credit Card on Checkout Page")
+    public void userValidatesLastFourDigitsOfCreditCardOnCheckoutPage(String lastdigitsValue) throws Exception {
+        String lastdigits= new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(lastdigitsValue);
+        checkoutPage.validateLastDigits(lastdigits);
+    }
+
+    @Then("User Validates Credit Card Expiry Date Visibility {string} on Checkout Page")
+    public void userValidatesCreditCardExpiryDateVisibilityOnCheckoutPage(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateCardExpiryVisibility(true);
+        }else {
+            checkoutPage.validateCardExpiryVisibility(false);
+        }
+    }
+
+    @Then("User Validates Credit Card Logo Visibility {string} on Checkout Page")
+    public void userValidatesCreditCardLogoVisibilityOnCheckoutPage(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateCardLogoVisibility(true);
+        }else {
+            checkoutPage.validateCardLogoVisibility(false);
+        }
+    }
 }
