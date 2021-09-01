@@ -554,6 +554,7 @@ public class CheckoutStepsDef extends HarnessVariables {
         checkoutPage.validateShippingValueonSummary(SHIPPING_VALUE);
     }
 
+
     @Then("User Validates PayPal Section Visibility {string}")
     public void userValidatesPayPalSectionVisibility(String expectedCondition) {
         if(expectedCondition.equals("true")){
