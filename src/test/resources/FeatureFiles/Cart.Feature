@@ -502,3 +502,22 @@ Feature: Cart Feature File
     Then User Clicks on Change Shipping Option of Cart Page
     Then User Clicks on "standard.shipping" Shipping Method on Dropdown of Cart Page
     Then User Validates Estimated Delivery Date with respect to "standard.shipping.delivery.days"
+
+  @Regression
+  Scenario: Delivery Time is Included on Cart as Per Selected Shipping Method
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.second.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    Then User Clicks on View Cart Button
+    Then User Should Redirect Toward "shopping.cart" Page
+    Then User Clicks on Change Shipping Option of Cart Page
+    Then User Clicks on "standard.shipping" Shipping Method on Dropdown of Cart Page
+    Then User Validates Estimated Delivery Date with respect to "standard.shipping.delivery.days"
+    Then User Clicks on Change Shipping Option of Cart Page
+    Then User Clicks on "expedited.shipping" Shipping Method on Dropdown of Cart Page
+    Then User Validates Estimated Delivery Date with respect to "expedited.shipping.delivery.days"
+    Then User Clicks on Change Shipping Option of Cart Page
+    Then User Clicks on "rush.shipping" Shipping Method on Dropdown of Cart Page
+    Then User Validates Estimated Delivery Date with respect to "rush.shipping.delivery.days"

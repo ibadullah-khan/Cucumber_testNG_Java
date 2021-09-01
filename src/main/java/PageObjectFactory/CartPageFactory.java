@@ -1659,14 +1659,15 @@ public class CartPageFactory extends UtilFactory {
 
     public String dateAfterWeekendRule(String startDate,String endDate,int currentDay) throws ParseException {
         int noOfDays=0;
-        if (currentDay==0){
+        if (currentDay==1){
             noOfDays++;
         }
-            while(!startDate.equals(addDate(endDate,1))){
-                startDate=addDate(startDate,1);
-                currentDay++;
-            }
-        if(currentDay>5){
+        while(!startDate.equals(addDate(endDate,1))){
+            startDate=addDate(startDate,1);
+            currentDay++;
+        }
+        currentDay--;
+        if(currentDay>6){
             noOfDays+=2;
         }
         return addDate(endDate,noOfDays);
@@ -1693,17 +1694,16 @@ public class CartPageFactory extends UtilFactory {
         String dateAfterHoliday=dateAfterHolidayRule(startDate,dateAfterCutOffRule,holidays);
         String dateAfterWeekend=dateAfterWeekendRule(startDate,dateAfterHoliday,currentDay);
         String dateAfterHolidays1=dateAfterHolidayRule(dateAfterHoliday,dateAfterWeekend,holidays);
-        expectedDeliveryDate=dateAfterWeekendRule(dateAfterWeekend,dateAfterHolidays1,currentDay);
-
+        expectedDeliveryDate=dateAfterWeekendRule(dateAfterWeekend,dateAfterHolidays1,getCurrentDay(dateAfterWeekend));
         return expectedDeliveryDate;
     }
 
     public void validatEstimatedDeliveryDate(int expectedDays,int cutofftime,String holiday) throws ParseException {
-        String expectedDelieveryDate = calculateEstimateDeliveryDate(expectedDays,cutofftime,holiday);
         String locator = CartPageEnum.XPATH_PRODUCT_DATE.getValue();
         String errorMsg = null;
         String actualValue;
         try {
+            String expectedDelieveryDate = calculateEstimateDeliveryDate(expectedDays,cutofftime,holiday);
             waitFactory.waitForElementToBeClickable(locator);
             actualValue = getText(locator);
             if (actualValue.contains(expectedDelieveryDate)) {
