@@ -550,7 +550,6 @@ Feature: Checkout Feature File
     Then User Navigates to "shoebacca.second.bag.pdt" Url
     Then User Clicks Add to Cart Button on PDP
     And User Validates Successful Triggered Mini Cart
-    And User Clicks the Mini Cart Icon on Header
     Then User Clicks Checkout Button on Mini Cart View
     Then User Fetches Shipping Address on Checkout Page
     Then User Clicks on Change Address Button on Checkout Page
