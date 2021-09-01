@@ -107,4 +107,4 @@ Feature: Order Confirmation Feature File
     And User Enters Valid Credit Card CVV on Checkout Page
     Then User Clicks Place Order Button on Checkout Page
     Then User Closes Feedback Window on Confirmation Page
-    Then User Validates Password Button Visibility "true" on Confirmation Page
+    Then User Validates Password Field Visibility "true" on Confirmation Page

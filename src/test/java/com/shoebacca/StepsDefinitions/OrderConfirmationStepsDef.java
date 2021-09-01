@@ -58,12 +58,12 @@ public class OrderConfirmationStepsDef extends HarnessVariables {
         orderConfirmationPageFactory.validateAlreadyExistEmailErrorMsg(errorText);
     }
 
-    @Then("User Validates Password Button Visibility {string} on Confirmation Page")
-    public void validatePasswordButtonVisibility(String expectedCondition) {
+    @Then("User Validates Password Field Visibility {string} on Confirmation Page")
+    public void validatePasswordFieldVisibility(String expectedCondition) {
         if(expectedCondition.equals("true")){
-            orderConfirmationPageFactory.validatePasswordButtonVisibility(true);
+            orderConfirmationPageFactory.validatePasswordFieldVisibility(true);
         }else {
-            orderConfirmationPageFactory.validatePasswordButtonVisibility(false);
+            orderConfirmationPageFactory.validatePasswordFieldVisibility(false);
         }
     }
 }

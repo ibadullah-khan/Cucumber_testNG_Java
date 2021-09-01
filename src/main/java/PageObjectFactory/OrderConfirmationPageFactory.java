@@ -131,7 +131,7 @@ public class OrderConfirmationPageFactory extends UtilFactory {
         }
     }
 
-    public void validatePasswordButtonVisibility(boolean expectedVisibility) {
+    public void validatePasswordFieldVisibility(boolean expectedVisibility) {
         String locator = OrderConfirmationPageEnum.XPATH_PASSWORD_FIELD.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
