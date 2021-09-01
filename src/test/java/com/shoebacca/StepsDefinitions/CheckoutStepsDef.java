@@ -553,4 +553,22 @@ public class CheckoutStepsDef extends HarnessVariables {
     public void userValidatesShippingValueOnSummarySectionOnCheckoutPage() {
         checkoutPage.validateShippingValueonSummary(SHIPPING_VALUE);
     }
+
+    @Then("User Validates PayPal Section Visibility {string}")
+    public void userValidatesPayPalSectionVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validatePayPalSectionVisibility(true);
+        }else {
+            checkoutPage.validatePayPalSectionVisibility(false);
+        }
+    }
+    @Then("User Clicks on Pay with PayPal Button on Checkout Page")
+    public void userClicksPayWithPayPalButtonOnCheckoutPage() throws Exception {
+        checkoutPage.clickPayWithPayPalButton();
+    }
+
+    @Then("User Validates Tax is Calculated on Checkout Page")
+    public void userValidatesTaxIsCalculatedOnCheckoutPage() {
+        checkoutPage.validateTaxValue(CALCULATED_TAX_VALUE);
+    }
 }

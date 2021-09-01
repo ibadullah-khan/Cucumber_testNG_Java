@@ -17,9 +17,14 @@ import org.openqa.selenium.html5.WebStorage;
 import org.openqa.selenium.interactions.Actions;
 import java.io.File;
 import java.io.IOException;
+import java.text.ParseException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Base64;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.TimeZone;
 
 public class UtilFactory {
 
@@ -354,8 +359,29 @@ public class UtilFactory {
         driver.switchTo().window(tabs[1]);
     }
 
-    protected String getRandomStrings(){
+    protected String getRandomStrings() {
         String rndName = RandomStringUtils.randomAlphabetic(5).toLowerCase();
         return rndName;
+    }
+    protected String getCurrentDate() {
+        SimpleDateFormat format = new SimpleDateFormat("M/dd/yyyy");
+        format.setTimeZone(TimeZone.getTimeZone("CST"));
+        String date = format.format(new Date());
+        return date;
+    }
+
+    protected int getCurrentTime(){
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+        format.setTimeZone(TimeZone.getTimeZone("CST"));
+        String time = format.format(new Date()).replace(":","");
+        return Integer.parseInt(time);
+    }
+
+    protected int getCurrentDay(String currentDate) throws ParseException {
+        Date oldDate=new SimpleDateFormat("M/dd/yyyy").parse(currentDate);
+        Calendar c = Calendar.getInstance();
+        c.setTime(oldDate);
+        int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
+        return dayOfWeek;
     }
 }
