@@ -15,12 +15,15 @@ public enum CheckoutEnumVariables {
 	VALID_ZIPCODE(""),
 	VALID_CC_NUM(""),
 	VALID_CC_EXPIRY(""),
+	VALID_CC_CVV(""),
 	INVALID_EMAIL_ADDRESS(""),
 	EMAIL_ADDRESS_WITHOUT_DOMAIN(""),
 	EMAIL_ADDRESS_WITHOUT_RECIPIENT(""),
 	INVALID_PH_NO(""),
 	INVALID_ZIPCODE(""),
-	VALID_CC_CVV("");
+	INVALID_CC_NUM(""),
+	INVALID_CC_EXPIRY(""),
+	INVALID_CC_CVV("");
 
     private String checkoutVariables;
 
@@ -50,6 +53,9 @@ public enum CheckoutEnumVariables {
 			VALID_CC_NUM.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.cc.number");
 			VALID_CC_EXPIRY.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.cc.expiry");
 			VALID_CC_CVV.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.cc.cvv");
+			INVALID_CC_NUM.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("invalid.cc.number");
+			INVALID_CC_EXPIRY.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("invalid.cc.expiry");
+			INVALID_CC_CVV.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("invalid.cc.cvv");
 			INVALID_EMAIL_ADDRESS.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("invalid.email.address");
 			INVALID_ZIPCODE.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("invalid.zip.code");
 			INVALID_PH_NO.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("invalid.ph.no");

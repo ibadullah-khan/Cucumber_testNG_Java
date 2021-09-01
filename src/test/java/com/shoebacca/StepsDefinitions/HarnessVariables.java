@@ -10,8 +10,8 @@ public class HarnessVariables extends UtilFactory {
     public HarnessVariables() throws Exception {
     }
     protected static String PRODUCT_NAME;
-    protected static String RELATED_PRODUCT_NAME;
     protected static String SHIPPING_METHOD;
+    protected static String SHIPPING_VALUE;
     protected static String[] ALL_EXPECTED_DATE;
     protected static String TAX_VALUE;
     protected static String PRODUCT_PRICE;
@@ -36,6 +36,9 @@ public class HarnessVariables extends UtilFactory {
     protected final String VALID_CC_NUM = CheckoutEnumVariables.VALID_CC_NUM.getValue();
     protected final String VALID_CC_EXPIRY = CheckoutEnumVariables.VALID_CC_EXPIRY.getValue();
     protected final String VALID_CC_CVV = CheckoutEnumVariables.VALID_CC_CVV.getValue();
+    protected final String INVALID_CC_NUM = CheckoutEnumVariables.INVALID_CC_NUM.getValue();
+    protected final String INVALID_CC_EXPIRY = CheckoutEnumVariables.INVALID_CC_EXPIRY.getValue();
+    protected final String INVALID_CC_CVV = CheckoutEnumVariables.INVALID_CC_CVV.getValue();
     protected final String ITEM_HEADING = CartEnumVariables.ITEM_HEADING.getValue();
     protected final String DESCRIPTION_HEADING = CartEnumVariables.DESCRIPTION_HEADING.getValue();
     protected final String QUANTITY_HEADING = CartEnumVariables.QUANTITY_HEADING.getValue();
@@ -43,7 +46,7 @@ public class HarnessVariables extends UtilFactory {
     protected final String ITEM_CONTENT = CartEnumVariables.ITEM_CONTENT.getValue();
     protected final String DESCRIPTION_CONTENT = CartEnumVariables.DESCRIPTION_CONTENT.getValue();
     protected final String QUANTITY_CONTENT = CartEnumVariables.QUANTITY_CONTENT.getValue();
-    protected final String ITEM_TOTAL_CONTENT = CartEnumVariables.ITEM_TOTAL_CONTENT.getValue();
+    protected final String ITEM_TOTAL_CONTENT=CartEnumVariables.ITEM_TOTAL_CONTENT.getValue();
     protected final String MISMATCH_PASSWORD_ERROR = ErrorMsgEnumVariables.MISMATCH_PASSWORD_ERROR.getValue();
     protected final String INVALID_EMAIL_ADDRESS = CheckoutEnumVariables.INVALID_EMAIL_ADDRESS.getValue();
     protected final String EMAIL_ADDRESS_WITHOUT_DOMAIN = CheckoutEnumVariables.EMAIL_ADDRESS_WITHOUT_DOMAIN.getValue();
