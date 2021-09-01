@@ -57,4 +57,5 @@ public class OrderConfirmationStepsDef extends HarnessVariables {
         String errorText = new PropertyLoaderFactory().getPropertyFile(errorMsgPropFile).getProperty(errorMsg);
         orderConfirmationPageFactory.validateAlreadyExistEmailErrorMsg(errorText);
     }
+
 }

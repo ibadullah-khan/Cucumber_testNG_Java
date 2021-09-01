@@ -86,6 +86,7 @@ public enum CheckoutPageEnum {
     XPATH_CREDIT_CARD_EXPIRY_DATE("//div[@class='storedPaymentInformation-savedPayments-20v']//p[not(@class)]"),
     XPATH_CREDIT_CARD_LOGO("//*[@class='radio-input-IKa' and @checked]//following-sibling::*//span[@class='storedPaymentInformation-cardType-kvp storedPaymentInformation-mVisa-nVm']");
 
+
     private String checkoutPageVariables;
 
     private CheckoutPageEnum(String checkoutPageVariables) {
