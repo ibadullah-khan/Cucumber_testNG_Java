@@ -485,4 +485,10 @@ public class CartStepsDef extends HarnessVariables{
         String socialButtonColor = new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(expectedValue);
         cartPage.validateSocialButtonColor(socialButtonColor);
     }
+
+    @Then("User Validates Estimated Delivery Date with respect to {string}")
+    public void userValidatesEstimatedDeliveryDateWithRespectTo(String days) throws Exception {
+        String expectedDays = new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(days);
+        cartPage.validatEstimatedDeliveryDate(Integer.parseInt(expectedDays),Integer.parseInt(EXPECTED_CUT_OFF_TIME),EXPECTED_HOLIDAYS);
+    }
 }
