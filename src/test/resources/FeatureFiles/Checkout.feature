@@ -601,5 +601,5 @@ Feature: Checkout Feature File
     And User Enters Valid City on Checkout Page
     And User Selects Valid State on Checkout Page
     And User Enters Valid Zip Code on Checkout Page
-    And User Enters Invalid Phone No on Checkout Page
+    And User Enters Not Full Phone No on Checkout Page
     Then User Validates "invalid.phone.number" Error Message on Checkout Page
