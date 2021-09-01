@@ -59,7 +59,6 @@ public enum CheckoutPageEnum {
     XPATH_START_PAYMENT_METHOD("//*[@class='paymentMethods-options-2KE']//*[text()='"),
     XPATH_END_PAYMENT_METHOD("']"),
     XPATH_SELECTED_PAYMENT_METHOD("//*[@class='radio-input-IKa' and @checked]"),
-    XPATH_ACCOUNT_MENU("//button[@class='accountTrigger-trigger-1tg']"),
     XPATH_CREDIT_CARD_SECTION("//*[@class='creditCard-root-2AP']"),
     XPATH_TOTAL_COST_VALUE("//*[text()='Tax']//following-sibling::*[@class='priceSummary-itemTotals-G6J']"),
     XPATH_PRODUCT_IMAGE("//*[@class='image-image-3YO image-loaded-ktU']"),

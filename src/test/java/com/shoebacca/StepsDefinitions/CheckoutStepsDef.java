@@ -2,7 +2,6 @@ package com.shoebacca.StepsDefinitions;
 
 import PageObjectFactory.CheckoutPageFactory;
 import UtilitiesFactory.PropertyLoaderFactory;
-import UtilitiesFactory.UtilFactory;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 
@@ -369,7 +368,7 @@ public class CheckoutStepsDef extends HarnessVariables {
 
     @And("User Enters Random Email Address on Checkout Page")
     public void userEntersRandomEmailAddressOnCheckoutPage() throws Exception {
-        String rndName = UtilFactory.randomStrings();
+        String rndName = getRandomStrings();
         checkoutPage.enterEmailAddress(rndName + EMAIL_ADDRESS_WITHOUT_RECIPIENT);
     }
 
@@ -386,10 +385,6 @@ public class CheckoutStepsDef extends HarnessVariables {
             checkoutPage.validateCreditCardSectionVisibility(false);
         }
     }
-
-    @Then("User Clicks The Account Menu Button")
-    public void UserClicksTheAccountMenuButton() {
-        checkoutPage.clickOnAccountMenuButton(); }
 
     @Then("User Validates Subtotal Price {string} on Checkout Page")
     public void userValidatesSubtotalPriceOnCheckoutPage(String expectedCondition) {

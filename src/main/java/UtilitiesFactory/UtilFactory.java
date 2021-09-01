@@ -354,7 +354,7 @@ public class UtilFactory {
         driver.switchTo().window(tabs[1]);
     }
 
-    public static String randomStrings(){
+    protected String getRandomStrings(){
         String rndName = RandomStringUtils.randomAlphabetic(5).toLowerCase();
         return rndName;
     }

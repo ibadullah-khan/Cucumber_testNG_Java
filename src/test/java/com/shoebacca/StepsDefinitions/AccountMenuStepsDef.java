@@ -31,6 +31,11 @@ public class AccountMenuStepsDef extends HarnessVariables{
         accountMenuPage.enterPassword(VALID_PASSWORD);
     }
 
+    @Then("User Clicks the Login Button on Account Menu")
+    public void userClicksTheLoginButtonOnAccountMenu() throws Exception {
+        accountMenuPage.clickOnLoginButton();
+    }
+
     @Then("User Validates Successful Login on Account Menu")
     public void userValidatesSuccessfulLoginOnAccountMenu() {
         accountMenuPage.validateLoginSuccess();

@@ -1385,19 +1385,6 @@ public class CheckoutPageFactory extends UtilFactory {
             }
         }
 
-    public void clickOnAccountMenuButton() {
-        String locator = CheckoutPageEnum.XPATH_ACCOUNT_MENU.getValue();
-        try {
-            waitFactory.waitForElementToBeClickable(locator);
-            click(locator);
-            scenarioDef.log(Status.PASS, "Clicked on Account Menu Button");
-        } catch (Exception e) {
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL, "Could not Click on Account Menu Button");
-            throw e;
-        }
-    }
-
         public void validateProductImageVisibility (Boolean expectedVisibility){
             String locator = CheckoutPageEnum.XPATH_PRODUCT_IMAGE.getValue();
             String loader = CheckoutPageEnum.XPATH_PRODUCT_IMAGE_LOADER.getValue();

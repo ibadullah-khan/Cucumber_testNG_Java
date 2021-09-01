@@ -73,19 +73,6 @@ public class AccountMenuPageFactory extends UtilFactory{
         }
     }
 
-    public void clickOnMyProfileButton() throws Exception {
-        String locator = AccountMenuPageEnum.XPATH_ACCOUNT_MENU_MY_PROFILE_BUTTON.getValue();
-        try{
-            waitFactory.waitForElementToBeClickable(locator);
-            jsClick(locator);
-            scenarioDef.log(Status.PASS,"Clicked on My Profile Button on Account Menu");
-        }catch (Exception e){
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not click on My Profile Button on Account Menu");
-            throw e;
-        }
-    }
-
     public void validateLoginSuccess(){
         String locator = AccountMenuPageEnum.XPATH_ACCOUNT_MENU_GREET_HEADING.getValue();
         try{
@@ -208,16 +195,4 @@ public class AccountMenuPageFactory extends UtilFactory{
         }
     }
 
-    public void clickOnChangeEmail() throws Exception {
-        String locator = AccountMenuPageEnum.XPATH_CHANGE_EMAIL_FIELD.getValue();
-        try{
-            waitFactory.waitForElementToBeClickable(locator);
-            jsClick(locator);
-            scenarioDef.log(Status.PASS,"Clicked on Change Email Checkbox on Account Menu");
-        }catch (Exception e){
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not click on Change Email Checkbox on Account Menu");
-            throw e;
-        }
-    }
 }
