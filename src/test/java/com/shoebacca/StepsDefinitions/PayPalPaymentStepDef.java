@@ -14,4 +14,9 @@ public class PayPalPaymentStepDef extends HarnessVariables{
     public void userValidatesSuccessfulLoadedPayPalPage() {
         customWait(5000);
     }
+
+    @Then("User Click on Cancel and Return To Shoebacca Button on PayPal Payment Page")
+    public void userClickOnCancelAndReturnToShoebaccaButtonOnPayPalPaymentPage() throws Exception {
+        payPalPaymentPageFactory.clickOnCancelAndReturnToShoebacca();
+    }
 }

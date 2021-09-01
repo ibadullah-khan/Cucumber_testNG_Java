@@ -1,6 +1,8 @@
 package EnumFactory;
 
-public enum PayPalPaymentPageEnum {;
+public enum PayPalPaymentPageEnum {
+
+    XPATH_CANCEL_AND_RETURN_BUTTON("//*[@id='content']//descendant::*[@id='cancelLink']");
 
 
     private String payPalPaymentPageVariables;
