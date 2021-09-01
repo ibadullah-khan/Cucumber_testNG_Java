@@ -1747,6 +1747,8 @@ public class CheckoutPageFactory extends UtilFactory {
             failureException = e.toString();
             scenarioDef.log(Status.FAIL, "Could not Click on Pay with PayPal Button on Checkout Page");
             throw e;
-        }
+        }}
+
     }
-}
+
+
