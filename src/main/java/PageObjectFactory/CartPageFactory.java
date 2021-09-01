@@ -1662,13 +1662,11 @@ public class CartPageFactory extends UtilFactory {
         if (currentDay==1){
             noOfDays++;
         }
-        System.out.println("My Old Day: " +currentDay);
         while(!startDate.equals(addDate(endDate,1))){
             startDate=addDate(startDate,1);
             currentDay++;
         }
         currentDay--;
-        System.out.println("My current Day: " +currentDay);
         if(currentDay>6){
             noOfDays+=2;
         }
