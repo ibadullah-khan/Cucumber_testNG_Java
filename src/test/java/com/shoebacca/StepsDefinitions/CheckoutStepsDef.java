@@ -527,4 +527,17 @@ public class CheckoutStepsDef extends HarnessVariables {
         String errorMsg = new PropertyLoaderFactory().getPropertyFile(errorMsgPropFile).getProperty(expectedError);
         checkoutPage.validatePaymentMethodFormErrorMsg(errorMsg,field);
     }
+
+    @Then("User Validates PayPal Section Visibility {string}")
+    public void userValidatesPayPalSectionVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validatePayPalSectionVisibility(true);
+        }else {
+            checkoutPage.validatePayPalSectionVisibility(false);
+        }
+    }
+    @Then("User Clicks on Pay with PayPal Button on Checkout Page")
+    public void userClicksPayWithPayPalButtonOnCheckoutPage() throws Exception {
+        checkoutPage.clickPayWithPayPalButton();
+    }
 }

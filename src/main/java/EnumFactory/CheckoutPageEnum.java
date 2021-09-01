@@ -75,7 +75,10 @@ public enum CheckoutPageEnum {
     XPATH_PAYMENT_LOADER("//*[@class='indicator-root-2nl']"),
     XPATH_PAYMENT_ERROR_MESSAGE("//*[@data-braintree-id='sheet-error']"),
     XPATH_PAYMENT_FORM_ERROR_MSG_START("//*[@data-braintree-id='"),
-    XPATH_PAYMENT_FORM_ERROR_MSG_END("-field-error']");
+    XPATH_PAYMENT_FORM_ERROR_MSG_END("-field-error']"),
+    XPATH_PAYPAL_SECTION("//*[@id='paypal-button']"),
+    XPATH_PAY_WITH_PAYPAL_BUTTON("//*[@class='paypal-button-label-container']"),
+    XPATH_PAYPAL_PAYMENT_IFRAME("//*[@class='zoid-component-frame zoid-visible']");
 
     private String checkoutPageVariables;
 

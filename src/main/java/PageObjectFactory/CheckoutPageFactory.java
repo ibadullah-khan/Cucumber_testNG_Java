@@ -1631,4 +1631,48 @@ public class CheckoutPageFactory extends UtilFactory {
             throw e;
         }
     }
+
+    public void validatePayPalSectionVisibility(boolean expectedVisibility) {
+        String locator = CheckoutPageEnum.XPATH_PAYPAL_SECTION.getValue();
+        String loader = CheckoutPageEnum.XPATH_PAYMENT_LOADER.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try {
+            waitFactory.waitForElementToBeInVisible(loader);
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated PayPal Section is Displayed as Expected on Checkout Page");
+            } else if (!actualVisibility && !expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated PayPal Section is not Displayed as Expected on Checkout Page");
+            } else if (actualVisibility && !expectedVisibility) {
+                errorMsg = "Validated PayPal Section is not Displayed Unexpected on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
+                errorMsg = "Validated PayPal Section is Displayed Unexpectedly on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
+    }
+
+    public void clickPayWithPayPalButton() throws Exception {
+
+        String iframeLocator = CheckoutPageEnum.XPATH_PAYPAL_PAYMENT_IFRAME.getValue();
+        String locator = CheckoutPageEnum.XPATH_PAY_WITH_PAYPAL_BUTTON.getValue();
+        try {
+            waitFactory.waitForElementToBeVisible(iframeLocator);
+            switchToIframe(iframeLocator);
+            waitFactory.waitForElementToBeClickable(locator);
+            jsClick(locator);
+            scenarioDef.log(Status.PASS, "Clicked on Pay with PayPal Button on Checkout Page");
+
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Click on Pay with PayPal Button on Checkout Page");
+            throw e;
+        }
+    }
 }
