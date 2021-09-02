@@ -584,6 +584,34 @@ Feature: Checkout Feature File
     Then User Clicks Save and Continue Button on Checkout Page
     Then User Validates Tax is Calculated on Checkout Page
 
+  Scenario: Verify Cancel PayPal Payment and Return to Checkout Page
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
+    And User Enters Valid Email Address on Checkout Page
+    And User Enters Valid First Name on Checkout Page
+    And User Enters Valid Last Name on Checkout Page
+    And User Enters Valid Address on Checkout Page
+    And User Enters Valid City on Checkout Page
+    And User Selects Valid State on Checkout Page
+    And User Enters Valid Zip Code on Checkout Page
+    And User Enters Valid Phone No on Checkout Page
+    Then User Clicks Save and Continue Button on Checkout Page
+    Then User Select "paypal.payment" Payment Method
+    Then User Validates PayPal Section Visibility "true"
+    Then User Clicks on Pay with PayPal Button on Checkout Page
+    Then User Switches New Tab
+    Then User Validates Successful Loaded PayPal Page
+    Then User Should Redirect Toward "checkout.paypal.payment" Page
+    Then User Click on Cancel and Return To Shoebacca Button on PayPal Payment Page
+    Then User Switches to Parent Tab
+    Then User Should Redirect Toward "shopping.checkout" Page
+
   @Regression
   Scenario: Verify First Entered by Logged in Customer Shipping Address is Saved to Address Book as Default After Placing the Order
 
