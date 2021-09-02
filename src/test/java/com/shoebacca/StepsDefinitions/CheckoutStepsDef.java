@@ -572,4 +572,32 @@ public class CheckoutStepsDef extends HarnessVariables {
     public void userValidatesTaxIsCalculatedOnCheckoutPage() {
         checkoutPage.validateTaxValue(CALCULATED_TAX_VALUE);
     }
+
+    @Then("User Clicks on Add New Address Button on Checkout Page")
+    public void userClicksOnAddNewAddressButtonOnCheckoutPage() throws Exception {
+        checkoutPage.clickAddNewAddressButton();
+    }
+
+    @Then("User Clicks on Select from Address Book Button on Checkout Page")
+    public void userClicksOnSelectFromAddressBookButtonOnCheckoutPage() throws Exception {
+        checkoutPage.selectFromAddressBookButton();
+    }
+
+    @Then("User Validates Shipping Detail Address Form Visibility {string} on Checkout Page")
+    public void userValidatesShippingDetailAddressFormVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateShippingDetailFormVisibility(true);
+        }else {
+            checkoutPage.validateShippingDetailFormVisibility(false);
+        }
+    }
+
+    @Then("User Validates Shipping Detail Address Book Visibility {string} on Checkout Page")
+    public void userValidatesShippingDetailAddressBookVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateShippingDetailAddressBookVisibility(true);
+        }else {
+            checkoutPage.validateShippingDetailAddressBookVisibility(false);
+        }
+    }
 }
