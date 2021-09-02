@@ -700,3 +700,9 @@ Feature: Checkout Feature File
   @Regression
   Scenario: Verify Logged in Customer Can Add New Shipping Address at Checkout.
 
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks on View Cart Button
+
