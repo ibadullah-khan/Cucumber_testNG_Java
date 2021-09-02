@@ -209,7 +209,7 @@ public class AccountMenuPageFactory extends UtilFactory{
     }
 
     public void enterEmailAddressOnRegisterAccountMenu(String username) throws Exception {
-        String locator = AccountMenuPageEnum.XPATH_ACCOUNT_SIGN_UP_USERNAME.getValue();
+        String locator = AccountMenuPageEnum.XPATH_ACCOUNT_SIGN_UP_USERNAME_FIELD.getValue();
         try{
             waitFactory.waitForElementToBeClickable(locator);
             enterString(locator,username);
@@ -222,7 +222,7 @@ public class AccountMenuPageFactory extends UtilFactory{
     }
 
     public void enterFirstNameOnRegisterAccountMenu(String firstname) throws Exception {
-        String locator = AccountMenuPageEnum.XPATH_ACCOUNT_SIGN_UP_FIRSTNAME.getValue();
+        String locator = AccountMenuPageEnum.XPATH_ACCOUNT_SIGN_UP_FIRSTNAME_FIELD.getValue();
         try{
             waitFactory.waitForElementToBeClickable(locator);
             enterString(locator,firstname);
@@ -235,7 +235,7 @@ public class AccountMenuPageFactory extends UtilFactory{
     }
 
     public void enterLastNameOnRegisterAccountMenu(String lastname) throws Exception {
-        String locator = AccountMenuPageEnum.XPATH_ACCOUNT_SIGN_UP_LASTNAME.getValue();
+        String locator = AccountMenuPageEnum.XPATH_ACCOUNT_SIGN_UP_LASTNAME_FIELD.getValue();
         try{
             waitFactory.waitForElementToBeClickable(locator);
             enterString(locator,lastname);
@@ -248,7 +248,7 @@ public class AccountMenuPageFactory extends UtilFactory{
     }
 
     public void enterPasswordOnRegisterAccountMenu(String password) throws Exception {
-        String locator = AccountMenuPageEnum.XPATH_ACCOUNT_SIGN_UP_PASSWORD.getValue();
+        String locator = AccountMenuPageEnum.XPATH_ACCOUNT_SIGN_UP_PASSWORD_FIELD.getValue();
         try{
             waitFactory.waitForElementToBeClickable(locator);
             enterString(locator,password);
@@ -270,18 +270,6 @@ public class AccountMenuPageFactory extends UtilFactory{
         }catch (Exception e){
             failureException = e.toString();
             scenarioDef.log(Status.FAIL,"Could not Click on Create an Account Button on Account Menu");
-            throw e;
-        }
-    }
-
-    public void validateAccountCreateSuccessfully(){
-        String locator = AccountMenuPageEnum.XPATH_CREATE_ACCOUNT_BUTTON_DISABLED.getValue();
-        try{
-            waitFactory.waitForElementToBeClickable(locator);
-            scenarioDef.log(Status.PASS,"Account Create Successfully");
-        }catch (Exception e){
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Account Create Could not Successfully");
             throw e;
         }
     }

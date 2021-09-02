@@ -477,7 +477,7 @@ Feature: Checkout Feature File
     Then User Validates "invalid.exp.date.error" Text from "exp.date.error.field" on Checkout Page
 
   @Regression
-  Scenario: Verify Customer can Select PayPal as a Payment Method
+  Scenario: Verify Select PayPal as a Payment Method
 
     Given User Setups the Web Browser
     When User Navigates to "shoebacca.first.bag.pdt" Url
@@ -558,7 +558,7 @@ Feature: Checkout Feature File
     Then User Validates Required Field Error Message "invalid.phone.no.error" on "phone" Field of Checkout Page
 
   @Regression
-  Scenario: Verify Customer is Redirected to PayPal When Clicked On Pay with Paypal
+  Scenario: Verify Redirection to PayPal When Clicked On Pay with Paypal
 
     Given User Setups the Web Browser
     When User Navigates to "shoebacca.first.bag.pdt" Url

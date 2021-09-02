@@ -145,11 +145,6 @@ public class AccountMenuStepsDef extends HarnessVariables{
         accountMenuPage.clickOnCreateAccountButton();
     }
 
-    @And("User Account Create Successfully")
-    public void userAccountCreateSuccessfully() {
-        accountMenuPage.validateAccountCreateSuccessfully();
-    }
-
     @Then("User Clicks on Address Book Option")
     public void userClicksOnAddressBookOption() throws Exception {
         accountMenuPage.clickOnAddressBookOption();
