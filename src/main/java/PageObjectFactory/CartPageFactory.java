@@ -1722,4 +1722,21 @@ public class CartPageFactory extends UtilFactory {
             throw e;
         }
     }
-}
+
+    public String getShippingMethod() {
+        String shippingname, shipping;
+        String locator = CartPageEnum.XPATH_SHIPPING_LABEL.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            shipping = getText(locator);
+            shippingname = shipping.replaceAll("Change", "");
+            scenarioDef.log(Status.PASS, "Fetched Shipping Value: " + shippingname + " from Cart Page");
+            return shippingname;
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Fetch Shipping Value from Cart Page");
+            throw e;
+        }
+    }
+
+    }
