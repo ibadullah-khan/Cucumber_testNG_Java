@@ -604,7 +604,6 @@ Feature: Checkout Feature File
     Then User Clicks Save and Continue Button on Checkout Page
     Then User Validates Tax is Calculated on Checkout Page
 
-
   @Regression
   Scenario: Verify Cancel PayPal Payment and Return to Checkout Page
 
@@ -690,3 +689,20 @@ Feature: Checkout Feature File
     And User Enters Valid Phone No on Checkout Page
     Then User Validates Order Tracking Email Check Box Visibility "true"
     Then User Validates Order Tracking Email Check Box Type "checkbox.type"
+
+  @Regression
+  Scenario: Verify Customers can Select Address from Address Book when they want to Add New Shipping Address
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.home" Url
+    And User Clicks the Account Icon on Header
+    Then User Enters Valid Login Data Username on Account Menu
+    And User Enters Valid Login Password on Account Menu
+    Then User Clicks the Login Button on Account Menu
+    Then User Validates Successful Login on Account Menu
+    And User Clicks the Mini Cart Icon on Header
+    Then User Clicks Checkout Button on Mini Cart View
+    Then User Clicks on Add New Address Button on Checkout Page
+    Then User Validates Shipping Detail Address Form Visibility "true" on Checkout Page
+    Then User Clicks on Select from Address Book Button on Checkout Page
+    Then User Validates Shipping Detail Address List Visibility "true" on Checkout Page

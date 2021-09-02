@@ -588,4 +588,32 @@ public class CheckoutStepsDef extends HarnessVariables {
         String expectedType = new PropertyLoaderFactory().getPropertyFile(runPropFile).getProperty(type);
         checkoutPage.validateOrderTrackingEmailCheckedOrUnchecked(expectedType);
     }
+
+    @Then("User Clicks on Add New Address Button on Checkout Page")
+    public void userClicksOnAddNewAddressButtonOnCheckoutPage() throws Exception {
+        checkoutPage.clickAddNewAddressButton();
+    }
+
+    @Then("User Clicks on Select from Address Book Button on Checkout Page")
+    public void userClicksOnSelectFromAddressBookButtonOnCheckoutPage() throws Exception {
+        checkoutPage.selectFromAddressBookButton();
+    }
+
+    @Then("User Validates Shipping Detail Address Form Visibility {string} on Checkout Page")
+    public void userValidatesShippingDetailAddressFormVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateShippingDetailFormVisibility(true);
+        }else {
+            checkoutPage.validateShippingDetailFormVisibility(false);
+        }
+    }
+
+    @Then("User Validates Shipping Detail Address List Visibility {string} on Checkout Page")
+    public void userValidatesShippingDetailAddressLVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateShippingDetailAddressListVisibility(true);
+        }else {
+            checkoutPage.validateShippingDetailAddressListVisibility(false);
+        }
+    }
 }
