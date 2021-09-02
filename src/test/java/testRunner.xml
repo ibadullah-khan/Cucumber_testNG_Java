@@ -40,7 +40,7 @@
         <classes>
             <class name="Runner.CheckoutTest" />
         </classes>
-    </test>dd
+    </test>
 
     <test name="User Journey Feature">
         <parameter name="browser" value= "&browser;" />
