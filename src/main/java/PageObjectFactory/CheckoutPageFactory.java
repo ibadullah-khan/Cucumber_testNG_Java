@@ -648,10 +648,11 @@ public class CheckoutPageFactory extends UtilFactory {
 
     public void validateShippingMethodNameOnSummarySection(String expectedShippingMethodName) {
         String locator = CheckoutPageEnum.XPATH_SHIPPING_METHOD_LABEL.getValue();
+        String wait = CheckoutPageEnum.XPATH_SAVE_AND_CONTINUE_BUTTON.getValue();
         String errorMsg = null;
         try {
             waitFactory.waitForElementToBeVisible(locator);
-            customWait(2000);
+            waitFactory.waitForElementToBeClickable(wait);
             String shippingMethod = getText(locator);
             if (shippingMethod.contains(expectedShippingMethodName)) {
                 scenarioDef.log(Status.PASS, " Validated Shipping Method " + expectedShippingMethodName + " Same as Expected on Summary Section of Checkout Page");
@@ -666,6 +667,7 @@ public class CheckoutPageFactory extends UtilFactory {
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
+            throw e;
         }
     }
 
