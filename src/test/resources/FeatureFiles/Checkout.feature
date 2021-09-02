@@ -669,3 +669,7 @@ Feature: Checkout Feature File
     Then User Clicks on Address Book Option
     Then User Should Redirect Toward "shopping.addressbook" Page
     Then User Validates Address Set as Default
+
+  @Regression
+  Scenario: Verify Logged in Customer Can Add New Shipping Address at Checkout.
+
