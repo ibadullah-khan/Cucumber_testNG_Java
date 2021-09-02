@@ -473,8 +473,6 @@ public class CartStepsDef extends HarnessVariables{
         cartPage.validateEstimatedDeliveryDateQuantityVisibility((Integer.parseInt(expectedDate)));
     }
 
-
-
     @Then("User Hovers Mouse To Social Button")
     public void userHoversMouseToSocialButton() {
         cartPage.hoverOnSocialMediaButton();
@@ -490,5 +488,10 @@ public class CartStepsDef extends HarnessVariables{
     public void userValidatesEstimatedDeliveryDateWithRespectTo(String days) throws Exception {
         String expectedDays = new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(days);
         cartPage.validatEstimatedDeliveryDate(Integer.parseInt(expectedDays),Integer.parseInt(EXPECTED_CUT_OFF_TIME),EXPECTED_HOLIDAYS);
+    }
+
+    @Then("User Fetches Shipping Method on Cart Page")
+    public void userFetchesShippingMethodOnCartPage() {
+        SHIPPING_METHOD=cartPage.getShippingMethod();
     }
 }

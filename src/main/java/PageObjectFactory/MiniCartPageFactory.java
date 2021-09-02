@@ -284,15 +284,15 @@ public class MiniCartPageFactory extends UtilFactory {
         }
     }
 
-    public void clickOnGuestCheckoutButton() {
+    public void clickOnGuestCheckoutButton() throws Exception {
         String locator = MiniCartPageEnum.XPATH_GUEST_CHECKOUT_BUTTON.getValue();
         try{
             waitFactory.waitForElementToBeClickable(locator);
-            click(locator);
-            scenarioDef.log(Status.PASS,"Clicked on Guest Checkout Button on Cart View");
+            jsClick(locator);
+            scenarioDef.log(Status.PASS,"Clicked on Guest Checkout Button on Mini Cart View");
         }catch (Exception e){
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Click on Guest Checkout Button on Cart View");
+            scenarioDef.log(Status.FAIL,"Could not Click on Guest Checkout Button on Mini Cart View");
             throw e;
         }
     }

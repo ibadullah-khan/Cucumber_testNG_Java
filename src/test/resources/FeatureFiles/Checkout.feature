@@ -671,5 +671,32 @@ Feature: Checkout Feature File
     Then User Validates Address Set as Default
 
   @Regression
+  Scenario: Validate Customer Can Change Shipping Method.
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks on View Cart Button
+    Then User Fetches Shipping Method on Cart Page
+    And User Clicks on Change Shipping Option of Cart Page
+    And User Clicks on "rush.shipping" Shipping Method on Dropdown of Cart Page
+    And User Fetches Shipping Method on Cart Page
+    And User Clicks Checkout Button on Cart View
+    And User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
+    And User Enters Valid Email Address on Checkout Page
+    And User Enters Valid First Name on Checkout Page
+    And User Enters Valid Last Name on Checkout Page
+    And User Enters Valid Address on Checkout Page
+    And User Enters Valid City on Checkout Page
+    And User Selects Valid State on Checkout Page
+    And User Enters Valid Zip Code on Checkout Page
+    And User Enters Valid Phone No on Checkout Page
+    Then User Validates Shipping Method on Checkout Page
+    Then User Select "expedited.shipping" Shipping Method on Checkout Page
+    And User Validates "expedited.shipping" Method Name on Summary Section of Checkout Page
+
+  @Regression
   Scenario: Verify Logged in Customer Can Add New Shipping Address at Checkout.
 
