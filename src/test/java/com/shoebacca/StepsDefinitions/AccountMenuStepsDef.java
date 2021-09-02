@@ -133,7 +133,6 @@ public class AccountMenuStepsDef extends HarnessVariables{
     public void userEntersRandomLastNameOnRegisterAccountMenu() throws Exception {
         String rndLastName = getRandomStrings();
         accountMenuPage.enterLastNameOnRegisterAccountMenu(rndLastName);
-
     }
 
     @Then("User Enters Random Password on Register Account Menu")
