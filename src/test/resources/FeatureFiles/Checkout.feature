@@ -658,4 +658,4 @@ Feature: Checkout Feature File
     And User Enters Valid Phone No on Checkout Page
     Then User Validates Shipping Method on Checkout Page
     Then User Select "expedited.shipping" Shipping Method on Checkout Page
-    And User Validates "expedited.shipping"
+    And User Validates "expedited.shipping" Method Name on Summary Section of Checkout Page
