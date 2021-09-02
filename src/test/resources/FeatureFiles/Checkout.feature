@@ -604,6 +604,8 @@ Feature: Checkout Feature File
     Then User Clicks Save and Continue Button on Checkout Page
     Then User Validates Tax is Calculated on Checkout Page
 
+
+  @Regression
   Scenario: Verify Cancel PayPal Payment and Return to Checkout Page
 
     Given User Setups the Web Browser
