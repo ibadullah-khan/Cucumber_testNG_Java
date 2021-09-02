@@ -111,4 +111,48 @@ public class AccountMenuStepsDef extends HarnessVariables{
             accountMenuPage.validateSignInPopUpVisibility(false);
         }
     }
+
+    @Then("User Clicks on Create an Account Link on Account Menu")
+    public void userClicksOnCreateAnAccountLinkOnAccountMenu() throws Exception {
+        accountMenuPage.clickOnCreateAccountLink();
+    }
+
+    @Then("User Enters Random Email Address on Register Account Menus")
+    public void userEntersRandomEmailAddressOnRegisterAccountMenus() throws Exception {
+        String rndName = getRandomStrings();
+        accountMenuPage.enterEmailAddressOnRegisterAccountMenu(rndName + EMAIL_ADDRESS_WITHOUT_RECIPIENT);
+    }
+
+    @Then("User Enters Random First Name on Register Account Menu")
+    public void userEntersRandomFirstNameOnRegisterAccountMenu() throws Exception {
+        String rndFirstName = getRandomStrings();
+        accountMenuPage.enterFirstNameOnRegisterAccountMenu(rndFirstName);
+    }
+
+    @Then("User Enters Random Last Name on Register Account Menu")
+    public void userEntersRandomLastNameOnRegisterAccountMenu() throws Exception {
+        String rndLastName = getRandomStrings();
+        accountMenuPage.enterLastNameOnRegisterAccountMenu(rndLastName);
+
+    }
+
+    @Then("User Enters Random Password on Register Account Menu")
+    public void userEntersRandomPasswordOnRegisterAccountMenu() throws Exception {
+        accountMenuPage.enterPasswordOnRegisterAccountMenu(VALID_PASSWORD);
+    }
+
+    @Then("User Clicks on Create an Account Button")
+    public void userClicksOnCreateAnAccountButton() throws Exception {
+        accountMenuPage.clickOnCreateAccountButton();
+    }
+
+    @And("User Account Create Successfully")
+    public void userAccountCreateSuccessfully() {
+        accountMenuPage.validateAccountCreateSuccessfully();
+    }
+
+    @Then("User Clicks on Address Book Option")
+    public void userClicksOnAddressBookOption() throws Exception {
+        accountMenuPage.clickOnAddressBookOption();
+    }
 }

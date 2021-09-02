@@ -9,7 +9,15 @@ public enum AccountMenuPageEnum {
     XPATH_REQUIRED_EMAIL_FIELD_ERROR("//*[@class='message-root_error-1YZ']/parent::*//input[@name='email']"),
     XPATH_REQUIRED_PASSWORD_FIELD_ERROR("//*[@class='message-root_error-1YZ']/parent::*//input[@name='password']"),
     XPATH_ACCOUNT_MENU_GREET_HEADING("//*[contains(text(),'Hi,')]"),
-    XPATH_SIGN_IN_POP_UP("//*[@class='memberCheckout-root_open-3BF']");
+    XPATH_SIGN_IN_POP_UP("//*[@class='memberCheckout-root_open-3BF']"),
+    XPATH_ACCOUNT_SIGN_UP_LINK("//*[@class='signIn-createAccount-1B3']"),
+    XPATH_ACCOUNT_SIGN_UP_USERNAME("//*[@class='accountMenu-createAccount-2iv' ]//*[@name='customer.email']"),
+    XPATH_ACCOUNT_SIGN_UP_FIRSTNAME("//*[@class='accountMenu-createAccount-2iv' ]//*[@name='customer.firstname']"),
+    XPATH_ACCOUNT_SIGN_UP_LASTNAME("//*[@class='accountMenu-createAccount-2iv' ]//*[@name='customer.lastname']"),
+    XPATH_ACCOUNT_SIGN_UP_PASSWORD("//*[@class='accountMenu-createAccount-2iv' ]//*[@name='password']"),
+    XPATH_CREATE_ACCOUNT_BUTTON("//*[text()='Create an Account']"),
+    XPATH_CREATE_ACCOUNT_BUTTON_DISABLED("//*[text()='Create an Account']//parent::button[@disabled]"),
+    XPATH_ADDRESS_BOOK_OPTION("//*[@class='accountMenuItems-accountButton-3U9' and text()='Address Book']");
 
     private String accountMenuPageVariables;
 
