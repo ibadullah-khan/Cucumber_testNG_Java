@@ -10,6 +10,7 @@ public class CheckoutStepsDef extends HarnessVariables {
     CheckoutPageFactory checkoutPage;
     protected String checkoutPropFile = "checkout.properties";
     protected String errorMsgPropFile = "errorMsg.properties";
+    protected String runPropFile = "run.properties";
 
     public CheckoutStepsDef() throws Exception {
         checkoutPage = new CheckoutPageFactory();
@@ -571,5 +572,20 @@ public class CheckoutStepsDef extends HarnessVariables {
     @Then("User Validates Tax is Calculated on Checkout Page")
     public void userValidatesTaxIsCalculatedOnCheckoutPage() {
         checkoutPage.validateTaxValue(CALCULATED_TAX_VALUE);
+    }
+
+    @Then("User Validates Order Tracking Email Check Box Visibility {string}")
+    public void userValidatesOrderTrackingEmailCheckBoxVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateOrderTrackingCheckBoxVisibility(true);
+        }else {
+            checkoutPage.validateOrderTrackingCheckBoxVisibility(false);
+        }
+    }
+
+    @Then("User Validates Order Tracking Email Check Box Type {string}")
+    public void userValidatesOrderTrackingEmailCheckBoxType(String type) throws Exception {
+        String expectedType = new PropertyLoaderFactory().getPropertyFile(runPropFile).getProperty(type);
+        checkoutPage.validateOrderTrackingEmailCheckedOrUnchecked(expectedType);
     }
 }
