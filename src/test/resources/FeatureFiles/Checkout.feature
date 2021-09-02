@@ -671,6 +671,44 @@ Feature: Checkout Feature File
     Then User Validates Address Set as Default
 
   @Regression
+  Scenario: Verify customer has option to receive or not receive order tracking emails
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
+    And User Enters Valid Email Address on Checkout Page
+    And User Enters Valid First Name on Checkout Page
+    And User Enters Valid Last Name on Checkout Page
+    And User Enters Valid Address on Checkout Page
+    And User Enters Valid City on Checkout Page
+    And User Selects Valid State on Checkout Page
+    And User Enters Valid Zip Code on Checkout Page
+    And User Enters Valid Phone No on Checkout Page
+    Then User Validates Order Tracking Email Check Box Visibility "true"
+    Then User Validates Order Tracking Email Check Box Type "checkbox.type"
+
+  @Regression
+  Scenario: Verify Customers can Select Address from Address Book when they want to Add New Shipping Address
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.home" Url
+    And User Clicks the Account Icon on Header
+    Then User Enters Valid Login Data Username on Account Menu
+    And User Enters Valid Login Password on Account Menu
+    Then User Clicks the Login Button on Account Menu
+    Then User Validates Successful Login on Account Menu
+    And User Clicks the Mini Cart Icon on Header
+    Then User Clicks Checkout Button on Mini Cart View
+    Then User Clicks on Add New Address Button on Checkout Page
+    Then User Validates Shipping Detail Address Form Visibility "true" on Checkout Page
+    Then User Clicks on Select from Address Book Button on Checkout Page
+    Then User Validates Shipping Detail Address List Visibility "true" on Checkout Page
+
+  @Regression
   Scenario: Validate Customer Can Change Shipping Method.
 
     Given User Setups the Web Browser
