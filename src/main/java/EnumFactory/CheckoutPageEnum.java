@@ -80,7 +80,8 @@ public enum CheckoutPageEnum {
     XPATH_PAYMENT_FORM_ERROR_MSG_END("-field-error']"),
     XPATH_PAYPAL_SECTION("//*[@id='paypal-button']"),
     XPATH_PAY_WITH_PAYPAL_BUTTON("//*[@class='paypal-button-label-container']"),
-    XPATH_PAYPAL_PAYMENT_IFRAME("//*[@class='zoid-component-frame zoid-visible']");
+    XPATH_PAYPAL_PAYMENT_IFRAME("//*[@class='zoid-component-frame zoid-visible']"),
+    XPATH_ORDER_TRACKING_CHECKBOX("//*[@id='shipment_notification_subscribe']");
 
     private String checkoutPageVariables;
 
