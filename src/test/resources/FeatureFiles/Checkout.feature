@@ -633,7 +633,7 @@ Feature: Checkout Feature File
     Then User Should Redirect Toward "shopping.checkout" Page
 
   @Regression
-  Scenario: Verify First Entered by Logged in Customer Shipping Address is Saved to Address Book as Default After Placing the Order
+  Scenario: Verify First Time Order Placement Saves Address as Default
 
     Given User Setups the Web Browser
     When User Navigates to "shoebacca.home" Url
