@@ -384,4 +384,5 @@ public class UtilFactory {
         int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
         return dayOfWeek;
     }
+
 }

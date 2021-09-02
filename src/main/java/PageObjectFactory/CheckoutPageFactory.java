@@ -651,11 +651,12 @@ public class CheckoutPageFactory extends UtilFactory {
         String errorMsg = null;
         try {
             waitFactory.waitForElementToBeVisible(locator);
+            customWait(2000);
             String shippingMethod = getText(locator);
             if (shippingMethod.contains(expectedShippingMethodName)) {
                 scenarioDef.log(Status.PASS, " Validated Shipping Method " + expectedShippingMethodName + " Same as Expected on Summary Section of Checkout Page");
             } else {
-                errorMsg = "Could not Validate Shipping Method " + expectedShippingMethodName + " Not Same as Expected Same as Expected on Summary Section of Checkout Page";
+                errorMsg = "Could not Validate Shipping Method " + expectedShippingMethodName + " Not Same as Expected on Summary Section of Checkout Page";
                 throw new NoSuchContextException("Actual and Expected Value Differs");
             }
         } catch (Exception e) {
