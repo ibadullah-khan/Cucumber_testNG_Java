@@ -9,7 +9,7 @@ public enum CheckoutPageEnum {
     XPATH_CITY_FIELD("//input[@name='city']"),
     XPATH_ZIPCODE_FIELD("//input[@name='postcode']"),
     XPATH_PH_NO_FIELD("//input[@field='telephone']"),
-    XPATH_SAVE_AND_CONTINUE_BUTTON("//span[text()='Save & Continue' and not(@disabled)]"),
+    XPATH_SAVE_AND_CONTINUE_BUTTON("//button[@class='button-root_highPriority-3-H' and not(@disabled)]//span[text()='Save & Continue']"),
     XPATH_STATE_DROPDOWN_FIELD("//select[@name='region']"),
     XPATH_STATE_DROPDOWN_OPTION_START("//select[@name='region']//option[text()='"),
     XPATH_STATE_DROPDOWN_OPTION_END("']"),
