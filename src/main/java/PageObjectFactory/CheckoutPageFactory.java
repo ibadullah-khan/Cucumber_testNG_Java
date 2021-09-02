@@ -1742,12 +1742,15 @@ public class CheckoutPageFactory extends UtilFactory {
             switchToIframe(iframeLocator);
             waitFactory.waitForElementToBeClickable(locator);
             jsClick(locator);
+            customWait(2000);
             scenarioDef.log(Status.PASS, "Clicked on Pay with PayPal Button on Checkout Page");
 
         } catch (Exception e) {
             failureException = e.toString();
             scenarioDef.log(Status.FAIL, "Could not Click on Pay with PayPal Button on Checkout Page");
             throw e;
-        }
+        }}
+
     }
-}
+
+

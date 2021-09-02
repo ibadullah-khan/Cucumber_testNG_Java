@@ -82,7 +82,6 @@ public enum CheckoutPageEnum {
     XPATH_PAY_WITH_PAYPAL_BUTTON("//*[@class='paypal-button-label-container']"),
     XPATH_PAYPAL_PAYMENT_IFRAME("//*[@class='zoid-component-frame zoid-visible']");
 
-
     private String checkoutPageVariables;
 
     private CheckoutPageEnum(String checkoutPageVariables) {
