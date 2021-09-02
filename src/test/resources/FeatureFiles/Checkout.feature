@@ -720,3 +720,6 @@ Feature: Checkout Feature File
     And User Clicks on Guest Checkout Button
     Then User Should Redirect Toward "shopping.checkout" Page
     Then User Validates Shipping Method on Checkout Page
+
+
+
