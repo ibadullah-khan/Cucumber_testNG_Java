@@ -648,4 +648,4 @@ Feature: Checkout Feature File
     Then User Clicks on Add New Address Button on Checkout Page
     Then User Validates Shipping Detail Address Form Visibility "true" on Checkout Page
     Then User Clicks on Select from Address Book Button on Checkout Page
-    Then User Validates Shipping Detail Address Book Visibility "true" on Checkout Page
+    Then User Validates Shipping Detail Address List Visibility "true" on Checkout Page

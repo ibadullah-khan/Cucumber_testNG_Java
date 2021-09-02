@@ -1787,21 +1787,21 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
-    public void validateShippingDetailAddressBookVisibility(boolean expectedVisibility) {
-        String locator = CheckoutPageEnum.XPATH_SHIPPING_DETAIL_ADDRESS_BOOK.getValue();
+    public void validateShippingDetailAddressListVisibility(boolean expectedVisibility) {
+        String locator = CheckoutPageEnum.XPATH_SHIPPING_DETAIL_ADDRESS_LIST.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
         try {
             actualVisibility = isVisible(locator);
             if (actualVisibility && expectedVisibility) {
-                scenarioDef.log(Status.PASS, "Validated Shipping Detail Address Book is Displayed as Expected on Checkout Page");
+                scenarioDef.log(Status.PASS, "Validated Shipping Detail Address List is Displayed as Expected on Checkout Page");
             } else if (!actualVisibility && !expectedVisibility) {
-                scenarioDef.log(Status.PASS, "Validated Shipping Detail Address Book  is not Displayed as Expected on Checkout Page");
+                scenarioDef.log(Status.PASS, "Validated Shipping Detail Address List is not Displayed as Expected on Checkout Page");
             } else if (actualVisibility && !expectedVisibility) {
-                errorMsg = "Validated Shipping Detail Address Book is not Displayed Unexpected on Checkout Page";
+                errorMsg = "Validated Shipping Detail Address List is not Displayed Unexpected on Checkout Page";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             } else if (!actualVisibility && expectedVisibility) {
-                errorMsg = "Validated Shipping Detail Address Book is Displayed Unexpectedly on Checkout Page";
+                errorMsg = "Validated Shipping Detail Address List is Displayed Unexpectedly on Checkout Page";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             }
         } catch (Exception e) {

@@ -592,12 +592,12 @@ public class CheckoutStepsDef extends HarnessVariables {
         }
     }
 
-    @Then("User Validates Shipping Detail Address Book Visibility {string} on Checkout Page")
-    public void userValidatesShippingDetailAddressBookVisibility(String expectedCondition) {
+    @Then("User Validates Shipping Detail Address List Visibility {string} on Checkout Page")
+    public void userValidatesShippingDetailAddressLVisibility(String expectedCondition) {
         if(expectedCondition.equals("true")){
-            checkoutPage.validateShippingDetailAddressBookVisibility(true);
+            checkoutPage.validateShippingDetailAddressListVisibility(true);
         }else {
-            checkoutPage.validateShippingDetailAddressBookVisibility(false);
+            checkoutPage.validateShippingDetailAddressListVisibility(false);
         }
     }
 }
