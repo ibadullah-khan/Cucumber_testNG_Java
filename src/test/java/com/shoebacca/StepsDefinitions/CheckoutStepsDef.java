@@ -616,4 +616,10 @@ public class CheckoutStepsDef extends HarnessVariables {
             checkoutPage.validateShippingDetailAddressListVisibility(false);
         }
     }
+
+    @Then("User Validates Default Shipping Method as {string} on Checkout Page")
+    public void userValidatesDefaultShippingMethodAsOnCheckoutPage(String expectedDefault) throws Exception {
+        String expectedMethod = new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(expectedDefault);
+        checkoutPage.validateDefaultShippingMethod(expectedMethod);
+    }
 }
