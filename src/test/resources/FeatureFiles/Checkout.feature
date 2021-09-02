@@ -659,3 +659,18 @@ Feature: Checkout Feature File
     Then User Validates Shipping Method on Checkout Page
     Then User Select "expedited.shipping" Shipping Method on Checkout Page
     And User Validates "expedited.shipping" Method Name on Summary Section of Checkout Page
+
+  @Regression
+  Scenario: Validate Customer's Selected Shipping Method is Retained on Checkout Page.
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks on View Cart Button
+    Then User Fetches Shipping Method on Cart Page
+    And User Clicks Checkout Button on Cart View
+    And User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
+    Then User Validates Shipping Method on Checkout Page
+
