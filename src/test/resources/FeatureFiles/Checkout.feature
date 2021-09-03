@@ -651,4 +651,4 @@ Feature: Checkout Feature File
     And User Selects Valid State on Checkout Page
     And User Enters Valid Zip Code on Checkout Page
     Then User Enters Wrong Phone No on Checkout Page
-    Then User Validates Wrong Phone No in Shipping Detail Section
+    Then User Validates Entered Phone No in Shipping Detail Section

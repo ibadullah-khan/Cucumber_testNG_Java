@@ -570,11 +570,11 @@ public class CheckoutStepsDef extends HarnessVariables {
 
     @Then("User Enters Wrong Phone No on Checkout Page")
     public void userEntersWrongPhoneNoOnCheckoutPage() throws Exception {
-        checkoutPage.enterWrongNo(WRONG_PH_NO);
+        checkoutPage.enterPhNo(WRONG_PH_NO);
     }
 
-    @Then("User Validates Wrong Phone No in Shipping Detail Section")
-    public void userValidatesWrongPhoneNoInShippingDetailSection() {
-        checkoutPage.validateWrongPhoneNo(WRONG_PH_NO);
+    @Then("User Validates Entered Phone No in Shipping Detail Section")
+    public void userValidatesEnteredPhoneNoInShippingDetailSection() {
+        checkoutPage.validateEnteredPhoneNo(WRONG_PH_NO);
     }
 }

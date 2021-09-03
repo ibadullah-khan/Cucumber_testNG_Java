@@ -108,19 +108,6 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
-    public void enterWrongNo(String textToEnter) throws Exception {
-        String locator = CheckoutPageEnum.XPATH_PH_NO_FIELD.getValue();
-        try{
-            waitFactory.waitForElementToBeClickable(locator);
-            enterString(locator,textToEnter);
-            scenarioDef.log(Status.PASS,"Entered Text: "+textToEnter+" on Phone Number Field on Checkout Page");
-        }catch (Exception e){
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not Enter Text on Phone Number Field on Checkout Page");
-            throw e;
-        }
-    }
-
     public void enterCreditCardNumber(String textToEnter) throws Exception {
         String locator = CheckoutPageEnum.XPATH_CREDIT_CARD_NUMBER_FIELD.getValue();
         String iframeLocator = CheckoutPageEnum.XPATH_CREDIT_CARD_NO_IFRAME.getValue();
@@ -1740,7 +1727,7 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
-    public void validateWrongPhoneNo(String expectedPhoneNo){
+    public void validateEnteredPhoneNo(String expectedPhoneNo){
         String locator = CheckoutPageEnum.XPATH_PH_NO_FIELD.getValue();
         String errorMsg = null;
         String actualText;
