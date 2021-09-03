@@ -224,7 +224,7 @@ Feature: Checkout Feature File
     When User Navigates to "shoebacca.first.bag.pdt" Url
     And User Clicks Add to Cart Button on PDP
     And User Validates Successful Triggered Mini Cart
-    Then User Fetches Shipping Method on Cart Page
+    Then User Fetches Shipping Method on Mini Cart Page
     And User Clicks Checkout Button on Mini Cart View
     Then User Clicks on Guest Checkout Button
     Then User Validates Successful Loaded Checkout Page
@@ -632,6 +632,253 @@ Feature: Checkout Feature File
     Then User Click on Cancel and Return To Shoebacca Button on PayPal Payment Page
     Then User Switches to Parent Tab
     Then User Should Redirect Toward "shopping.checkout" Page
+
+  @Regression
+  Scenario: Verify First Time Order Placement Saves Address as Default
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.home" Url
+    And User Clicks the Account Icon on Header
+    Then User Clicks on Create an Account Link on Account Menu
+    Then User Enters Random Email Address on Register Account Menus
+    Then User Enters Random First Name on Register Account Menu
+    Then User Enters Random Last Name on Register Account Menu
+    Then User Enters Random Password on Register Account Menu
+    Then User Clicks on Create an Account Button
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Should Redirect Toward "shopping.checkout" Page
+    And User Enters Valid Email Address on Checkout Page
+    And User Enters Valid First Name on Checkout Page
+    And User Enters Valid Last Name on Checkout Page
+    And User Enters Valid Address on Checkout Page
+    And User Enters Valid City on Checkout Page
+    And User Selects Valid State on Checkout Page
+    And User Enters Valid Zip Code on Checkout Page
+    And User Enters Valid Phone No on Checkout Page
+    Then User Clicks Save and Continue Button on Checkout Page
+    And User Enters Valid Credit Card Number on Checkout Page
+    And User Enters Valid Credit Card Expiry Date on Checkout Page
+    And User Enters Valid Credit Card CVV on Checkout Page
+    Then User Clicks Place Order Button on Checkout Page
+    Then User Closes Feedback Window on Confirmation Page
+    And User Clicks the Account Icon on Header
+    Then User Clicks on Address Book Option
+    Then User Should Redirect Toward "shopping.addressbook" Page
+    Then User Validates Address Set as Default
+
+  @Regression
+  Scenario: Verify customer has option to receive or not receive order tracking emails
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
+    And User Enters Valid Email Address on Checkout Page
+    And User Enters Valid First Name on Checkout Page
+    And User Enters Valid Last Name on Checkout Page
+    And User Enters Valid Address on Checkout Page
+    And User Enters Valid City on Checkout Page
+    And User Selects Valid State on Checkout Page
+    And User Enters Valid Zip Code on Checkout Page
+    And User Enters Valid Phone No on Checkout Page
+    Then User Validates Order Tracking Email Check Box Visibility "true"
+    Then User Validates Order Tracking Email Check Box Type "checkbox.type"
+
+  @Regression
+  Scenario: Verify Customers can Select Address from Address Book when they want to Add New Shipping Address
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.home" Url
+    And User Clicks the Account Icon on Header
+    Then User Enters Valid Login Data Username on Account Menu
+    And User Enters Valid Login Password on Account Menu
+    Then User Clicks the Login Button on Account Menu
+    Then User Validates Successful Login on Account Menu
+    And User Clicks the Mini Cart Icon on Header
+    Then User Clicks Checkout Button on Mini Cart View
+    Then User Clicks on Add New Address Button on Checkout Page
+    Then User Validates Shipping Detail Address Form Visibility "true" on Checkout Page
+    Then User Clicks on Select from Address Book Button on Checkout Page
+    Then User Validates Shipping Detail Address List Visibility "true" on Checkout Page
+
+  @Regression
+  Scenario: Validate Customer Can Change Shipping Method.
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks on View Cart Button
+    Then User Fetches Shipping Method on Cart Page
+    And User Clicks on Change Shipping Option of Cart Page
+    And User Clicks on "rush.shipping" Shipping Method on Dropdown of Cart Page
+    And User Fetches Shipping Method on Cart Page
+    And User Clicks Checkout Button on Cart View
+    And User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
+    And User Enters Valid Email Address on Checkout Page
+    And User Enters Valid First Name on Checkout Page
+    And User Enters Valid Last Name on Checkout Page
+    And User Enters Valid Address on Checkout Page
+    And User Enters Valid City on Checkout Page
+    And User Selects Valid State on Checkout Page
+    And User Enters Valid Zip Code on Checkout Page
+    And User Enters Valid Phone No on Checkout Page
+    Then User Validates Shipping Method on Checkout Page
+    Then User Select "expedited.shipping" Shipping Method on Checkout Page
+    And User Validates "expedited.shipping" Method Name on Summary Section of Checkout Page
+
+  @Regression
+  Scenario: Validate Customer's Selected Shipping Method is Retained on Checkout Page.
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks on View Cart Button
+    Then User Fetches Shipping Method on Cart Page
+    And User Clicks Checkout Button on Cart View
+    And User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
+    Then User Validates Shipping Method on Checkout Page
+
+  @Regression
+  Scenario: Verify There is a Sign-Up Checkbox for Shoebacca Emails Available at Shipping Details Section for Guest Users
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
+    And User Enters Valid Email Address on Checkout Page
+    And User Enters Valid First Name on Checkout Page
+    And User Enters Valid Last Name on Checkout Page
+    And User Enters Valid Address on Checkout Page
+    And User Enters Valid City on Checkout Page
+    And User Selects Valid State on Checkout Page
+    And User Enters Valid Zip Code on Checkout Page
+    And User Enters Valid Phone No on Checkout Page
+    Then User Validates Sign Up Check Box Visibility and Checked by Default "true"
+
+
+  @Regression
+  Scenario: Verify Default Shipping Method on Checkout Page
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
+    And User Enters Valid Email Address on Checkout Page
+    And User Enters Valid First Name on Checkout Page
+    And User Enters Valid Last Name on Checkout Page
+    And User Enters Valid Address on Checkout Page
+    And User Enters Valid City on Checkout Page
+    And User Selects Valid State on Checkout Page
+    And User Enters Valid Zip Code on Checkout Page
+    And User Enters Valid Phone No on Checkout Page
+    Then User Validates Default Shipping Method as "standard.shipping" on Checkout Page
+
+  @Regression
+  Scenario: Verify Guest Customer can Edit Shipping Address Which was Entered on Checkout
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
+    And User Enters Valid Email Address on Checkout Page
+    And User Enters Valid First Name on Checkout Page
+    And User Enters Valid Last Name on Checkout Page
+    And User Enters Valid Address on Checkout Page
+    And User Enters Valid City on Checkout Page
+    And User Selects Valid State on Checkout Page
+    And User Enters Valid Zip Code on Checkout Page
+    And User Enters Valid Phone No on Checkout Page
+    Then User Select "expedited.shipping" Shipping Method on Checkout Page
+    Then User Clicks Save and Continue Button on Checkout Page
+    Then User Validates Successful Loaded Checkout Page
+    Then User Validates Shipping Detail Address Form Visibility "false" on Checkout Page
+    Then User Click on Shipping Details Section Title
+    Then User Validates Shipping Detail Section is in "open" State
+    Then User Clicks on Shipping Details Edit Button on Checkout Page
+    Then User Validates Shipping Detail Section is in "edit" State
+    And User Enters Valid Last Name on Checkout Page
+    Then User Clicks Save and Continue Button on Checkout Page
+
+  @Regression
+  Scenario: Verify Customer can not Proceed with Phone Number Greater than Ten Digits
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
+    And User Enters Valid Email Address on Checkout Page
+    And User Enters Valid First Name on Checkout Page
+    And User Enters Valid Last Name on Checkout Page
+    And User Enters Valid Address on Checkout Page
+    And User Enters Valid City on Checkout Page
+    And User Selects Valid State on Checkout Page
+    And User Enters Valid Zip Code on Checkout Page
+    Then User Enters Wrong Phone No on Checkout Page
+    Then User Validates Entered Phone No in Shipping Detail Section
+
+  @Regression
+  Scenario: Verify Cannot Proceed Forward with Incomplete Shipping Address
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
+    And User Enters Valid Email Address on Checkout Page
+    And User Enters Valid First Name on Checkout Page
+    And User Enters Valid Last Name on Checkout Page
+    And User Enters Valid Address on Checkout Page
+    Then User Clicks Save and Continue Button on Checkout Page
+    Then User Validates Required Field Error Message "required.field.error.msg" on "city" Field of Checkout Page
+    Then User Validates Required Field Error Message "required.field.error.msg" on "state" Field of Checkout Page
+    Then User Validates Required Field Error Message "required.field.error.msg" on "zip.code" Field of Checkout Page
+    Then User Validates Required Field Error Message "invalid.ph.no.error.msg" on "phone" Field of Checkout Page
+
+    @Regression
+    Scenario: Verify Customer can Proceed with Valid Shipping Address
+
+      Given User Setups the Web Browser
+      When User Navigates to "shoebacca.first.bag.pdt" Url
+      And User Clicks Add to Cart Button on PDP
+      And User Validates Successful Triggered Mini Cart
+      And User Clicks Checkout Button on Mini Cart View
+      Then User Clicks on Guest Checkout Button
+      Then User Should Redirect Toward "shopping.checkout" Page
+      And User Enters Valid Email Address on Checkout Page
+      And User Enters Valid First Name on Checkout Page
+      And User Enters Valid Last Name on Checkout Page
+      And User Enters Valid Address on Checkout Page
+      And User Enters Valid City on Checkout Page
+      And User Selects Valid State on Checkout Page
+      And User Enters Valid Zip Code on Checkout Page
+      And User Enters Valid Phone No on Checkout Page
+      Then User Validates Active Shipping Method Section Visibility "true" on Checkout Page
+      Then User Select "expedited.shipping" Shipping Method on Checkout Page
+      Then User Validates "expedited.shipping" Method Name on Summary Section of Checkout Page
 
   @Regression
   Scenario: Verify Saved Credit Cards for Logged in Customers if Available

@@ -37,7 +37,7 @@ public class MiniCartStepsDef extends HarnessVariables{
     }
 
     @Then("User Clicks on Guest Checkout Button")
-    public void userClicksOnGuestCheckoutButton() {
+    public void userClicksOnGuestCheckoutButton() throws Exception {
         miniCartPage.clickOnGuestCheckoutButton();
     }
 
@@ -246,8 +246,8 @@ public class MiniCartStepsDef extends HarnessVariables{
         miniCartPage.clickOnSocialMediaButton();
     }
 
-    @Then("User Fetches Shipping Method on Cart Page")
-    public void userFetchesShippingMethodOnCartPage() {
+    @Then("User Fetches Shipping Method on Mini Cart Page")
+    public void userFetchesShippingMethodOnMiniCartPage() {
         SHIPPING_METHOD=miniCartPage.getShippingMethod();
     }
 
