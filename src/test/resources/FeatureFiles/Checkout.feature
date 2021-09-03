@@ -879,6 +879,3 @@ Feature: Checkout Feature File
       Then User Validates Active Shipping Method Section Visibility "true" on Checkout Page
       Then User Select "expedited.shipping" Shipping Method on Checkout Page
       Then User Validates "expedited.shipping" Method Name on Summary Section of Checkout Page
-
-
-
