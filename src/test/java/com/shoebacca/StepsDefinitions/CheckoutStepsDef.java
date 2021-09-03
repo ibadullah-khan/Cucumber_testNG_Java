@@ -617,6 +617,15 @@ public class CheckoutStepsDef extends HarnessVariables {
         }
     }
 
+    @Then("User Validates Sign Up Check Box Visibility and Checked by Default {string}")
+    public void userValidatesSignUpCheckBoxVisibilityAndCheckedByDefault(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateSignUpCheckBoxAndByDefaultVisibility(true);
+        }else {
+            checkoutPage.validateSignUpCheckBoxAndByDefaultVisibility(false);
+        }
+    }
+
     @Then("User Clicks on Set as Default Field")
     public void userClicksOnSetAsDefaultFieldOnCheckoutPage(){
         checkoutPage.clickSetAsDefaultField();
