@@ -1874,7 +1874,7 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
-    public void validateSignUpCheckBoxVisibility(boolean expectedVisibility) {
+    public void validateSignUpCheckBoxAndByDefaultVisibility(boolean expectedVisibility) {
         String locator = CheckoutPageEnum.XPATH_SIGN_UP_CHECKBOX.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
