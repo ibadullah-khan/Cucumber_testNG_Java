@@ -1775,6 +1775,7 @@ public class CheckoutPageFactory extends UtilFactory {
             scenarioDef.log(Status.FAIL, errorMsg);
             throw e;
         }}
+
     public void clickAddNewAddressButton() throws Exception {
         String locator = CheckoutPageEnum.XPATH_ADD_NEW_ADDRESS.getValue();
         try {
@@ -1836,7 +1837,6 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
-
     public void selectFromAddressBookButton() throws Exception {
         String locator = CheckoutPageEnum.XPATH_SELECT_FROM_ADDRESS_BOOK.getValue();
         try {
@@ -1870,6 +1870,20 @@ public class CheckoutPageFactory extends UtilFactory {
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
+            throw e;
+        }
+    }
+
+    public void clickSetAsDefaultField(){
+        String locator = CheckoutPageEnum.XPATH_SET_AS_DEFAULT_FIELD.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS, "Clicked on Set As Default Address on Checkout Page");
+
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Click on Set As Default Address on Checkout Page");
             throw e;
         }
     }

@@ -26,6 +26,7 @@
         </classes>
     </test>
 
+
     <test name="Cart Feature">
         <parameter name="browser" value= "&browser;" />
         <parameter name="emailReport" value="&emailReport;" />

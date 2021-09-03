@@ -616,4 +616,9 @@ public class CheckoutStepsDef extends HarnessVariables {
             checkoutPage.validateShippingDetailAddressListVisibility(false);
         }
     }
+
+    @Then("User Clicks on Set as Default Field")
+    public void userClicksOnSetAsDefaultFieldOnCheckoutPage(){
+        checkoutPage.clickSetAsDefaultField();
+    }
 }

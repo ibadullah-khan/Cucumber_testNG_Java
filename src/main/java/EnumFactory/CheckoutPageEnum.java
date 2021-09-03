@@ -83,6 +83,7 @@ public enum CheckoutPageEnum {
     XPATH_PAYPAL_PAYMENT_IFRAME("//*[@class='zoid-component-frame zoid-visible']"),
     XPATH_ORDER_TRACKING_CHECKBOX("//*[@id='shipment_notification_subscribe']"),
     XPATH_SELECT_FROM_ADDRESS_BOOK("//*[text()='Select From Address Book']"),
+    XPATH_SET_AS_DEFAULT_FIELD("//input[@id='default_shipping' and not(@disabled)]"),
     XPATH_SHIPPING_DETAIL_ADDRESS_LIST("//*[@class='addressBook-content-34e']");
 
     private String checkoutPageVariables;
