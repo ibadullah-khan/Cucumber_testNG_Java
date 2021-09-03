@@ -1938,6 +1938,18 @@ public class CheckoutPageFactory extends UtilFactory {
             throw e;
         }
     }
+
+    public void validateAddressInAddressBook(String firstName) {
+        String locator = CheckoutPageEnum.XPATH_ADDRESS_LABEL_START.getValue() + firstName + CheckoutPageEnum.XPATH_ADDRESS_LABEL_END.getValue();
+        try{
+            waitFactory.waitForElementToBeVisible(locator);
+            scenarioDef.log(Status.PASS,"Address is Present in Address Book");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Address is not Present in Address Book");
+            throw e;
+        }
+    }
 }
 
 

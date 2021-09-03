@@ -788,6 +788,8 @@ Feature: Checkout Feature File
     And User Enters Valid Zip Code on Checkout Page
     And User Enters Valid Phone No on Checkout Page
     Then User Validates Default Shipping Method as "standard.shipping" on Checkout Page
+
+
   @Regression
   Scenario: Verify Logged in Customer Can Add New Shipping Address at Checkout.
 
@@ -809,4 +811,7 @@ Feature: Checkout Feature File
     And User Selects Valid State on Checkout Page
     And User Enters Valid Zip Code on Checkout Page
     And User Enters Valid Phone No on Checkout Page
+    Then User Clicks on Select from Address Book Button on Checkout Page
+    And User Validates Address in Address Book
+    Then User Clicks on Add New Address Button on Checkout Page
     And User Clicks on Set as Default Field

@@ -636,4 +636,10 @@ public class CheckoutStepsDef extends HarnessVariables {
     public void userClicksOnSetAsDefaultFieldOnCheckoutPage(){
         checkoutPage.clickSetAsDefaultField();
     }
+
+    @Then("User Validates Address in Address Book")
+    public void userValidatesInAddressBook() {
+        checkoutPage.validateAddressInAddressBook(VALID_FIRSTNAME+" "+VALID_LASTNAME);
+    }
+
 }
