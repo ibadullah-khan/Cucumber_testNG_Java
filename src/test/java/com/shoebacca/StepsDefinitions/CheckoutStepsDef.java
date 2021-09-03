@@ -651,8 +651,8 @@ public class CheckoutStepsDef extends HarnessVariables {
         }
     }
 
-    @And("User Enters Not Full Phone No on Checkout Page")
-    public void userEntersNotFullPhoneNoOnCheckoutPage() throws Exception {
-        checkoutPage.enterNotFullPhNo(NOTFULL_PH_NO);
+    @And("User Enters Incomplete Phone No on Checkout Page")
+    public void userEntersIncompletePhoneNoOnCheckoutPage() throws Exception {
+        checkoutPage.enterPhNo(INCOMPLETE_PH_NO);
     }
 }
