@@ -646,6 +646,7 @@ Feature: Checkout Feature File
     And User Clicks the Mini Cart Icon on Header
     Then User Clicks Checkout Button on Mini Cart View
     Then User Clicks Save and Continue Button on Checkout Page
+    Then User Validates Successful Loaded Checkout Page
     Then User Validates Stored Cards Visibility "true" on Checkout Page
     Then User Validates Credit Card Last Digits Visibility "true" on Checkout Page
     Then User Validates Credit Card Expiry Date Visibility "true" on Checkout Page

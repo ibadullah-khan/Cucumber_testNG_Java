@@ -1758,7 +1758,6 @@ public class CheckoutPageFactory extends UtilFactory {
         Boolean actualVisibility;
         try {
             waitFactory.waitForElementToBeInVisible(loader);
-            waitFactory.waitForElementToBeClickable(locator);
             actualVisibility = isVisible(locator);
             if (actualVisibility && expectedVisibility) {
                 scenarioDef.log(Status.PASS, "Validated Stored Card Section is Displayed as Expected on Checkout Page");
