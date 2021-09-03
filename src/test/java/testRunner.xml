@@ -33,6 +33,7 @@
             <class name="Runner.CartTest" />
         </classes>
     </test>
+
     <test name="Checkout Feature">
         <parameter name="browser" value= "&browser;" />
         <parameter name="emailReport" value="&emailReport;" />
@@ -55,5 +56,4 @@
                 <class name="Runner.OrderConfirmationTest" />
             </classes>
         </test>
-
 </suite>
