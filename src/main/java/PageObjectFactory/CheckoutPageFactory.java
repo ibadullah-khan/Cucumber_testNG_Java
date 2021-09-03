@@ -1,6 +1,7 @@
 package PageObjectFactory;
 
 import EnumFactory.CheckoutPageEnum;
+import UtilitiesFactory.BrowserFactory;
 import UtilitiesFactory.ElementFactory;
 import UtilitiesFactory.UtilFactory;
 import com.aventstack.extentreports.Status;
@@ -1983,6 +1984,7 @@ public class CheckoutPageFactory extends UtilFactory {
         Boolean actualVisibility;
         try {
             waitFactory.waitForElementToBeInVisible(loader);
+            customWait(2000);
             actualVisibility = isVisible(locator);
             if (actualVisibility && expectedVisibility) {
                 scenarioDef.log(Status.PASS, "Validated Stored Card Section is Displayed as Expected on Checkout Page");
