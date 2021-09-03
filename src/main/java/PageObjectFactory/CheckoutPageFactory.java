@@ -809,6 +809,7 @@ public class CheckoutPageFactory extends UtilFactory {
     }
 
     public void validatePhoneNoInDetailSection(String expectedPhoneNo) {
+
         String locator = CheckoutPageEnum.XPATH_PHONE_NO.getValue();
         String errorMsg = null;
         String actualText;
@@ -1749,9 +1750,34 @@ public class CheckoutPageFactory extends UtilFactory {
             failureException = e.toString();
             scenarioDef.log(Status.FAIL, "Could not Click on Pay with PayPal Button on Checkout Page");
             throw e;
-        }}
+        }
+    }
 
-    public void validateOrderTrackingCheckBoxVisibility(boolean expectedVisibility) {
+    public void validateEnteredPhoneNo(String expectedPhoneNo){
+        String locator = CheckoutPageEnum.XPATH_PH_NO_FIELD.getValue();
+        String errorMsg = null;
+        String actualText;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            actualText = getAttribute(locator,"value").trim().replace("-","");
+            if (actualText!=expectedPhoneNo){
+                scenarioDef.log(Status.PASS,"Validated Phone No as Expected: "+expectedPhoneNo);
+            }else {
+                errorMsg = "Could not Validate Phone No on as Expected: "+expectedPhoneNo+" , Actual Value: "+actualText;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        }catch (Exception e){
+            failureException = e.toString();
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL,"Unable to get the Phone No Element on Checkout Page");
+            }else {
+                scenarioDef.log(Status.FAIL,errorMsg);
+            }
+            throw e;
+        }
+    }
+
+public void validateOrderTrackingCheckBoxVisibility(boolean expectedVisibility) {
         String locator = CheckoutPageEnum.XPATH_ORDER_TRACKING_CHECKBOX.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
@@ -1921,7 +1947,4 @@ public class CheckoutPageFactory extends UtilFactory {
             }
             throw e;
         }
-    }
-}
-
-
+    }}
