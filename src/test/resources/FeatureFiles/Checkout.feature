@@ -833,14 +833,19 @@ Feature: Checkout Feature File
     And User Enters Valid Login Password on Account Menu
     And User Clicks the Login Button on Account Menu
     Then User Clicks on Add New Address Button on Checkout Page
-    And User Enters Valid First Name on Checkout Page
+    And User Enters Random First Name on Checkout Page
     And User Enters Valid Last Name on Checkout Page
     And User Enters Valid Address on Checkout Page
     And User Enters Valid City on Checkout Page
     And User Selects Valid State on Checkout Page
     And User Enters Valid Zip Code on Checkout Page
     And User Enters Valid Phone No on Checkout Page
-    Then User Clicks on Select from Address Book Button on Checkout Page
-    And User Validates Address in Address Book
-    Then User Clicks on Add New Address Button on Checkout Page
+    Then User Clicks Save and Continue Button on Checkout Page
+    And User Validates Set as Default Field Visibility "true" on Checkout Page
     And User Clicks on Set as Default Field
+    Then User Navigates to "shoebacca.home" Url
+    And User Clicks the Account Icon on Header
+    Then User Clicks on Address Book Option
+    Then User Should Redirect Toward "shopping.addressbook" Page
+    Then User Validates Address Set as Default in Address Book
+

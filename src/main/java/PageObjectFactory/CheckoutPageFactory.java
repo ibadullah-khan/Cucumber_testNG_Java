@@ -43,6 +43,20 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
+    public String enterRandomFirstName(String textToEnter) throws Exception {
+        String locator = CheckoutPageEnum.XPATH_FIRST_NAME_FIELD.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            enterString(locator, textToEnter);
+            scenarioDef.log(Status.PASS, "Entered Text: " + textToEnter + " on First Name Field on Checkout Page");
+            return textToEnter;
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Enter Text on First Name Field on Checkout Page");
+            throw e;
+        }
+    }
+
     public void enterLastName(String textToEnter) throws Exception {
         String locator = CheckoutPageEnum.XPATH_LAST_NAME_FIELD.getValue();
         try {
@@ -1937,14 +1951,26 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
-    public void validateAddressInAddressBook(String firstName) {
-        String locator = CheckoutPageEnum.XPATH_ADDRESS_LABEL_START.getValue() + firstName + CheckoutPageEnum.XPATH_ADDRESS_LABEL_END.getValue();
-        try{
-            waitFactory.waitForElementToBeVisible(locator);
-            scenarioDef.log(Status.PASS,"Address is Present in Address Book");
-        }catch (Exception e){
+    public void validateSetAsDefaultFieldVisibility(boolean expectedVisibility) {
+        String locator = CheckoutPageEnum.XPATH_SET_AS_DEFAULT_FIELD.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try {
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Set As Default Field is Displayed as Expected on Checkout Page");
+            } else if (!actualVisibility && !expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Header is not Displayed as Expected on Checkout Page");
+            } else if (actualVisibility && !expectedVisibility) {
+                errorMsg = "Validated Set As Default Field is Displayed Unexpected on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
+                errorMsg = "Validated Header is Displayed Unexpectedly on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Address is not Present in Address Book");
+            scenarioDef.log(Status.FAIL, errorMsg);
             throw e;
         }
     }

@@ -85,9 +85,7 @@ public enum CheckoutPageEnum {
     XPATH_SELECT_FROM_ADDRESS_BOOK("//*[text()='Select From Address Book']"),
     XPATH_SHIPPING_DETAIL_ADDRESS_LIST("//*[@class='addressBook-content-34e']"),
     XPATH_SIGN_UP_CHECKBOX("//*[@id='emarsys_subscriber' and @checked]"),
-    XPATH_SET_AS_DEFAULT_FIELD("//input[@id='default_shipping' and not(@disabled)]"),
-    XPATH_ADDRESS_LABEL_START("//*[@class='addressCard-name-Tby' and text()='"),
-    XPATH_ADDRESS_LABEL_END("']");
+    XPATH_SET_AS_DEFAULT_FIELD("//input[@id='default_shipping' and not(@disabled)]");
 
     private String checkoutPageVariables;
 
