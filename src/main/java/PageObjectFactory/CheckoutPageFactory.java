@@ -1985,9 +1985,6 @@ public class CheckoutPageFactory extends UtilFactory {
         } catch (Exception e) {
             failureException = e.toString();
             scenarioDef.log(Status.FAIL, errorMsg);
-            else{
-                scenarioDef.log(Status.FAIL, errorMsg);
-            }
             throw e;
         }
     }
