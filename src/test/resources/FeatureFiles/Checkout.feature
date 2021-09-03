@@ -748,5 +748,22 @@ Feature: Checkout Feature File
     Then User Should Redirect Toward "shopping.checkout" Page
     Then User Validates Shipping Method on Checkout Page
 
+  @Regression
+  Scenario: Verify There is a Sign-Up Checkbox for Shoebacca Emails Available at Shipping Details Section for Guest Users
 
-
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
+    And User Enters Valid Email Address on Checkout Page
+    And User Enters Valid First Name on Checkout Page
+    And User Enters Valid Last Name on Checkout Page
+    And User Enters Valid Address on Checkout Page
+    And User Enters Valid City on Checkout Page
+    And User Selects Valid State on Checkout Page
+    And User Enters Valid Zip Code on Checkout Page
+    And User Enters Valid Phone No on Checkout Page
+    Then User Validates Sign Up Check Box Visibility and Checked by Default "true"
