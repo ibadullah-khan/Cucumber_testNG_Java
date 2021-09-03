@@ -10,6 +10,7 @@ public class CheckoutStepsDef extends HarnessVariables {
     CheckoutPageFactory checkoutPage;
     protected String checkoutPropFile = "checkout.properties";
     protected String errorMsgPropFile = "errorMsg.properties";
+    protected String runPropFile = "run.properties";
 
     public CheckoutStepsDef() throws Exception {
         checkoutPage = new CheckoutPageFactory();
@@ -566,6 +567,64 @@ public class CheckoutStepsDef extends HarnessVariables {
     @Then("User Validates Tax is Calculated on Checkout Page")
     public void userValidatesTaxIsCalculatedOnCheckoutPage() {
         checkoutPage.validateTaxValue(CALCULATED_TAX_VALUE);
+    }
+
+    @Then("User Validates Order Tracking Email Check Box Visibility {string}")
+    public void userValidatesOrderTrackingEmailCheckBoxVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateOrderTrackingCheckBoxVisibility(true);
+        }else {
+            checkoutPage.validateOrderTrackingCheckBoxVisibility(false);
+        }
+    }
+
+    @Then("User Validates Order Tracking Email Check Box Type {string}")
+    public void userValidatesOrderTrackingEmailCheckBoxType(String type) throws Exception {
+        String expectedType = new PropertyLoaderFactory().getPropertyFile(runPropFile).getProperty(type);
+        checkoutPage.validateOrderTrackingEmailCheckedOrUnchecked(expectedType);
+    }
+
+    @Then("User Clicks on Add New Address Button on Checkout Page")
+    public void userClicksOnAddNewAddressButtonOnCheckoutPage() throws Exception {
+        checkoutPage.clickAddNewAddressButton();
+    }
+
+    @Then("User Clicks on Select from Address Book Button on Checkout Page")
+    public void userClicksOnSelectFromAddressBookButtonOnCheckoutPage() throws Exception {
+        checkoutPage.selectFromAddressBookButton();
+    }
+
+    @Then("User Validates Shipping Detail Address Form Visibility {string} on Checkout Page")
+    public void userValidatesShippingDetailAddressFormVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateShippingDetailFormVisibility(true);
+        }else {
+            checkoutPage.validateShippingDetailFormVisibility(false);
+        }
+    }
+
+    @Then("User Validates Shipping Detail Address List Visibility {string} on Checkout Page")
+    public void userValidatesShippingDetailAddressLVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateShippingDetailAddressListVisibility(true);
+        }else {
+            checkoutPage.validateShippingDetailAddressListVisibility(false);
+        }
+    }
+
+    @Then("User Validates Sign Up Check Box Visibility and Checked by Default {string}")
+    public void userValidatesSignUpCheckBoxVisibilityAndCheckedByDefault(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateSignUpCheckBoxAndByDefaultVisibility(true);
+        }else {
+            checkoutPage.validateSignUpCheckBoxAndByDefaultVisibility(false);
+        }
+    }
+
+    @Then("User Validates Default Shipping Method as {string} on Checkout Page")
+    public void userValidatesDefaultShippingMethodAsOnCheckoutPage(String expectedDefault) throws Exception {
+        String expectedMethod = new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(expectedDefault);
+        checkoutPage.validateDefaultShippingMethod(expectedMethod);
     }
 
     @Then("User Enters Wrong Phone No on Checkout Page")

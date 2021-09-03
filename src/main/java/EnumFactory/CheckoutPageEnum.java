@@ -9,7 +9,7 @@ public enum CheckoutPageEnum {
     XPATH_CITY_FIELD("//input[@name='city']"),
     XPATH_ZIPCODE_FIELD("//input[@name='postcode']"),
     XPATH_PH_NO_FIELD("//input[@field='telephone']"),
-    XPATH_SAVE_AND_CONTINUE_BUTTON("//span[text()='Save & Continue' and not(@disabled)]"),
+    XPATH_SAVE_AND_CONTINUE_BUTTON("//button[@class='button-root_highPriority-3-H' and not(@disabled)]//span[text()='Save & Continue']"),
     XPATH_STATE_DROPDOWN_FIELD("//select[@name='region']"),
     XPATH_STATE_DROPDOWN_OPTION_START("//select[@name='region']//option[text()='"),
     XPATH_STATE_DROPDOWN_OPTION_END("']"),
@@ -79,7 +79,11 @@ public enum CheckoutPageEnum {
     XPATH_PAYMENT_FORM_ERROR_MSG_END("-field-error']"),
     XPATH_PAYPAL_SECTION("//*[@id='paypal-button']"),
     XPATH_PAY_WITH_PAYPAL_BUTTON("//*[@class='paypal-button-label-container']"),
-    XPATH_PAYPAL_PAYMENT_IFRAME("//*[@class='zoid-component-frame zoid-visible']");
+    XPATH_PAYPAL_PAYMENT_IFRAME("//*[@class='zoid-component-frame zoid-visible']"),
+    XPATH_ORDER_TRACKING_CHECKBOX("//*[@id='shipment_notification_subscribe']"),
+    XPATH_SELECT_FROM_ADDRESS_BOOK("//*[text()='Select From Address Book']"),
+    XPATH_SHIPPING_DETAIL_ADDRESS_LIST("//*[@class='addressBook-content-34e']"),
+    XPATH_SIGN_UP_CHECKBOX("//*[@id='emarsys_subscriber' and @checked]");
 
     private String checkoutPageVariables;
 
