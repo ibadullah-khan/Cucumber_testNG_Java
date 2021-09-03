@@ -224,11 +224,6 @@ public class CheckoutStepsDef extends HarnessVariables {
         checkoutPage.validateStateCityZipCode(VALID_STATE+", "+VALID_CITY+ " "+VALID_ZIPCODE + " US");
     }
 
-    @Then("User Validates Phone No in Shipping Detail Section")
-    public void userValidatesPhoneNoInShippingDetailSection() {
-        checkoutPage.validatePhoneNoInDetailSection(VALID_PH_NO);
-    }
-
     @Then("User Validates Email Address in Shipping Detail Section")
     public void userValidatesEmailAddressInShippingDetailSection() {
         checkoutPage.validateEmailAddressInDetailSection(VALID_DATA_EMAIL_ADDRESS);
@@ -574,6 +569,11 @@ public class CheckoutStepsDef extends HarnessVariables {
         checkoutPage.validateTaxValue(CALCULATED_TAX_VALUE);
     }
 
+    @Then("User Validates Phone No in Shipping Detail Section")
+    public void userValidatesPhoneNoInShippingDetailSection() {
+        checkoutPage.validatePhoneNoInDetailSection(VALID_PH_NO);
+    }
+
     @Then("User Validates Order Tracking Email Check Box Visibility {string}")
     public void userValidatesOrderTrackingEmailCheckBoxVisibility(String expectedCondition) {
         if(expectedCondition.equals("true")){
@@ -630,5 +630,15 @@ public class CheckoutStepsDef extends HarnessVariables {
     public void userValidatesDefaultShippingMethodAsOnCheckoutPage(String expectedDefault) throws Exception {
         String expectedMethod = new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(expectedDefault);
         checkoutPage.validateDefaultShippingMethod(expectedMethod);
+    }
+
+    @Then("User Enters Wrong Phone No on Checkout Page")
+    public void userEntersWrongPhoneNoOnCheckoutPage() throws Exception {
+        checkoutPage.enterPhNo(WRONG_PH_NO);
+    }
+
+    @Then("User Validates Entered Phone No in Shipping Detail Section")
+    public void userValidatesEnteredPhoneNoInShippingDetailSection() {
+        checkoutPage.validateEnteredPhoneNo(WRONG_PH_NO);
     }
 }

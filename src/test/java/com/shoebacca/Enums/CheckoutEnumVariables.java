@@ -20,6 +20,7 @@ public enum CheckoutEnumVariables {
 	EMAIL_ADDRESS_WITHOUT_DOMAIN(""),
 	EMAIL_ADDRESS_WITHOUT_RECIPIENT(""),
 	INVALID_PH_NO(""),
+	WRONG_PH_NO(""),
 	INVALID_ZIPCODE(""),
 	INVALID_CC_NUM(""),
 	INVALID_CC_EXPIRY(""),
@@ -60,6 +61,7 @@ public enum CheckoutEnumVariables {
 			INVALID_EMAIL_ADDRESS.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("invalid.email.address");
 			INVALID_ZIPCODE.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("invalid.zip.code");
 			INVALID_PH_NO.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("invalid.ph.no");
+			WRONG_PH_NO.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("wrong.ph.no");
 			EMAIL_ADDRESS_WITHOUT_DOMAIN.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("no.domain.email");
 			EMAIL_ADDRESS_WITHOUT_RECIPIENT.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("no.recipient.email");
 			CALCULATED_TAX_VALUE.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("calculated.tax.value");
