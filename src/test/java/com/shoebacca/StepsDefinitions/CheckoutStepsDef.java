@@ -569,6 +569,11 @@ public class CheckoutStepsDef extends HarnessVariables {
         checkoutPage.validateTaxValue(CALCULATED_TAX_VALUE);
     }
 
+    @Then("User Validates Phone No in Shipping Detail Section")
+    public void userValidatesPhoneNoInShippingDetailSection() {
+        checkoutPage.validatePhoneNoInDetailSection(VALID_PH_NO);
+    }
+
     @Then("User Validates Order Tracking Email Check Box Visibility {string}")
     public void userValidatesOrderTrackingEmailCheckBoxVisibility(String expectedCondition) {
         if(expectedCondition.equals("true")){

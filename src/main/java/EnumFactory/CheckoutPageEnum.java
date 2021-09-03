@@ -38,6 +38,7 @@ public enum CheckoutPageEnum {
     XPATH_FIRST_AND_LAST_NAME("//*[@class='card-name-1C0']"),
     XPATH_ADDRESS("(//*[@class='card-address-33x']/span)[1]"),
     XPATH_CITY_STATE_ZIPCODE("(//*[@class='card-address-33x']/span)[2]"),
+    XPATH_PHONE_NO("(//*[@class='card-root-3nz']/span)[2]"),
     XPATH_EMAIL_ADDRESS("//*[@class='card-emailBundle-1IB']"),
     XPATH_SHIPPING_LOADER("//*[@class='paymentInformation-loading-3aw']"),
     XPATH_REQ_FIELD_MESSAGE_START("//*[@for='"),
