@@ -1898,6 +1898,33 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
+    public void validateDefaultShippingMethod(String expectedDefault) {
+        String locator = CheckoutPageEnum.XPATH_SHIPPING_METHOD_SELECTED_OPTION.getValue();
+        String errorMsg = null;
+        String actual;
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            actual = getAttribute(locator,"textContent");
+            if (expectedDefault.equalsIgnoreCase(actual)) {
+                scenarioDef.log(Status.PASS, "Validated Expected Default Shipping Method as : "+expectedDefault);
+            }
+            else {
+                errorMsg = "Could not Validate Expected Default Shipping Method as: " + expectedDefault + " Actual was: " + actual;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL, "Could not Validate Expected Default Shipping Method on Checkout Page");
+            }
+            else{
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
+
     public void clickSetAsDefaultField(){
         String locator = CheckoutPageEnum.XPATH_SET_AS_DEFAULT_FIELD.getValue();
         try {
