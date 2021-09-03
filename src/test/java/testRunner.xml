@@ -10,7 +10,7 @@
         <listener class-name="Runner.TestRunnerListener" />
     </listeners>
 
-        <test name="Account Menu Feature">
+       <test name="Account Menu Feature">
             <parameter name="browser" value= "&browser;" />
             <parameter name="emailReport" value="&emailReport;" />
             <classes>
@@ -26,7 +26,6 @@
             </classes>
         </test>
 
-
         <test name="Cart Feature">
             <parameter name="browser" value= "&browser;" />
             <parameter name="emailReport" value="&emailReport;" />
@@ -34,7 +33,6 @@
                 <class name="Runner.CartTest" />
             </classes>
         </test>
-
     <test name="Checkout Feature">
         <parameter name="browser" value= "&browser;" />
         <parameter name="emailReport" value="&emailReport;" />
