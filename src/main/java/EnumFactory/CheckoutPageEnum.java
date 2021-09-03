@@ -84,9 +84,8 @@ public enum CheckoutPageEnum {
     XPATH_ORDER_TRACKING_CHECKBOX("//*[@id='shipment_notification_subscribe']"),
     XPATH_SELECT_FROM_ADDRESS_BOOK("//*[text()='Select From Address Book']"),
     XPATH_SHIPPING_DETAIL_ADDRESS_LIST("//*[@class='addressBook-content-34e']"),
-    XPATH_SIGN_UP_CHECKBOX("//*[@id='emarsys_subscriber' and @checked]");
-    XPATH_SET_AS_DEFAULT_FIELD("//input[@id='default_shipping' and not(@disabled)]"),
-    XPATH_SHIPPING_DETAIL_ADDRESS_LIST("//*[@class='addressBook-content-34e']");
+    XPATH_SIGN_UP_CHECKBOX("//*[@id='emarsys_subscriber' and @checked]"),
+    XPATH_SET_AS_DEFAULT_FIELD("//input[@id='default_shipping' and not(@disabled)]");
 
     private String checkoutPageVariables;
 
