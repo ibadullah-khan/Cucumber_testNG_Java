@@ -10,29 +10,29 @@
         <listener class-name="Runner.TestRunnerListener" />
     </listeners>
 
-    <test name="Account Menu Feature">
-        <parameter name="browser" value= "&browser;" />
-        <parameter name="emailReport" value="&emailReport;" />
-        <classes>
-            <class name="Runner.AccountMenuTest" />
-        </classes>
-    </test>
+       <test name="Account Menu Feature">
+            <parameter name="browser" value= "&browser;" />
+            <parameter name="emailReport" value="&emailReport;" />
+            <classes>
+                <class name="Runner.AccountMenuTest" />
+            </classes>
+        </test>
 
-    <test name="Mini Cart Feature">
-        <parameter name="browser" value= "&browser;" />
-        <parameter name="emailReport" value="&emailReport;" />
-        <classes>
-            <class name="Runner.MiniCartTest" />
-        </classes>
-    </test>
+        <test name="Mini Cart Feature">
+            <parameter name="browser" value= "&browser;" />
+            <parameter name="emailReport" value="&emailReport;" />
+            <classes>
+                <class name="Runner.MiniCartTest" />
+            </classes>
+        </test>
 
-    <test name="Cart Feature">
-        <parameter name="browser" value= "&browser;" />
-        <parameter name="emailReport" value="&emailReport;" />
-        <classes>
-            <class name="Runner.CartTest" />
-        </classes>
-    </test>
+        <test name="Cart Feature">
+            <parameter name="browser" value= "&browser;" />
+            <parameter name="emailReport" value="&emailReport;" />
+            <classes>
+                <class name="Runner.CartTest" />
+            </classes>
+        </test>
     <test name="Checkout Feature">
         <parameter name="browser" value= "&browser;" />
         <parameter name="emailReport" value="&emailReport;" />

@@ -51,6 +51,7 @@ public enum CheckoutPageEnum {
     XPATH_SHIPPING_METHOD_SELECTED_OPTION("//input[@class='radio-input-IKa' and @checked]//following-sibling::*[@class='shippingRadios-radioLabel-3S0']/span[not(@class)]"),
     XPATH_SHIPPING_VALUE_SELECTED_OPTION("//input[@class='radio-input-IKa' and @checked]//following-sibling::*[@class='shippingRadios-radioLabel-3S0']/span[@class='shippingRadio-price-2Ml']"),
     XPATH_SHIPPING_DETAIL_TITLE_INACTIVE("//*[@class='checkoutPage-section_title-2GW' and contains(text(),'Shipping Details')]"),
+    XPATH_SHIPPING_METHOD_SECTION("//*[@class='shippingRadios-radioRoot-33S' and not(@disabled)]"),
     XPATH_PROMO_CODE_FIELD("//*[@id='couponCode']"),
     XPATH_ADD_COUPON_BUTTON("//*[@type='submit']/span[text()='Add']"),
     XPATH_REMOVE_COUPON_BUTTON("//*[@type='submit']/span[text()='Remove']"),
