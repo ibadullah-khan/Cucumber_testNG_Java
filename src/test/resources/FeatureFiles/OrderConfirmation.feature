@@ -166,4 +166,3 @@ Feature: Order Confirmation Feature File
     Then User Clicks Place Order Button on Checkout Page
     And User Closes Feedback Window on Confirmation Page
     Then User Validates Order Number Text Visibility "true" on Confirmation Page
-
