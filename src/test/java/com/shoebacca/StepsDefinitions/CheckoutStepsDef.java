@@ -617,6 +617,15 @@ public class CheckoutStepsDef extends HarnessVariables {
         }
     }
 
+    @Then("User Validates Sign Up Check Box Visibility and Checked by Default {string}")
+    public void userValidatesSignUpCheckBoxVisibilityAndCheckedByDefault(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateSignUpCheckBoxAndByDefaultVisibility(true);
+        }else {
+            checkoutPage.validateSignUpCheckBoxAndByDefaultVisibility(false);
+        }
+    }
+
     @Then("User Validates Default Shipping Method as {string} on Checkout Page")
     public void userValidatesDefaultShippingMethodAsOnCheckoutPage(String expectedDefault) throws Exception {
         String expectedMethod = new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(expectedDefault);
