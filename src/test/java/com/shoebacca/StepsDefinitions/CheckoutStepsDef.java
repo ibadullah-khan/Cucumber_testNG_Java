@@ -642,7 +642,7 @@ public class CheckoutStepsDef extends HarnessVariables {
         checkoutPage.validateEnteredPhoneNo(WRONG_PH_NO);
     }
 
-    @Then("User Validates Shipping Method Section Visibility {string} on Checkout Page")
+    @Then("User Validates Active Shipping Method Section Visibility {string} on Checkout Page")
     public void userValidatesShippingMethodSectionVisibilityOnCheckoutPage(String expectedCondition) {
         if(expectedCondition.equals("true")){
             checkoutPage.validateShippingMethodSectionVisibility(true);
