@@ -645,9 +645,9 @@ public class CheckoutStepsDef extends HarnessVariables {
     @Then("User Validates Active Shipping Method Section Visibility {string} on Checkout Page")
     public void userValidatesShippingMethodSectionVisibilityOnCheckoutPage(String expectedCondition) {
         if(expectedCondition.equals("true")){
-            checkoutPage.validateShippingMethodSectionVisibility(true);
+            checkoutPage.validateActiveShippingMethodSectionVisibility(true);
         }else {
-            checkoutPage.validateShippingMethodSectionVisibility(false);
+            checkoutPage.validateActiveShippingMethodSectionVisibility(false);
         }
     }
 }

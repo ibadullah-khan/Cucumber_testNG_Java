@@ -1951,7 +1951,7 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
-    public void validateShippingMethodSectionVisibility(boolean expectedVisibility) {
+    public void validateActiveShippingMethodSectionVisibility(boolean expectedVisibility) {
         String locator = CheckoutPageEnum.XPATH_SHIPPING_METHOD_SECTION.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
