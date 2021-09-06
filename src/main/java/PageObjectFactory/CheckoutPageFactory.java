@@ -175,10 +175,11 @@ public class CheckoutPageFactory extends UtilFactory {
 
     public void clickSaveAndContinueButton() throws Exception {
         String locator = CheckoutPageEnum.XPATH_SAVE_AND_CONTINUE_BUTTON.getValue();
+        String loader = CheckoutPageEnum.XPATH_SHIPPING_LOADER.getValue();
         try {
             waitFactory.waitForElementToBeClickable(locator);
-            customWait(5000);
             click(locator);
+            waitFactory.waitForElementToBeVisible(loader);
             scenarioDef.log(Status.PASS, "Clicked on Save and Continue Button on Checkout Page");
         } catch (Exception e) {
             failureException = e.toString();

@@ -902,9 +902,10 @@ Feature: Checkout Feature File
     And User Selects Valid State on Checkout Page
     And User Enters Valid Zip Code on Checkout Page
     And User Enters Valid Phone No on Checkout Page
-    Then User Clicks Save and Continue Button on Checkout Page
     And User Validates Set as Default Field Visibility "true" on Checkout Page
     And User Clicks on Set as Default Field
+    Then User Clicks Save and Continue Button on Checkout Page
+    Then User Validates Shipping Detail Section is in "edit" State
     Then User Navigates to "shoebacca.home" Url
     And User Clicks the Account Icon on Header
     Then User Clicks on Address Book Option
