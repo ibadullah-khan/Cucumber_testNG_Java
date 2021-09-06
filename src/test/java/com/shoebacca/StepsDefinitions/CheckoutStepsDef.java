@@ -650,4 +650,9 @@ public class CheckoutStepsDef extends HarnessVariables {
             checkoutPage.validateActiveShippingMethodSectionVisibility(false);
         }
     }
+
+    @And("User Enters Incomplete Phone No on Checkout Page")
+    public void userEntersIncompletePhoneNoOnCheckoutPage() throws Exception {
+        checkoutPage.enterPhNo(INCOMPLETE_PH_NO);
+    }
 }
