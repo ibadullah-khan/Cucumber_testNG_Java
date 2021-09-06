@@ -95,10 +95,6 @@ public enum CheckoutPageEnum {
     XPATH_CVV_NUMBER_EMPTY_FIELD("//*[@class='cvv' and not(@aria-invalid)]"),
     XPATH_SET_AS_DEFAULT_FIELD("//input[@id='default_shipping' and not(@disabled)]"),
     XPATH_CREDIT_CARD_NO("//*[@class='storedPaymentInformation-creditCardDot-2mD']/parent::span"),
-    XPATH_SHIPPING_FOR_BILLING_CHECKBOX("//input[@class='checkbox-input-1lb' and @name='isBillingAddressSame']"),
-    XPATH_FIRST_NAME_BILLING_FIELD("//input[@name='firstName']"),
-    XPATH_LAST_NAME_BILLING_FIELD("//input[@name='lastName']"),
-    XPATH_PH_NO_BILLING_FIELD("//input[@field='phoneNumber']"),
     XPATH_NEW_CREDIT_CARD_FIELD("//input[@class='radio-input-IKa' and @value='braintree']"),
     XPATH_ADDRESS_FROM_LIST("//div[@class='addressBook-content-34e']//span[text()='Default']");
 
