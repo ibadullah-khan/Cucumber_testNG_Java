@@ -18,8 +18,6 @@ public enum AccountMenuPageEnum {
     XPATH_CREATE_ACCOUNT_BUTTON("//*[text()='Create an Account']"),
     XPATH_PAYMENT_METHOD_OPTION("//*[@class='accountMenuItems-accountButton-3U9' and text()='Payment Methods']"),
     XPATH_ADDRESS_BOOK_OPTION("//*[@class='accountMenuItems-accountButton-3U9' and text()='Address Book']");
-//    XPATH_ADDRESS_BOOK("//*[contains(@class,'accountMenuItems-accountButton-3U9') and contains(text(),'Address')]");
-
 
     private String accountMenuPageVariables;
 
