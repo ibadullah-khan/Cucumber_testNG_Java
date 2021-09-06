@@ -568,6 +568,7 @@ public class CheckoutStepsDef extends HarnessVariables {
             checkoutPage.validatePayPalSectionVisibility(false);
         }
     }
+
     @Then("User Clicks on Pay with PayPal Button on Checkout Page")
     public void userClicksPayWithPayPalButtonOnCheckoutPage() throws Exception {
         checkoutPage.clickPayWithPayPalButton();
