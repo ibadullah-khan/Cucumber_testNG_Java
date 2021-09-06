@@ -373,8 +373,8 @@ public class CheckoutStepsDef extends HarnessVariables {
         checkoutPage.validateOnlyOnePaymentSelected();
     }
 
-    @Then("User Validates Credit Card Section Visibility {string} by Default")
-    public void userValidatesCreditCardSectionVisibilityByDefault(String expectedCondition) {
+    @Then("User Validates Credit Card Section Visibility {string}")
+    public void userValidatesCreditCardSectionVisibility(String expectedCondition) {
         if(expectedCondition.equals("true")){
             checkoutPage.validateCreditCardSectionVisibility(true);
         }else {
@@ -690,5 +690,20 @@ public class CheckoutStepsDef extends HarnessVariables {
     @And("User Enters Incomplete Phone No on Checkout Page")
     public void userEntersIncompletePhoneNoOnCheckoutPage() throws Exception {
         checkoutPage.enterPhNo(INCOMPLETE_PH_NO);
+    }
+
+    @Then("User Validates Credit Card Number Field is Empty")
+    public void userValidatesCreditCardNumberFieldIsEmpty() throws Exception{
+        checkoutPage.validateCreditCardFieldEmpty();
+    }
+
+    @Then("User Validates Expiry Date Field is Empty")
+    public void userValidatesExpiryDateFieldIsEmpty() throws Exception{
+        checkoutPage.validateExpiryDateFieldEmpty();
+    }
+
+    @Then("User Validates CVV Number Field is Empty")
+    public void userValidatesCVVNumberFieldIsEmpty() throws Exception{
+        checkoutPage.validateCVVNumberFieldEmpty();
     }
 }

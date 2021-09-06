@@ -350,7 +350,7 @@ Feature: Checkout Feature File
     And User Enters Valid Zip Code on Checkout Page
     And User Enters Valid Phone No on Checkout Page
     Then User Clicks Save and Continue Button on Checkout Page
-    Then User Validates Credit Card Section Visibility "true" by Default
+    Then User Validates Credit Card Section Visibility "true"
 
   @Regression
   Scenario: Verify Summary Details,Shipping Details,Payment Method Content on Checkout Page
@@ -918,3 +918,32 @@ Feature: Checkout Feature File
     Then User Validates Credit Card Last Digits Visibility "true" on Checkout Page
     Then User Validates Credit Card Expiry Date Visibility "true" on Checkout Page
     Then User Validates Credit Card Logo Visibility "true" on Checkout Page
+
+  @Regression
+  Scenario: Verify New Card Fields Hides When Stored Card Option is Selected
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.home" Url
+    And User Clicks the Account Icon on Header
+    Then User Enters Valid Login Data Username on Account Menu
+    And User Enters Valid Login Password on Account Menu
+    Then User Clicks the Login Button on Account Menu
+    Then User Validates Successful Login on Account Menu
+    And User Clicks the Mini Cart Icon on Header
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Should Redirect Toward "shopping.checkout" Page
+    Then User Clicks Save and Continue Button on Checkout Page
+    Then User Validates Successful Loaded Checkout Page
+    Then User Validates Stored Cards Visibility "true" on Checkout Page
+    Then User Validates Credit Card Last Digits Visibility "true" on Checkout Page
+    Then User Validates Credit Card Expiry Date Visibility "true" on Checkout Page
+    Then User Validates Credit Card Logo Visibility "true" on Checkout Page
+    Then User Select "credit.card.payment" Payment Method
+    Then User Validates Successful Loaded Checkout Page
+    Then User Validates Credit Card Section Visibility "true"
+    Then User Validates Credit Card Number Field is Empty
+    Then User Validates Expiry Date Field is Empty
+    Then User Validates CVV Number Field is Empty
+    Then User Select "stored.card.payment" Payment Method
+    Then User Validates Successful Loaded Checkout Page
+    Then User Validates Stored Cards Visibility "true" on Checkout Page
