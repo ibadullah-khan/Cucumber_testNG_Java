@@ -146,8 +146,8 @@ public class OrderConfirmationPageFactory extends UtilFactory {
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             } else if (!actualVisibility && expectedVisibility) {
                 errorMsg = "Validated Order Number is Displayed Unexpectedly on Order Confirmation Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             }
-            throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
     } catch (Exception e) {
         failureException = e.toString();
         scenarioDef.log(Status.FAIL, errorMsg);
