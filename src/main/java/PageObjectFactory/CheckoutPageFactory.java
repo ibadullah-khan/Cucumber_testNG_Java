@@ -2214,4 +2214,21 @@ public class CheckoutPageFactory extends UtilFactory {
             throw e;
         }
     }
+
+    public void clearCreditCardExpiryDate() throws Exception {
+        String locator = CheckoutPageEnum.XPATH_CREDIT_CARD_EXPIRY_FIELD.getValue();
+        String iframeLocator = CheckoutPageEnum.XPATH_CREDIT_CARD_EXP_IFRAME.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(iframeLocator);
+            switchToIframe(iframeLocator);
+            waitFactory.waitForElementToBeClickable(locator);
+            clearField(locator);
+            switchToDefaultContent();
+            scenarioDef.log(Status.PASS, "Cleared Text from Credit Card Expiry Date Field on Checkout Page");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not clear Text from Credit Card Expiry Date Field on Checkout Page");
+            throw e;
+        }
+    }
 }
