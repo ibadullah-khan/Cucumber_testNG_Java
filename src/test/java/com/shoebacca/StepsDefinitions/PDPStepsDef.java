@@ -73,5 +73,4 @@ public class PDPStepsDef extends HarnessVariables{
     public void userClicksAddToCartButtonOnPDPForMobile() {
         productDetailsPage.clickOnAddToCartMobile();
     }
-
 }

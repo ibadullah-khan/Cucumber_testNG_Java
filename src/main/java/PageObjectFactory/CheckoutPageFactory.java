@@ -2115,4 +2115,29 @@ public class CheckoutPageFactory extends UtilFactory {
             throw e;
         }
     }
+
+    public void validateCreditCard(String expectedCreditCardNo) {
+
+        String locator = CheckoutPageEnum.XPATH_CREDIT_CARD_NO.getValue();
+        String errorMsg = null;
+        String actualText;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            actualText = getText(locator).trim();
+            if (expectedCreditCardNo.contains(actualText)){
+                scenarioDef.log(Status.PASS,"Validated By Default Credit Card as Expected: "+expectedCreditCardNo);
+            }else {
+                errorMsg = "Could not Validate By Default Credit Card as Expected: "+expectedCreditCardNo+" , Actual Value: "+actualText;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        }catch (Exception e){
+            failureException = e.toString();
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL,"Unable to get the Credit Card Element on Mini Cart");
+            }else {
+                scenarioDef.log(Status.FAIL,errorMsg);
+            }
+            throw e;
+        }
+    }
 }

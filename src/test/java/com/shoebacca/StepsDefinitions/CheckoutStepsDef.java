@@ -723,4 +723,8 @@ public class CheckoutStepsDef extends HarnessVariables {
         }
     }
 
+    @Then("User Validates Credit Card Same as Default")
+    public void userValidatesCreditCardSameAsDefault() {
+        checkoutPage.validateCreditCard(CREDIT_CARD_NO);
+    }
 }

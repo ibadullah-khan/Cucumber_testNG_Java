@@ -667,7 +667,7 @@ Feature: Checkout Feature File
     And User Clicks the Account Icon on Header
     Then User Clicks on Address Book Option
     Then User Should Redirect Toward "shopping.addressbook" Page
-    Then User Validates Address Set as Default
+    Then User Validates Address Set as Default Visibility "true"
 
   @Regression
   Scenario: Verify customer has option to receive or not receive order tracking emails
@@ -919,7 +919,6 @@ Feature: Checkout Feature File
     Then User Validates Credit Card Expiry Date Visibility "true" on Checkout Page
     Then User Validates Credit Card Logo Visibility "true" on Checkout Page
 
-
   @Regression
   Scenario: Verify Logged in Customer Can Add New Shipping Address at Checkout.
 
@@ -949,4 +948,23 @@ Feature: Checkout Feature File
     And User Clicks the Account Icon on Header
     Then User Clicks on Address Book Option
     Then User Should Redirect Toward "shopping.addressbook" Page
-    Then User Validates Address Set as Default in Address Book
+    Then User Validates Address Set as Default in Address Book Visiblity "true"
+
+  @Regression
+  Scenario: Verify Default Payment Should be Selected on Checkout Page
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.home" Url
+    And User Clicks the Account Icon on Header
+    Then User Enters Valid Login Data Username on Account Menu
+    And User Enters Valid Login Password on Account Menu
+    Then User Clicks the Login Button on Account Menu
+    Then User Validates Successful Login on Account Menu
+    Then User Clicks on Payment Method Option
+    Then User Fetch Default Credit Card
+    And User Clicks the Mini Cart Icon on Header
+    Then User Clicks Checkout Button on Mini Cart View
+    Then User Clicks Save and Continue Button on Checkout Page
+    Then User Validates Successful Loaded Checkout Page
+    Then User Validates Payment Method Section is in "active" State
+    Then User Validates Credit Card Same as Default
