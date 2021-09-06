@@ -95,7 +95,10 @@ public enum CheckoutPageEnum {
     XPATH_CHANGE_SHIPPING_ADDRESS("//*[@id='change_button']//span[@class='icon-root-2Hz']"),
     XPATH_SHIPPING_DETAILS("//div[@class='addressBook-content-34e']//button"),
     XPATH_DEFAULT_SHIPPING_ADDRESS("//*[@class='shippingInformation-cardContainer-3l1']//div[@class='card-root-3nz']"),
-    XPATH_SAVED_FIRST_SHIPPING_ADDRESS("//*[@class='addressCard-root_selected-XwX']//span[@class='addressCard-name-Tby']");
+    XPATH_SAVED_FIRST_SHIPPING_ADDRESS("//*[@class='addressCard-root_selected-XwX']//span[@class='addressCard-name-Tby']"),
+    XPATH_SET_AS_DEFAULT_FIELD("//input[@id='default_shipping' and not(@disabled)]"),
+    XPATH_CREDIT_CARD_NO("//*[@class='storedPaymentInformation-creditCardDot-2mD']/parent::span");
+
     private String checkoutPageVariables;
 
     private CheckoutPageEnum(String checkoutPageVariables) {

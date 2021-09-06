@@ -300,4 +300,18 @@ public class AccountMenuPageFactory extends UtilFactory{
             throw e;
         }
     }
+
+    public void clickOnPaymentMethodOption() throws Exception {
+        String locator = AccountMenuPageEnum.XPATH_PAYMENT_METHOD_OPTION.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            waitFactory.waitForElementToBeInVisible(locator);
+            scenarioDef.log(Status.PASS,"Clicked on Payment Method Option on Account Menu");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Click on Payment Method Option on Account Menu");
+            throw e;
+        }
+    }
 }

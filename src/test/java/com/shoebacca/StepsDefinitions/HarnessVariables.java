@@ -20,7 +20,9 @@ public class HarnessVariables extends UtilFactory {
     protected static String PRODUCT_COLOUR;
     protected static String PRODUCT_SIZE;
     protected static String PRODUCT_BRAND;
+    protected static String RANDOM_NAME;
     protected static String PREVIOUS_PRODUCT_NAME;
+    protected final String VALID_ALL_USERNAME = GlobalEnumVariables.VALID_ALL_LOGIN_USERNAME.getValue();
     protected final String VALID_USERNAME = GlobalEnumVariables.VALID_LOGIN_USERNAME.getValue();
     protected final String VALID_ALL_USERNAME = GlobalEnumVariables.VALID_ALL_LOGIN_USERNAME.getValue();
     protected final String VALID_ALL_PASSWORD = GlobalEnumVariables.VALID_ALL_LOGIN_PASSWORD.getValue();
@@ -62,4 +64,5 @@ public class HarnessVariables extends UtilFactory {
     protected final String EXPECTED_HOLIDAYS = CartEnumVariables.EXPECTED_HOLIDAYS.getValue();
     protected final String EXPECTED_CUT_OFF_TIME = CartEnumVariables.EXPECTED_CUT_OFF_TIME.getValue();
     protected final String CALCULATED_TAX_VALUE = CheckoutEnumVariables.CALCULATED_TAX_VALUE.getValue();
+    protected static String CREDIT_CARD_NO;
 }
