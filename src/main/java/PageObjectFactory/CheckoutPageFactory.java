@@ -1980,11 +1980,12 @@ public class CheckoutPageFactory extends UtilFactory {
     public void validateStoredCardSectionVisibility(boolean expectedVisibility) {
         String locator = CheckoutPageEnum.XPATH_STORED_CARD_SELECTED_SECTION.getValue();
         String loader = CheckoutPageEnum.XPATH_PAYMENT_LOADER.getValue();
+        String locatorBtn= CheckoutPageEnum.XPATH_PLACE_ORDER_BUTTON.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
         try {
             waitFactory.waitForElementToBeInVisible(loader);
-            customWait(2000);
+            waitFactory.waitForElementToBeVisible(locatorBtn);
             actualVisibility = isVisible(locator);
             if (actualVisibility && expectedVisibility) {
                 scenarioDef.log(Status.PASS, "Validated Stored Card Section is Displayed as Expected on Checkout Page");
