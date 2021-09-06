@@ -6,8 +6,8 @@ public enum PaymentMethodPageEnum {
 
     private String paymentMethodPageVariables;
 
-    private PaymentMethodPageEnum(String addressBookPageVariables) {
-        this.paymentMethodPageVariables = addressBookPageVariables;
+    private PaymentMethodPageEnum(String paymentMethodPageVariables) {
+        this.paymentMethodPageVariables = paymentMethodPageVariables;
     }
 
     public String getValue() {
