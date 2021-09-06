@@ -743,6 +743,11 @@ public class CheckoutStepsDef extends HarnessVariables {
         checkoutPage.validateCVVNumberFieldEmpty();
     }
 
+    @And("User Clears Credit Card Expiry Date on Checkout Page")
+    public void userClearsCreditCardExpiryDateOnCheckoutPage() throws Exception {
+        checkoutPage.clearCreditCardExpiryDate();
+    }
+
     @Then("User Clicks on Use Shipping Address For Billing Checkbox")
     public void userClicksShippingAddressFieldOnCheckoutPage() throws Exception {
         checkoutPage.clickShippingAddressField();
