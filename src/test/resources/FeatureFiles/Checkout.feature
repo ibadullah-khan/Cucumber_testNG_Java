@@ -881,6 +881,26 @@ Feature: Checkout Feature File
       Then User Validates "expedited.shipping" Method Name on Summary Section of Checkout Page
 
   @Regression
+  Scenario: Verify Customer Cannot Save Address with Providing Phone Number Less than Ten Digits
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
+    And User Enters Valid Email Address on Checkout Page
+    And User Enters Valid First Name on Checkout Page
+    And User Enters Valid Last Name on Checkout Page
+    And User Enters Valid Address on Checkout Page
+    And User Enters Valid City on Checkout Page
+    And User Selects Valid State on Checkout Page
+    And User Enters Valid Zip Code on Checkout Page
+    And User Enters Incomplete Phone No on Checkout Page
+    Then User Validates Required Field Error Message "invalid.ph.no.error.msg" on "phone" Field of Checkout Page
+
+  @Regression
   Scenario: Verify Saved Credit Cards for Logged in Customers if Available
 
     Given User Setups the Web Browser

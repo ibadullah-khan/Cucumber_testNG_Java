@@ -53,6 +53,7 @@ public class HarnessVariables extends UtilFactory {
     protected final String EMAIL_ADDRESS_WITHOUT_RECIPIENT = CheckoutEnumVariables.EMAIL_ADDRESS_WITHOUT_RECIPIENT.getValue();
     protected final String INVALID_PH_NO = CheckoutEnumVariables.INVALID_PH_NO.getValue();
     protected final String WRONG_PH_NO = CheckoutEnumVariables.WRONG_PH_NO.getValue();
+    protected final String INCOMPLETE_PH_NO = CheckoutEnumVariables.INCOMPLETE_PH_NO.getValue();
     protected final String INVALID_ZIPCODE = CheckoutEnumVariables.INVALID_ZIPCODE.getValue();
     protected final String EXPECTED_HOLIDAYS = CartEnumVariables.EXPECTED_HOLIDAYS.getValue();
     protected final String EXPECTED_CUT_OFF_TIME = CartEnumVariables.EXPECTED_CUT_OFF_TIME.getValue();
