@@ -2192,4 +2192,30 @@ public class CheckoutPageFactory extends UtilFactory {
             throw e;
         }
     }
+
+    public void clickAddNewCreditCardField() throws Exception {
+        String locator = CheckoutPageEnum.XPATH_NEW_CREDIT_CARD_FIELD.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS, "Clicked on Add New Credit Card Field in Payment Section");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not click on Add New Credit Card Field in Payment Section");
+            throw e;
+        }
+    }
+
+    public void clickStoredAddress() throws Exception {
+        String locator = CheckoutPageEnum.XPATH_ADDRESS_FROM_LIST.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS, "Clicked on Stored Shipping Address in Payment Section");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not click on Stored Shipping Address in Payment Section");
+            throw e;
+        }
+    }
 }

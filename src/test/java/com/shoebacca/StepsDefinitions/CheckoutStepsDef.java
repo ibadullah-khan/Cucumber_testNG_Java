@@ -747,4 +747,14 @@ public class CheckoutStepsDef extends HarnessVariables {
     public void userEntersValidPhoneNoForBillingOnCheckoutPage() throws Exception {
         checkoutPage.enterPhNoForBilling(VALID_PH_NO);
     }
+
+    @Then("User Clicks on New Credit Card Field in Payment Section")
+    public void userClicksNewCreditCardInPaymentSection() throws Exception {
+        checkoutPage.clickAddNewCreditCardField();
+    }
+
+    @And("User Clicks on Stored Shipping Address in Payment Section")
+    public void userClicksStoredShippingInPaymentSection() throws Exception {
+        checkoutPage.clickStoredAddress();
+    }
 }
