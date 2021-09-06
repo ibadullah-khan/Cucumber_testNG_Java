@@ -91,11 +91,10 @@ public enum CheckoutPageEnum {
     XPATH_CREDIT_CARD_EXPIRY_DATE("//div[@class='storedPaymentInformation-savedPayments-20v']//p[not(@class)]"),
     XPATH_CREDIT_CARD_LOGO("//*[@class='radio-input-IKa' and @checked]//following-sibling::*//span[@class='storedPaymentInformation-cardType-kvp storedPaymentInformation-mVisa-nVm']"),
     XPATH_SHIPPING_ADDRESS_USER("//*[@class='card-name-1C0']"),
-    XPATH_SHIPPING_ADDRESS_USERNAME("//*[@class='addressCard-root_selected-XwX']//*[@class='addressCard-name-Tby']"),
+    XPATH_SHIPPING_ADDRESS_USERNAME("(//*[@class='addressCard-defaultBadge-1w4' and contains(text(),'Default')])[1]/following-sibling::*[@class='addressCard-name-Tby']"),
     XPATH_CHANGE_SHIPPING_ADDRESS("//*[@id='change_button']//span[@class='icon-root-2Hz']"),
-    XPATH_DEFAULT_SHIPPING_ADDRESS("(//span[@class='addressCard-name-Tby'])[1]"),
     XPATH_SHIPPING_DETAILS("//div[@class='addressBook-content-34e']//button"),
-    XPATH_SHIPPING_ADDRESS_DEFAULT("//button[@class='addressCard-root_selected-XwX']//span[@class='addressCard-defaultBadge-1w4']"),
+    XPATH_DEFAULT_SHIPPING_ADDRESS("//*[@class='shippingInformation-cardContainer-3l1']//div[@class='card-root-3nz']"),
     XPATH_SAVED_FIRST_SHIPPING_ADDRESS("//*[@class='addressCard-root_selected-XwX']//span[@class='addressCard-name-Tby']");
     private String checkoutPageVariables;
 

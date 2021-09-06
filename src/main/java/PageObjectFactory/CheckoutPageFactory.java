@@ -943,27 +943,8 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
-        public void validateDefaultShippingAddress() {
+    public void validateDefaultAddressVisibility(boolean expectedVisibility) {
         String locator = CheckoutPageEnum.XPATH_DEFAULT_SHIPPING_ADDRESS.getValue();
-        String errorMsg = null;
-        Boolean actualVisibility;
-        try {
-            actualVisibility = isVisible(locator);
-            if (actualVisibility) {
-                scenarioDef.log(Status.PASS, "Validated Shipping Address is Displayed as Expected on Checkout Page");
-            }
-            else{
-                scenarioDef.log(Status.FAIL,"Validated Shipping Address is not Displayed as Expected on Checkout Page");
-            }
-        } catch (Exception e) {
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL, errorMsg);
-            throw e;
-        }
-    }
-
-    public void validateDefaultAddressonTopVisibility(boolean expectedVisibility) {
-        String locator = CheckoutPageEnum.XPATH_SHIPPING_ADDRESS_DEFAULT.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
         try {

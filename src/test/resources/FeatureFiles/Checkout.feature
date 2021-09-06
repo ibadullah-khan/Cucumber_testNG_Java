@@ -933,12 +933,12 @@ Feature: Checkout Feature File
     Then User Clicks Add to Cart Button on PDP
     And User Validates Successful Triggered Mini Cart
     Then User Clicks Checkout Button on Mini Cart View
+    Then User Validates Successful Loaded Checkout Page
+    Then User Validates Default Address Visibility "true" on Checkout Page
     Then User Fetches Shipping Address on Checkout Page
     Then User Clicks on Change Address Button on Checkout Page
-    Then User Validates Shipping Address User Name on Checkout Page
-    Then User Validates Default Shipping Address on Checkout Page
-    Then User Validates Default Address is on Top "true" on Checkout Page
     Then User Validates Shipping Address Quantity on Checkout Page
+    Then User Validates Shipping Address User Name on Checkout Page
     Then User Select First Saved Address on Checkout Page
     Then User Clicks Save and Continue Button on Checkout Page
     And User Enters Valid Credit Card Number on Checkout Page
