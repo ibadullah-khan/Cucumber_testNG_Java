@@ -15,4 +15,9 @@ public class AddressBookStepDef extends HarnessVariables{
     public void userValidatesAddressSetAsDefault() {
         addressBookPage.validateAddressSetAsDefault(VALID_FIRSTNAME+" "+VALID_LASTNAME);
     }
+
+    @Then("User Validates Address Set as Default in Address Book")
+    public void userValidatesAddressSetAsDefaultInAddressBook() {
+        addressBookPage.validateAddressSetAsDefault(RANDOM_NAME+" "+VALID_LASTNAME);
+    }
 }
