@@ -742,6 +742,11 @@ public class CheckoutStepsDef extends HarnessVariables {
         checkoutPage.validateCVVNumberFieldEmpty();
     }
 
+    @And("User Clears Credit Card Expiry Date on Checkout Page")
+    public void userClearsCreditCardExpiryDateOnCheckoutPage() throws Exception {
+        checkoutPage.clearCreditCardExpiryDate();
+    }
+
     @Then("User Clicks on New Credit Card Field in Payment Section")
     public void userClicksNewCreditCardInPaymentSection() throws Exception {
         checkoutPage.clickAddNewCreditCardField();
