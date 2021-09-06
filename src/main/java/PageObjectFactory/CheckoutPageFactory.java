@@ -161,10 +161,11 @@ public class CheckoutPageFactory extends UtilFactory {
 
     public void clickSaveAndContinueButton() throws Exception {
         String locator = CheckoutPageEnum.XPATH_SAVE_AND_CONTINUE_BUTTON.getValue();
+        String loader = CheckoutPageEnum.XPATH_SHIPPING_LOADER.getValue();
         try {
             waitFactory.waitForElementToBeClickable(locator);
-            customWait(5000);
             click(locator);
+            waitFactory.waitForElementToBeVisible(loader);
             scenarioDef.log(Status.PASS, "Clicked on Save and Continue Button on Checkout Page");
         } catch (Exception e) {
             failureException = e.toString();
@@ -1863,7 +1864,6 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
-
     public void selectFromAddressBookButton() throws Exception {
         String locator = CheckoutPageEnum.XPATH_SELECT_FROM_ADDRESS_BOOK.getValue();
         try {
@@ -2019,6 +2019,44 @@ public class CheckoutPageFactory extends UtilFactory {
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             } else if (!actualVisibility && expectedVisibility) {
                 errorMsg = "Validated Expiry Date is Displayed Unexpectedly on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
+    }
+
+    public void clickSetAsDefaultField(){
+        String locator = CheckoutPageEnum.XPATH_SET_AS_DEFAULT_FIELD.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS, "Clicked on Set As Default Address on Checkout Page");
+
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Click on Set As Default Address on Checkout Page");
+            throw e;
+        }
+    }
+
+    public void validateSetAsDefaultFieldVisibility(boolean expectedVisibility) {
+        String locator = CheckoutPageEnum.XPATH_SET_AS_DEFAULT_FIELD.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try {
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Set As Default Field is Displayed as Expected on Checkout Page");
+            } else if (!actualVisibility && !expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Header is not Displayed as Expected on Checkout Page");
+            } else if (actualVisibility && !expectedVisibility) {
+                errorMsg = "Validated Set As Default Field is Displayed Unexpected on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
+                errorMsg = "Validated Header is Displayed Unexpectedly on Checkout Page";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             }
         } catch (Exception e) {
