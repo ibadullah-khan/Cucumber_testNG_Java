@@ -130,4 +130,52 @@ public class OrderConfirmationPageFactory extends UtilFactory {
             throw e;
         }
     }
+
+    public void validatesOrderNumberVisibility(boolean expectedVisibility) {
+        String locator = OrderConfirmationPageEnum.XPATH_ORDER_NUMBER_TEXT.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try {
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Order Number is Displayed as Expected on Order Confirmation Page");
+            } else if (!actualVisibility && !expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Order Number is not Displayed as Expected on Order Confirmation Page");
+            } else if (actualVisibility && !expectedVisibility) {
+                errorMsg = "Validated Order Number is Displayed Unexpected on Order Confirmation Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
+                errorMsg = "Validated Order Number is Displayed Unexpectedly on Order Confirmation Page";
+            }
+            throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+    } catch (Exception e) {
+        failureException = e.toString();
+        scenarioDef.log(Status.FAIL, errorMsg);
+        throw e;
+    }
+}
+
+    public void validatePasswordFieldVisibility(boolean expectedVisibility) {
+        String locator = OrderConfirmationPageEnum.XPATH_PASSWORD_FIELD.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try {
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Password Field is Displayed as Expected on Confirmation Page");
+            } else if (!actualVisibility && !expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Password Field is not Displayed as Expected on Confirmation Page");
+            } else if (actualVisibility && !expectedVisibility) {
+                errorMsg = "Validated Password Field is Displayed Unexpected on Confirmation Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
+                errorMsg = "Validated Password Field is Displayed Unexpectedly on Confirmation Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
+    }
 }

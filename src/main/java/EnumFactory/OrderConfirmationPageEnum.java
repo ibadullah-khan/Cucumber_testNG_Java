@@ -8,7 +8,8 @@ public enum OrderConfirmationPageEnum {
     XPATH_CREATE_ACCOUNT_BUTTON("//*[text()='Create Account']"),
     XPATH_PRINT_SLIP("//*[@class='orderConfirmationPage-printButtonWrap-PSv']//*[@class='button-root_normalPriority-1xS']//span[@class='button-content-XZ3']"),
     XPATH_ERROR_MSG("//*[@class='createAccount-error-3ml']"),
-    XPATH_PASSWORD_MISMATCH_ERROR_MSG("//*[@class='message-root_error-1YZ']");
+    XPATH_PASSWORD_MISMATCH_ERROR_MSG("//*[@class='message-root_error-1YZ']"),
+    XPATH_ORDER_NUMBER_TEXT("//div[@class='orderConfirmationPage-orderNumber-1yC' and contains(text(),'Order #:')]");
 
     private String orderConfirmationPageVariables;
 

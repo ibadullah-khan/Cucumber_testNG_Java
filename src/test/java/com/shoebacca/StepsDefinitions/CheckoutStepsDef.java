@@ -10,6 +10,7 @@ public class CheckoutStepsDef extends HarnessVariables {
     CheckoutPageFactory checkoutPage;
     protected String checkoutPropFile = "checkout.properties";
     protected String errorMsgPropFile = "errorMsg.properties";
+    protected String runPropFile = "run.properties";
 
     public CheckoutStepsDef() throws Exception {
         checkoutPage = new CheckoutPageFactory();
@@ -223,11 +224,6 @@ public class CheckoutStepsDef extends HarnessVariables {
         checkoutPage.validateStateCityZipCode(VALID_STATE+", "+VALID_CITY+ " "+VALID_ZIPCODE + " US");
     }
 
-    @Then("User Validates Phone No in Shipping Detail Section")
-    public void userValidatesPhoneNoInShippingDetailSection() {
-        checkoutPage.validatePhoneNoInDetailSection(VALID_PH_NO);
-    }
-
     @Then("User Validates Email Address in Shipping Detail Section")
     public void userValidatesEmailAddressInShippingDetailSection() {
         checkoutPage.validateEmailAddressInDetailSection(VALID_DATA_EMAIL_ADDRESS);
@@ -364,6 +360,12 @@ public class CheckoutStepsDef extends HarnessVariables {
     public void userSelectPaymentMethod(String paymentoption) throws Exception {
         String paymentOption= new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(paymentoption);
         checkoutPage.clickOnPaymentMethod(paymentOption);
+    }
+
+    @And("User Enters Random Email Address on Checkout Page")
+    public void userEntersRandomEmailAddressOnCheckoutPage() throws Exception {
+        String rndName = getRandomStrings();
+        checkoutPage.enterEmailAddress(rndName + EMAIL_ADDRESS_WITHOUT_RECIPIENT);
     }
 
     @Then("User Validates Only One Payment Method is Selected")
@@ -548,6 +550,7 @@ public class CheckoutStepsDef extends HarnessVariables {
         checkoutPage.validateShippingValueonSummary(SHIPPING_VALUE);
     }
 
+
     @Then("User Validates PayPal Section Visibility {string}")
     public void userValidatesPayPalSectionVisibility(String expectedCondition) {
         if(expectedCondition.equals("true")){
@@ -564,6 +567,129 @@ public class CheckoutStepsDef extends HarnessVariables {
     @Then("User Validates Tax is Calculated on Checkout Page")
     public void userValidatesTaxIsCalculatedOnCheckoutPage() {
         checkoutPage.validateTaxValue(CALCULATED_TAX_VALUE);
+    }
+
+    @Then("User Validates Phone No in Shipping Detail Section")
+    public void userValidatesPhoneNoInShippingDetailSection() {
+        checkoutPage.validatePhoneNoInDetailSection(VALID_PH_NO);
+    }
+
+    @Then("User Validates Order Tracking Email Check Box Visibility {string}")
+    public void userValidatesOrderTrackingEmailCheckBoxVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateOrderTrackingCheckBoxVisibility(true);
+        }else {
+            checkoutPage.validateOrderTrackingCheckBoxVisibility(false);
+        }
+    }
+
+    @Then("User Validates Order Tracking Email Check Box Type {string}")
+    public void userValidatesOrderTrackingEmailCheckBoxType(String type) throws Exception {
+        String expectedType = new PropertyLoaderFactory().getPropertyFile(runPropFile).getProperty(type);
+        checkoutPage.validateOrderTrackingEmailCheckedOrUnchecked(expectedType);
+    }
+
+    @Then("User Clicks on Add New Address Button on Checkout Page")
+    public void userClicksOnAddNewAddressButtonOnCheckoutPage() throws Exception {
+        checkoutPage.clickAddNewAddressButton();
+    }
+
+    @Then("User Clicks on Select from Address Book Button on Checkout Page")
+    public void userClicksOnSelectFromAddressBookButtonOnCheckoutPage() throws Exception {
+        checkoutPage.selectFromAddressBookButton();
+    }
+
+    @Then("User Validates Shipping Detail Address Form Visibility {string} on Checkout Page")
+    public void userValidatesShippingDetailAddressFormVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateShippingDetailFormVisibility(true);
+        }else {
+            checkoutPage.validateShippingDetailFormVisibility(false);
+        }
+    }
+
+    @Then("User Validates Shipping Detail Address List Visibility {string} on Checkout Page")
+    public void userValidatesShippingDetailAddressLVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateShippingDetailAddressListVisibility(true);
+        }else {
+            checkoutPage.validateShippingDetailAddressListVisibility(false);
+        }
+    }
+
+    @Then("User Validates Sign Up Check Box Visibility and Checked by Default {string}")
+    public void userValidatesSignUpCheckBoxVisibilityAndCheckedByDefault(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateSignUpCheckBoxAndByDefaultVisibility(true);
+        }else {
+            checkoutPage.validateSignUpCheckBoxAndByDefaultVisibility(false);
+        }
+    }
+
+    @Then("User Validates Default Shipping Method as {string} on Checkout Page")
+    public void userValidatesDefaultShippingMethodAsOnCheckoutPage(String expectedDefault) throws Exception {
+        String expectedMethod = new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(expectedDefault);
+        checkoutPage.validateDefaultShippingMethod(expectedMethod);
+    }
+
+    @Then("User Enters Wrong Phone No on Checkout Page")
+    public void userEntersWrongPhoneNoOnCheckoutPage() throws Exception {
+        checkoutPage.enterPhNo(WRONG_PH_NO);
+    }
+
+    @Then("User Validates Entered Phone No in Shipping Detail Section")
+    public void userValidatesEnteredPhoneNoInShippingDetailSection() {
+        checkoutPage.validateEnteredPhoneNo(WRONG_PH_NO);
+    }
+
+    @Then("User Validates Active Shipping Method Section Visibility {string} on Checkout Page")
+    public void userValidatesActiveShippingMethodSectionVisibilityOnCheckoutPage(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateActiveShippingMethodSectionVisibility(true);
+        }else {
+            checkoutPage.validateActiveShippingMethodSectionVisibility(false);
+        }
+    }
+
+    @Then("User Validates Stored Cards Visibility {string} on Checkout Page")
+    public void userValidatesStoredCardsVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateStoredCardSectionVisibility(true);
+        }else {
+            checkoutPage.validateStoredCardSectionVisibility(false);
+        }
+    }
+
+    @Then("User Validates Credit Card Expiry Date Visibility {string} on Checkout Page")
+    public void userValidatesCreditCardExpiryDateVisibilityOnCheckoutPage(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateCardExpiryVisibility(true);
+        }else {
+            checkoutPage.validateCardExpiryVisibility(false);
+        }
+    }
+
+    @Then("User Validates Credit Card Logo Visibility {string} on Checkout Page")
+    public void userValidatesCreditCardLogoVisibilityOnCheckoutPage(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateCardLogoVisibility(true);
+        }else {
+            checkoutPage.validateCardLogoVisibility(false);
+        }
+    }
+
+    @Then("User Validates Credit Card Last Digits Visibility {string} on Checkout Page")
+    public void userValidatesCreditCardLastDigitsVisibilityOnCheckoutPage(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateCardLastDigitsVisibility(true);
+        }else {
+            checkoutPage.validateCardLastDigitsVisibility(false);
+        }
+    }
+
+    @And("User Enters Incomplete Phone No on Checkout Page")
+    public void userEntersIncompletePhoneNoOnCheckoutPage() throws Exception {
+        checkoutPage.enterPhNo(INCOMPLETE_PH_NO);
     }
 
     @Then("User Clicks on Change Address Button on Checkout Page")

@@ -4,6 +4,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang.RandomStringUtils;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.TakesScreenshot;
@@ -349,6 +350,11 @@ public class UtilFactory {
         String[] tabs = driver.getWindowHandles().toArray(new String[0]);
         driver.switchTo().window(tabs[1]);
     }
+    protected void switchToParentTab () {
+        WebDriver driver = BrowserFactory.getDriver();
+        String[] tabs = driver.getWindowHandles().toArray(new String[0]);
+        driver.switchTo().window(tabs[0]);
+    }
 
     protected void closeOldTab() {
         WebDriver driver = BrowserFactory.getDriver();
@@ -358,6 +364,10 @@ public class UtilFactory {
         driver.switchTo().window(tabs[1]);
     }
 
+    protected String getRandomStrings() {
+        String rndName = RandomStringUtils.randomAlphabetic(6).toLowerCase();
+        return rndName;
+    }
     protected String getCurrentDate() {
         SimpleDateFormat format = new SimpleDateFormat("M/dd/yyyy");
         format.setTimeZone(TimeZone.getTimeZone("CST"));
@@ -379,4 +389,5 @@ public class UtilFactory {
         int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
         return dayOfWeek;
     }
+
 }
