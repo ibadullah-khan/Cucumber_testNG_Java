@@ -1008,7 +1008,7 @@ Feature: Checkout Feature File
     And User Enters Valid All Login Data Password on Account Menu
     Then User Clicks the Login Button on Account Menu
     Then User Validates Successful Login on Account Menu
-    Then User Navigates to "shoebacca.second.bag.pdt" Url
+    Then User Navigates to "shoebacca.first.bag.pdt" Url
     Then User Clicks Add to Cart Button on PDP
     And User Validates Successful Triggered Mini Cart
     Then User Clicks Checkout Button on Mini Cart View
