@@ -665,7 +665,7 @@ Feature: Checkout Feature File
     Then User Clicks Place Order Button on Checkout Page
     Then User Closes Feedback Window on Confirmation Page
     And User Clicks the Account Icon on Header
-    Then User Clicks on Address Book Option
+    Then User Clicks on Address Book on Account Menu
     Then User Should Redirect Toward "shopping.addressbook" Page
     Then User Validates Address Set as Default Visibility "true"
 

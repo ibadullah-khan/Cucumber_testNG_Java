@@ -145,11 +145,6 @@ public class AccountMenuStepsDef extends HarnessVariables{
         accountMenuPage.clickOnCreateAccountButton();
     }
 
-    @Then("User Clicks on Address Book Option")
-    public void userClicksOnAddressBookOption() throws Exception {
-        accountMenuPage.clickOnAddressBookOption();
-    }
-
     @Then("User Enters Valid All Login Data Username on Account Menu")
     public void userEntersValidAllLoginDataUsernameOnAccountMenu() throws Exception {
         accountMenuPage.enterUsername(VALID_ALL_USERNAME);
@@ -161,7 +156,7 @@ public class AccountMenuStepsDef extends HarnessVariables{
     }
     @And("User Enters Valid All Login Data Password on Account Menu")
     public void userEntersValidAllLoginPasswordOnAccountMenu() throws Exception {
-        accountMenuPage.enterPassword(VALID_ALL_PASSWORD);
+        accountMenuPage.enterPassword(VALID_PASSWORD);
     }
 
 
