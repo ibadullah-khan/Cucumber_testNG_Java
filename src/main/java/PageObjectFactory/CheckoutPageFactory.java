@@ -1,7 +1,6 @@
 package PageObjectFactory;
 
 import EnumFactory.CheckoutPageEnum;
-import UtilitiesFactory.BrowserFactory;
 import UtilitiesFactory.ElementFactory;
 import UtilitiesFactory.UtilFactory;
 import com.aventstack.extentreports.Status;
