@@ -2257,4 +2257,17 @@ public class CheckoutPageFactory extends UtilFactory {
             throw e;
         }
     }
+
+    public void clickShippingAddressField() throws Exception {
+        String locator = CheckoutPageEnum.XPATH_SHIPPING_FOR_BILLING_CHECKBOX.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS, "Clicked on Shipping Address For Billing Checkbox on Checkout Page");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not click on Shipping Address For Billing Checkbox on Checkout Page");
+            throw e;
+        }
+    }
 }

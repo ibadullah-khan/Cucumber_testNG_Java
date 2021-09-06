@@ -757,4 +757,9 @@ public class CheckoutStepsDef extends HarnessVariables {
     public void userClicksStoredShippingInPaymentSection() throws Exception {
         checkoutPage.clickStoredAddress();
     }
+
+    @Then("User Clicks on Use Shipping Address For Billing Checkbox")
+    public void userClicksShippingAddressFieldOnCheckoutPage() throws Exception {
+        checkoutPage.clickShippingAddressField();
+    }
 }
