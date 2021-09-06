@@ -651,6 +651,42 @@ public class CheckoutStepsDef extends HarnessVariables {
         }
     }
 
+    @Then("User Validates Stored Cards Visibility {string} on Checkout Page")
+    public void userValidatesStoredCardsVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateStoredCardSectionVisibility(true);
+        }else {
+            checkoutPage.validateStoredCardSectionVisibility(false);
+        }
+    }
+
+    @Then("User Validates Credit Card Expiry Date Visibility {string} on Checkout Page")
+    public void userValidatesCreditCardExpiryDateVisibilityOnCheckoutPage(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateCardExpiryVisibility(true);
+        }else {
+            checkoutPage.validateCardExpiryVisibility(false);
+        }
+    }
+
+    @Then("User Validates Credit Card Logo Visibility {string} on Checkout Page")
+    public void userValidatesCreditCardLogoVisibilityOnCheckoutPage(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateCardLogoVisibility(true);
+        }else {
+            checkoutPage.validateCardLogoVisibility(false);
+        }
+    }
+
+    @Then("User Validates Credit Card Last Digits Visibility {string} on Checkout Page")
+    public void userValidatesCreditCardLastDigitsVisibilityOnCheckoutPage(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateCardLastDigitsVisibility(true);
+        }else {
+            checkoutPage.validateCardLastDigitsVisibility(false);
+        }
+    }
+
     @And("User Enters Incomplete Phone No on Checkout Page")
     public void userEntersIncompletePhoneNoOnCheckoutPage() throws Exception {
         checkoutPage.enterPhNo(INCOMPLETE_PH_NO);

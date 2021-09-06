@@ -899,3 +899,22 @@ Feature: Checkout Feature File
     And User Enters Valid Zip Code on Checkout Page
     And User Enters Incomplete Phone No on Checkout Page
     Then User Validates Required Field Error Message "invalid.ph.no.error.msg" on "phone" Field of Checkout Page
+
+  @Regression
+  Scenario: Verify Saved Credit Cards for Logged in Customers if Available
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.home" Url
+    And User Clicks the Account Icon on Header
+    Then User Enters Valid Login Data Username on Account Menu
+    And User Enters Valid Login Password on Account Menu
+    Then User Clicks the Login Button on Account Menu
+    Then User Validates Successful Login on Account Menu
+    And User Clicks the Mini Cart Icon on Header
+    Then User Clicks Checkout Button on Mini Cart View
+    Then User Clicks Save and Continue Button on Checkout Page
+    Then User Validates Successful Loaded Checkout Page
+    Then User Validates Stored Cards Visibility "true" on Checkout Page
+    Then User Validates Credit Card Last Digits Visibility "true" on Checkout Page
+    Then User Validates Credit Card Expiry Date Visibility "true" on Checkout Page
+    Then User Validates Credit Card Logo Visibility "true" on Checkout Page
