@@ -667,7 +667,7 @@ Feature: Checkout Feature File
     And User Clicks the Account Icon on Header
     Then User Clicks on Address Book Option
     Then User Should Redirect Toward "shopping.addressbook" Page
-    Then User Validates Address Set as Default
+    Then User Validates Address Set as Default Visibility "true"
 
   @Regression
   Scenario: Verify customer has option to receive or not receive order tracking emails
@@ -918,6 +918,56 @@ Feature: Checkout Feature File
     Then User Validates Credit Card Last Digits Visibility "true" on Checkout Page
     Then User Validates Credit Card Expiry Date Visibility "true" on Checkout Page
     Then User Validates Credit Card Logo Visibility "true" on Checkout Page
+
+  @Regression
+  Scenario: Verify Logged in Customer Can Add New Shipping Address at Checkout.
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks on View Cart Button
+    And User Clicks Checkout Button on Cart View
+    Then User Clicks on Member Checkout Button
+    And User Enters Valid All Login Data Username on Account Menu
+    And User Enters Valid Login Password on Account Menu
+    And User Clicks the Login Button on Account Menu
+    Then User Clicks on Add New Address Button on Checkout Page
+    And User Enters Random First Name on Checkout Page
+    And User Enters Valid Last Name on Checkout Page
+    And User Enters Valid Address on Checkout Page
+    And User Enters Valid City on Checkout Page
+    And User Selects Valid State on Checkout Page
+    And User Enters Valid Zip Code on Checkout Page
+    And User Enters Valid Phone No on Checkout Page
+    And User Validates Set as Default Field Visibility "true" on Checkout Page
+    And User Clicks on Set as Default Field
+    Then User Clicks Save and Continue Button on Checkout Page
+    Then User Validates Shipping Detail Section is in "edit" State
+    Then User Navigates to "shoebacca.home" Url
+    And User Clicks the Account Icon on Header
+    Then User Clicks on Address Book Option
+    Then User Should Redirect Toward "shopping.addressbook" Page
+    Then User Validates Address Set as Default in Address Book Visiblity "true"
+
+  @Regression
+  Scenario: Verify Default Payment Should be Selected on Checkout Page
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.home" Url
+    And User Clicks the Account Icon on Header
+    Then User Enters Valid Login Data Username on Account Menu
+    And User Enters Valid Login Password on Account Menu
+    Then User Clicks the Login Button on Account Menu
+    Then User Validates Successful Login on Account Menu
+    Then User Clicks on Payment Method Option
+    Then User Fetch Default Credit Card
+    And User Clicks the Mini Cart Icon on Header
+    Then User Clicks Checkout Button on Mini Cart View
+    Then User Clicks Save and Continue Button on Checkout Page
+    Then User Validates Successful Loaded Checkout Page
+    Then User Validates Payment Method Section is in "active" State
+    Then User Validates Credit Card Same as Default
 
   @Regression
   Scenario: Verify New Card Fields Hides When Stored Card Option is Selected

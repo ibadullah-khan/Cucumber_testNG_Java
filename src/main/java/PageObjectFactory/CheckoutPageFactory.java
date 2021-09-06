@@ -161,10 +161,11 @@ public class CheckoutPageFactory extends UtilFactory {
 
     public void clickSaveAndContinueButton() throws Exception {
         String locator = CheckoutPageEnum.XPATH_SAVE_AND_CONTINUE_BUTTON.getValue();
+        String loader = CheckoutPageEnum.XPATH_SHIPPING_LOADER.getValue();
         try {
             waitFactory.waitForElementToBeClickable(locator);
-            customWait(5000);
             click(locator);
+            waitFactory.waitForElementToBeVisible(loader);
             scenarioDef.log(Status.PASS, "Clicked on Save and Continue Button on Checkout Page");
         } catch (Exception e) {
             failureException = e.toString();
@@ -1863,7 +1864,6 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
-
     public void selectFromAddressBookButton() throws Exception {
         String locator = CheckoutPageEnum.XPATH_SELECT_FROM_ADDRESS_BOOK.getValue();
         try {
@@ -2028,6 +2028,44 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
+    public void clickSetAsDefaultField(){
+        String locator = CheckoutPageEnum.XPATH_SET_AS_DEFAULT_FIELD.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS, "Clicked on Set As Default Address on Checkout Page");
+
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Click on Set As Default Address on Checkout Page");
+            throw e;
+        }
+    }
+
+    public void validateSetAsDefaultFieldVisibility(boolean expectedVisibility) {
+        String locator = CheckoutPageEnum.XPATH_SET_AS_DEFAULT_FIELD.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try {
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Set As Default Field is Displayed as Expected on Checkout Page");
+            } else if (!actualVisibility && !expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Header is not Displayed as Expected on Checkout Page");
+            } else if (actualVisibility && !expectedVisibility) {
+                errorMsg = "Validated Set As Default Field is Displayed Unexpected on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
+                errorMsg = "Validated Header is Displayed Unexpectedly on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
+    }
+
     public void validateCardLogoVisibility(boolean expectedVisibility) {
         String locator = CheckoutPageEnum.XPATH_CREDIT_CARD_LOGO.getValue();
         String errorMsg = null;
@@ -2074,6 +2112,31 @@ public class CheckoutPageFactory extends UtilFactory {
         } catch (Exception e) {
             failureException = e.toString();
             scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateCreditCard(String expectedCreditCardNo) {
+
+        String locator = CheckoutPageEnum.XPATH_CREDIT_CARD_NO.getValue();
+        String errorMsg = null;
+        String actualText;
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            actualText = getText(locator).trim();
+            if (expectedCreditCardNo.contains(actualText)){
+                scenarioDef.log(Status.PASS,"Validated By Default Credit Card as Expected: "+expectedCreditCardNo);
+            }else {
+                errorMsg = "Could not Validate By Default Credit Card as Expected: "+expectedCreditCardNo+" , Actual Value: "+actualText;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        }catch (Exception e){
+            failureException = e.toString();
+            if (errorMsg == null){
+                scenarioDef.log(Status.FAIL,"Unable to get the Credit Card Element on Mini Cart");
+            }else {
+                scenarioDef.log(Status.FAIL,errorMsg);
+            }
             throw e;
         }
     }

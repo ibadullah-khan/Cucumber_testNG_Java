@@ -149,4 +149,14 @@ public class AccountMenuStepsDef extends HarnessVariables{
     public void userClicksOnAddressBookOption() throws Exception {
         accountMenuPage.clickOnAddressBookOption();
     }
+
+    @Then("User Enters Valid All Login Data Username on Account Menu")
+    public void userEntersValidAllLoginDataUsernameOnAccountMenu() throws Exception {
+        accountMenuPage.enterUsername(VALID_ALL_USERNAME);
+    }
+
+    @Then("User Clicks on Payment Method Option")
+    public void userClicksOnPaymentMethodOption() throws Exception {
+        accountMenuPage.clickOnPaymentMethodOption();
+    }
 }
