@@ -2255,4 +2255,78 @@ public class CheckoutPageFactory extends UtilFactory {
             throw e;
         }
     }
+
+    public void validateCreditCardFieldEmpty() throws Exception {
+        String locator = CheckoutPageEnum.XPATH_CREDIT_CARD_EMPTY_FIELD.getValue();
+        String loader = CheckoutPageEnum.XPATH_PAYMENT_LOADER.getValue();
+        String iframeLocator = CheckoutPageEnum.XPATH_CREDIT_CARD_NO_IFRAME.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            waitFactory.waitForElementToBeInVisible(loader);
+            switchToIframe(iframeLocator);
+            actualVisibility = isVisible(locator);
+            switchToDefaultContent();
+            if(actualVisibility){
+                scenarioDef.log(Status.PASS, "Validated Credit Card Number Field is Empty");
+            }
+            else {
+                errorMsg = "Validated Credit Card Number Field is not Empty";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        }
+        catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateExpiryDateFieldEmpty() throws Exception {
+        String locator = CheckoutPageEnum.XPATH_EXPIRY_DATE_EMPTY_FIELD.getValue();
+        String iframeLocator = CheckoutPageEnum.XPATH_CREDIT_CARD_EXP_IFRAME.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            switchToIframe(iframeLocator);
+            actualVisibility = isVisible(locator);
+            switchToDefaultContent();
+            if(actualVisibility){
+                scenarioDef.log(Status.PASS, "Validated Credit Card Expiry Date Field is Empty");
+            }
+            else {
+                errorMsg = "Validated Credit Card Expiry Date Field is not Empty";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        }
+        catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateCVVNumberFieldEmpty() throws Exception {
+        String locator = CheckoutPageEnum.XPATH_CVV_NUMBER_EMPTY_FIELD.getValue();
+        String iframeLocator = CheckoutPageEnum.XPATH_CREDIT_CARD_CVV_IFRAME.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            switchToIframe(iframeLocator);
+            actualVisibility = isVisible(locator);
+            switchToDefaultContent();
+            if(actualVisibility){
+                scenarioDef.log(Status.PASS, "Validated Credit Card CVV Number Field is Empty");
+            }
+            else {
+                errorMsg = "Validated Credit Card CVV Number Field is not Empty";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        }
+        catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
+    }
 }

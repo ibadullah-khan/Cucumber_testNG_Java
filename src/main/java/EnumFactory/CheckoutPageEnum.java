@@ -56,8 +56,6 @@ public enum CheckoutPageEnum {
     XPATH_ADD_COUPON_BUTTON("//*[@type='submit']/span[text()='Add']"),
     XPATH_REMOVE_COUPON_BUTTON("//*[@type='submit']/span[text()='Remove']"),
     XPATH_SUB_TOTAL_AMOUNT("//*[@class='priceSummary-lineItems-3ov']//following::span[@class='priceSummary-price-12K'][1]"),
-    XPATH_TOTAL_AMOUNT("//div[@class='priceSummary-itemTotals-G6J']//*[@class='priceSummary-totalPrice-rZa']"),
-    XPATH_DISCOUNT_AMOUNT("//*[contains(text(),'Discount')]//following::span[@class='priceSummary-price-12K']"),
     XPATH_INVALID_COUPON_MESSAGE("//p[@class='message-root-35v']"),
     XPATH_START_PAYMENT_METHOD("//*[@class='paymentMethods-options-2KE']//*[text()='"),
     XPATH_END_PAYMENT_METHOD("']"),
@@ -96,6 +94,9 @@ public enum CheckoutPageEnum {
     XPATH_SHIPPING_DETAILS("//div[@class='addressBook-content-34e']//button"),
     XPATH_DEFAULT_SHIPPING_ADDRESS("//*[@class='shippingInformation-cardContainer-3l1']//div[@class='card-root-3nz']"),
     XPATH_SAVED_FIRST_SHIPPING_ADDRESS("//*[@class='addressCard-root_selected-XwX']//span[@class='addressCard-name-Tby']"),
+    XPATH_CREDIT_CARD_EMPTY_FIELD("//*[@class='number' and not(@aria-invalid)]"),
+    XPATH_EXPIRY_DATE_EMPTY_FIELD("//*[@class='expirationDate' and not(@aria-invalid)]"),
+    XPATH_CVV_NUMBER_EMPTY_FIELD("//*[@class='cvv' and not(@aria-invalid)]"),
     XPATH_SET_AS_DEFAULT_FIELD("//input[@id='default_shipping' and not(@disabled)]"),
     XPATH_CREDIT_CARD_NO("//*[@class='storedPaymentInformation-creditCardDot-2mD']/parent::span");
 
