@@ -16,7 +16,6 @@ public enum AccountMenuPageEnum {
     XPATH_ACCOUNT_SIGN_UP_LASTNAME_FIELD("//*[@class='accountMenu-createAccount-2iv' ]//*[@name='customer.lastname']"),
     XPATH_ACCOUNT_SIGN_UP_PASSWORD_FIELD("//*[@class='accountMenu-createAccount-2iv' ]//*[@name='password']"),
     XPATH_CREATE_ACCOUNT_BUTTON("//*[text()='Create an Account']"),
-    XPATH_ADDRESS_BOOK_OPTION("//*[@class='accountMenuItems-accountButton-3U9' and text()='Address Book']"),
     XPATH_ADDRESS_BOOK("//*[contains(@class,'accountMenuItems-accountButton-3U9') and contains(text(),'Address')]");
 
 

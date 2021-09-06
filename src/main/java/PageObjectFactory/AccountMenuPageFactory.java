@@ -288,7 +288,7 @@ public class AccountMenuPageFactory extends UtilFactory{
     }
 
     public void clickOnAddressBookOption() throws Exception {
-        String locator = AccountMenuPageEnum.XPATH_ADDRESS_BOOK_OPTION.getValue();
+        String locator = AccountMenuPageEnum.XPATH_ADDRESS_BOOK.getValue();
         try{
             waitFactory.waitForElementToBeClickable(locator);
             click(locator);
