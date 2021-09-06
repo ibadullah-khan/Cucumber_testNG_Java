@@ -43,20 +43,6 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
-    public String enterRandomFirstName(String textToEnter) throws Exception {
-        String locator = CheckoutPageEnum.XPATH_FIRST_NAME_FIELD.getValue();
-        try {
-            waitFactory.waitForElementToBeClickable(locator);
-            enterString(locator, textToEnter);
-            scenarioDef.log(Status.PASS, "Entered Text: " + textToEnter + " on First Name Field on Checkout Page");
-            return textToEnter;
-        } catch (Exception e) {
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL, "Could not Enter Text on First Name Field on Checkout Page");
-            throw e;
-        }
-    }
-
     public void enterLastName(String textToEnter) throws Exception {
         String locator = CheckoutPageEnum.XPATH_LAST_NAME_FIELD.getValue();
         try {

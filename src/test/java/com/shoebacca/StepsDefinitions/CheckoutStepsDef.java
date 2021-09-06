@@ -710,7 +710,8 @@ public class CheckoutStepsDef extends HarnessVariables {
     @And("User Enters Random First Name on Checkout Page")
     public void userEntersRandomFirstNameOnCheckoutPage() throws Exception {
         String rndName = getRandomStrings();
-        RANDOM_NAME = checkoutPage.enterRandomFirstName(rndName);
+        checkoutPage.enterFirstName(rndName);
+        RANDOM_NAME  = rndName;
     }
 
     @Then("User Validates Set as Default Field Visibility {string} on Checkout Page")
