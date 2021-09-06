@@ -149,4 +149,9 @@ public class AccountMenuStepsDef extends HarnessVariables{
     public void userClicksOnAddressBookOption() throws Exception {
         accountMenuPage.clickOnAddressBookOption();
     }
+
+    @Then("User Clicks on Payment Method Option")
+    public void userClicksOnPaymentMethodOption() throws Exception {
+        accountMenuPage.clickOnPaymentMethodOption();
+    }
 }

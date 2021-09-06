@@ -179,8 +179,8 @@ Feature: Checkout Feature File
     Then User Validates Logo Visibility "true" in Header on Checkout Page
     Then User Validates Help icon Visibility "true" on Checkout Page
 
-    @Regression
-    Scenario: Validate "Edit" Link For Shipping Details Expands Section
+  @Regression
+  Scenario: Validate "Edit" Link For Shipping Details Expands Section
 
       Given User Setups the Web Browser
       When User Navigates to "shoebacca.first.bag.pdt" Url
@@ -263,31 +263,31 @@ Feature: Checkout Feature File
     Then User Should Redirect Toward "shopping.checkout" Page
 
   @Regression
-    Scenario: Validate Customer Cannot Apply an Invalid/Empty Promo Code.
+  Scenario: Validate Customer Cannot Apply an Invalid/Empty Promo Code.
 
-      Given User Setups the Web Browser
-      When User Navigates to "shoebacca.first.bag.pdt" Url
-      And User Clicks Add to Cart Button on PDP
-      And User Validates Successful Triggered Mini Cart
-      And User Clicks Checkout Button on Mini Cart View
-      And User Clicks on Guest Checkout Button
-      Then User Should Redirect Toward "shopping.checkout" Page
-      And User Enters Valid Email Address on Checkout Page
-      And User Enters Valid First Name on Checkout Page
-      And User Enters Valid Last Name on Checkout Page
-      And User Enters Valid Address on Checkout Page
-      And User Enters Valid City on Checkout Page
-      And User Selects Valid State on Checkout Page
-      And User Enters Valid Zip Code on Checkout Page
-      And User Enters Valid Phone No on Checkout Page
-      Then User Clicks Save and Continue Button on Checkout Page
-      Then User Enter "invalid.coupon" in Promo Code on Checkout Page
-      Then User Clicks on Add Promo Code Button on Checkout Page
-      Then User Validates "invalid.coupon.error.msg" Coupon Error Message Text on Checkout Page
-      Then User Clears the Promo Code on Checkout Page
-      Then User Clicks on Add Promo Code Button on Checkout Page
-      Then User Validates "blank.coupon.error.msg" Coupon Error Message Text on Checkout Page
-      Then User Validates Total Amount Using Blank Coupon on Checkout Page
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks Checkout Button on Mini Cart View
+    And User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
+    And User Enters Valid Email Address on Checkout Page
+    And User Enters Valid First Name on Checkout Page
+    And User Enters Valid Last Name on Checkout Page
+    And User Enters Valid Address on Checkout Page
+    And User Enters Valid City on Checkout Page
+    And User Selects Valid State on Checkout Page
+    And User Enters Valid Zip Code on Checkout Page
+    And User Enters Valid Phone No on Checkout Page
+    Then User Clicks Save and Continue Button on Checkout Page
+    Then User Enter "invalid.coupon" in Promo Code on Checkout Page
+    Then User Clicks on Add Promo Code Button on Checkout Page
+    Then User Validates "invalid.coupon.error.msg" Coupon Error Message Text on Checkout Page
+    Then User Clears the Promo Code on Checkout Page
+    Then User Clicks on Add Promo Code Button on Checkout Page
+    Then User Validates "blank.coupon.error.msg" Coupon Error Message Text on Checkout Page
+    Then User Validates Total Amount Using Blank Coupon on Checkout Page
 
   @Regression
   Scenario: Validate Customer Can Remove Promo Code.
@@ -315,21 +315,21 @@ Feature: Checkout Feature File
     Then User Validates Total Amount After Removing Promo Code on Checkout Page
 
   @Regression
-    Scenario: Verify Only One Payment Method Can be Selected
+  Scenario: Verify Only One Payment Method Can be Selected
 
-      Given User Setups the Web Browser
-      When User Navigates to "shoebacca.home" Url
-      And User Clicks the Account Icon on Header
-      Then User Enters Valid Login Data Username on Account Menu
-      And User Enters Valid Login Password on Account Menu
-      Then User Clicks the Login Button on Account Menu
-      Then User Validates Successful Login on Account Menu
-      And User Clicks the Mini Cart Icon on Header
-      And User Clicks Checkout Button on Mini Cart View
-      Then User Should Redirect Toward "shopping.checkout" Page
-      Then User Clicks Save and Continue Button on Checkout Page
-      Then User Select "paypal.payment" Payment Method
-      Then User Validates Only One Payment Method is Selected
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.home" Url
+    And User Clicks the Account Icon on Header
+    Then User Enters Valid Login Data Username on Account Menu
+    And User Enters Valid Login Password on Account Menu
+    Then User Clicks the Login Button on Account Menu
+    Then User Validates Successful Login on Account Menu
+    And User Clicks the Mini Cart Icon on Header
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Should Redirect Toward "shopping.checkout" Page
+    Then User Clicks Save and Continue Button on Checkout Page
+    Then User Select "paypal.payment" Payment Method
+    Then User Validates Only One Payment Method is Selected
 
   @Regression
   Scenario: Verify Credit Card Payment Method is Opened by Default for Guest/First Time Logged in User
@@ -858,27 +858,27 @@ Feature: Checkout Feature File
     Then User Validates Required Field Error Message "required.field.error.msg" on "zip.code" Field of Checkout Page
     Then User Validates Required Field Error Message "invalid.ph.no.error.msg" on "phone" Field of Checkout Page
 
-    @Regression
-    Scenario: Verify Customer can Proceed with Valid Shipping Address
+  @Regression
+  Scenario: Verify Customer can Proceed with Valid Shipping Address
 
-      Given User Setups the Web Browser
-      When User Navigates to "shoebacca.first.bag.pdt" Url
-      And User Clicks Add to Cart Button on PDP
-      And User Validates Successful Triggered Mini Cart
-      And User Clicks Checkout Button on Mini Cart View
-      Then User Clicks on Guest Checkout Button
-      Then User Should Redirect Toward "shopping.checkout" Page
-      And User Enters Valid Email Address on Checkout Page
-      And User Enters Valid First Name on Checkout Page
-      And User Enters Valid Last Name on Checkout Page
-      And User Enters Valid Address on Checkout Page
-      And User Enters Valid City on Checkout Page
-      And User Selects Valid State on Checkout Page
-      And User Enters Valid Zip Code on Checkout Page
-      And User Enters Valid Phone No on Checkout Page
-      Then User Validates Active Shipping Method Section Visibility "true" on Checkout Page
-      Then User Select "expedited.shipping" Shipping Method on Checkout Page
-      Then User Validates "expedited.shipping" Method Name on Summary Section of Checkout Page
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
+    And User Enters Valid Email Address on Checkout Page
+    And User Enters Valid First Name on Checkout Page
+    And User Enters Valid Last Name on Checkout Page
+    And User Enters Valid Address on Checkout Page
+    And User Enters Valid City on Checkout Page
+    And User Selects Valid State on Checkout Page
+    And User Enters Valid Zip Code on Checkout Page
+    And User Enters Valid Phone No on Checkout Page
+    Then User Validates Active Shipping Method Section Visibility "true" on Checkout Page
+    Then User Select "expedited.shipping" Shipping Method on Checkout Page
+    Then User Validates "expedited.shipping" Method Name on Summary Section of Checkout Page
 
   @Regression
   Scenario: Verify Customer Cannot Save Address with Providing Phone Number Less than Ten Digits
@@ -900,8 +900,8 @@ Feature: Checkout Feature File
     And User Enters Incomplete Phone No on Checkout Page
     Then User Validates Required Field Error Message "invalid.ph.no.error.msg" on "phone" Field of Checkout Page
 
-  @Regression
-  Scenario: Verify Saved Credit Cards for Logged in Customers if Available
+    @Regression
+    Scenario: Verify Saved Credit Cards for Logged in Customers if Available
 
     Given User Setups the Web Browser
     When User Navigates to "shoebacca.home" Url
@@ -918,3 +918,22 @@ Feature: Checkout Feature File
     Then User Validates Credit Card Last Digits Visibility "true" on Checkout Page
     Then User Validates Credit Card Expiry Date Visibility "true" on Checkout Page
     Then User Validates Credit Card Logo Visibility "true" on Checkout Page
+
+  @Regression
+  Scenario: Verify Default Payment Should be Selected on Checkout Page
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.home" Url
+    And User Clicks the Account Icon on Header
+    Then User Enters Valid Login Data Username on Account Menu
+    And User Enters Valid Login Password on Account Menu
+    Then User Clicks the Login Button on Account Menu
+    Then User Validates Successful Login on Account Menu
+    Then User Clicks on Payment Method Option
+    Then User Fetch Default Credit Card
+    And User Clicks the Mini Cart Icon on Header
+    Then User Clicks Checkout Button on Mini Cart View
+    Then User Clicks Save and Continue Button on Checkout Page
+    Then User Validates Successful Loaded Checkout Page
+    Then User Validates Payment Method Section is in "active" State
+    Then User Validates Credit Card Same as Default

@@ -89,7 +89,8 @@ public enum CheckoutPageEnum {
     XPATH_STORED_CARD_SELECTED_SECTION("//input[@class='radio-input-IKa' and @checked]//following-sibling::*[@class='paymentMethods-radio_label-1gr']"),
     XPATH_CREDIT_CARD_LAST_DIGITS("//*[@class='radio-input-IKa' and @checked]//following-sibling::*//span[not(@class)]"),
     XPATH_CREDIT_CARD_EXPIRY_DATE("//div[@class='storedPaymentInformation-savedPayments-20v']//p[not(@class)]"),
-    XPATH_CREDIT_CARD_LOGO("//*[@class='radio-input-IKa' and @checked]//following-sibling::*//span[@class='storedPaymentInformation-cardType-kvp storedPaymentInformation-mVisa-nVm']");
+    XPATH_CREDIT_CARD_LOGO("//*[@class='radio-input-IKa' and @checked]//following-sibling::*//span[@class='storedPaymentInformation-cardType-kvp storedPaymentInformation-mVisa-nVm']"),
+    XPATH_CREDIT_CARD_NO("//*[@class='storedPaymentInformation-creditCardDot-2mD']/parent::span");
 
     private String checkoutPageVariables;
 
