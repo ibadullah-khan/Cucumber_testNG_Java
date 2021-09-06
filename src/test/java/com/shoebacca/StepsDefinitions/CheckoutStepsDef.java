@@ -588,7 +588,7 @@ public class CheckoutStepsDef extends HarnessVariables {
 
     @Then("User Validates Default Shipping Address on Checkout Page")
     public void userValidatesDefaultShippingAddressOnCheckoutPage() {
-            checkoutPage.validateDefaultAddressVisibility();
+            checkoutPage.validateDefaultShippingAddress();
         }
 
     @Then("User Validates Shipping Address Quantity on Checkout Page")

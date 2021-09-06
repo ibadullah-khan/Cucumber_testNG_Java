@@ -23,7 +23,6 @@ public class AddressBookPageFactory extends UtilFactory {
         String[] AddressBookShippingAddress;
 
         try {
-            customWait(2000);
             elements = elementFactory.getElementsList(locator);
             waitFactory.waitForElementToBeVisible(locator);
             AddressBookShippingAddress = new String[elements.size()];
