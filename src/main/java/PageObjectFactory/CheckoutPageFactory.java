@@ -2141,54 +2141,76 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
-    public void clickShippingAddressField() throws Exception {
-        String locator = CheckoutPageEnum.XPATH_SHIPPING_FOR_BILLING_CHECKBOX.getValue();
-        try {
-            waitFactory.waitForElementToBeClickable(locator);
-            click(locator);
-            scenarioDef.log(Status.PASS, "Clicked on Shipping Address For Billing Checkbox on Checkout Page");
-        } catch (Exception e) {
+    public void validateCreditCardFieldEmpty() throws Exception {
+        String locator = CheckoutPageEnum.XPATH_CREDIT_CARD_EMPTY_FIELD.getValue();
+        String loader = CheckoutPageEnum.XPATH_PAYMENT_LOADER.getValue();
+        String iframeLocator = CheckoutPageEnum.XPATH_CREDIT_CARD_NO_IFRAME.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            waitFactory.waitForElementToBeInVisible(loader);
+            switchToIframe(iframeLocator);
+            actualVisibility = isVisible(locator);
+            switchToDefaultContent();
+            if(actualVisibility){
+                scenarioDef.log(Status.PASS, "Validated Credit Card Number Field is Empty");
+            }
+            else {
+                errorMsg = "Validated Credit Card Number Field is not Empty";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        }
+        catch (Exception e){
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL, "Could not click on Shipping Address For Billing Checkbox on Checkout Page");
+            scenarioDef.log(Status.FAIL, errorMsg);
             throw e;
         }
     }
 
-    public void enterFirstNameForBilling(String textToEnter) throws Exception {
-        String locator = CheckoutPageEnum.XPATH_FIRST_NAME_BILLING_FIELD.getValue();
-        try {
-            waitFactory.waitForElementToBeClickable(locator);
-            enterString(locator, textToEnter);
-            scenarioDef.log(Status.PASS, "Entered Text: " + textToEnter + " on First Name Field For Billing on Checkout Page");
-        } catch (Exception e) {
+    public void validateExpiryDateFieldEmpty() throws Exception {
+        String locator = CheckoutPageEnum.XPATH_EXPIRY_DATE_EMPTY_FIELD.getValue();
+        String iframeLocator = CheckoutPageEnum.XPATH_CREDIT_CARD_EXP_IFRAME.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            switchToIframe(iframeLocator);
+            actualVisibility = isVisible(locator);
+            switchToDefaultContent();
+            if(actualVisibility){
+                scenarioDef.log(Status.PASS, "Validated Credit Card Expiry Date Field is Empty");
+            }
+            else {
+                errorMsg = "Validated Credit Card Expiry Date Field is not Empty";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        }
+        catch (Exception e){
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL, "Could not Enter Text on First Name For Billing Field on Checkout Page");
+            scenarioDef.log(Status.FAIL, errorMsg);
             throw e;
         }
     }
 
-    public void enterLastNameForBilling(String textToEnter) throws Exception {
-        String locator = CheckoutPageEnum.XPATH_LAST_NAME_BILLING_FIELD.getValue();
-        try {
-            waitFactory.waitForElementToBeClickable(locator);
-            enterString(locator, textToEnter);
-            scenarioDef.log(Status.PASS, "Entered Text: " + textToEnter + " on Last Name For Billing Field on Checkout Page");
-        } catch (Exception e) {
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL, "Could not Enter Text on Last Name For Billing Field on Checkout Page");
-            throw e;
+    public void validateCVVNumberFieldEmpty() throws Exception {
+        String locator = CheckoutPageEnum.XPATH_CVV_NUMBER_EMPTY_FIELD.getValue();
+        String iframeLocator = CheckoutPageEnum.XPATH_CREDIT_CARD_CVV_IFRAME.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try{
+            switchToIframe(iframeLocator);
+            actualVisibility = isVisible(locator);
+            switchToDefaultContent();
+            if(actualVisibility){
+                scenarioDef.log(Status.PASS, "Validated Credit Card CVV Number Field is Empty");
+            }
+            else {
+                errorMsg = "Validated Credit Card CVV Number Field is not Empty";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
         }
-    }
-
-    public void enterPhNoForBilling(String textToEnter) throws Exception {
-        String locator = CheckoutPageEnum.XPATH_PH_NO_BILLING_FIELD.getValue();
-        try {
-            waitFactory.waitForElementToBeClickable(locator);
-            enterString(locator, textToEnter);
-            scenarioDef.log(Status.PASS, "Entered Text: " + textToEnter + " on Phone Number For Billing Field on Checkout Page");
-        } catch (Exception e) {
+        catch (Exception e){
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL, "Could not Enter Text on Phone Number For Billing Field on Checkout Page");
+            scenarioDef.log(Status.FAIL, errorMsg);
             throw e;
         }
     }

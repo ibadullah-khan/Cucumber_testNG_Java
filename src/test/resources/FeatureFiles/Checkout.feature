@@ -350,7 +350,7 @@ Feature: Checkout Feature File
     And User Enters Valid Zip Code on Checkout Page
     And User Enters Valid Phone No on Checkout Page
     Then User Clicks Save and Continue Button on Checkout Page
-    Then User Validates Credit Card Section Visibility "true" by Default
+    Then User Validates Credit Card Section Visibility "true"
 
   @Regression
   Scenario: Verify Summary Details,Shipping Details,Payment Method Content on Checkout Page
@@ -970,36 +970,33 @@ Feature: Checkout Feature File
     Then User Validates Credit Card Same as Default
 
   @Regression
-  Scenario: Validate Guest Customer Can Select Different Billing Address.
+  Scenario: Verify New Card Fields Hides When Stored Card Option is Selected
 
     Given User Setups the Web Browser
-    When User Navigates to "shoebacca.first.bag.pdt" Url
-    And User Clicks Add to Cart Button on PDP
-    And User Validates Successful Triggered Mini Cart
+    When User Navigates to "shoebacca.home" Url
+    And User Clicks the Account Icon on Header
+    Then User Enters Valid Login Data Username on Account Menu
+    And User Enters Valid Login Password on Account Menu
+    Then User Clicks the Login Button on Account Menu
+    Then User Validates Successful Login on Account Menu
+    And User Clicks the Mini Cart Icon on Header
     And User Clicks Checkout Button on Mini Cart View
-    Then User Clicks on Guest Checkout Button
     Then User Should Redirect Toward "shopping.checkout" Page
-    And User Enters Valid Email Address on Checkout Page
-    And User Enters Valid First Name on Checkout Page
-    And User Enters Valid Last Name on Checkout Page
-    And User Enters Valid Address on Checkout Page
-    And User Enters Valid City on Checkout Page
-    And User Selects Valid State on Checkout Page
-    And User Enters Valid Zip Code on Checkout Page
-    And User Enters Valid Phone No on Checkout Page
     Then User Clicks Save and Continue Button on Checkout Page
-    And User Enters Valid Credit Card Number on Checkout Page
-    And User Enters Valid Credit Card Expiry Date on Checkout Page
-    And User Enters Valid Credit Card CVV on Checkout Page
-    Then User Clicks on Use Shipping Address For Billing Checkbox
-    And User Enters Valid First Name For Billing on Checkout Page
-    And User Enters Valid Last Name For Billing on Checkout Page
-    And User Enters Valid Address on Checkout Page
-    And User Enters Valid City on Checkout Page
-    And User Selects Valid State on Checkout Page
-    And User Enters Valid Zip Code on Checkout Page
-    And User Enters Valid Phone No For Billing on Checkout Page
-    Then User Clicks Place Order Button on Checkout Page
+    Then User Validates Successful Loaded Checkout Page
+    Then User Validates Stored Cards Visibility "true" on Checkout Page
+    Then User Validates Credit Card Last Digits Visibility "true" on Checkout Page
+    Then User Validates Credit Card Expiry Date Visibility "true" on Checkout Page
+    Then User Validates Credit Card Logo Visibility "true" on Checkout Page
+    Then User Select "credit.card.payment" Payment Method
+    Then User Validates Successful Loaded Checkout Page
+    Then User Validates Credit Card Section Visibility "true"
+    Then User Validates Credit Card Number Field is Empty
+    Then User Validates Expiry Date Field is Empty
+    Then User Validates CVV Number Field is Empty
+    Then User Select "stored.card.payment" Payment Method
+    Then User Validates Successful Loaded Checkout Page
+    Then User Validates Stored Cards Visibility "true" on Checkout Page
 
   @Regression
   Scenario: Validate Logged in Customer Can Select a Different Billing Address in The Payment Section.
