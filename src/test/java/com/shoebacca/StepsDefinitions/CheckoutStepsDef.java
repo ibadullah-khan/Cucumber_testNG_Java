@@ -727,4 +727,24 @@ public class CheckoutStepsDef extends HarnessVariables {
     public void userValidatesCreditCardSameAsDefault() {
         checkoutPage.validateCreditCard(CREDIT_CARD_NO);
     }
+
+    @Then("User Clicks on Use Shipping Address For Billing Checkbox")
+    public void userClicksShippingAddressFieldOnCheckoutPage() throws Exception {
+        checkoutPage.clickShippingAddressField();
+    }
+
+    @And("User Enters Valid First Name For Billing on Checkout Page")
+    public void userEntersValidFirstNameForBillingOnCheckoutPage() throws Exception {
+        checkoutPage.enterFirstNameForBilling(VALID_FIRSTNAME);
+    }
+
+    @And("User Enters Valid Last Name For Billing on Checkout Page")
+    public void userEntersValidLastNameForBillingOnCheckoutPage() throws Exception {
+        checkoutPage.enterLastNameForBilling(VALID_LASTNAME);
+    }
+
+    @And("User Enters Valid Phone No For Billing on Checkout Page")
+    public void userEntersValidPhoneNoForBillingOnCheckoutPage() throws Exception {
+        checkoutPage.enterPhNoForBilling(VALID_PH_NO);
+    }
 }

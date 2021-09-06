@@ -91,7 +91,11 @@ public enum CheckoutPageEnum {
     XPATH_CREDIT_CARD_EXPIRY_DATE("//div[@class='storedPaymentInformation-savedPayments-20v']//p[not(@class)]"),
     XPATH_CREDIT_CARD_LOGO("//*[@class='radio-input-IKa' and @checked]//following-sibling::*//span[@class='storedPaymentInformation-cardType-kvp storedPaymentInformation-mVisa-nVm']"),
     XPATH_SET_AS_DEFAULT_FIELD("//input[@id='default_shipping' and not(@disabled)]"),
-    XPATH_CREDIT_CARD_NO("//*[@class='storedPaymentInformation-creditCardDot-2mD']/parent::span");
+    XPATH_CREDIT_CARD_NO("//*[@class='storedPaymentInformation-creditCardDot-2mD']/parent::span"),
+    XPATH_SHIPPING_FOR_BILLING_CHECKBOX("//input[@class='checkbox-input-1lb' and @name='isBillingAddressSame']"),
+    XPATH_FIRST_NAME_BILLING_FIELD("//input[@name='firstName']"),
+    XPATH_LAST_NAME_BILLING_FIELD("//input[@name='lastName']"),
+    XPATH_PH_NO_BILLING_FIELD("//input[@field='phoneNumber']");
 
     private String checkoutPageVariables;
 
