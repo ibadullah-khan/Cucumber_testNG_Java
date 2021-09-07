@@ -1150,6 +1150,76 @@ Feature: Checkout Feature File
     Then User Validates Discounted Amount on Checkout Page
 
   @Regression
+  Scenario: Validate Only Allowed Card Types are Accepted
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks Checkout Button on Mini Cart View
+    And User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
+    And User Enters Valid Email Address on Checkout Page
+    And User Enters Valid First Name on Checkout Page
+    And User Enters Valid Last Name on Checkout Page
+    And User Enters Valid Address on Checkout Page
+    And User Enters Valid City on Checkout Page
+    And User Selects Valid State on Checkout Page
+    And User Enters Valid Zip Code on Checkout Page
+    And User Enters Valid Phone No on Checkout Page
+    Then User Clicks Save and Continue Button on Checkout Page
+    Then User Validates "visa.card" Credit Card Visibility "true"
+    Then User Validates "master.card" Credit Card Visibility "true"
+    Then User Validates "american.express.card" Credit Card Visibility "true"
+    Then User Validates "dicsover.card" Credit Card Visibility "true"
+
+  @Regression @C332
+  Scenario: Validate CVV for Less than 3 Digits on Checkout Page
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.home" Url
+    And User Clicks the Account Icon on Header
+    And User Enters Valid Login Data Username on Account Menu
+    And User Enters Valid Login Password on Account Menu
+    And User Clicks the Login Button on Account Menu
+    And User Clicks the Mini Cart Icon on Header
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Should Redirect Toward "shopping.checkout" Page
+    Then User Clicks Save and Continue Button on Checkout Page
+    Then User Select "credit.card.payment" Payment Method
+    And User Enters Valid Credit Card Number on Checkout Page
+    And User Enters Valid Credit Card Expiry Date on Checkout Page
+    And User Enters Invalid Credit Card CVV on Checkout Page
+    And User Clicks Place Order Button on Checkout Page
+    Then User Validates "invalid.cvv.error" Text from "cvv.error.field" on Checkout Page
+
+  @Regression
+  Scenario: Verify Coupon Already Applied Through Cart is Reflected in Payment Method
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    Then User Clicks on View Cart Button
+    Then User Should Redirect Toward "shopping.cart" Page
+    Then User Enter "valid.coupon" in Promo Code on Cart Page
+    Then User Clicks on Add Promo Code Button
+    Then User Clicks Checkout Button on Cart View
+    Then User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
+    And User Enters Valid Email Address on Checkout Page
+    And User Enters Valid First Name on Checkout Page
+    And User Enters Valid Last Name on Checkout Page
+    And User Enters Valid Address on Checkout Page
+    And User Enters Valid City on Checkout Page
+    And User Selects Valid State on Checkout Page
+    And User Enters Valid Zip Code on Checkout Page
+    And User Enters Valid Phone No on Checkout Page
+    Then User Clicks Save and Continue Button on Checkout Page
+    Then User Validates "valid.coupon" is Already Applied on Checkout Page
+    Then User Validates Discounted Amount on Checkout Page
+
+  @Regression
   Scenario: Validate Guest Customer Can Select Different Billing Address.
 
     Given User Setups the Web Browser
