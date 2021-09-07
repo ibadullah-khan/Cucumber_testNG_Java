@@ -1083,7 +1083,7 @@ Feature: Checkout Feature File
     And User Enters Valid Credit Card Number on Checkout Page
     And User Enters Valid Credit Card Expiry Date on Checkout Page
     And User Enters Valid Credit Card CVV on Checkout Page
-    Then User Clicks on Use Shipping Address For Billing Checkbox
+    Then User Clicks on Use Shipping Address for Billing Checkbox
     And User Enters Valid First Name For Billing on Checkout Page
     And User Enters Valid Last Name For Billing on Checkout Page
     And User Enters Valid Address For Billing on Checkout Page
