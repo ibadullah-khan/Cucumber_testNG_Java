@@ -27,7 +27,6 @@ public class PayPalPaymentPageFactory extends UtilFactory {
     public void userClicksOnPayNowButton() throws Exception {
         String locator = PayPalPaymentPageEnum.XPATH_PAYPAL_PAY_NOW_BUTTON.getValue();
         try {
-            waitFactory.waitForElementToBeVisible(locator);
             waitFactory.waitForElementToBeClickable(locator);
             jsClick(locator);
             scenarioDef.log(Status.PASS, "Clicked on Pay Now Button on PayPal Page");
