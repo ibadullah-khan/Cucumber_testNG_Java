@@ -811,4 +811,14 @@ public class CheckoutStepsDef extends HarnessVariables {
             checkoutPage.validateDefaultAddressVisibility(false);
         }
     }
+
+    @Then("User Validates {string} Credit Card Visibility {string}")
+    public void userValidatesCreditCardVisibility(String visaType, String expectedCondition) throws Exception {
+        String expectedVisaType = new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(visaType);
+        if (expectedCondition.equals("true")) {
+            checkoutPage.validateCreditCardTypeVisibility(expectedVisaType,true);
+        } else {
+            checkoutPage.validateCreditCardTypeVisibility(expectedVisaType,false);
+        }
+    }
 }
