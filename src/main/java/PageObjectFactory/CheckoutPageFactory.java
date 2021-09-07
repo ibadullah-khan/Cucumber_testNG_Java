@@ -2464,4 +2464,28 @@ public class CheckoutPageFactory extends UtilFactory {
             throw e;
         }
     }
+
+    public void validateAppliedCouponValue(String couponValue) {
+        String locator = CheckoutPageEnum.XPATH_PROMO_CODE_FIELD.getValue();
+        String errorMsg = null;
+        String actualText;
+        try {
+            waitFactory.waitForElementToBeVisible(locator);
+            actualText = getAttribute(locator,"placeholder");
+            if (actualText.contains(couponValue)) {
+                scenarioDef.log(Status.PASS, "Validated Coupon Value on Checkout Page as Expected: " + couponValue);
+            } else {
+                errorMsg = "Could not Validate Coupon Value on Checkout Page as Expected: " + couponValue + " , Actual Value: " + actualText;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Coupon Element on Checkout Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
 }
