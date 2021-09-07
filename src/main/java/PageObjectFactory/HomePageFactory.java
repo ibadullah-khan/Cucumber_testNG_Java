@@ -8,8 +8,6 @@ import com.aventstack.extentreports.Status;
 import org.openqa.selenium.NoSuchContextException;
 import org.openqa.selenium.NoSuchElementException;
 
-import java.io.IOException;
-
 public class HomePageFactory extends UtilFactory {
 
     private WaitFactory waitFactory = new WaitFactory(BrowserFactory.getDriver());

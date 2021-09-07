@@ -777,4 +777,48 @@ public class CheckoutStepsDef extends HarnessVariables {
         String expectedErrorMsgText = new PropertyLoaderFactory().getPropertyFile(errorMsgPropFile).getProperty(errorMsgText);
         checkoutPage.validateRequiredErrorMessageTextOnBillingSection(expectedinputField, expectedErrorMsgText);
     }
+
+    @Then("User Clicks on Change Address Button on Checkout Page")
+    public void userClicksOnChangeAddressButtonOnCheckoutPage() {
+        checkoutPage.clickChangeAddressButton();
+    }
+
+    @Then("User Select First Saved Address on Checkout Page")
+    public void userSelectFirstSavedAddressOnCheckoutPage() {
+        checkoutPage.selectSavedAddress();
+    }
+
+    @Then("User Fetches Shipping Address on Checkout Page")
+    public void userFetchesShippingAddressOnCheckoutPage() {
+        SHIPPING_METHOD_USERNAME=checkoutPage.getShippingUserName();
+    }
+
+    @Then("User Validates Shipping Address User Name on Checkout Page")
+    public void userValidatesShippingAddressUserNameOnCheckoutPage() {
+        checkoutPage.validateShippingAddressName(SHIPPING_METHOD_USERNAME);
+    }
+
+    @Then("User Validates Shipping Address Quantity on Checkout Page")
+    public void userValidatesShippingAddressQuantityOnCheckoutPage() {
+        SHIPPING_ADDRESS = checkoutPage.validateShippingAddressQuantityVisibility();
+    }
+
+    @Then("User Validates Default Address Visibility {string} on Checkout Page")
+    public void userValidatesDefaultAddressVisibilityOnCheckoutPage(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateDefaultAddressVisibility(true);
+        }else {
+            checkoutPage.validateDefaultAddressVisibility(false);
+        }
+    }
+
+    @Then("User Validates {string} Credit Card Visibility {string}")
+    public void userValidatesCreditCardVisibility(String visaType, String expectedCondition) throws Exception {
+        String expectedVisaType = new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(visaType);
+        if (expectedCondition.equals("true")) {
+            checkoutPage.validateCreditCardTypeVisibility(expectedVisaType,true);
+        } else {
+            checkoutPage.validateCreditCardTypeVisibility(expectedVisaType,false);
+        }
+    }
 }

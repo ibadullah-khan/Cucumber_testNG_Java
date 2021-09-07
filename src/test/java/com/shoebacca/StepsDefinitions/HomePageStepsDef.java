@@ -22,7 +22,7 @@ public class HomePageStepsDef extends HarnessVariables {
     @Given("User Setups the Web Browser")
     public void userSetupTheWebBrowser() throws Exception {
         // General Step Definitions for setting up the browsers config
-        scenarioDef.log(Status.PASS,"User Setup the Web Browser");
+        scenarioDef.log(Status.PASS, "User Setup the Web Browser");
     }
 
     @When("User Navigates to {string} Url")
@@ -33,9 +33,9 @@ public class HomePageStepsDef extends HarnessVariables {
 
     @And("User Validates Mini Cart Icon Visibility on Header {string}")
     public void userValidatesMiniCartIconVisibilityOnHeader(String expectedCondition) {
-        if(expectedCondition.equals("true")){
+        if (expectedCondition.equals("true")) {
             homePage.validateMiniCartIconVisibility(true);
-        }else {
+        } else {
             homePage.validateMiniCartIconVisibility(false);
         }
     }
@@ -47,9 +47,9 @@ public class HomePageStepsDef extends HarnessVariables {
 
     @And("User Validates Mini Cart Counter Visibility on Header {string}")
     public void userValidatesMiniCartCounterVisibilityOnHeader(String expectedCondition) {
-        if(expectedCondition.equals("true")){
+        if (expectedCondition.equals("true")) {
             homePage.validateMiniCartCounterVisibility(true);
-        }else {
+        } else {
             homePage.validateMiniCartCounterVisibility(false);
         }
     }

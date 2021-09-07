@@ -221,6 +221,21 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
+    public String getShippingUserName() {
+        String locator = CheckoutPageEnum.XPATH_SHIPPING_ADDRESS_USER.getValue();
+        String shippinguser;
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            shippinguser = getText(locator);
+            scenarioDef.log(Status.PASS, "Fetched Shipping User: " + shippinguser + " from Checkout");
+            return shippinguser;
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Fetch Shipping User from Checkout");
+            throw e;
+        }
+    }
+
     public void validateTaxValue(String expectedText) {
         String locator = CheckoutPageEnum.XPATH_TAX_VALUE.getValue();
         String errorMsg = null;
@@ -810,7 +825,6 @@ public class CheckoutPageFactory extends UtilFactory {
     }
 
     public void validatePhoneNoInDetailSection(String expectedPhoneNo) {
-
         String locator = CheckoutPageEnum.XPATH_PHONE_NO.getValue();
         String errorMsg = null;
         String actualText;
@@ -930,6 +944,59 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
+    public void validateDefaultAddressVisibility(boolean expectedVisibility) {
+        String locator = CheckoutPageEnum.XPATH_DEFAULT_SHIPPING_ADDRESS.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try {
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Default Address is Displayed as Expected on Checkout Page");
+            } else if (!actualVisibility && !expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Default Address is not Displayed as Expected on Checkout Page");
+            } else if (actualVisibility && !expectedVisibility) {
+                errorMsg = "Validated Default Address is Displayed Unexpected on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
+                errorMsg = "Validated Default Address is Displayed Unexpectedly on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
+    }
+
+
+    public String[] validateShippingAddressQuantityVisibility() {
+        String locator = CheckoutPageEnum.XPATH_SHIPPING_DETAILS.getValue();
+        String errorMsg = null;
+        String[] getAllShippingAddress;
+        List<WebElement> elements;
+
+        try {
+            elements = elementFactory.getElementsList(locator);
+            waitFactory.waitForElementToBeVisible(locator);
+            getAllShippingAddress = new String[elements.size()];
+            if (getAllShippingAddress.length>= 1) {
+                scenarioDef.log(Status.PASS, "Validated " + getAllShippingAddress + " Shipping Details are Displayed as Expected on Checkout Page");
+            } else {
+                errorMsg = "Validated " + getAllShippingAddress + " Shipping Details are not Displayed as Expected on Checkout Page";
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+            return getAllShippingAddress;
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Expected Shipping Element on Checkout Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
+
     public void clickOnEmailAddressField() {
         String locator = CheckoutPageEnum.XPATH_EMAIL_ADDRESS_FIELD.getValue();
         try {
@@ -939,6 +1006,32 @@ public class CheckoutPageFactory extends UtilFactory {
         } catch (Exception e) {
             failureException = e.toString();
             scenarioDef.log(Status.FAIL, "Could not Click on Email Address Field on Checkout Page");
+            throw e;
+        }
+    }
+
+        public void clickChangeAddressButton() {
+        String locator = CheckoutPageEnum.XPATH_CHANGE_SHIPPING_ADDRESS.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS, "Clicked on Change Shipping Method on Checkout Page");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Click on Change Shipping Method on Checkout Page");
+            throw e;
+        }
+    }
+
+    public void selectSavedAddress() {
+        String locator = CheckoutPageEnum.XPATH_SAVED_FIRST_SHIPPING_ADDRESS.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS, "Selected First Saved Address on Checkout Page");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Select First Saved Address on Checkout Page");
             throw e;
         }
     }
@@ -1110,20 +1203,18 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
-    public void clickOnRemovePromoCodeButton() {
-        String locator = CheckoutPageEnum.XPATH_REMOVE_COUPON_BUTTON.getValue();
-        try {
-            waitFactory.waitForElementToBeClickable(locator);
-            click(locator);
-            scenarioDef.log(Status.PASS, "Clicked on Remove Promo Code Button on Checkout Page");
-        } catch (Exception e) {
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL, "Could not Click on Remove Promo Code Button on Checkout Page");
-            throw e;
-        }
-    }
-
-    public void validateErrorMsgText(String expectedErrorMsgText) {
+        public void clickOnRemovePromoCodeButton () {
+            String locator = CheckoutPageEnum.XPATH_REMOVE_COUPON_BUTTON.getValue();
+            try {
+                waitFactory.waitForElementToBeClickable(locator);
+                click(locator);
+                scenarioDef.log(Status.PASS, "Clicked on Remove Promo Code Button on Checkout Page");
+            } catch (Exception e) {
+                failureException = e.toString();
+                scenarioDef.log(Status.FAIL, "Could not Click on Remove Promo Code Button on Checkout Page");
+                throw e;
+            }
+        }public void validateErrorMsgText(String expectedErrorMsgText) {
         String locator = CheckoutPageEnum.XPATH_INVALID_COUPON_MESSAGE.getValue();
         String errorMsg = null;
         String actualText;
@@ -1158,6 +1249,30 @@ public class CheckoutPageFactory extends UtilFactory {
             failureException = e.toString();
             if (errorMsg == null) {
                 scenarioDef.log(Status.FAIL, "Unable to clear Add Promo Code Field on Checkout Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void validateShippingAddressName(String expectedText) {
+        String locator = CheckoutPageEnum.XPATH_SHIPPING_ADDRESS_USERNAME.getValue();
+        String errorMsg = null;
+        String actualText;
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            actualText = getText(locator).trim();
+            if (actualText.contains(expectedText)) {
+                scenarioDef.log(Status.PASS, "Validated Shipping User on Checkout as Expected: " + expectedText);
+            } else {
+                errorMsg = "Could not validate Shipping User on Checkout as Expected: " + expectedText + " , Actual Value: " + actualText;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Shipping User Element on Checkout");
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
@@ -2259,7 +2374,7 @@ public class CheckoutPageFactory extends UtilFactory {
                 errorMsg = "Validated Shipping Addresses is Displayed on Dropdown Unexpected on Checkout Page";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             } else if (!actualVisibility && expectedVisibility) {
-                errorMsg = "Validated Shipping Addresses is Displayed on Dropdown Unexpectedly on Checkout Page";
+                errorMsg = "Validated Shipping Addresses is not Displayed on Dropdown Unexpectedly on Checkout Page";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             }
         } catch (Exception e) {
@@ -2283,7 +2398,7 @@ public class CheckoutPageFactory extends UtilFactory {
                 errorMsg = "Validated New Address Section is Displayed Unexpected on Checkout Page";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             } else if (!actualVisibility && expectedVisibility) {
-                errorMsg = "Validated New Address Section is Displayed Unexpectedly on Checkout Page";
+                errorMsg = "Validated New Address Section is not Displayed Unexpectedly on Checkout Page";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             }
         } catch (Exception e) {
@@ -2318,6 +2433,34 @@ public class CheckoutPageFactory extends UtilFactory {
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
+            throw e;
+        }
+    }
+
+    public void validateCreditCardTypeVisibility(String expectedCreditCard,boolean expectedVisibility) {
+        String locator = CheckoutPageEnum.XPATH_CREDIT_CARD_TYPE_START.getValue() + expectedCreditCard + CheckoutPageEnum.XPATH_CREDIT_CARD_TYPE_END.getValue();
+        String paymentInformationLoader = CheckoutPageEnum.XPATH_FETCHING_PAYMENT_INFORMATION_LOADER.getValue();
+        String paymentLoader = CheckoutPageEnum.XPATH_PAYMENT_LOADER.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try {
+            waitFactory.waitForElementToBeInVisible(paymentInformationLoader);
+            waitFactory.waitForElementToBeInVisible(paymentLoader);
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated "+expectedCreditCard+" Credit Type is Displayed as Expected on Checkout Page");
+            } else if (!actualVisibility && !expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated "+expectedCreditCard+" Credit Type is not Displayed as Expected on Checkout Page");
+            } else if (actualVisibility && !expectedVisibility) {
+                errorMsg = "Validated "+expectedCreditCard+" Credit Type is Displayed Unexpected on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
+                errorMsg = "Validated "+expectedCreditCard+" Credit Type is not Displayed Unexpectedly on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
             throw e;
         }
     }
