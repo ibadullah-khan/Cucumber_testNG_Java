@@ -22,7 +22,7 @@ Feature: Cart Feature File
     And User Validates "1" Quantity is Displayed on Quantity Text Field
     Then User Validates Summary Section Visibility "true"
 
-  @Regression
+  @C200 @Regression
   Scenario: Verify Adding Multiple Items of Different Types in Cart
 
     Given User Setups the Web Browser
@@ -41,7 +41,7 @@ Feature: Cart Feature File
     Then User Validates "2" Products have Been Added to Cart
     Then User Validates Cart Has "2" Product's Attributes Visibility "true"
 
-  @Regression
+  @C238439 @Regression
   Scenario:  Verify on Clicking Product Name Page is Redirected to Relevant PDP
 
     Given User Setups the Web Browser
@@ -54,7 +54,7 @@ Feature: Cart Feature File
     And User Click on Product Name on Cart Page
     Then User Should Redirect Toward "shoebacca.first.bag.pdt" Page
 
-  @Regression
+  @C199 @Regression
   Scenario: Verify Same Product Multiple Times Added in Cart
 
     Given User Setups the Web Browser
@@ -72,7 +72,7 @@ Feature: Cart Feature File
     Then User Validates Product Name in Cart Page
     And User Validates "2" Quantity is Displayed on Quantity Text Field
 
-  @Regression
+ @C202 @Regression
   Scenario: Verify Remove Some Item Functionality on Cart Page
 
     Given User Setups the Web Browser
@@ -92,7 +92,7 @@ Feature: Cart Feature File
     Then User Validates Cart Items Quantity "1" on Cart Page
     Then User Validates Price Between Product Item Section and Account Detail Section
 
-  @Regression
+ @C217 @Regression
   Scenario: Verify Cart Total And Tax When Tax is Applied for Specific Areas and Customer Returns to Shopping Cart from Checkout
 
     Given User Setups the Web Browser
@@ -123,7 +123,7 @@ Feature: Cart Feature File
     Then User Clicks on Guest Checkout Button
     Then User Validates Tax Value from Checkout
 
-  @Regression
+ @C203 @Regression
   Scenario: Verify Remove All Item Functionality from  Cart
 
     Given User Setups the Web Browser
@@ -141,7 +141,7 @@ Feature: Cart Feature File
     Then User Click on Remove Link on "shoebacca.second.bag.name" Product on Cart Page
     Then User Validates Your Cart is Empty Section Visibility "true"
 
-  @Regression
+ @C1655 @Regression
   Scenario: Verify Decimal Value Cannot be Added in Quantity Text Field
 
     Given User Setups the Web Browser
@@ -154,7 +154,7 @@ Feature: Cart Feature File
     And User Enters "0.5" on Quantity Text Field on Cart
     Then User Validates "5" Quantity is Displayed on Quantity Text Field
 
-  @Regression
+ @C238460 @Regression
   Scenario: Verify Shipping Method And their Prices
 
     Given User Setups the Web Browser
