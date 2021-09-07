@@ -1171,4 +1171,4 @@ Feature: Checkout Feature File
     Then User Validates "visa.card" Credit Card Visibility "true"
     Then User Validates "master.card" Credit Card Visibility "true"
     Then User Validates "american.express.card" Credit Card Visibility "true"
-    Then User Validates "dicsover.card" Credit Card Visibility "true"
+    Then User Validates "dicsover.card" Credit Card Visibility "true"1
