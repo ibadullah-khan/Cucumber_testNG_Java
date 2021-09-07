@@ -1097,6 +1097,36 @@ Feature: Checkout Feature File
     Then User Validates Order Number Text Visibility "true" on Confirmation Page
 
   @Regression
+  Scenario: Validate Logged in Customer can Use any of Saved Addresses
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.home" Url
+    And User Clicks the Account Icon on Header
+    Then User Enters Valid All Login Data Username on Account Menu
+    And User Enters Valid All Login Data Password on Account Menu
+    Then User Clicks the Login Button on Account Menu
+    Then User Validates Successful Login on Account Menu
+    Then User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    Then User Clicks Checkout Button on Mini Cart View
+    Then User Validates Successful Loaded Checkout Page
+    Then User Validates Default Address Visibility "true" on Checkout Page
+    Then User Fetches Shipping Address on Checkout Page
+    Then User Clicks on Change Address Button on Checkout Page
+    Then User Validates Shipping Address Quantity on Checkout Page
+    Then User Validates Shipping Address User Name on Checkout Page
+    Then User Select First Saved Address on Checkout Page
+    Then User Clicks Save and Continue Button on Checkout Page
+    And User Enters Valid Credit Card Number on Checkout Page
+    And User Enters Valid Credit Card Expiry Date on Checkout Page
+    And User Enters Valid Credit Card CVV on Checkout Page
+    Then User Clicks Place Order Button on Checkout Page
+    Then User Clicks the Account Icon on Header
+    Then User Clicks on Address Book Option
+    Then User Validates Shipping Address Quantity on Address Book
+
+  @Regression
   Scenario: Validate Only Allowed Card Types are Accepted
 
     Given User Setups the Web Browser
