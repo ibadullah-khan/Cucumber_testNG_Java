@@ -753,7 +753,7 @@ public class CheckoutStepsDef extends HarnessVariables {
         checkoutPage.clickAddNewCreditCardField();
     }
 
-    @Then("User Validates Shipping Address Checkbox State is {string}")
+    @Then("User Validates Shipping Address Checkbox Selection is {string}")
     public void userValidatesShippingAddressField(String expectedCondition) {
         if (expectedCondition.equals("true")) {
             checkoutPage.validateShippingAddressField(true);

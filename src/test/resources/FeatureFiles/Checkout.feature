@@ -1041,4 +1041,4 @@ Feature: Checkout Feature File
     And User Enters Valid Login Password on Account Menu
     And User Clicks the Login Button on Account Menu
     Then User Clicks Save and Continue Button on Checkout Page
-    Then User Validates Shipping Address Checkbox State is "true"
+    Then User Validates Shipping Address Checkbox Selection is "true"
