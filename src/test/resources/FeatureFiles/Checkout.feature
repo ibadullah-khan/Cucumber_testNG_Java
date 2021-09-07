@@ -1109,10 +1109,10 @@ Feature: Checkout Feature File
     And User Enters Valid Login Password on Account Menu
     And User Clicks the Login Button on Account Menu
     Then User Clicks Save and Continue Button on Checkout Page
-    Then User Clicks on New Credit Card Field in Payment Section
+    Then User Select "credit.card.payment" Payment Method
     And User Enters Valid Credit Card Number on Checkout Page
     And User Enters Valid Credit Card Expiry Date on Checkout Page
     And User Enters Valid Credit Card CVV on Checkout Page
-    Then User Clicks on Use Shipping Address For Billing Checkbox
+    Then User Clicks on Use Shipping Address for Billing Checkbox
     And User Clicks on Stored Shipping Address in Payment Section
     Then User Clicks Place Order Button on Checkout Page

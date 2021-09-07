@@ -778,10 +778,6 @@ public class CheckoutStepsDef extends HarnessVariables {
         checkoutPage.validateRequiredErrorMessageTextOnBillingSection(expectedinputField, expectedErrorMsgText);
     }
 
-    @Then("User Clicks on New Credit Card Field in Payment Section")
-    public void userClicksNewCreditCardInPaymentSection() throws Exception {
-        checkoutPage.clickAddNewCreditCardField();
-    }
 
     @And("User Clicks on Stored Shipping Address in Payment Section")
     public void userClicksStoredShippingInPaymentSection() throws Exception {
