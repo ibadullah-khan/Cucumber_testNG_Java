@@ -1062,6 +1062,41 @@ Feature: Checkout Feature File
     Then User Validates Required Field Error Message "required.field.error.msg" on "billing.zip.code" Field on Billing Section of Checkout Page
 
   @Regression
+  Scenario: Verify Order can be Placed through Paypal
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
+    And User Enters Valid Email Address on Checkout Page
+    And User Enters Valid First Name on Checkout Page
+    And User Enters Valid Last Name on Checkout Page
+    And User Enters Valid Address on Checkout Page
+    And User Enters Valid City on Checkout Page
+    And User Selects Valid State on Checkout Page
+    And User Enters Valid Zip Code on Checkout Page
+    And User Enters Valid Phone No on Checkout Page
+    Then User Clicks Save and Continue Button on Checkout Page
+    Then User Select "paypal.payment" Payment Method
+    Then User Validates PayPal Section Visibility "true"
+    Then User Clicks on Pay with PayPal Button on Checkout Page
+    Then User Switches New Tab
+    Then User Validates Successful Loaded PayPal Page
+    Then User Should Redirect Toward "checkout.paypal.payment" Page
+    And User Enters Valid PayPal Username on PayPal Page
+    And User Clicks on Next Button on PayPal Page
+    And User Enters Valid PayPal Password on PayPal Page
+    And User Clicks on Login Button on PayPal Page
+    And User Wait for Final Details to Load on PayPal Page
+    Then User Clicks on Pay Now Button PayPal Page
+    Then User Switches to Parent Tab
+    And User Closes Feedback Window on Confirmation Page
+    Then User Validates Order Number Text Visibility "true" on Confirmation Page
+
+  @Regression
   Scenario: Validate Logged in Customer Can Select a Different Billing Address in The Payment Section.
 
     Given User Setups the Web Browser
