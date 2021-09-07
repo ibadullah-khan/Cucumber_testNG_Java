@@ -1069,9 +1069,15 @@ Feature: Checkout Feature File
     And User Clicks Add to Cart Button on PDP
     And User Validates Successful Triggered Mini Cart
     And User Clicks Checkout Button on Mini Cart View
-    Then User Clicks on Member Checkout Button
-    And User Enters Valid All Login Data Username on Account Menu
-    And User Enters Valid Login Password on Account Menu
-    And User Clicks the Login Button on Account Menu
+    Then User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
+    And User Enters Valid Email Address on Checkout Page
+    And User Enters Valid First Name on Checkout Page
+    And User Enters Valid Last Name on Checkout Page
+    And User Enters Valid Address on Checkout Page
+    And User Enters Valid City on Checkout Page
+    And User Selects Valid State on Checkout Page
+    And User Enters Valid Zip Code on Checkout Page
+    And User Enters Valid Phone No on Checkout Page
     Then User Clicks Save and Continue Button on Checkout Page
     Then User Validates Shipping Address Checkbox Selection is "true"
