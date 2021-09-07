@@ -795,22 +795,22 @@ public class CheckoutStepsDef extends HarnessVariables {
 
     @And("User Enters Valid Address For Billing on Checkout Page")
     public void userEntersValidAddressForBillingOnCheckoutPage() throws Exception {
-        checkoutPage.enterAddress(VALID_ADDRESS_BILLING);
+        checkoutPage.enterAddressForBilling(VALID_ADDRESS_BILLING);
     }
 
     @And("User Enters Valid City For Billing on Checkout Page")
     public void userEntersValidCityForBillingOnCheckoutPage() throws Exception {
-        checkoutPage.enterCity(VALID_CITY_BILLING);
+        checkoutPage.enterCityForBilling(VALID_CITY_BILLING);
     }
 
     @And("User Selects Valid State For Billing on Checkout Page")
     public void userSelectsValidStateForBillingOnCheckoutPage() throws Exception {
-        checkoutPage.selectState(VALID_STATE_BILLING);
+        checkoutPage.selectStateForBilling(VALID_STATE_BILLING);
     }
 
     @And("User Enters Valid Zip Code For Billing on Checkout Page")
     public void userEntersValidZipCodeForBillingOnCheckoutPage() throws Exception {
-        checkoutPage.enterZipCode(VALID_ZIPCODE_BILLING);
+        checkoutPage.enterZipCodeForBilling(VALID_ZIPCODE_BILLING);
     }
 
 }
