@@ -2270,4 +2270,27 @@ public class CheckoutPageFactory extends UtilFactory {
             throw e;
         }
     }
-}
+
+    public void validateShippingAddressField(){
+        String locator = CheckoutPageEnum.XPATH_SHIPPING_FOR_BILLING_CHECKBOX.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            actualVisibility = isSelected(locator);
+            if(actualVisibility){
+                scenarioDef.log(Status.PASS, "Validated Shipping Address Checkbox is Selected by default");
+            }
+            else {
+                errorMsg = "Validated Shipping Address Checkbox is not Selected by default";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+            }
+        catch (Exception e){
+        failureException = e.toString();
+        scenarioDef.log(Status.FAIL, errorMsg);
+        throw e;
+    }
+        }
+    }
+
