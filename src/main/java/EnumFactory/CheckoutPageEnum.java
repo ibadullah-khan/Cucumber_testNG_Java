@@ -100,8 +100,7 @@ public enum CheckoutPageEnum {
     XPATH_BILLING_ADDRESS_SECTION("//*[@class='creditCard-fields_root-Ott creditCard-mLoggedin-1dC']"),
     XPATH_REQ_FIELD_ERROR_MESSAGE_BILLING_SECTION_START("//*[@placeholder='"),
     XPATH_REQ_FIELD_ERROR_MESSAGE_BILLING_SECTION_END("']/parent::*/parent::*/following-sibling::p[@class='message-root_error-1YZ']"),
-    XPATH_REQ_ERROR_MES_STATE_FIELD("//*[@name='region']//following-sibling::p[@class='message-root_error-1YZ']"),
-    XPATH_NEW_CREDIT_CARD_FIELD("//input[@class='radio-input-IKa' and @value='braintree']");
+    XPATH_REQ_ERROR_MES_STATE_FIELD("//*[@name='region']//following-sibling::p[@class='message-root_error-1YZ']");
 
     private String checkoutPageVariables;
 
