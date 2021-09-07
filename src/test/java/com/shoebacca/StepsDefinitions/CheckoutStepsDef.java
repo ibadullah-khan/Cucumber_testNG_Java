@@ -753,16 +753,6 @@ public class CheckoutStepsDef extends HarnessVariables {
         checkoutPage.clickAddNewCreditCardField();
     }
 
-    @And("User Clicks on Stored Shipping Address in Payment Section")
-    public void userClicksStoredShippingInPaymentSection() throws Exception {
-        checkoutPage.clickStoredAddress();
-    }
-
-    @Then("User Clicks on Use Shipping Address For Billing Checkbox")
-    public void userClicksShippingAddressFieldOnCheckoutPage() throws Exception {
-        checkoutPage.clickShippingAddressField();
-    }
-
     @Then("User Validates Shipping Address Checkbox State is {string}")
     public void userValidatesShippingAddressField(String expectedCondition) {
             checkoutPage.validateShippingAddressField();

@@ -1029,27 +1029,6 @@ Feature: Checkout Feature File
     Then User Validates Order Number Text Visibility "true" on Confirmation Page
 
   @Regression
-  Scenario: Validate Logged in Customer Can Select a Different Billing Address in The Payment Section.
-
-    Given User Setups the Web Browser
-    When User Navigates to "shoebacca.first.bag.pdt" Url
-    And User Clicks Add to Cart Button on PDP
-    And User Validates Successful Triggered Mini Cart
-    And User Clicks Checkout Button on Mini Cart View
-    Then User Clicks on Member Checkout Button
-    And User Enters Valid All Login Data Username on Account Menu
-    And User Enters Valid Login Password on Account Menu
-    And User Clicks the Login Button on Account Menu
-    Then User Clicks Save and Continue Button on Checkout Page
-    Then User Clicks on New Credit Card Field in Payment Section
-    And User Enters Valid Credit Card Number on Checkout Page
-    And User Enters Valid Credit Card Expiry Date on Checkout Page
-    And User Enters Valid Credit Card CVV on Checkout Page
-    Then User Clicks on Use Shipping Address For Billing Checkbox
-    And User Clicks on Stored Shipping Address in Payment Section
-    Then User Clicks Place Order Button on Checkout Page
-
-  @Regression
   Scenario: Validate The Billing Address is The Same As Shipping By Default.
 
     Given User Setups the Web Browser
