@@ -599,7 +599,7 @@ public class CheckoutStepsDef extends HarnessVariables {
         checkoutPage.validateOrderTrackingEmailCheckedOrUnchecked(expectedType);
     }
 
-    @Then("User Clicks on Add New Address Button on Checkout Page")
+    @Then("User Clicks on Add New Address Option on Checkout Page")
     public void userClicksOnAddNewAddressButtonOnCheckoutPage() throws Exception {
         checkoutPage.clickAddNewAddressButton();
     }
@@ -748,6 +748,36 @@ public class CheckoutStepsDef extends HarnessVariables {
         checkoutPage.clearCreditCardExpiryDate();
     }
 
+    @Then("User Clicks on Use Shipping Address for Billing Checkbox")
+    public void userClicksOnUseShippingAddressForBillingCheckbox() {
+        checkoutPage.clickOnUseShippingAddressForBillingCheckBox();
+    }
+
+    @Then("User Validates Shipping Addresses Visibility {string} on Dropdown")
+    public void userValidatesShippingAddressesVisibilityOnDropdown(String expectedCondition) {
+        if (expectedCondition.equals("true")) {
+            checkoutPage.validateShippingAddressVisibilityOnDropdown(true);
+        } else {
+            checkoutPage.validateShippingAddressVisibilityOnDropdown(false);
+        }
+    }
+
+    @Then("User Validates Add New Address Form Section Visibility {string} on Billing Section of Checkout Page")
+    public void userValidatesAddNewAddressFormSectionVisibilityonBillingSectionofCheckoutPage(String expectedCondition) {
+        if (expectedCondition.equals("true")) {
+            checkoutPage.validateNewAddressFormSectionVisibility(true);
+        } else {
+            checkoutPage.validateNewAddressFormSectionVisibility(false);
+        }
+    }
+
+    @Then("User Validates Required Field Error Message {string} on {string} Field on Billing Section of Checkout Page")
+    public void userValidatesRequiredFieldErrorMessageOnFieldOnBillingSectionOfCheckoutPage(String errorMsgText, String inputField) throws Exception {
+        String expectedinputField = new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(inputField);
+        String expectedErrorMsgText = new PropertyLoaderFactory().getPropertyFile(errorMsgPropFile).getProperty(errorMsgText);
+        checkoutPage.validateRequiredErrorMessageTextOnBillingSection(expectedinputField, expectedErrorMsgText);
+    }
+
     @Then("User Clicks on New Credit Card Field in Payment Section")
     public void userClicksNewCreditCardInPaymentSection() throws Exception {
         checkoutPage.clickAddNewCreditCardField();
@@ -756,10 +786,5 @@ public class CheckoutStepsDef extends HarnessVariables {
     @And("User Clicks on Stored Shipping Address in Payment Section")
     public void userClicksStoredShippingInPaymentSection() throws Exception {
         checkoutPage.clickStoredAddress();
-    }
-
-    @Then("User Clicks on Use Shipping Address For Billing Checkbox")
-    public void userClicksShippingAddressFieldOnCheckoutPage() throws Exception {
-        checkoutPage.clickShippingAddressField();
     }
 }
