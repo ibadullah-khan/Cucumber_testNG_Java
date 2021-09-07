@@ -2439,11 +2439,13 @@ public class CheckoutPageFactory extends UtilFactory {
 
     public void validateCreditCardTypeVisibility(String expectedCreditCard,boolean expectedVisibility) {
         String locator = CheckoutPageEnum.XPATH_CREDIT_CARD_TYPE_START.getValue() + expectedCreditCard + CheckoutPageEnum.XPATH_CREDIT_CARD_TYPE_END.getValue();
-        String loader = CheckoutPageEnum.XPATH_SHIPPING_LOADER.getValue();
+        String paymentInformationLoader = CheckoutPageEnum.XPATH_FETCHING_PAYMENT_INFORMATION_LOADER.getValue();
+        String paymentLoader = CheckoutPageEnum.XPATH_PAYMENT_LOADER.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
         try {
-            waitFactory.waitForElementToBeClickable(locator);
+            waitFactory.waitForElementToBeInVisible(paymentInformationLoader);
+            waitFactory.waitForElementToBeInVisible(paymentLoader);
             actualVisibility = isVisible(locator);
             if (actualVisibility && expectedVisibility) {
                 scenarioDef.log(Status.PASS, "Validated "+expectedCreditCard+" Credit Type is Displayed as Expected on Checkout Page");
