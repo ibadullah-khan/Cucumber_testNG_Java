@@ -2374,7 +2374,7 @@ public class CheckoutPageFactory extends UtilFactory {
                 errorMsg = "Validated Shipping Addresses is Displayed on Dropdown Unexpected on Checkout Page";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             } else if (!actualVisibility && expectedVisibility) {
-                errorMsg = "Validated Shipping Addresses is Displayed on Dropdown Unexpectedly on Checkout Page";
+                errorMsg = "Validated Shipping Addresses is not Displayed on Dropdown Unexpectedly on Checkout Page";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             }
         } catch (Exception e) {
@@ -2398,7 +2398,7 @@ public class CheckoutPageFactory extends UtilFactory {
                 errorMsg = "Validated New Address Section is Displayed Unexpected on Checkout Page";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             } else if (!actualVisibility && expectedVisibility) {
-                errorMsg = "Validated New Address Section is Displayed Unexpectedly on Checkout Page";
+                errorMsg = "Validated New Address Section is not Displayed Unexpectedly on Checkout Page";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             }
         } catch (Exception e) {
@@ -2433,6 +2433,34 @@ public class CheckoutPageFactory extends UtilFactory {
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
+            throw e;
+        }
+    }
+
+    public void validateCreditCardTypeVisibility(String expectedCreditCard,boolean expectedVisibility) {
+        String locator = CheckoutPageEnum.XPATH_CREDIT_CARD_TYPE_START.getValue() + expectedCreditCard + CheckoutPageEnum.XPATH_CREDIT_CARD_TYPE_END.getValue();
+        String paymentInformationLoader = CheckoutPageEnum.XPATH_FETCHING_PAYMENT_INFORMATION_LOADER.getValue();
+        String paymentLoader = CheckoutPageEnum.XPATH_PAYMENT_LOADER.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try {
+            waitFactory.waitForElementToBeInVisible(paymentInformationLoader);
+            waitFactory.waitForElementToBeInVisible(paymentLoader);
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated "+expectedCreditCard+" Credit Type is Displayed as Expected on Checkout Page");
+            } else if (!actualVisibility && !expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated "+expectedCreditCard+" Credit Type is not Displayed as Expected on Checkout Page");
+            } else if (actualVisibility && !expectedVisibility) {
+                errorMsg = "Validated "+expectedCreditCard+" Credit Type is Displayed Unexpected on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
+                errorMsg = "Validated "+expectedCreditCard+" Credit Type is not Displayed Unexpectedly on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
             throw e;
         }
     }

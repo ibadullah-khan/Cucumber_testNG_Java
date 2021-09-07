@@ -107,6 +107,9 @@ public enum CheckoutPageEnum {
     XPATH_REQ_FIELD_ERROR_MESSAGE_BILLING_SECTION_START("//*[@placeholder='"),
     XPATH_REQ_FIELD_ERROR_MESSAGE_BILLING_SECTION_END("']/parent::*/parent::*/following-sibling::p[@class='message-root_error-1YZ']"),
     XPATH_REQ_ERROR_MES_STATE_FIELD("//*[@name='region']//following-sibling::p[@class='message-root_error-1YZ']"),
+    XPATH_CREDIT_CARD_TYPE_START("//*[@class='creditCard-credit_card_root-1tP']//span[contains(@class,'"),
+    XPATH_CREDIT_CARD_TYPE_END("')]"),
+    XPATH_FETCHING_PAYMENT_INFORMATION_LOADER("//*[@class='paymentInformation-loading-3aw']//*[@class='icon-root-2Hz']"),
     XPATH_ADDRESS_FROM_LIST("//div[@class='addressBook-content-34e']//span[text()='Default']");
 
     private String checkoutPageVariables;
