@@ -17,7 +17,7 @@ public class AddressBookPageFactory extends UtilFactory {
     public AddressBookPageFactory() throws Exception {
     }
 
-    public void validateShippingAddressQuantityVisibility(String[] shippingAddress) {
+    public void validateShippingAddressQuantity(String[] shippingAddress) {
         String locator = AddressBookPageEnum.XPATH_SHIPPING_ADDRESS_DETAILS.getValue();
         String errorMsg = null;
         List<WebElement> elements;

@@ -60,19 +60,6 @@ public class AccountMenuPageFactory extends UtilFactory{
         }
     }
 
-    public void clickOnAddressBook(){
-        String locator = AccountMenuPageEnum.XPATH_ADDRESS_BOOK_OPTION.getValue();
-        try{
-            waitFactory.waitForElementToBeClickable(locator);
-            click(locator);
-            scenarioDef.log(Status.PASS,"Clicked on Address Book on Account Menu");
-        }catch (Exception e){
-            failureException = e.toString();
-            scenarioDef.log(Status.FAIL,"Could not click on Address Book on Account Menu");
-            throw e;
-        }
-    }
-
     public void clickOnLoginButton() throws Exception {
         String locator = AccountMenuPageEnum.XPATH_ACCOUNT_MENU_LOGIN_BUTTON.getValue();
         try{
@@ -283,6 +270,20 @@ public class AccountMenuPageFactory extends UtilFactory{
         }catch (Exception e){
             failureException = e.toString();
             scenarioDef.log(Status.FAIL,"Could not Click on Create an Account Button on Account Menu");
+            throw e;
+        }
+    }
+
+    public void clickOnAddressBookOption() throws Exception {
+        String locator = AccountMenuPageEnum.XPATH_ADDRESS_BOOK_OPTION.getValue();
+        try{
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            waitFactory.waitForElementToBeInVisible(locator);
+            scenarioDef.log(Status.PASS,"Clicked on Address Book Option on Account Menu");
+        }catch (Exception e){
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL,"Could not Click on Address Book Option on Account Menu");
             throw e;
         }
     }

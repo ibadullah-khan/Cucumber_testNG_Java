@@ -1,7 +1,7 @@
 Feature: Account Menu Feature File
   Contains All Account Menu Module Test Cases
 
-  @C286 @Regression
+  @Regression
   Scenario: Validate Sign In Without Entering Any Values
 
     Given User Setups the Web Browser
@@ -14,7 +14,7 @@ Feature: Account Menu Feature File
     Then User Validates Error Message Visibility "true" on Email Field on Account Menu
     Then User Validates Error Message Visibility "true" on Password Field on Account Menu
 
-  @C287 @Regression
+  @Regression
   Scenario: Verify Email Address is Validated When Entered to Sign In
 
     Given User Setups the Web Browser
@@ -35,7 +35,7 @@ Feature: Account Menu Feature File
     Then User Clicks the Login Button on Account Menu
     Then User Validates Validation Error Message Visibility "true" on Account Menu
 
-  @284 @Regression
+  @Regression
   Scenario:Validate Registered Customer When Signs in with Valid Credentials is Landed on Checkout page.
 
     Given User Setups the Web Browser
@@ -54,7 +54,7 @@ Feature: Account Menu Feature File
     Then User Validates Successful Loaded Checkout Page
     Then User Should Redirect Toward "shopping.checkout" Page
 
-  @285 @Regression
+  @Regression
   Scenario: Validate SignIn With Invalid Credentials
 
     Given User Setups the Web Browser
