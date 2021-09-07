@@ -26,7 +26,9 @@ public enum CheckoutEnumVariables {
 	INVALID_CC_NUM(""),
 	INVALID_CC_EXPIRY(""),
 	INVALID_CC_CVV(""),
-	CALCULATED_TAX_VALUE("");
+	CALCULATED_TAX_VALUE(""),
+	VALID_PAYPAL_USERNAME(""),
+	VALID_PAYPAL_PASSWORD("");
 
     private String checkoutVariables;
 
@@ -67,6 +69,8 @@ public enum CheckoutEnumVariables {
 			EMAIL_ADDRESS_WITHOUT_DOMAIN.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("no.domain.email");
 			EMAIL_ADDRESS_WITHOUT_RECIPIENT.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("no.recipient.email");
 			CALCULATED_TAX_VALUE.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("calculated.tax.value");
+			VALID_PAYPAL_USERNAME.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.paypal.email");
+			VALID_PAYPAL_PASSWORD.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.paypal.password");
         } catch (Exception e) {
 
             e.printStackTrace();
