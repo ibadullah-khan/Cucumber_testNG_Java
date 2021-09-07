@@ -1127,6 +1127,29 @@ Feature: Checkout Feature File
     Then User Validates Shipping Address Quantity on Address Book
 
   @Regression
+  Scenario: Validate Customer Can Apply Valid Coupon/Promo Code.
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks Checkout Button on Mini Cart View
+    And User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
+    And User Enters Valid Email Address on Checkout Page
+    And User Enters Valid First Name on Checkout Page
+    And User Enters Valid Last Name on Checkout Page
+    And User Enters Valid Address on Checkout Page
+    And User Enters Valid City on Checkout Page
+    And User Selects Valid State on Checkout Page
+    And User Enters Valid Zip Code on Checkout Page
+    And User Enters Valid Phone No on Checkout Page
+    Then User Clicks Save and Continue Button on Checkout Page
+    Then User Enter "valid.coupon" in Promo Code on Checkout Page
+    Then User Clicks on Add Promo Code Button on Checkout Page
+    Then User Validates Discounted Amount on Checkout Page
+
+  @Regression
   Scenario: Validate Only Allowed Card Types are Accepted
 
     Given User Setups the Web Browser
