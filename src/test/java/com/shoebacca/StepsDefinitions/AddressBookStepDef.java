@@ -28,4 +28,9 @@ public class AddressBookStepDef extends HarnessVariables{
             addressBookPage.validateAddressSetAsDefault(RANDOM_NAME+" "+VALID_LASTNAME,false);
         }
     }
+
+    @Then("User Validates Shipping Address Quantity on Address Book")
+    public void userValidatesShippingAddressQuantityOnAddressBook() {
+        addressBookPage.validateShippingAddressQuantity(SHIPPING_ADDRESS);
+    }
 }
