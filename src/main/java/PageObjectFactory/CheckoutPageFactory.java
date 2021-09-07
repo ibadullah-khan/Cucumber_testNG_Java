@@ -2331,7 +2331,7 @@ public class CheckoutPageFactory extends UtilFactory {
 
 
     public void validateShippingAddressField(boolean expectedSelection) {
-        String locator = CheckoutPageEnum.XPATH_SHIPPING_FOR_BILLING_CHECKBOX.getValue();
+        String locator = CheckoutPageEnum.XPATH_USE_SHIPPING_ADDRESS_CHECK_BOX.getValue();
         String errorMsg = null;
         Boolean actualSelection;
         try {
