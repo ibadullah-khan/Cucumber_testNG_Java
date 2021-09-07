@@ -1169,3 +1169,5 @@ Feature: Checkout Feature File
     Then User Clicks on Use Shipping Address for Billing Checkbox
     And User Clicks on Stored Shipping Address in Payment Section
     Then User Clicks Place Order Button on Checkout Page
+    And User Closes Feedback Window on Confirmation Page
+    Then User Validates Order Number Text Visibility "true" on Confirmation Page
