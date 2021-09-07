@@ -1172,3 +1172,23 @@ Feature: Checkout Feature File
     Then User Validates "master.card" Credit Card Visibility "true"
     Then User Validates "american.express.card" Credit Card Visibility "true"
     Then User Validates "dicsover.card" Credit Card Visibility "true"
+
+  @Regression @C332
+  Scenario: Validate CVV for Less than 3 Digits on Checkout Page
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.home" Url
+    And User Clicks the Account Icon on Header
+    And User Enters Valid Login Data Username on Account Menu
+    And User Enters Valid Login Password on Account Menu
+    And User Clicks the Login Button on Account Menu
+    And User Clicks the Mini Cart Icon on Header
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Should Redirect Toward "shopping.checkout" Page
+    Then User Clicks Save and Continue Button on Checkout Page
+    Then User Select "credit.card.payment" Payment Method
+    And User Enters Valid Credit Card Number on Checkout Page
+    And User Enters Valid Credit Card Expiry Date on Checkout Page
+    And User Enters Invalid Credit Card CVV on Checkout Page
+    And User Clicks Place Order Button on Checkout Page
+    Then User Validates "invalid.cvv.error" Text from "cvv.error.field" on Checkout Page
