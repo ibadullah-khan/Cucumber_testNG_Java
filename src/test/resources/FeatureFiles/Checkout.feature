@@ -1053,9 +1053,9 @@ Feature: Checkout Feature File
     Then User Clicks on Use Shipping Address For Billing Checkbox
     And User Enters Valid First Name For Billing on Checkout Page
     And User Enters Valid Last Name For Billing on Checkout Page
-    And User Enters Valid Address on Checkout Page
-    And User Enters Valid City on Checkout Page
-    And User Selects Valid State on Checkout Page
-    And User Enters Valid Zip Code on Checkout Page
+    And User Enters Valid Address For Billing on Checkout Page
+    And User Enters Valid City For Billing on Checkout Page
+    And User Selects Valid State For Billing on Checkout Page
+    And User Enters Valid Zip Code For Billing on Checkout Page
     And User Enters Valid Phone No For Billing on Checkout Page
     Then User Clicks Place Order Button on Checkout Page
