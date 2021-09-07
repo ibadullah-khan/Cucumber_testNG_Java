@@ -702,7 +702,7 @@ Feature: Checkout Feature File
     Then User Validates Successful Login on Account Menu
     And User Clicks the Mini Cart Icon on Header
     Then User Clicks Checkout Button on Mini Cart View
-    Then User Clicks on Add New Address Button on Checkout Page
+    Then User Clicks on Add New Address Option on Checkout Page
     Then User Validates Shipping Detail Address Form Visibility "true" on Checkout Page
     Then User Clicks on Select from Address Book Button on Checkout Page
     Then User Validates Shipping Detail Address List Visibility "true" on Checkout Page
@@ -932,7 +932,7 @@ Feature: Checkout Feature File
     And User Enters Valid All Login Data Username on Account Menu
     And User Enters Valid Login Password on Account Menu
     And User Clicks the Login Button on Account Menu
-    Then User Clicks on Add New Address Button on Checkout Page
+    Then User Clicks on Add New Address Option on Checkout Page
     And User Enters Random First Name on Checkout Page
     And User Enters Valid Last Name on Checkout Page
     And User Enters Valid Address on Checkout Page
@@ -1027,6 +1027,39 @@ Feature: Checkout Feature File
     Then User Clicks Place Order Button on Checkout Page
     And User Closes Feedback Window on Confirmation Page
     Then User Validates Order Number Text Visibility "true" on Confirmation Page
+
+  @Regression
+  Scenario: Validate Order Will not be Placed if Logged in Customer Leaves a New Billing Address
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.home" Url
+    And User Clicks the Account Icon on Header
+    Then User Enters Valid Login Data Username on Account Menu
+    And User Enters Valid Login Password on Account Menu
+    Then User Clicks the Login Button on Account Menu
+    Then User Validates Successful Login on Account Menu
+    And User Clicks the Mini Cart Icon on Header
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Should Redirect Toward "shopping.checkout" Page
+    Then User Clicks Save and Continue Button on Checkout Page
+    Then User Validates Successful Loaded Checkout Page
+    Then User Validates Stored Cards Visibility "true" on Checkout Page
+    Then User Select "credit.card.payment" Payment Method
+    And User Enters Valid Credit Card Number on Checkout Page
+    And User Enters Valid Credit Card Expiry Date on Checkout Page
+    And User Enters Valid Credit Card CVV on Checkout Page
+    Then User Clicks on Use Shipping Address for Billing Checkbox
+    Then User Validates Shipping Addresses Visibility "true" on Dropdown
+    Then User Clicks on Add New Address Option on Checkout Page
+    Then User Validates Add New Address Form Section Visibility "true" on Billing Section of Checkout Page
+    Then User Clicks Place Order Button on Checkout Page
+    Then User Validates Required Field Error Message "required.field.error.msg" on "billing.first.name" Field on Billing Section of Checkout Page
+    Then User Validates Required Field Error Message "required.field.error.msg" on "billing.last.name" Field on Billing Section of Checkout Page
+    Then User Validates Required Field Error Message "required.field.error.msg" on "billing.address" Field on Billing Section of Checkout Page
+    Then User Validates Required Field Error Message "required.field.error.msg" on "billing.city" Field on Billing Section of Checkout Page
+    Then User Validates Required Field Error Message "required.field.error.msg" on "billing.state" Field on Billing Section of Checkout Page
+    Then User Validates Required Field Error Message "invalid.ph.no.error.msg" on "billing.phone" Field on Billing Section of Checkout Page
+    Then User Validates Required Field Error Message "required.field.error.msg" on "billing.zip.code" Field on Billing Section of Checkout Page
 
   @Regression
   Scenario: Validate Guest Customer Can Select Different Billing Address.
