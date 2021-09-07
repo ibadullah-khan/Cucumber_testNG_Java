@@ -777,4 +777,14 @@ public class CheckoutStepsDef extends HarnessVariables {
         String expectedErrorMsgText = new PropertyLoaderFactory().getPropertyFile(errorMsgPropFile).getProperty(errorMsgText);
         checkoutPage.validateRequiredErrorMessageTextOnBillingSection(expectedinputField, expectedErrorMsgText);
     }
+
+    @Then("User Validates {string} Credit Card Visibility {string}")
+    public void userValidatesCreditCardVisibility(String visaType, String expectedCondition) throws Exception {
+        String expectedVisaType = new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(visaType);
+        if (expectedCondition.equals("true")) {
+            checkoutPage.validateCreditCardTypeVisibility(expectedVisaType,true);
+        } else {
+            checkoutPage.validateCreditCardTypeVisibility(expectedVisaType,false);
+        }
+    }
 }
