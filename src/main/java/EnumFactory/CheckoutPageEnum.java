@@ -100,7 +100,14 @@ public enum CheckoutPageEnum {
     XPATH_EXPIRY_DATE_EMPTY_FIELD("//*[@class='expirationDate' and not(@aria-invalid)]"),
     XPATH_CVV_NUMBER_EMPTY_FIELD("//*[@class='cvv' and not(@aria-invalid)]"),
     XPATH_SET_AS_DEFAULT_FIELD("//input[@id='default_shipping' and not(@disabled)]"),
-    XPATH_CREDIT_CARD_NO("//*[@class='storedPaymentInformation-creditCardDot-2mD']/parent::span");
+    XPATH_CREDIT_CARD_NO("//*[@class='storedPaymentInformation-creditCardDot-2mD']/parent::span"),
+    XPATH_USE_SHIPPING_ADDRESS_CHECK_BOX("//*[@name='isBillingAddressSame']"),
+    XPATH_SHIPPING_ADDRESSES_DROPDOWN_SECTION("//*[@class='addressBook-root_active-2ZD']"),
+    XPATH_BILLING_ADDRESS_SECTION("//*[@class='creditCard-fields_root-Ott creditCard-mLoggedin-1dC']"),
+    XPATH_REQ_FIELD_ERROR_MESSAGE_BILLING_SECTION_START("//*[@placeholder='"),
+    XPATH_REQ_FIELD_ERROR_MESSAGE_BILLING_SECTION_END("']/parent::*/parent::*/following-sibling::p[@class='message-root_error-1YZ']"),
+    XPATH_REQ_ERROR_MES_STATE_FIELD("//*[@name='region']//following-sibling::p[@class='message-root_error-1YZ']");
+
 
     private String checkoutPageVariables;
 
