@@ -1979,7 +1979,7 @@ public class CheckoutPageFactory extends UtilFactory {
     public void validateStoredCardSectionVisibility(boolean expectedVisibility) {
         String locator = CheckoutPageEnum.XPATH_STORED_CARD_SELECTED_SECTION.getValue();
         String loader = CheckoutPageEnum.XPATH_PAYMENT_LOADER.getValue();
-        String locatorBtn= CheckoutPageEnum.XPATH_PLACE_ORDER_BUTTON.getValue();
+        String locatorBtn = CheckoutPageEnum.XPATH_PLACE_ORDER_BUTTON.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
         try {
@@ -2028,7 +2028,7 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
-    public void clickSetAsDefaultField(){
+    public void clickSetAsDefaultField() {
         String locator = CheckoutPageEnum.XPATH_SET_AS_DEFAULT_FIELD.getValue();
         try {
             waitFactory.waitForElementToBeClickable(locator);
@@ -2121,21 +2121,21 @@ public class CheckoutPageFactory extends UtilFactory {
         String locator = CheckoutPageEnum.XPATH_CREDIT_CARD_NO.getValue();
         String errorMsg = null;
         String actualText;
-        try{
+        try {
             waitFactory.waitForElementToBeClickable(locator);
             actualText = getText(locator).trim();
-            if (expectedCreditCardNo.contains(actualText)){
-                scenarioDef.log(Status.PASS,"Validated By Default Credit Card as Expected: "+expectedCreditCardNo);
-            }else {
-                errorMsg = "Could not Validate By Default Credit Card as Expected: "+expectedCreditCardNo+" , Actual Value: "+actualText;
+            if (expectedCreditCardNo.contains(actualText)) {
+                scenarioDef.log(Status.PASS, "Validated By Default Credit Card as Expected: " + expectedCreditCardNo);
+            } else {
+                errorMsg = "Could not Validate By Default Credit Card as Expected: " + expectedCreditCardNo + " , Actual Value: " + actualText;
                 throw new NoSuchContextException("Actual and Expected Value Differs");
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             failureException = e.toString();
-            if (errorMsg == null){
-                scenarioDef.log(Status.FAIL,"Unable to get the Credit Card Element on Mini Cart");
-            }else {
-                scenarioDef.log(Status.FAIL,errorMsg);
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Credit Card Element on Mini Cart");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
             }
             throw e;
         }
@@ -2147,20 +2147,18 @@ public class CheckoutPageFactory extends UtilFactory {
         String iframeLocator = CheckoutPageEnum.XPATH_CREDIT_CARD_NO_IFRAME.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
-        try{
+        try {
             waitFactory.waitForElementToBeInVisible(loader);
             switchToIframe(iframeLocator);
             actualVisibility = isVisible(locator);
             switchToDefaultContent();
-            if(actualVisibility){
+            if (actualVisibility) {
                 scenarioDef.log(Status.PASS, "Validated Credit Card Number Field is Empty");
-            }
-            else {
+            } else {
                 errorMsg = "Validated Credit Card Number Field is not Empty";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             }
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             failureException = e.toString();
             scenarioDef.log(Status.FAIL, errorMsg);
             throw e;
@@ -2172,19 +2170,17 @@ public class CheckoutPageFactory extends UtilFactory {
         String iframeLocator = CheckoutPageEnum.XPATH_CREDIT_CARD_EXP_IFRAME.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
-        try{
+        try {
             switchToIframe(iframeLocator);
             actualVisibility = isVisible(locator);
             switchToDefaultContent();
-            if(actualVisibility){
+            if (actualVisibility) {
                 scenarioDef.log(Status.PASS, "Validated Credit Card Expiry Date Field is Empty");
-            }
-            else {
+            } else {
                 errorMsg = "Validated Credit Card Expiry Date Field is not Empty";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             }
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             failureException = e.toString();
             scenarioDef.log(Status.FAIL, errorMsg);
             throw e;
@@ -2196,19 +2192,17 @@ public class CheckoutPageFactory extends UtilFactory {
         String iframeLocator = CheckoutPageEnum.XPATH_CREDIT_CARD_CVV_IFRAME.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
-        try{
+        try {
             switchToIframe(iframeLocator);
             actualVisibility = isVisible(locator);
             switchToDefaultContent();
-            if(actualVisibility){
+            if (actualVisibility) {
                 scenarioDef.log(Status.PASS, "Validated Credit Card CVV Number Field is Empty");
-            }
-            else {
+            } else {
                 errorMsg = "Validated Credit Card CVV Number Field is not Empty";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             }
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             failureException = e.toString();
             scenarioDef.log(Status.FAIL, errorMsg);
             throw e;
@@ -2246,26 +2240,31 @@ public class CheckoutPageFactory extends UtilFactory {
     }
 
 
-    public void validateShippingAddressField(){
+    public void validateShippingAddressField(boolean expectedSelection) {
         String locator = CheckoutPageEnum.XPATH_SHIPPING_FOR_BILLING_CHECKBOX.getValue();
         String errorMsg = null;
-        Boolean actualVisibility;
+        Boolean actualSelection;
         try {
             waitFactory.waitForElementToBeClickable(locator);
-            actualVisibility = isSelected(locator);
-            if(actualVisibility){
-                scenarioDef.log(Status.PASS, "Validated Shipping Address Checkbox is Selected by default");
+            actualSelection = isSelected(locator);
+            if (actualSelection && expectedSelection) {
+                scenarioDef.log(Status.PASS, "Validated Shipping Address Checkbox is Selected on Checkout Page");
+            } else if (!actualSelection && !expectedSelection) {
+                scenarioDef.log(Status.PASS, "Validated Shipping Address Checkbox is not Selected on Checkout Page");
+            } else if (actualSelection && !expectedSelection) {
+                errorMsg = "Validated Shipping Address Checkbox Selection Unexpected on Checkout Page";
+                throw new NoSuchElementException("Element Selection was Unexpected for Element: " + locator);
+            } else if (!actualSelection && expectedSelection) {
+                errorMsg = "Validated Shipping Address Checkbox Selection Unexpectedly on Checkout Page";
+                throw new NoSuchElementException("Element Selection was Unexpected for Element: " + locator);
             }
-            else {
-                errorMsg = "Validated Shipping Address Checkbox is not Selected by default";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
-            }
-            }
-        catch (Exception e){
-        failureException = e.toString();
-        scenarioDef.log(Status.FAIL, errorMsg);
-        throw e;
-    }
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
         }
     }
+
+
+}
 

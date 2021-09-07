@@ -755,6 +755,10 @@ public class CheckoutStepsDef extends HarnessVariables {
 
     @Then("User Validates Shipping Address Checkbox State is {string}")
     public void userValidatesShippingAddressField(String expectedCondition) {
-            checkoutPage.validateShippingAddressField();
+        if (expectedCondition.equals("true")) {
+            checkoutPage.validateShippingAddressField(true);
+        } else {
+            checkoutPage.validateShippingAddressField(false);
+        }
     }
 }
