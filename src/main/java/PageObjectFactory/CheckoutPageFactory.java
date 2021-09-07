@@ -2226,6 +2226,96 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
+    public void clickOnUseShippingAddressForBillingCheckBox() {
+        String locator = CheckoutPageEnum.XPATH_USE_SHIPPING_ADDRESS_CHECK_BOX.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS, "Clicked on Use Shipping Address Checkbox on Checkout Page");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not click on Use Shipping Address Checkbox on Checkout Page");
+            throw e;
+        }
+    }
+
+    public void validateShippingAddressVisibilityOnDropdown(boolean expectedVisibility) {
+        String locator = CheckoutPageEnum.XPATH_SHIPPING_ADDRESSES_DROPDOWN_SECTION.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try {
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Shipping Addresses is Displayed on Dropdown as Expected on Checkout Page");
+            } else if (!actualVisibility && !expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Shipping Addresses is not Displayed on Dropdown as Expected on Checkout Page");
+            } else if (actualVisibility && !expectedVisibility) {
+                errorMsg = "Validated Shipping Addresses is Displayed on Dropdown Unexpected on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
+                errorMsg = "Validated Shipping Addresses is Displayed on Dropdown Unexpectedly on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateNewAddressFormSectionVisibility(boolean expectedVisibility) {
+        String locator = CheckoutPageEnum.XPATH_BILLING_ADDRESS_SECTION.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try {
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated New Address Section is Displayed as Expected on Checkout Page");
+            } else if (!actualVisibility && !expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated New Address Section is not Displayed as Expected on Checkout Page");
+            } else if (actualVisibility && !expectedVisibility) {
+                errorMsg = "Validated New Address Section is Displayed Unexpected on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
+                errorMsg = "Validated New Address Section is Displayed Unexpectedly on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateRequiredErrorMessageTextOnBillingSection(String expectedField, String expectedErrorMsgText) {
+        String locator;
+        if(expectedField.equalsIgnoreCase("region")) {
+            locator = CheckoutPageEnum.XPATH_REQ_ERROR_MES_STATE_FIELD.getValue();
+        }
+        else {
+            locator = CheckoutPageEnum.XPATH_REQ_FIELD_ERROR_MESSAGE_BILLING_SECTION_START.getValue() + expectedField + CheckoutPageEnum.XPATH_REQ_FIELD_ERROR_MESSAGE_BILLING_SECTION_END.getValue();
+        }String errorMsg = null;
+        String actualText;
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            actualText = getText(locator).trim();
+            if (actualText.contains(expectedErrorMsgText)) {
+                scenarioDef.log(Status.PASS, "Validated Error Message on " + expectedField + " Field on Billing Section of Checkout Page as Expected: " + expectedErrorMsgText);
+            } else {
+                errorMsg = "Could not validate Error Message on " + expectedField + " Field on Billing Section of Checkout Page as Expected: " + expectedErrorMsgText + " , Actual Value: " + actualText;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Error Message Element on " + expectedField + " Field on Billing Section of Checkout Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
+
     public void clickAddNewCreditCardField() throws Exception {
         String locator = CheckoutPageEnum.XPATH_NEW_CREDIT_CARD_FIELD.getValue();
         try {
@@ -2267,4 +2357,3 @@ public class CheckoutPageFactory extends UtilFactory {
 
 
 }
-
