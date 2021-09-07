@@ -812,6 +812,16 @@ public class CheckoutStepsDef extends HarnessVariables {
         }
     }
 
+    @Then("User Validates {string} Credit Card Visibility {string}")
+    public void userValidatesCreditCardVisibility(String visaType, String expectedCondition) throws Exception {
+        String expectedVisaType = new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(visaType);
+        if (expectedCondition.equals("true")) {
+            checkoutPage.validateCreditCardTypeVisibility(expectedVisaType,true);
+        } else {
+            checkoutPage.validateCreditCardTypeVisibility(expectedVisaType,false);
+        }
+    }
+
     @Then("User Validates {string} is Already Applied on Checkout Page")
     public void userValidatesIsAlreadyAppliedOnCheckoutPage(String coupon) throws Exception {
         String couponValue= new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(coupon);
