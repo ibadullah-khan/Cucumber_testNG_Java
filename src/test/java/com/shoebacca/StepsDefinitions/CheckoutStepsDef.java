@@ -778,6 +778,16 @@ public class CheckoutStepsDef extends HarnessVariables {
         checkoutPage.validateRequiredErrorMessageTextOnBillingSection(expectedinputField, expectedErrorMsgText);
     }
 
+
+    @Then("User Validates Shipping Address Checkbox Selection is {string}")
+    public void userValidatesShippingAddressField(String expectedCondition) {
+        if (expectedCondition.equals("true")) {
+            checkoutPage.validateShippingAddressField(true);
+        } else {
+            checkoutPage.validateShippingAddressField(false);
+        }
+    }
+
     @Then("User Clicks on Change Address Button on Checkout Page")
     public void userClicksOnChangeAddressButtonOnCheckoutPage() {
         checkoutPage.clickChangeAddressButton();
