@@ -620,7 +620,7 @@ public class CheckoutPageFactory extends UtilFactory {
             scenarioDef.log(Status.PASS, "Validated Shipping Section is in " + expectedState + " State on Checkout Page");
         } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL, "Could not Validate  Shipping Section is "  + expectedState +  " State on Checkout Page");
+            scenarioDef.log(Status.FAIL, "Could not Validate  Shipping Section is " + expectedState + " State on Checkout Page");
             throw e;
         }
     }
@@ -968,7 +968,7 @@ public class CheckoutPageFactory extends UtilFactory {
             elements = elementFactory.getElementsList(locator);
             waitFactory.waitForElementToBeVisible(locator);
             getAllShippingAddress = new String[elements.size()];
-            if (getAllShippingAddress.length>= 1) {
+            if (getAllShippingAddress.length >= 1) {
                 scenarioDef.log(Status.PASS, "Validated " + getAllShippingAddress + " Shipping Details are Displayed as Expected on Checkout Page");
             } else {
                 errorMsg = "Validated " + getAllShippingAddress + " Shipping Details are not Displayed as Expected on Checkout Page";
@@ -999,7 +999,7 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
-        public void clickChangeAddressButton() {
+    public void clickChangeAddressButton() {
         String locator = CheckoutPageEnum.XPATH_CHANGE_SHIPPING_ADDRESS.getValue();
         try {
             waitFactory.waitForElementToBeClickable(locator);
@@ -1192,19 +1192,20 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
-        public void clickOnRemovePromoCodeButton () {
-            String locator = CheckoutPageEnum.XPATH_REMOVE_COUPON_BUTTON.getValue();
-            try {
-                waitFactory.waitForElementToBeClickable(locator);
-                click(locator);
-                scenarioDef.log(Status.PASS, "Clicked on Remove Promo Code Button on Checkout Page");
-            } catch (Exception e) {
-                failureException = e.toString();
-                scenarioDef.log(Status.FAIL, "Could not Click on Remove Promo Code Button on Checkout Page");
-                throw e;
-            }
+    public void clickOnRemovePromoCodeButton() {
+        String locator = CheckoutPageEnum.XPATH_REMOVE_COUPON_BUTTON.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS, "Clicked on Remove Promo Code Button on Checkout Page");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Click on Remove Promo Code Button on Checkout Page");
+            throw e;
         }
-        public void validateErrorMsgText(String expectedErrorMsgText) {
+    }
+
+    public void validateErrorMsgText(String expectedErrorMsgText) {
         String locator = CheckoutPageEnum.XPATH_INVALID_COUPON_MESSAGE.getValue();
         String errorMsg = null;
         String actualText;
@@ -2394,12 +2395,12 @@ public class CheckoutPageFactory extends UtilFactory {
 
     public void validateRequiredErrorMessageTextOnBillingSection(String expectedField, String expectedErrorMsgText) {
         String locator;
-        if(expectedField.equalsIgnoreCase("region")) {
+        if (expectedField.equalsIgnoreCase("region")) {
             locator = CheckoutPageEnum.XPATH_REQ_ERROR_MES_STATE_FIELD.getValue();
-        }
-        else {
+        } else {
             locator = CheckoutPageEnum.XPATH_REQ_FIELD_ERROR_MESSAGE_BILLING_SECTION_START.getValue() + expectedField + CheckoutPageEnum.XPATH_REQ_FIELD_ERROR_MESSAGE_BILLING_SECTION_END.getValue();
-        }String errorMsg = null;
+        }
+        String errorMsg = null;
         String actualText;
         try {
             waitFactory.waitForElementToBeClickable(locator);
@@ -2446,7 +2447,7 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
-    public void validateCreditCardTypeVisibility(String expectedCreditCard,boolean expectedVisibility) {
+    public void validateCreditCardTypeVisibility(String expectedCreditCard, boolean expectedVisibility) {
         String locator = CheckoutPageEnum.XPATH_CREDIT_CARD_TYPE_START.getValue() + expectedCreditCard + CheckoutPageEnum.XPATH_CREDIT_CARD_TYPE_END.getValue();
         String paymentInformationLoader = CheckoutPageEnum.XPATH_FETCHING_PAYMENT_INFORMATION_LOADER.getValue();
         String paymentLoader = CheckoutPageEnum.XPATH_PAYMENT_LOADER.getValue();
@@ -2457,14 +2458,14 @@ public class CheckoutPageFactory extends UtilFactory {
             waitFactory.waitForElementToBeInVisible(paymentLoader);
             actualVisibility = isVisible(locator);
             if (actualVisibility && expectedVisibility) {
-                scenarioDef.log(Status.PASS, "Validated "+expectedCreditCard+" Credit Type is Displayed as Expected on Checkout Page");
+                scenarioDef.log(Status.PASS, "Validated " + expectedCreditCard + " Credit Type is Displayed as Expected on Checkout Page");
             } else if (!actualVisibility && !expectedVisibility) {
-                scenarioDef.log(Status.PASS, "Validated "+expectedCreditCard+" Credit Type is not Displayed as Expected on Checkout Page");
+                scenarioDef.log(Status.PASS, "Validated " + expectedCreditCard + " Credit Type is not Displayed as Expected on Checkout Page");
             } else if (actualVisibility && !expectedVisibility) {
-                errorMsg = "Validated "+expectedCreditCard+" Credit Type is Displayed Unexpected on Checkout Page";
+                errorMsg = "Validated " + expectedCreditCard + " Credit Type is Displayed Unexpected on Checkout Page";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             } else if (!actualVisibility && expectedVisibility) {
-                errorMsg = "Validated "+expectedCreditCard+" Credit Type is not Displayed Unexpectedly on Checkout Page";
+                errorMsg = "Validated " + expectedCreditCard + " Credit Type is not Displayed Unexpectedly on Checkout Page";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             }
         } catch (Exception e) {
@@ -2480,7 +2481,7 @@ public class CheckoutPageFactory extends UtilFactory {
         String actualText;
         try {
             waitFactory.waitForElementToBeVisible(locator);
-            actualText = getAttribute(locator,"placeholder");
+            actualText = getAttribute(locator, "placeholder");
             if (actualText.contains(couponValue)) {
                 scenarioDef.log(Status.PASS, "Validated Coupon Value on Checkout Page as Expected: " + couponValue);
             } else {
@@ -2593,7 +2594,6 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
-
     public void clickStoredAddress() throws Exception {
         String locator = CheckoutPageEnum.XPATH_ADDRESS_FROM_LIST.getValue();
         try {
@@ -2607,4 +2607,28 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
+    public void validatePaymentSelected() {
+        String locator = CheckoutPageEnum.XPATH_SELECTED_PAYMENT_FIELD.getValue();
+        String errorMsg = null;
+        String paymentName = "";
+        List<WebElement> radioButtons;
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            radioButtons = elementFactory.getElementsList(locator);
+            for (WebElement radioButton : radioButtons) {
+                radioButton.isSelected();
+                paymentName = radioButton.getText();
+                scenarioDef.log(Status.PASS, "Validated " + paymentName + " Payment Method is Selected on Checkout Page");
+                break;
+            }
+        }catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Payment Method Element on Summary Section of Checkout Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
 }

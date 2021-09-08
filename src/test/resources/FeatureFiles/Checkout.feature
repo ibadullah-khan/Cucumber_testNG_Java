@@ -1311,3 +1311,22 @@ Feature: Checkout Feature File
     And User Enters Valid Phone No on Checkout Page
     Then User Clicks Save and Continue Button on Checkout Page
     Then User Validates Shipping Address Checkbox Selection is "true"
+
+  @C324 @Regression
+  Scenario: Verify Logged In Customer Can Enter a New Credit Card Even There Are Saved Cards.
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.home" Url
+    And User Clicks the Account Icon on Header
+    Then User Enters Valid Login Data Username on Account Menu
+    And User Enters Valid Login Password on Account Menu
+    Then User Clicks the Login Button on Account Menu
+    Then User Validates Successful Login on Account Menu
+    And User Clicks the Mini Cart Icon on Header
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Clicks Save and Continue Button on Checkout Page
+    Then User Validates Default Selected Payment Method on Checkout Page
+    Then User Select "credit.card.payment" Payment Method
+    And User Enters Valid Credit Card Number on Checkout Page
+    And User Enters Valid Credit Card Expiry Date on Checkout Page
+    And User Enters Valid Credit Card CVV on Checkout Page

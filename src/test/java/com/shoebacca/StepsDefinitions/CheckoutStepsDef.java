@@ -878,4 +878,8 @@ public class CheckoutStepsDef extends HarnessVariables {
         checkoutPage.enterZipCodeForBilling(VALID_ZIPCODE_BILLING);
     }
 
+    @Then("User Validates Default Selected Payment Method on Checkout Page")
+    public void userValidatesPaymentMethodisSelected() {
+        checkoutPage.validatePaymentSelected();
+    }
 }
