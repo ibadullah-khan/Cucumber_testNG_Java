@@ -1,7 +1,7 @@
 Feature: Cart Feature File
   Contains All Cart Module Test Cases
 
-  @Regression
+  @C196 @Regression
   Scenario: Verify Cart Page When One Product is Added to Cart
 
     Given User Setups the Web Browser
@@ -358,8 +358,8 @@ Feature: Cart Feature File
     Then User Verify Predict Inspector Section Visibility "true"
     Then User Verify that on "predict.inspecter.item" Column "predict.inspector.item.description" Description is Display
 
-  @Regression
-  Scenario: Verify Summary Section not Loaded, if Shipping Method is not Updated
+  @C118826 @Regression
+  Scenario: Verify if Shipping Method is not Changed then Loader is not Displayed with Page Refresh
 
     Given User Setups the Web Browser
     When User Navigates to "shoebacca.first.bag.pdt" Url
