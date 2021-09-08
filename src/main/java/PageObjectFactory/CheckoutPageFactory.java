@@ -2528,9 +2528,8 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
-
     public void enterAddressForBilling(String textToEnter) throws Exception {
-        String locator = CheckoutPageEnum.XPATH_ADDRESS_FIELD.getValue();
+        String locator = CheckoutPageEnum.XPATH_ADDRESS_BILLING_FIELD.getValue();
         try {
             waitFactory.waitForElementToBeClickable(locator);
             enterString(locator, textToEnter);
@@ -2543,7 +2542,7 @@ public class CheckoutPageFactory extends UtilFactory {
     }
 
     public void enterCityForBilling(String textToEnter) throws Exception {
-        String locator = CheckoutPageEnum.XPATH_CITY_FIELD.getValue();
+        String locator = CheckoutPageEnum.XPATH_CITY_BILLING_FIELD.getValue();
         try {
             waitFactory.waitForElementToBeClickable(locator);
             enterString(locator, textToEnter);
@@ -2556,7 +2555,7 @@ public class CheckoutPageFactory extends UtilFactory {
     }
 
     public void enterZipCodeForBilling(String textToEnter) throws Exception {
-        String locator = CheckoutPageEnum.XPATH_ZIPCODE_FIELD.getValue();
+        String locator = CheckoutPageEnum.XPATH_ZIPCODE_BILLING_FIELD.getValue();
         try {
             waitFactory.waitForElementToBeClickable(locator);
             enterString(locator, textToEnter);
@@ -2569,9 +2568,9 @@ public class CheckoutPageFactory extends UtilFactory {
     }
 
     public void selectStateForBilling(String stateToSelect) throws Exception {
-        String locator = CheckoutPageEnum.XPATH_STATE_DROPDOWN_FIELD.getValue();
-        String optionLocator = CheckoutPageEnum.XPATH_STATE_DROPDOWN_OPTION_START.getValue() + stateToSelect +
-                CheckoutPageEnum.XPATH_STATE_DROPDOWN_OPTION_END.getValue();
+        String locator = CheckoutPageEnum.XPATH_STATE_DROPDOWN_BILLING_FIELD.getValue();
+        String optionLocator = CheckoutPageEnum.XPATH_STATE_DROPDOWN_BILLING_OPTION_START.getValue() + stateToSelect +
+                CheckoutPageEnum.XPATH_STATE_DROPDOWN_BILLING_OPTION_END.getValue();
         try {
             waitFactory.waitForElementToBeClickable(locator);
             click(locator);

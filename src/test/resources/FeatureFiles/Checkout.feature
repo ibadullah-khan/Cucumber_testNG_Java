@@ -1250,3 +1250,5 @@ Feature: Checkout Feature File
     And User Enters Valid Zip Code For Billing on Checkout Page
     And User Enters Valid Phone No For Billing on Checkout Page
     Then User Clicks Place Order Button on Checkout Page
+    And User Closes Feedback Window on Confirmation Page
+    Then User Validates Order Number Text Visibility "true" on Confirmation Page

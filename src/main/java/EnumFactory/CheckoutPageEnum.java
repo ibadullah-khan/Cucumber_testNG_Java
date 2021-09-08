@@ -112,6 +112,12 @@ public enum CheckoutPageEnum {
     XPATH_FETCHING_PAYMENT_INFORMATION_LOADER("//*[@class='paymentInformation-loading-3aw']//*[@class='icon-root-2Hz']"),
     XPATH_FIRST_NAME_BILLING_FIELD("//input[@name='firstName']"),
     XPATH_LAST_NAME_BILLING_FIELD("//input[@name='lastName']"),
+    XPATH_ADDRESS_BILLING_FIELD("//input[@name='street[0]']"),
+    XPATH_CITY_BILLING_FIELD("//input[@name='city']"),
+    XPATH_ZIPCODE_BILLING_FIELD("//input[@name='postcode']"),
+    XPATH_STATE_DROPDOWN_BILLING_FIELD("//select[@name='region']"),
+    XPATH_STATE_DROPDOWN_BILLING_OPTION_START("//select[@name='region']//option[text()='"),
+    XPATH_STATE_DROPDOWN_BILLING_OPTION_END("']"),
     XPATH_PH_NO_BILLING_FIELD("//input[@field='phoneNumber']");
 
     private String checkoutPageVariables;
