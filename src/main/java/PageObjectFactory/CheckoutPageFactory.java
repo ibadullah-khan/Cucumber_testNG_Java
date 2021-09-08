@@ -2508,4 +2508,114 @@ public class CheckoutPageFactory extends UtilFactory {
             throw e;
         }
     }
+
+    public void enterFirstNameForBilling(String textToEnter) throws Exception {
+        String locator = CheckoutPageEnum.XPATH_FIRST_NAME_BILLING_FIELD.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            enterString(locator, textToEnter);
+            scenarioDef.log(Status.PASS, "Entered Text: " + textToEnter + " on First Name Field For Billing on Checkout Page");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Enter Text on First Name For Billing Field on Checkout Page");
+            throw e;
+        }
+    }
+
+    public void enterLastNameForBilling(String textToEnter) throws Exception {
+        String locator = CheckoutPageEnum.XPATH_LAST_NAME_BILLING_FIELD.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            enterString(locator, textToEnter);
+            scenarioDef.log(Status.PASS, "Entered Text: " + textToEnter + " on Last Name For Billing Field on Checkout Page");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Enter Text on Last Name For Billing Field on Checkout Page");
+            throw e;
+        }
+    }
+
+    public void enterPhNoForBilling(String textToEnter) throws Exception {
+        String locator = CheckoutPageEnum.XPATH_PH_NO_BILLING_FIELD.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            enterString(locator, textToEnter);
+            scenarioDef.log(Status.PASS, "Entered Text: " + textToEnter + " on Phone Number Field For Billing on Checkout Page");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Enter Text on Phone Number Field For Billing on Checkout Page");
+            throw e;
+        }
+    }
+
+    public void enterAddressForBilling(String textToEnter) throws Exception {
+        String locator = CheckoutPageEnum.XPATH_ADDRESS_BILLING_FIELD.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            enterString(locator, textToEnter);
+            scenarioDef.log(Status.PASS, "Entered Text: " + textToEnter + " on Address Field For Billing on Checkout Page");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Enter Text on Address Field For Billing on Checkout Page");
+            throw e;
+        }
+    }
+
+    public void enterCityForBilling(String textToEnter) throws Exception {
+        String locator = CheckoutPageEnum.XPATH_CITY_BILLING_FIELD.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            enterString(locator, textToEnter);
+            scenarioDef.log(Status.PASS, "Entered Text: " + textToEnter + " on City Field For Billing on Checkout Page");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Enter Text on City Field For Billing on Checkout Page");
+            throw e;
+        }
+    }
+
+    public void enterZipCodeForBilling(String textToEnter) throws Exception {
+        String locator = CheckoutPageEnum.XPATH_ZIPCODE_BILLING_FIELD.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            enterString(locator, textToEnter);
+            scenarioDef.log(Status.PASS, "Entered Text: " + textToEnter + " on ZipCode Field For Billing on Checkout Page");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Enter Text on ZipCode Field For Billing on Checkout Page");
+            throw e;
+        }
+    }
+
+    public void selectStateForBilling(String stateToSelect) throws Exception {
+        String locator = CheckoutPageEnum.XPATH_STATE_DROPDOWN_BILLING_FIELD.getValue();
+        String optionLocator = CheckoutPageEnum.XPATH_STATE_DROPDOWN_BILLING_OPTION_START.getValue() + stateToSelect +
+                CheckoutPageEnum.XPATH_STATE_DROPDOWN_BILLING_OPTION_END.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            waitFactory.waitForElementToBeClickable(optionLocator);
+            click(optionLocator);
+            scenarioDef.log(Status.PASS, "Selected State: " + stateToSelect + " For Billing  on Checkout Page");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Select For Billing State on Checkout Page");
+            throw e;
+        }
+    }
+
+
+    public void clickStoredAddress() throws Exception {
+        String locator = CheckoutPageEnum.XPATH_ADDRESS_FROM_LIST.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS, "Clicked on Stored Shipping Address in Payment Section");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not click on Stored Shipping Address in Payment Section");
+            throw e;
+        }
+    }
+
 }

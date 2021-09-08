@@ -9,7 +9,6 @@
     <listeners>
         <listener class-name="Runner.TestRunnerListener" />
     </listeners>
-
        <test name="Account Menu Feature">
             <parameter name="browser" value= "&browser;" />
             <parameter name="emailReport" value="&emailReport;" />

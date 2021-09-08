@@ -65,4 +65,11 @@ public class HarnessVariables extends UtilFactory {
     protected final String VALID_PAYPAL_USERNAME = CheckoutEnumVariables.VALID_PAYPAL_USERNAME.getValue();
     protected final String VALID_PAYPAL_PASSWORD = CheckoutEnumVariables.VALID_PAYPAL_PASSWORD.getValue();
     protected static String CREDIT_CARD_NO;
+    protected final String VALID_FIRSTNAME_BILLING = CheckoutEnumVariables.VALID_FIRSTNAME_BILLING.getValue();
+    protected final String VALID_LASTNAME_BILLING = CheckoutEnumVariables.VALID_LASTNAME_BILLING.getValue();
+    protected final String VALID_ADDRESS_BILLING = CheckoutEnumVariables.VALID_ADDRESS_BILLING.getValue();
+    protected final String VALID_PH_NO_BILLING = CheckoutEnumVariables.VALID_PH_NO_BILLING.getValue();
+    protected final String VALID_CITY_BILLING = CheckoutEnumVariables.VALID_CITY_BILLING.getValue();
+    protected final String VALID_STATE_BILLING = CheckoutEnumVariables.VALID_STATE_BILLING.getValue();
+    protected final String VALID_ZIPCODE_BILLING = CheckoutEnumVariables.VALID_ZIPCODE_BILLING.getValue();
 }
