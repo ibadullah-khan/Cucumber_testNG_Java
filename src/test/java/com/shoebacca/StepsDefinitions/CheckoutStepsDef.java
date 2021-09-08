@@ -878,6 +878,37 @@ public class CheckoutStepsDef extends HarnessVariables {
         checkoutPage.enterZipCodeForBilling(VALID_ZIPCODE_BILLING);
     }
 
+    @And("User Enters {string} as Credit Card Number on Checkout Page")
+    public void userEntersAsCreditCardNumberOnCheckoutPage(String creditCardType) throws Exception {
+        String creditCardNumber = new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(creditCardType);
+        checkoutPage.enterCreditCardNumber(creditCardNumber);
+    }
+
+    @And("User Enters Four Digit CVV Number on Checkout Page")
+    public void userEntersFourDigitCVVNumberOnCheckoutPage() throws Exception {
+        String fourDigitCVVNumber = new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty("four.digit.cvv");
+        checkoutPage.enterCreditCardCVV(fourDigitCVVNumber);
+    }
+
+    @Then("User Validates Four CVV Number is Not Entered")
+    public void userValidatesFourCVVNumberIsNotEntered() throws Exception {
+        checkoutPage.validateFourDigitCVVNotEntered();
+    }
+
+    @And("User Clears Credit Card Number on Checkout Page")
+    public void userClearsCreditCardNumberOnCheckoutPage() throws Exception {
+        checkoutPage.clearCreditCardNumber();
+    }
+
+    @And("User Clears Credit Card CVV Number on Checkout Page")
+    public void userClearsCreditCardCVVNumberOnCheckoutPage() throws Exception {
+        checkoutPage.clearCreditCardCVVNumber();
+    }
+
+    @Then("User Validates Four CVV Number is Entered")
+    public void userValidatesFourCVVNumberIsEntered() throws Exception {
+        checkoutPage.validateFourDigitCVVEntered();
+    }
     @Then("User Validates Default Selected Payment Method on Checkout Page")
     public void userValidatesPaymentMethodisSelected() {
         checkoutPage.validatePaymentSelected();

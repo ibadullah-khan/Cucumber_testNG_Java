@@ -2607,6 +2607,93 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
+    public void validateFourDigitCVVNotEntered() throws Exception {
+        String locator = CheckoutPageEnum.XPATH_CREDIT_CARD_CVV_FIELD.getValue();
+        String iframe = CheckoutPageEnum.XPATH_CREDIT_CARD_CVV_IFRAME.getValue();
+        String errorMsg = null;
+        String actualText;
+        try {
+            switchToIframe(iframe);
+            waitFactory.waitForElementToBeVisible(locator);
+            actualText = getAttribute(locator,"maxlength");
+            switchToDefaultContent();
+            if (actualText.contains("4")) {
+                errorMsg = "Could Not Validate as Four Digit CVV Number is Entered";
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+            else {
+                scenarioDef.log(Status.PASS, "Validated that Unable to Enter 4 Digit CVV");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get Credit Card CVV Field on Checkout Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void clearCreditCardNumber() throws Exception {
+        String locator = CheckoutPageEnum.XPATH_CREDIT_CARD_NUMBER_FIELD.getValue();
+        String iframe = CheckoutPageEnum.XPATH_CREDIT_CARD_NO_IFRAME.getValue();
+        try {
+            switchToIframe(iframe);
+            waitFactory.waitForElementToBeClickable(locator);
+            clearField(locator);
+            switchToDefaultContent();
+            scenarioDef.log(Status.PASS, "Credit Card Field is Clear on Checkout Page");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Clear Credit Card Field on Checkout Page");
+            throw e;
+        }
+    }
+
+    public void clearCreditCardCVVNumber() throws Exception {
+        String locator = CheckoutPageEnum.XPATH_CREDIT_CARD_CVV_FIELD.getValue();
+        String iframe = CheckoutPageEnum.XPATH_CREDIT_CARD_CVV_IFRAME.getValue();
+        try {
+            switchToIframe(iframe);
+            waitFactory.waitForElementToBeClickable(locator);
+            clearField(locator);
+            switchToDefaultContent();
+            scenarioDef.log(Status.PASS, "Credit Card CVV Field is Clear on Checkout Page");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Clear Credit Card CVV Field on Checkout Page");
+            throw e;
+        }
+    }
+
+    public void validateFourDigitCVVEntered() throws Exception {
+        String locator = CheckoutPageEnum.XPATH_CREDIT_CARD_CVV_FIELD.getValue();
+        String iframe = CheckoutPageEnum.XPATH_CREDIT_CARD_CVV_IFRAME.getValue();
+        String errorMsg = null;
+        String actualText;
+        try {
+            switchToIframe(iframe);
+            waitFactory.waitForElementToBeVisible(locator);
+            actualText = getAttribute(locator,"maxlength");
+            switchToDefaultContent();
+            if (actualText.contains("4")) {
+                scenarioDef.log(Status.PASS, "Validated that Four Digit CVV is Entered");
+            }
+            else {
+                errorMsg = "Could Not Validate as Four Digit CVV Number is Entered";
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get Credit Card CVV Field on Checkout Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
     public void validatePaymentSelected() {
         String locator = CheckoutPageEnum.XPATH_SELECTED_PAYMENT_FIELD.getValue();
         String errorMsg = null;
