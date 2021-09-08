@@ -233,7 +233,7 @@ Feature: Mini Cart Feature File
     Then User Switches New Tab
     Then User Should Redirect Toward "shoebacca.facebook" Page
 
-  @Regression
+  @C315 @Regression
   Scenario:Verify Customer Can Successfully Authorize And Login Using a Social Media
 
     Given User Setups the Web Browser
