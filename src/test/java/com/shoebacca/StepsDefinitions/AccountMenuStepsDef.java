@@ -56,6 +56,11 @@ public class AccountMenuStepsDef extends HarnessVariables{
         accountMenuPage.enterUsername(VALID_DATA_USERNAME);
     }
 
+    @Then("User Enters Valid Login Shipping Username on Account Menu")
+    public void userEntersValidLoginShippingUsernameOnAccountMenu() throws Exception {
+        accountMenuPage.enterUsername(VALID_DATA_SHIPPING);
+    }
+
     @Then("User Validates Error Message Visibility {string} on Email Field on Account Menu")
     public void userValidatesErrorMessageVisibilityOnEmailOnAccountMenu(String expectedCondition) {
         if(expectedCondition.equals("true")){

@@ -603,6 +603,7 @@ public class CheckoutPageFactory extends UtilFactory {
                 locator = CheckoutPageEnum.XPATH_SHIPPING_DETAIL_CLOSED_STATE.getValue();
             }
             waitFactory.waitForElementToBeInVisible(loader);
+            waitFactory.waitForElementToBeClickable(locator);
             actualVisibility = isVisible(locator);
             if (actualVisibility) {
                 scenarioDef.log(Status.PASS, "Validated Shipping Section is in " + expectedState + " State on Checkout Page");
