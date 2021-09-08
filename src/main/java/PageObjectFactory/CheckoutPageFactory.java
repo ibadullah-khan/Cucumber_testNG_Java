@@ -607,8 +607,6 @@ public class CheckoutPageFactory extends UtilFactory {
     public void validateShippingSectionState(String expectedState) {
         String loader = CheckoutPageEnum.XPATH_SHIPPING_LOADER.getValue();
         String locator = null;
-        String errorMsg = null;
-        Boolean actualVisibility;
         try {
             if (expectedState.contains("edit")) {
                 locator = CheckoutPageEnum.XPATH_SHIPPING_DETAIL_EDIT_STATE.getValue();
@@ -619,20 +617,10 @@ public class CheckoutPageFactory extends UtilFactory {
             }
             waitFactory.waitForElementToBeInVisible(loader);
             waitFactory.waitForElementToBeClickable(locator);
-            actualVisibility = isVisible(locator);
-            if (actualVisibility) {
-                scenarioDef.log(Status.PASS, "Validated Shipping Section is in " + expectedState + " State on Checkout Page");
-            } else {
-                errorMsg = "Validated  Shipping Section is not " + expectedState + " State on Checkout Page";
-                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
-            }
+            scenarioDef.log(Status.PASS, "Validated Shipping Section is in " + expectedState + " State on Checkout Page");
         } catch (Exception e) {
             failureException = e.toString();
-            if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the Shipping Section State Element on Checkout Page");
-            } else {
-                scenarioDef.log(Status.FAIL, errorMsg);
-            }
+            scenarioDef.log(Status.FAIL, "Could not Validate  Shipping Section is "  + expectedState +  " State on Checkout Page");
             throw e;
         }
     }
