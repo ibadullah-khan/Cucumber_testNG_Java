@@ -822,7 +822,6 @@ public class CheckoutStepsDef extends HarnessVariables {
         }
     }
 
-
     @And("User Clicks on Stored Shipping Address in Payment Section")
     public void userClicksStoredShippingInPaymentSection() throws Exception {
         checkoutPage.clickStoredAddress();
