@@ -6,6 +6,7 @@ public enum GlobalEnumVariables {
 
     VALID_LOGIN_USERNAME(""),
 	VALID_LOGIN_DATA_USERNAME(""),
+	VALID_LOGIN_SHIPPING_USERNAME(""),
 	INVALID_LOGIN_USERNAME(""),
     VALID_LOGIN_PASSWORD(""),
 	VALID_ALL_LOGIN_USERNAME(""),
@@ -30,6 +31,7 @@ public enum GlobalEnumVariables {
 
             VALID_LOGIN_USERNAME.globalVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.username");
 			VALID_LOGIN_DATA_USERNAME.globalVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.data.username");
+			VALID_LOGIN_SHIPPING_USERNAME.globalVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.shipping.username");
 			INVALID_LOGIN_USERNAME.globalVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("invalid.username");
             VALID_LOGIN_PASSWORD.globalVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.password");
 			VALID_ALL_LOGIN_USERNAME.globalVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.all.username");
