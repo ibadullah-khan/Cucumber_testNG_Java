@@ -1,7 +1,7 @@
 Feature: Checkout Feature File
   Contains All Checkout Module Test Cases
 
-  @Regression
+  @C238461 @Regression
   Scenario: Verify Shipping Address and Other Data is Retained After Refresh or Came Back to Checkout Page
 
     Given User Setups the Web Browser
@@ -262,7 +262,7 @@ Feature: Checkout Feature File
     Then User Clicks on Guest Checkout Button
     Then User Should Redirect Toward "shopping.checkout" Page
 
-  @Regression
+   @C355 @Regression
     Scenario: Validate Customer Cannot Apply an Invalid/Empty Promo Code.
 
       Given User Setups the Web Browser
@@ -289,7 +289,7 @@ Feature: Checkout Feature File
       Then User Validates "blank.coupon.error.msg" Coupon Error Message Text on Checkout Page
       Then User Validates Total Amount Using Blank Coupon on Checkout Page
 
-  @Regression
+   @C356 @Regression
   Scenario: Validate Customer Can Remove Promo Code.
 
     Given User Setups the Web Browser
@@ -537,7 +537,7 @@ Feature: Checkout Feature File
     Then User Validates Shipping Name on Summary Section on Checkout Page
     Then User Validates Shipping Value on Summary Section on Checkout Page
 
-  @Regression
+   @C238457 @Regression
   Scenario: Verify Phone Number Text Field Accepts Only Numeric Values.
 
     Given User Setups the Web Browser
@@ -707,7 +707,7 @@ Feature: Checkout Feature File
     Then User Clicks on Select from Address Book Button on Checkout Page
     Then User Validates Shipping Detail Address List Visibility "true" on Checkout Page
 
-  @Regression
+   @C238462 @Regression
   Scenario: Validate Customer Can Change Shipping Method.
 
     Given User Setups the Web Browser
@@ -734,7 +734,7 @@ Feature: Checkout Feature File
     Then User Select "expedited.shipping" Shipping Method on Checkout Page
     And User Validates "expedited.shipping" Method Name on Summary Section of Checkout Page
 
-  @Regression
+   @C238461 @Regression
   Scenario: Validate Customer's Selected Shipping Method is Retained on Checkout Page.
 
     Given User Setups the Web Browser
@@ -919,7 +919,7 @@ Feature: Checkout Feature File
     Then User Validates Credit Card Expiry Date Visibility "true" on Checkout Page
     Then User Validates Credit Card Logo Visibility "true" on Checkout Page
 
-  @Regression
+  @C238452 @Regression
   Scenario: Verify Logged in Customer Can Add New Shipping Address at Checkout.
 
     Given User Setups the Web Browser
@@ -1275,3 +1275,19 @@ Feature: Checkout Feature File
     Then User Clicks Place Order Button on Checkout Page
     And User Closes Feedback Window on Confirmation Page
     Then User Validates Order Number Text Visibility "true" on Confirmation Page
+
+  @C238446 @Regression
+    Scenario: Verify New Address Form is Opened By Default If There Are No Saved Addresses For Logged In Customer.
+
+      Given User Setups the Web Browser
+      When User Navigates to "shoebacca.home" Url
+      And User Clicks the Account Icon on Header
+      Then User Enters Valid Login Shipping Username on Account Menu
+      And User Enters Valid Login Password on Account Menu
+      Then User Clicks the Login Button on Account Menu
+      Then User Validates Successful Login on Account Menu
+      And User Clicks the Mini Cart Icon on Header
+      And User Clicks Checkout Button on Mini Cart View
+      Then User Should Redirect Toward "shopping.checkout" Page
+      Then User Validates Shipping Detail Section is in "edit" State
+
