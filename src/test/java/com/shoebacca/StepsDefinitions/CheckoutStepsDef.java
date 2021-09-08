@@ -822,6 +822,11 @@ public class CheckoutStepsDef extends HarnessVariables {
         }
     }
 
+    @And("User Clicks on Stored Shipping Address in Payment Section")
+    public void userClicksStoredShippingInPaymentSection() throws Exception {
+        checkoutPage.clickStoredAddress();
+    }
+
     @Then("User Validates {string} is Already Applied on Checkout Page")
     public void userValidatesIsAlreadyAppliedOnCheckoutPage(String coupon) throws Exception {
         String couponValue= new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(coupon);
