@@ -832,4 +832,40 @@ public class CheckoutStepsDef extends HarnessVariables {
         String couponValue= new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(coupon);
         checkoutPage.validateAppliedCouponValue(couponValue);
     }
+
+    @And("User Enters Valid First Name For Billing on Checkout Page")
+    public void userEntersValidFirstNameForBillingOnCheckoutPage() throws Exception {
+        checkoutPage.enterFirstNameForBilling(VALID_FIRSTNAME_BILLING);
+    }
+
+    @And("User Enters Valid Last Name For Billing on Checkout Page")
+    public void userEntersValidLastNameForBillingOnCheckoutPage() throws Exception {
+        checkoutPage.enterLastNameForBilling(VALID_LASTNAME_BILLING);
+    }
+
+    @And("User Enters Valid Phone No For Billing on Checkout Page")
+    public void userEntersValidPhoneNoForBillingOnCheckoutPage() throws Exception {
+        checkoutPage.enterPhNoForBilling(VALID_PH_NO_BILLING);
+    }
+
+    @And("User Enters Valid Address For Billing on Checkout Page")
+    public void userEntersValidAddressForBillingOnCheckoutPage() throws Exception {
+        checkoutPage.enterAddressForBilling(VALID_ADDRESS_BILLING);
+    }
+
+    @And("User Enters Valid City For Billing on Checkout Page")
+    public void userEntersValidCityForBillingOnCheckoutPage() throws Exception {
+        checkoutPage.enterCityForBilling(VALID_CITY_BILLING);
+    }
+
+    @And("User Selects Valid State For Billing on Checkout Page")
+    public void userSelectsValidStateForBillingOnCheckoutPage() throws Exception {
+        checkoutPage.selectStateForBilling(VALID_STATE_BILLING);
+    }
+
+    @And("User Enters Valid Zip Code For Billing on Checkout Page")
+    public void userEntersValidZipCodeForBillingOnCheckoutPage() throws Exception {
+        checkoutPage.enterZipCodeForBilling(VALID_ZIPCODE_BILLING);
+    }
+
 }

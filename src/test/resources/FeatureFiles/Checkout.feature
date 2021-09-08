@@ -1220,6 +1220,39 @@ Feature: Checkout Feature File
     Then User Validates Discounted Amount on Checkout Page
 
   @Regression
+  Scenario: Validate Guest Customer Can Select Different Billing Address.
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
+    And User Enters Valid Email Address on Checkout Page
+    And User Enters Valid First Name on Checkout Page
+    And User Enters Valid Last Name on Checkout Page
+    And User Enters Valid Address on Checkout Page
+    And User Enters Valid City on Checkout Page
+    And User Selects Valid State on Checkout Page
+    And User Enters Valid Zip Code on Checkout Page
+    And User Enters Valid Phone No on Checkout Page
+    Then User Clicks Save and Continue Button on Checkout Page
+    And User Enters Valid Credit Card Number on Checkout Page
+    And User Enters Valid Credit Card Expiry Date on Checkout Page
+    And User Enters Valid Credit Card CVV on Checkout Page
+    Then User Clicks on Use Shipping Address for Billing Checkbox
+    And User Enters Valid First Name For Billing on Checkout Page
+    And User Enters Valid Last Name For Billing on Checkout Page
+    And User Enters Valid Address For Billing on Checkout Page
+    And User Enters Valid City For Billing on Checkout Page
+    And User Selects Valid State For Billing on Checkout Page
+    And User Enters Valid Zip Code For Billing on Checkout Page
+    And User Enters Valid Phone No For Billing on Checkout Page
+    Then User Clicks Place Order Button on Checkout Page
+    And User Closes Feedback Window on Confirmation Page
+    Then User Validates Order Number Text Visibility "true" on Confirmation Page
+  @Regression
   Scenario: Validate Logged in Customer Can Select a Different Billing Address in The Payment Section.
 
     Given User Setups the Web Browser
