@@ -25,6 +25,7 @@ public class HarnessVariables extends UtilFactory {
     protected final String VALID_ALL_USERNAME = GlobalEnumVariables.VALID_ALL_LOGIN_USERNAME.getValue();
     protected final String VALID_USERNAME = GlobalEnumVariables.VALID_LOGIN_USERNAME.getValue();
     protected final String VALID_DATA_USERNAME = GlobalEnumVariables.VALID_LOGIN_DATA_USERNAME.getValue();
+    protected final String VALID_DATA_SHIPPING = GlobalEnumVariables.VALID_LOGIN_SHIPPING_USERNAME.getValue();
     protected final String INVALID_USERNAME = GlobalEnumVariables.INVALID_LOGIN_USERNAME.getValue();
     protected final String VALID_PASSWORD = GlobalEnumVariables.VALID_LOGIN_PASSWORD.getValue();
     protected final String INVALID_PASSWORD = GlobalEnumVariables.INVALID_LOGIN_PASSWORD.getValue();
@@ -72,4 +73,5 @@ public class HarnessVariables extends UtilFactory {
     protected final String VALID_CITY_BILLING = CheckoutEnumVariables.VALID_CITY_BILLING.getValue();
     protected final String VALID_STATE_BILLING = CheckoutEnumVariables.VALID_STATE_BILLING.getValue();
     protected final String VALID_ZIPCODE_BILLING = CheckoutEnumVariables.VALID_ZIPCODE_BILLING.getValue();
+    protected final String VALID_SOCIAL_MEDIA_USER_ID = GlobalEnumVariables.VALID_SOCIAL_MEDIA_USER_ID.getValue();
 }
