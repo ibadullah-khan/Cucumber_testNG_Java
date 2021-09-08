@@ -35,8 +35,9 @@ public enum GlobalEnumVariables {
             VALID_LOGIN_PASSWORD.globalVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.password");
 			VALID_ALL_LOGIN_USERNAME.globalVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.all.username");
 			INVALID_LOGIN_PASSWORD.globalVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("invalid.password");
+			VALID_ALL_LOGIN_USERNAME.globalVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.all.username");
 
-        } catch (Exception e) {
+		} catch (Exception e) {
 
             e.printStackTrace();
         }

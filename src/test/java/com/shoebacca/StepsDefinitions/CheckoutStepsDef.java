@@ -560,7 +560,6 @@ public class CheckoutStepsDef extends HarnessVariables {
         checkoutPage.validateShippingValueonSummary(SHIPPING_VALUE);
     }
 
-
     @Then("User Validates PayPal Section Visibility {string}")
     public void userValidatesPayPalSectionVisibility(String expectedCondition) {
         if(expectedCondition.equals("true")){
@@ -569,6 +568,7 @@ public class CheckoutStepsDef extends HarnessVariables {
             checkoutPage.validatePayPalSectionVisibility(false);
         }
     }
+
     @Then("User Clicks on Pay with PayPal Button on Checkout Page")
     public void userClicksPayWithPayPalButtonOnCheckoutPage() throws Exception {
         checkoutPage.clickPayWithPayPalButton();
@@ -777,4 +777,95 @@ public class CheckoutStepsDef extends HarnessVariables {
         String expectedErrorMsgText = new PropertyLoaderFactory().getPropertyFile(errorMsgPropFile).getProperty(errorMsgText);
         checkoutPage.validateRequiredErrorMessageTextOnBillingSection(expectedinputField, expectedErrorMsgText);
     }
+
+    @Then("User Clicks on Change Address Button on Checkout Page")
+    public void userClicksOnChangeAddressButtonOnCheckoutPage() {
+        checkoutPage.clickChangeAddressButton();
+    }
+
+    @Then("User Select First Saved Address on Checkout Page")
+    public void userSelectFirstSavedAddressOnCheckoutPage() {
+        checkoutPage.selectSavedAddress();
+    }
+
+    @Then("User Fetches Shipping Address on Checkout Page")
+    public void userFetchesShippingAddressOnCheckoutPage() {
+        SHIPPING_METHOD_USERNAME=checkoutPage.getShippingUserName();
+    }
+
+    @Then("User Validates Shipping Address User Name on Checkout Page")
+    public void userValidatesShippingAddressUserNameOnCheckoutPage() {
+        checkoutPage.validateShippingAddressName(SHIPPING_METHOD_USERNAME);
+    }
+
+    @Then("User Validates Shipping Address Quantity on Checkout Page")
+    public void userValidatesShippingAddressQuantityOnCheckoutPage() {
+        SHIPPING_ADDRESS = checkoutPage.validateShippingAddressQuantityVisibility();
+    }
+
+    @Then("User Validates Default Address Visibility {string} on Checkout Page")
+    public void userValidatesDefaultAddressVisibilityOnCheckoutPage(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            checkoutPage.validateDefaultAddressVisibility(true);
+        }else {
+            checkoutPage.validateDefaultAddressVisibility(false);
+        }
+    }
+
+    @Then("User Validates {string} Credit Card Visibility {string}")
+    public void userValidatesCreditCardVisibility(String visaType, String expectedCondition) throws Exception {
+        String expectedVisaType = new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(visaType);
+        if (expectedCondition.equals("true")) {
+            checkoutPage.validateCreditCardTypeVisibility(expectedVisaType,true);
+        } else {
+            checkoutPage.validateCreditCardTypeVisibility(expectedVisaType,false);
+        }
+    }
+
+    @And("User Clicks on Stored Shipping Address in Payment Section")
+    public void userClicksStoredShippingInPaymentSection() throws Exception {
+        checkoutPage.clickStoredAddress();
+    }
+
+    @Then("User Validates {string} is Already Applied on Checkout Page")
+    public void userValidatesIsAlreadyAppliedOnCheckoutPage(String coupon) throws Exception {
+        String couponValue= new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(coupon);
+        checkoutPage.validateAppliedCouponValue(couponValue);
+    }
+
+    @And("User Enters Valid First Name For Billing on Checkout Page")
+    public void userEntersValidFirstNameForBillingOnCheckoutPage() throws Exception {
+        checkoutPage.enterFirstNameForBilling(VALID_FIRSTNAME_BILLING);
+    }
+
+    @And("User Enters Valid Last Name For Billing on Checkout Page")
+    public void userEntersValidLastNameForBillingOnCheckoutPage() throws Exception {
+        checkoutPage.enterLastNameForBilling(VALID_LASTNAME_BILLING);
+    }
+
+    @And("User Enters Valid Phone No For Billing on Checkout Page")
+    public void userEntersValidPhoneNoForBillingOnCheckoutPage() throws Exception {
+        checkoutPage.enterPhNoForBilling(VALID_PH_NO_BILLING);
+    }
+
+    @And("User Enters Valid Address For Billing on Checkout Page")
+    public void userEntersValidAddressForBillingOnCheckoutPage() throws Exception {
+        checkoutPage.enterAddressForBilling(VALID_ADDRESS_BILLING);
+    }
+
+    @And("User Enters Valid City For Billing on Checkout Page")
+    public void userEntersValidCityForBillingOnCheckoutPage() throws Exception {
+        checkoutPage.enterCityForBilling(VALID_CITY_BILLING);
+    }
+
+    @And("User Selects Valid State For Billing on Checkout Page")
+    public void userSelectsValidStateForBillingOnCheckoutPage() throws Exception {
+        checkoutPage.selectStateForBilling(VALID_STATE_BILLING);
+    }
+
+    @And("User Enters Valid Zip Code For Billing on Checkout Page")
+    public void userEntersValidZipCodeForBillingOnCheckoutPage() throws Exception {
+        checkoutPage.enterZipCodeForBilling(VALID_ZIPCODE_BILLING);
+    }
+
 }

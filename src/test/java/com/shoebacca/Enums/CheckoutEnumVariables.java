@@ -28,7 +28,14 @@ public enum CheckoutEnumVariables {
 	INVALID_CC_CVV(""),
 	CALCULATED_TAX_VALUE(""),
 	VALID_PAYPAL_USERNAME(""),
-	VALID_PAYPAL_PASSWORD("");
+	VALID_PAYPAL_PASSWORD(""),
+	VALID_FIRSTNAME_BILLING(""),
+	VALID_LASTNAME_BILLING(""),
+	VALID_ADDRESS_BILLING(""),
+	VALID_PH_NO_BILLING(""),
+	VALID_CITY_BILLING(""),
+	VALID_STATE_BILLING(""),
+	VALID_ZIPCODE_BILLING("");
 
     private String checkoutVariables;
 
@@ -71,6 +78,13 @@ public enum CheckoutEnumVariables {
 			CALCULATED_TAX_VALUE.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("calculated.tax.value");
 			VALID_PAYPAL_USERNAME.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.paypal.email");
 			VALID_PAYPAL_PASSWORD.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.paypal.password");
+			VALID_FIRSTNAME_BILLING.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.first.name.billing");
+			VALID_LASTNAME_BILLING.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.last.name.billing");
+			VALID_ADDRESS_BILLING.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.address.billing");
+			VALID_PH_NO_BILLING.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.ph.no.billing");
+			VALID_CITY_BILLING.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.city.billing");
+			VALID_STATE_BILLING.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.state.billing");
+			VALID_ZIPCODE_BILLING.checkoutVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.zip.code.billing");
         } catch (Exception e) {
 
             e.printStackTrace();
