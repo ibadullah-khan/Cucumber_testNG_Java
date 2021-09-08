@@ -232,3 +232,20 @@ Feature: Mini Cart Feature File
     Then User Clicks Social Media Button on Cart View
     Then User Switches New Tab
     Then User Should Redirect Toward "shoebacca.facebook" Page
+
+  @Regression
+  Scenario:Verify Customer Can Successfully Authorize And Login Using a Social Media
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks on View Cart Button
+    Then User Clicks Checkout Button on Cart View
+    Then User Clicks Social Media Button on Cart View
+    Then User Switches New Tab
+    Then User Should Redirect Toward "shoebacca.facebook" Page
+    Then User Enters Id on Facebook Page
+    Then User Enters Password on Facebook Page
+    Then User Clicks on Login Button on Facebook Page
+    Then User Should Redirect Toward "shoebacca.facebook.home" Page
