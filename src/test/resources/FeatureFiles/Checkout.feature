@@ -1291,8 +1291,6 @@ Feature: Checkout Feature File
       Then User Should Redirect Toward "shopping.checkout" Page
       Then User Validates Shipping Detail Section is in "edit" State
 
-
-
   @C337 @Regression
   Scenario: Validate The Billing Address is The Same As Shipping By Default.
 
