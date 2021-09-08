@@ -1252,6 +1252,7 @@ Feature: Checkout Feature File
     Then User Clicks Place Order Button on Checkout Page
     And User Closes Feedback Window on Confirmation Page
     Then User Validates Order Number Text Visibility "true" on Confirmation Page
+
   @Regression
   Scenario: Validate Logged in Customer Can Select a Different Billing Address in The Payment Section.
 
