@@ -1095,3 +1095,19 @@ Feature: Checkout Feature File
     Then User Switches to Parent Tab
     And User Closes Feedback Window on Confirmation Page
     Then User Validates Order Number Text Visibility "true" on Confirmation Page
+
+    @Regression
+    Scenario: Verify New Address Form is Opened By Default If There Are No Saved Addresses For Logged In Customer.
+
+      Given User Setups the Web Browser
+      When User Navigates to "shoebacca.first.bag.pdt" Url
+      And User Clicks Add to Cart Button on PDP
+      And User Validates Successful Triggered Mini Cart
+      And User Clicks Checkout Button on Mini Cart View
+      Then User Clicks on Member Checkout Button
+      And User Enters Valid Login Data Username on Account Menu
+      And User Enters Valid Login Password on Account Menu
+      And User Clicks the Login Button on Account Menu
+      Then User Validates Shipping Detail Section is in "open" State
+      Then User Validates Shipping Detail Address Form Visibility "true" on Checkout Page
+
