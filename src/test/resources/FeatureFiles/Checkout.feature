@@ -1276,7 +1276,7 @@ Feature: Checkout Feature File
     And User Closes Feedback Window on Confirmation Page
     Then User Validates Order Number Text Visibility "true" on Confirmation Page
 
-  @Regression
+  @C337 @Regression
   Scenario: Validate The Billing Address is The Same As Shipping By Default.
 
     Given User Setups the Web Browser
