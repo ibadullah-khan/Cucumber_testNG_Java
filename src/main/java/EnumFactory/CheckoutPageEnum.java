@@ -73,11 +73,11 @@ public enum CheckoutPageEnum {
     XPATH_PRODUCT_SAVE_AMOUNT("//*[@class='item-saveAmount-3UV']"),
     XPATH_PRODUCT_IMAGE_LOADER("//*[@class='checkoutPage-summaryContainer-2kD']//span[@class='icon-root-2Hz']"),
     XPATH_SUBTOTAL_TEXT("//*[@class='priceSummary-lineItemLabel-1zJ' and text()='Subtotal']"),
+    XPATH_TOTAL_AMOUNT("//div[@class='priceSummary-itemTotals-G6J']//*[@class='priceSummary-totalPrice-rZa']"),
     XPATH_PAYMENT_LOADER("//*[@class='indicator-root-2nl']"),
+    XPATH_DISCOUNT_AMOUNT("//*[contains(text(),'Discount')]//following::span[@class='priceSummary-price-12K']"),
     XPATH_PAYMENT_ERROR_MESSAGE("//*[@data-braintree-id='sheet-error']"),
     XPATH_PAYMENT_FORM_ERROR_MSG_START("//*[@data-braintree-id='"),
-    XPATH_TOTAL_AMOUNT("//div[@class='priceSummary-itemTotals-G6J']//*[@class='priceSummary-totalPrice-rZa']"),
-    XPATH_DISCOUNT_AMOUNT("//*[contains(text(),'Discount')]//following::span[@class='priceSummary-price-12K']"),
     XPATH_PAYMENT_FORM_ERROR_MSG_END("-field-error']"),
     XPATH_PAYPAL_SECTION("//*[@id='paypal-button']"),
     XPATH_PAY_WITH_PAYPAL_BUTTON("//*[@class='paypal-button-label-container']"),
@@ -90,6 +90,12 @@ public enum CheckoutPageEnum {
     XPATH_CREDIT_CARD_LAST_DIGITS("//*[@class='radio-input-IKa' and @checked]//following-sibling::*//span[not(@class)]"),
     XPATH_CREDIT_CARD_EXPIRY_DATE("//div[@class='storedPaymentInformation-savedPayments-20v']//p[not(@class)]"),
     XPATH_CREDIT_CARD_LOGO("//*[@class='radio-input-IKa' and @checked]//following-sibling::*//span[@class='storedPaymentInformation-cardType-kvp storedPaymentInformation-mVisa-nVm']"),
+    XPATH_SHIPPING_ADDRESS_USER("//*[@class='card-name-1C0']"),
+    XPATH_SHIPPING_ADDRESS_USERNAME("(//*[@class='addressCard-defaultBadge-1w4' and contains(text(),'Default')])[1]/following-sibling::*[@class='addressCard-name-Tby']"),
+    XPATH_CHANGE_SHIPPING_ADDRESS("//*[@id='change_button']//span[@class='icon-root-2Hz']"),
+    XPATH_SHIPPING_DETAILS("//div[@class='addressBook-content-34e']//button"),
+    XPATH_DEFAULT_SHIPPING_ADDRESS("//*[@class='shippingInformation-cardContainer-3l1']//div[@class='card-root-3nz']"),
+    XPATH_SAVED_FIRST_SHIPPING_ADDRESS("//*[@class='addressCard-root_selected-XwX']//span[@class='addressCard-name-Tby']"),
     XPATH_CREDIT_CARD_EMPTY_FIELD("//*[@class='number' and not(@aria-invalid)]"),
     XPATH_EXPIRY_DATE_EMPTY_FIELD("//*[@class='expirationDate' and not(@aria-invalid)]"),
     XPATH_CVV_NUMBER_EMPTY_FIELD("//*[@class='cvv' and not(@aria-invalid)]"),
@@ -100,7 +106,10 @@ public enum CheckoutPageEnum {
     XPATH_BILLING_ADDRESS_SECTION("//*[@class='creditCard-fields_root-Ott creditCard-mLoggedin-1dC']"),
     XPATH_REQ_FIELD_ERROR_MESSAGE_BILLING_SECTION_START("//*[@placeholder='"),
     XPATH_REQ_FIELD_ERROR_MESSAGE_BILLING_SECTION_END("']/parent::*/parent::*/following-sibling::p[@class='message-root_error-1YZ']"),
-    XPATH_REQ_ERROR_MES_STATE_FIELD("//*[@name='region']//following-sibling::p[@class='message-root_error-1YZ']");
+    XPATH_REQ_ERROR_MES_STATE_FIELD("//*[@name='region']//following-sibling::p[@class='message-root_error-1YZ']"),
+    XPATH_CREDIT_CARD_TYPE_START("//*[@class='creditCard-credit_card_root-1tP']//span[contains(@class,'"),
+    XPATH_CREDIT_CARD_TYPE_END("')]"),
+    XPATH_FETCHING_PAYMENT_INFORMATION_LOADER("//*[@class='paymentInformation-loading-3aw']//*[@class='icon-root-2Hz']");
 
     private String checkoutPageVariables;
 
