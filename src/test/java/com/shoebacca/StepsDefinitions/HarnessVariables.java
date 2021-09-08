@@ -73,4 +73,5 @@ public class HarnessVariables extends UtilFactory {
     protected final String VALID_CITY_BILLING = CheckoutEnumVariables.VALID_CITY_BILLING.getValue();
     protected final String VALID_STATE_BILLING = CheckoutEnumVariables.VALID_STATE_BILLING.getValue();
     protected final String VALID_ZIPCODE_BILLING = CheckoutEnumVariables.VALID_ZIPCODE_BILLING.getValue();
+    protected final String VALID_SOCIAL_MEDIA_USER_ID = GlobalEnumVariables.VALID_SOCIAL_MEDIA_USER_ID.getValue();
 }
