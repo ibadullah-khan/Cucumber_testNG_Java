@@ -44,6 +44,7 @@ public class SocialMediaPageFactory extends UtilFactory {
         }catch (Exception e){
             failureException = e.toString();
             scenarioDef.log(Status.FAIL,"Could not Click on Login Button on Facebook Page");
+            throw e;
         }
     }
 }
