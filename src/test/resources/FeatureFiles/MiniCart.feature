@@ -219,3 +219,16 @@ Feature: Mini Cart Feature File
     And User Clicks on View Cart Button
     Then User Clicks Checkout Button on Cart View
     Then User Validates Social Login Button Visibility "true"
+
+  @Regression
+  Scenario:Verify Clicking a Social Media Button Redirects to Relevant Page with Option to Login
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks on View Cart Button
+    Then User Clicks Checkout Button on Cart View
+    Then User Clicks Social Media Button on Cart View
+    Then User Switches New Tab
+    Then User Should Redirect Toward "shoebacca.facebook" Page
