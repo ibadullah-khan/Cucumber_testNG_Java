@@ -10,9 +10,11 @@ public class HarnessVariables extends UtilFactory {
     public HarnessVariables() throws Exception {
     }
     protected static String PRODUCT_NAME;
+    protected static String SHIPPING_METHOD_USERNAME;
     protected static String SHIPPING_METHOD;
     protected static String SHIPPING_VALUE;
     protected static String[] ALL_EXPECTED_DATE;
+    protected static String[] SHIPPING_ADDRESS;
     protected static String TAX_VALUE;
     protected static String PRODUCT_PRICE;
     protected static String PRODUCT_COLOUR;
@@ -60,5 +62,14 @@ public class HarnessVariables extends UtilFactory {
     protected final String EXPECTED_HOLIDAYS = CartEnumVariables.EXPECTED_HOLIDAYS.getValue();
     protected final String EXPECTED_CUT_OFF_TIME = CartEnumVariables.EXPECTED_CUT_OFF_TIME.getValue();
     protected final String CALCULATED_TAX_VALUE = CheckoutEnumVariables.CALCULATED_TAX_VALUE.getValue();
+    protected final String VALID_PAYPAL_USERNAME = CheckoutEnumVariables.VALID_PAYPAL_USERNAME.getValue();
+    protected final String VALID_PAYPAL_PASSWORD = CheckoutEnumVariables.VALID_PAYPAL_PASSWORD.getValue();
     protected static String CREDIT_CARD_NO;
+    protected final String VALID_FIRSTNAME_BILLING = CheckoutEnumVariables.VALID_FIRSTNAME_BILLING.getValue();
+    protected final String VALID_LASTNAME_BILLING = CheckoutEnumVariables.VALID_LASTNAME_BILLING.getValue();
+    protected final String VALID_ADDRESS_BILLING = CheckoutEnumVariables.VALID_ADDRESS_BILLING.getValue();
+    protected final String VALID_PH_NO_BILLING = CheckoutEnumVariables.VALID_PH_NO_BILLING.getValue();
+    protected final String VALID_CITY_BILLING = CheckoutEnumVariables.VALID_CITY_BILLING.getValue();
+    protected final String VALID_STATE_BILLING = CheckoutEnumVariables.VALID_STATE_BILLING.getValue();
+    protected final String VALID_ZIPCODE_BILLING = CheckoutEnumVariables.VALID_ZIPCODE_BILLING.getValue();
 }
