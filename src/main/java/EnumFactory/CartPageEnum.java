@@ -54,7 +54,13 @@ public enum CartPageEnum {
     XPATH_PREDICT_INSPECTOR_ITEM_DESCRIPTION_START("//*[@class='sc-event-caption-title' and text()='"),
     XPATH_SOCIAL_MEDIA_BUTTON("//*[@class='checkoutProcess-body-2hF']//*[@class='facebookLogin-btnFacebook-21h metro']"),
     XPATH_PREDICT_INSPECTOR_ITEM_DESCRIPTION_END("']//following-sibling::span"),
-    XPATH_SHIPPING_LABEL("//span[@class='priceSummary-lineItemLabel-122' and contains(text(),'Shipping')]");
+    XPATH_SHIPPING_LABEL("//span[@class='priceSummary-lineItemLabel-122' and contains(text(),'Shipping')]"),
+    XPATH_GIFT_ITEMS_POP_UP_WINDOW("//*[@class='giftItems-root_open-1DD']"),
+    XPATH_GIFT_ITEMS_POP_UP_WINDOW_CLOSE_ICON("//*[@class='giftItems-closeButton-39A']"),
+    XPATH_GIFT_ITEMS_POP_UP_WINDOW_LOADER("//*[@class='giftItems-body-2xv']//*[@class='icon-root-2Hz']"),
+    XPATH_FREE_GIFT_LINK("//*[text()='Free Gift']"),
+    XPATH_FIRST_AVAILABLE_ITEM("//*[@class='customSelect']//option[2]"),
+    XPATH_GIFT_ITEMS_POP_UP_WINDOW_ADD_TO_CART("//*[text()='Add to Cart']");
 
     private String cartPageVariables;
 

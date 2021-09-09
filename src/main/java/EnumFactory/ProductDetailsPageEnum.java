@@ -8,7 +8,7 @@ public enum ProductDetailsPageEnum {
     XPATH_PRODUCT_COLOUR("//*[@id='productFullDetail']//*[@class='productFullDetail-colorSwatchName-2by']"),
     XPATH_PRODUCT_SIZE("//*[@class='tile-root_selected-1uw']/span"),
     XPATH_PRODUCT_BRAND("//*[@id='productFullDetail']//*[@class='productFullDetail-brandName-38D']"),
-    XPATH_SELECT_FIRST_AVAILABLE_PRODUCT_SIZE("//*[@class='tileList-root-3cR']//button[not(@disabled)]"),
+    XPATH_SELECT_FIRST_AVAILABLE_PRODUCT_SIZE("//span[text()='select size']/parent::*/following-sibling::*//button[not(@disabled)]"),
     XPATH_ESTIMATED_DELIVERY_DATE("//*[@class='productFullDetail-delievryMessage-Cl1']/span"),
     XPATH_PRODUCT_PRICE("//*[@id='productFullDetail']//*[@class='productFullDetail-price-hNW']");
 
