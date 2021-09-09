@@ -498,15 +498,15 @@ public class CartStepsDef extends HarnessVariables{
     @Then("User Validates Gift Items Pop Up Window Visibility {string}")
     public void userValidatesGiftItemsPopUpWindowVisibility(String expectedCondition) {
         if(expectedCondition.equals("true")){
-            cartPage.validateGiftItemsPopWindowVisibility(true);
+            cartPage.validateGiftItemPopWindowVisibility(true);
         }else {
-            cartPage.validateGiftItemsPopWindowVisibility(false);
+            cartPage.validateGiftItemPopWindowVisibility(false);
         }
     }
 
     @Then("User Clicks on Close Icon on Gift Items Pop Up Window")
     public void userClicksOnCloseIconOnGiftItemsPopUpWindow() {
-        cartPage.clickOnCloseIconOnGiftItemsPopupWindow();
+        cartPage.clickOnCloseIconOnGiftItemPopupWindow();
     }
 
     @Then("User Clicks on Free Gift Link on Cart Page")

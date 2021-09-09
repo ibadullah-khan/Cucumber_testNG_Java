@@ -55,12 +55,12 @@ public enum CartPageEnum {
     XPATH_SOCIAL_MEDIA_BUTTON("//*[@class='checkoutProcess-body-2hF']//*[@class='facebookLogin-btnFacebook-21h metro']"),
     XPATH_PREDICT_INSPECTOR_ITEM_DESCRIPTION_END("']//following-sibling::span"),
     XPATH_SHIPPING_LABEL("//span[@class='priceSummary-lineItemLabel-122' and contains(text(),'Shipping')]"),
-    XPATH_GIFT_ITEMS_POP_UP_WINDOW("//*[@class='giftItems-root_open-1DD']"),
-    XPATH_GIFT_ITEMS_POP_UP_WINDOW_CLOSE_ICON("//*[@class='giftItems-closeButton-39A']"),
+    XPATH_GIFT_ITEM_POP_UP_WINDOW("//*[@class='giftItems-root_open-1DD']"),
+    XPATH_GIFT_ITEM_POP_UP_WINDOW_CLOSE_ICON("//*[@class='giftItems-closeButton-39A']"),
     XPATH_FREE_GIFT_LINK("//*[text()='Free Gift']"),
     XPATH_FIRST_AVAILABLE_ITEM_START("//*[text()='"),
     XPATH_FIRST_AVAILABLE_ITEM_END("']/parent::div//*[@class='customSelect']//option[2]"),
-    XPATH_GIFT_ITEMS_POP_UP_WINDOW_ADD_TO_CART("//*[text()='Add to Cart']"),
+    XPATH_GIFT_ITEM_POP_UP_WINDOW_ADD_TO_CART("//*[text()='Add to Cart']"),
     XPATH_GIFT_ITEM_FREE_TAG_START("//*[text()='"),
     XPATH_GIFT_ITEM_FREE_TAG_END("']/parent::*/parent::*/parent::*/parent::*/following-sibling::div/span");
 
