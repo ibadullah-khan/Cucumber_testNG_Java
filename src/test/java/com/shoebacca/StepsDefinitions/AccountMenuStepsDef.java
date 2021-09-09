@@ -168,4 +168,9 @@ public class AccountMenuStepsDef extends HarnessVariables{
     public void userClicksOnAddressBookOption() throws Exception {
         accountMenuPage.clickOnAddressBookOption();
     }
+
+    @Then("User Enters Valid Login No Cards Stored Username on Account Menu")
+    public void userEntersValidLoginNoCardsStoredUsernameOnAccountMenu() throws Exception {
+        accountMenuPage.enterUsername(VALID_NO_CARD_USERNAME);
+    }
 }
