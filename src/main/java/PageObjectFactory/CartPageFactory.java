@@ -1820,11 +1820,11 @@ public class CartPageFactory extends UtilFactory {
 
     public void validateFreeGiftLinkVisibility(Boolean expectedVisibility) {
         String locator = CartPageEnum.XPATH_FREE_GIFT_LINK.getValue();
-        String checkoutbutton = CartPageEnum.XPATH_GIFT_ITEM_POP_UP_WINDOW.getValue();
+        String giftPopupWindow = CartPageEnum.XPATH_GIFT_ITEM_POP_UP_WINDOW.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
         try {
-            waitFactory.waitForElementToBeInVisible(checkoutbutton);
+            waitFactory.waitForElementToBeInVisible(giftPopupWindow);
             customWait(3000);
             actualVisibility = isVisible(locator);
             if (actualVisibility && expectedVisibility) {
