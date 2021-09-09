@@ -2747,4 +2747,45 @@ public class CheckoutPageFactory extends UtilFactory {
             throw e;
         }
     }
+
+    public void validatePaymentMethodOptionVisibility(String expectedPaymentMethod, boolean expectedVisibility) {
+        String locator = CheckoutPageEnum.XPATH_START_PAYMENT_METHOD.getValue() + expectedPaymentMethod + CheckoutPageEnum.XPATH_END_PAYMENT_METHOD.getValue();
+        String loader = CheckoutPageEnum.XPATH_PAYMENT_LOADER.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try {
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated "+expectedPaymentMethod+" Method is Displayed as Expected on Checkout Page");
+            } else if (!actualVisibility && !expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated "+expectedPaymentMethod+" Method is not Displayed as Expected on Checkout Page");
+            } else if (actualVisibility && !expectedVisibility) {
+                errorMsg = "Validated "+expectedPaymentMethod+" Method is not Displayed Unexpected on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
+                errorMsg = "Validated "+expectedPaymentMethod+" Method is Displayed Unexpectedly on Checkout Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
+    }
+
+    public void waitForPaymentMethodToLoad() {
+        String loader = CheckoutPageEnum.XPATH_PAYMENT_LOADER.getValue();
+        String errorMsg = null;
+        try{
+            waitFactory.waitForElementToBeVisible(loader);
+            waitFactory.waitForElementToBeInVisible(loader);
+            scenarioDef.log(Status.PASS, "Succesfully Waited for Payment Methods to load on Checkout Page");
+        }
+        catch (Exception e) {
+            errorMsg="Unable to Wait for Payment Methods to Load on Checkout Page";
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
+    }
 }

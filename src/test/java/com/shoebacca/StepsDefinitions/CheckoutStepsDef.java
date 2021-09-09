@@ -929,4 +929,19 @@ public class CheckoutStepsDef extends HarnessVariables {
             checkoutPage.validatePaymentSelected(expectedPaymentMethod,false);
         }
     }
+
+    @Then("User Validates Payment Method {string} Option Visibility {string} on Checkout Page")
+    public void userValidatePaymentMethodOptionVisibilityOnCheckoutPage(String paymentMethod ,String expectedCondition) throws Exception {
+        String expectedPaymentMethod = new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(paymentMethod);
+        if(expectedCondition.equals("true")){
+            checkoutPage.validatePaymentMethodOptionVisibility(expectedPaymentMethod,true);
+        }else {
+            checkoutPage.validatePaymentMethodOptionVisibility(expectedPaymentMethod,false);
+        }
+    }
+
+    @Then("User waits for Payment Method to Load")
+    public void userWaitsForPaymentMethodToLoad() {
+        checkoutPage.waitForPaymentMethodToLoad();
+    }
 }
