@@ -1,6 +1,6 @@
 package com.shoebacca.StepsDefinitions;
 
-import PageObjectFactory.AccountMenuPageFactory;
+
 import PageObjectFactory.CheckoutPageFactory;
 import UtilitiesFactory.PropertyLoaderFactory;
 import io.cucumber.java.en.And;
@@ -9,14 +9,12 @@ import io.cucumber.java.en.Then;
 public class CheckoutStepsDef extends HarnessVariables {
 
     CheckoutPageFactory checkoutPage;
-    AccountMenuPageFactory accountMenuPage;
     protected String checkoutPropFile = "checkout.properties";
     protected String errorMsgPropFile = "errorMsg.properties";
     protected String runPropFile = "run.properties";
 
     public CheckoutStepsDef() throws Exception {
         checkoutPage = new CheckoutPageFactory();
-        accountMenuPage = new AccountMenuPageFactory();
     }
 
     @And("User Enters Valid Email Address on Checkout Page")
@@ -920,10 +918,5 @@ public class CheckoutStepsDef extends HarnessVariables {
         } else {
             checkoutPage.validateSaveCardForNextPayVisibility(false);
         }
-    }
-
-    @Then("User Enters Valid Login No Cards Stored Username on Account Menu")
-    public void userEntersValidLoginNoCardsStoredUsernameOnAccountMenu() throws Exception {
-        accountMenuPage.enterUsername(VALID_NO_CARD_USERNAME);
     }
 }
