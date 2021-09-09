@@ -657,7 +657,7 @@ public class CartPageFactory extends UtilFactory {
         try {
             waitFactory.waitForElementToBeClickable(locator);
             click(locator);
-            customWait(3000);
+            waitFactory.waitForElementToBeInVisible(locator);
             scenarioDef.log(Status.PASS, "Clicked on Remove Link of " + expectedProductName + " Product on Cart Page");
         } catch (Exception e) {
             failureException = e.toString();
