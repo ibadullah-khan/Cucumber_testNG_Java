@@ -1739,4 +1739,133 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
+    public void validateGiftItemPopWindowVisibility(Boolean expectedVisibility) {
+        String locator = CartPageEnum.XPATH_GIFT_ITEM_POP_UP_WINDOW.getValue();
+        String checkoutbutton = CartPageEnum.XPATH_CHECKOUT_DISABLED_CART_BUTTON.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try {
+            waitFactory.waitForElementToBeInVisible(checkoutbutton);
+            customWait(3000);
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Gift Items Popup Window is Displayed as Expected on Cart Page");
+            } else if (!actualVisibility && !expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Gift Items Popup Window is Not Displayed as Expected on Cart Page");
+            } else if (actualVisibility && !expectedVisibility) {
+                errorMsg = "Validated Gift Items Popup Window is Displayed Unexpected on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
+                errorMsg = "Validated Gift Items Popup Window is not Displayed Unexpected on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
     }
+
+    public void clickOnCloseIconOnGiftItemPopupWindow() {
+        String locator = CartPageEnum.XPATH_GIFT_ITEM_POP_UP_WINDOW_CLOSE_ICON.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS, "Clicked on Close Icon of Gift Item Popup Window of Cart Page");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Click on Close Icon of Gift Item Popup Window Cart Page");
+            throw e;
+        }
+    }
+
+    public void clickOnFreeGiftLink() {
+        String locator = CartPageEnum.XPATH_FREE_GIFT_LINK.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS, "Clicked on Free Gift Link on Cart Page");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Click on Free Gift Link on Cart Page");
+            throw e;
+        }
+    }
+
+    public void selectItem(String expectedItem) {
+        String locator = CartPageEnum.XPATH_FIRST_AVAILABLE_ITEM_START.getValue() + expectedItem +CartPageEnum.XPATH_FIRST_AVAILABLE_ITEM_END.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS, "Select "+expectedItem+" Item from Free Gift Popup Window");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Select "+expectedItem+" Item from Free Gift Popup Window");
+            throw e;
+        }
+    }
+
+    public void clickOnAddToCart() {
+        String locator = CartPageEnum.XPATH_GIFT_ITEM_POP_UP_WINDOW_ADD_TO_CART.getValue();
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            click(locator);
+            scenarioDef.log(Status.PASS, "Clicked on Add to Cart Button of Gift Items Popup Window of Cart Page");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Click on Add to Cart Button of Gift Items Popup Window of Cart Page");
+            throw e;
+        }
+    }
+
+    public void validateFreeGiftLinkVisibility(Boolean expectedVisibility) {
+        String locator = CartPageEnum.XPATH_FREE_GIFT_LINK.getValue();
+        String giftPopupWindow = CartPageEnum.XPATH_GIFT_ITEM_POP_UP_WINDOW.getValue();
+        String errorMsg = null;
+        Boolean actualVisibility;
+        try {
+            waitFactory.waitForElementToBeInVisible(giftPopupWindow);
+            customWait(3000);
+            actualVisibility = isVisible(locator);
+            if (actualVisibility && expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Free Gift Link Item is Displayed as Expected on Cart Page");
+            } else if (!actualVisibility && !expectedVisibility) {
+                scenarioDef.log(Status.PASS, "Validated Free Gift Link Item is Not Displayed as Expected on Cart Page");
+            } else if (actualVisibility && !expectedVisibility) {
+                errorMsg = "Validated Free Gift Link Item is Displayed Unexpected on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            } else if (!actualVisibility && expectedVisibility) {
+                errorMsg = "Validated Free Gift Link Item is not Displayed Unexpected on Cart Page";
+                throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateItemHaveFreeTag(String expectedItem){
+        String locator = CartPageEnum.XPATH_GIFT_ITEM_FREE_TAG_START.getValue() + expectedItem +CartPageEnum.XPATH_GIFT_ITEM_FREE_TAG_END.getValue()  ;
+        String errorMsg = null;
+        String actualText;
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            actualText = getText(locator).trim();
+            if (actualText.equalsIgnoreCase("Free")) {
+                scenarioDef.log(Status.PASS, "Validated Free Tag is Present as Expected for Free Item: " + expectedItem);
+            } else {
+                errorMsg = "Could not Validated Free Tag is not Present as Expected for Free Item: " + expectedItem;
+                throw new NoSuchContextException("Free Tag is not Present");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Item Element on Cart Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
+}

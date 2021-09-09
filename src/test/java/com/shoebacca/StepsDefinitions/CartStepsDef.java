@@ -494,4 +494,49 @@ public class CartStepsDef extends HarnessVariables{
     public void userFetchesShippingMethodOnCartPage() {
         SHIPPING_METHOD=cartPage.getShippingMethod();
     }
+
+    @Then("User Validates Gift Items Pop Up Window Visibility {string}")
+    public void userValidatesGiftItemsPopUpWindowVisibility(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            cartPage.validateGiftItemPopWindowVisibility(true);
+        }else {
+            cartPage.validateGiftItemPopWindowVisibility(false);
+        }
+    }
+
+    @Then("User Clicks on Close Icon on Gift Items Pop Up Window")
+    public void userClicksOnCloseIconOnGiftItemsPopUpWindow() {
+        cartPage.clickOnCloseIconOnGiftItemPopupWindow();
+    }
+
+    @Then("User Clicks on Free Gift Link on Cart Page")
+    public void userClicksOnFreeGiftLinkOnCartPage() {
+        cartPage.clickOnFreeGiftLink();
+    }
+
+    @Then("User Clicks Add to Cart Button on Gift Items Pop Up Window")
+    public void userClicksAddToCartButtonOnGiftItemsPopUpWindow() {
+        cartPage.clickOnAddToCart();
+    }
+
+    @Then("User Validates Free Gift Link Visibility {string} on Cart Page")
+    public void userValidatesFreeGiftLinkVisibilityOnCartPage(String expectedCondition) {
+        if(expectedCondition.equals("true")){
+            cartPage.validateFreeGiftLinkVisibility(true);
+        }else {
+            cartPage.validateFreeGiftLinkVisibility(false);
+        }
+    }
+
+    @Then("User Select {string} from Gift Items Pop Up Window")
+    public void userSelectFromGiftItemsPopUpWindow(String item) throws Exception {
+        String expectedItem = new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(item);
+        cartPage.selectItem(expectedItem);
+    }
+
+    @Then("Validates that Selected {string} Have Free Tag")
+    public void validatesThatSelectedHaveFreeTag(String item) throws Exception {
+        String expectedItem = new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(item);
+        cartPage.validateItemHaveFreeTag(expectedItem);
+    }
 }
