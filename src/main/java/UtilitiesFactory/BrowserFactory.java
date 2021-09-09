@@ -41,7 +41,7 @@ public class BrowserFactory {
         {
 
             //Emulator settings for Android Mobile
-            case "ANDROID":
+            case "MOBILE":
                 WebDriverManager.chromedriver().setup();
                 driver.set(new ChromeDriver(chromeOptions_androidMobile()));
                 break;

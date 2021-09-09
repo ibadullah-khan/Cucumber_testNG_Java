@@ -466,7 +466,7 @@ Feature: Cart Feature File
     Then User Clicks on "expedited.shipping" Shipping Method on Dropdown of Cart Page
     Then User Fetches And Compare Estimated Delivery Date on Cart Page
 
-  @C901 @Regression
+  @C901 @Regression @Mobile
   Scenario: Verify Estimated Delivery Date is Only Displayed Once on Mobile Devices
 
     Given User Setups the Web Browser

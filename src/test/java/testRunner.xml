@@ -55,4 +55,12 @@
             </classes>
         </test>
 
+        <test name="Mobile Test Cases">
+            <parameter name="browser" value= "mobile" />
+            <parameter name="emailReport" value="&emailReport;" />
+            <classes>
+                <class name="Runner.MobileTest" />
+            </classes>
+        </test>
+
 </suite>
