@@ -514,11 +514,6 @@ public class CartStepsDef extends HarnessVariables{
         cartPage.clickOnFreeGiftLink();
     }
 
-    @Then("User Select First Item from Gift Items Pop Up Window")
-    public void userSelectFirstItemFromGiftItemsPopUpWindow() {
-        cartPage.selectFirstItem();
-    }
-
     @Then("User Clicks Add to Cart Button on Gift Items Pop Up Window")
     public void userClicksAddToCartButtonOnGiftItemsPopUpWindow() {
         cartPage.clickOnAddToCart();
@@ -531,5 +526,17 @@ public class CartStepsDef extends HarnessVariables{
         }else {
             cartPage.validateFreeGiftLinkVisibility(false);
         }
+    }
+
+    @Then("User Select {string} from Gift Items Pop Up Window")
+    public void userSelectFromGiftItemsPopUpWindow(String item) throws Exception {
+        String expectedItem = new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(item);
+        cartPage.selectItem(expectedItem);
+    }
+
+    @Then("Validates that Selected {string} Have Free Tag")
+    public void validatesThatSelectedHaveFreeTag(String item) throws Exception {
+        String expectedItem = new PropertyLoaderFactory().getPropertyFile(cartPropFile).getProperty(item);
+        cartPage.validateItemHaveFreeTag(expectedItem);
     }
 }

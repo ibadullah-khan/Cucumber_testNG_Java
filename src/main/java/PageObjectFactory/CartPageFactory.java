@@ -1741,11 +1741,12 @@ public class CartPageFactory extends UtilFactory {
 
     public void validateGiftItemsPopWindowVisibility(Boolean expectedVisibility) {
         String locator = CartPageEnum.XPATH_GIFT_ITEMS_POP_UP_WINDOW.getValue();
-        String checkoutbutton = CartPageEnum.XPATH_GIFT_ITEMS_POP_UP_WINDOW_LOADER.getValue();
+        String checkoutbutton = CartPageEnum.XPATH_CHECKOUT_DISABLED_CART_BUTTON.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
         try {
-            waitFactory.waitForElementToBeVisible(checkoutbutton);
+            waitFactory.waitForElementToBeInVisible(checkoutbutton);
+            customWait(3000);
             actualVisibility = isVisible(locator);
             if (actualVisibility && expectedVisibility) {
                 scenarioDef.log(Status.PASS, "Validated Gift Items Popup Window is Displayed as Expected on Cart Page");
@@ -1791,15 +1792,15 @@ public class CartPageFactory extends UtilFactory {
         }
     }
 
-    public void selectFirstItem() {
-        String locator = CartPageEnum.XPATH_FIRST_AVAILABLE_ITEM.getValue();
+    public void selectItem(String expectedItem) {
+        String locator = CartPageEnum.XPATH_FIRST_AVAILABLE_ITEM_START.getValue() + expectedItem +CartPageEnum.XPATH_FIRST_AVAILABLE_ITEM_END.getValue();
         try {
             waitFactory.waitForElementToBeClickable(locator);
             click(locator);
-            scenarioDef.log(Status.PASS, "Select First Available Item from Free Gift Popup Window");
+            scenarioDef.log(Status.PASS, "Select "+expectedItem+" Item from Free Gift Popup Window");
         } catch (Exception e) {
             failureException = e.toString();
-            scenarioDef.log(Status.FAIL, "Could not Select First Available Item from Free Gift Popup Window");
+            scenarioDef.log(Status.FAIL, "Could not Select "+expectedItem+" Item from Free Gift Popup Window");
             throw e;
         }
     }
@@ -1819,11 +1820,12 @@ public class CartPageFactory extends UtilFactory {
 
     public void validateFreeGiftLinkVisibility(Boolean expectedVisibility) {
         String locator = CartPageEnum.XPATH_FREE_GIFT_LINK.getValue();
-        String checkoutbutton = CartPageEnum.XPATH_CHECKOUT_CART_BUTTON.getValue();
+        String checkoutbutton = CartPageEnum.XPATH_GIFT_ITEMS_POP_UP_WINDOW.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
         try {
-            waitFactory.waitForElementToBeVisible(checkoutbutton);
+            waitFactory.waitForElementToBeInVisible(checkoutbutton);
+            customWait(3000);
             actualVisibility = isVisible(locator);
             if (actualVisibility && expectedVisibility) {
                 scenarioDef.log(Status.PASS, "Validated Free Gift Link Item is Displayed as Expected on Cart Page");
@@ -1839,6 +1841,30 @@ public class CartPageFactory extends UtilFactory {
         } catch (Exception e) {
             failureException = e.toString();
             scenarioDef.log(Status.FAIL, errorMsg);
+            throw e;
+        }
+    }
+
+    public void validateItemHaveFreeTag(String expectedItem){
+        String locator = CartPageEnum.XPATH_GIFT_ITEM_FREE_TAG_START.getValue() + expectedItem +CartPageEnum.XPATH_GIFT_ITEM_FREE_TAG_END.getValue()  ;
+        String errorMsg = null;
+        String actualText;
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            actualText = getText(locator).trim();
+            if (actualText.equalsIgnoreCase("Free")) {
+                scenarioDef.log(Status.PASS, "Validated Free Tag is Present as Expected for Free Item: " + expectedItem);
+            } else {
+                errorMsg = "Could not Validated Free Tag is not Present as Expected for Free Item: " + expectedItem;
+                throw new NoSuchContextException("Free Tag is not Present");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Item Element on Cart Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
             throw e;
         }
     }
