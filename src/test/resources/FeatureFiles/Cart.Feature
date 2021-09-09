@@ -306,6 +306,7 @@ Feature: Cart Feature File
 
     Given User Setups the Web Browser
     When User Navigates to "shoebacca.sale.pdt" Url
+    And User Select First Available Product Size from PDP
     Then User Clicks Add to Cart Button on PDP
     And User Validates Successful Triggered Mini Cart
     Then User Clicks on View Cart Button
@@ -373,6 +374,7 @@ Feature: Cart Feature File
   @C301 @Regression
   Scenario: Verify Cart Content is Updated When Guest Customer Signs In and There is Change in Cart Items
 
+    Given User Setups the Web Browser
     When User Navigates to "shoebacca.first.bag.pdt" Url
     Then User Clicks Add to Cart Button on PDP
     And User Validates Successful Triggered Mini Cart
