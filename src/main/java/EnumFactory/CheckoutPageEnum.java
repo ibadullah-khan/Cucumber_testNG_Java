@@ -86,7 +86,7 @@ public enum CheckoutPageEnum {
     XPATH_SELECT_FROM_ADDRESS_BOOK("//*[text()='Select From Address Book']"),
     XPATH_SHIPPING_DETAIL_ADDRESS_LIST("//*[@class='addressBook-content-34e']"),
     XPATH_SIGN_UP_CHECKBOX("//*[@id='emarsys_subscriber' and @checked]"),
-    XPATH_STORED_CARD_SELECTED_SECTION("//input[@class='radio-input-IKa' and @checked]//following-sibling::*[@class='paymentMethods-radio_label-1gr']"),
+    XPATH_STORED_CARD_SELECTED_SECTION("//input[@class='radio-input-IKa' and @checked]//following-sibling::*[text()='Stored Cards']"),
     XPATH_CREDIT_CARD_LAST_DIGITS("//*[@class='radio-input-IKa' and @checked]//following-sibling::*//span[not(@class)]"),
     XPATH_CREDIT_CARD_EXPIRY_DATE("//div[@class='storedPaymentInformation-savedPayments-20v']//p[not(@class)]"),
     XPATH_CREDIT_CARD_LOGO("//*[@class='radio-input-IKa' and @checked]//following-sibling::*//span[@class='storedPaymentInformation-cardType-kvp storedPaymentInformation-mVisa-nVm']"),
@@ -119,7 +119,8 @@ public enum CheckoutPageEnum {
     XPATH_STATE_DROPDOWN_BILLING_OPTION_START("//select[@name='region']//option[text()='"),
     XPATH_STATE_DROPDOWN_BILLING_OPTION_END("']"),
     XPATH_PH_NO_BILLING_FIELD("//input[@field='phoneNumber']"),
-    XPATH_ADDRESS_FROM_LIST("//div[@class='addressBook-content-34e']//span[text()='Default']");
+    XPATH_ADDRESS_FROM_LIST("//div[@class='addressBook-content-34e']//span[text()='Default']"),
+    XPATH_SAVE_CARD_FOR_NEXT_PAY_CHECKBOX("//*[@name='saveCardForNextPayment']");
 
     private String checkoutPageVariables;
 
