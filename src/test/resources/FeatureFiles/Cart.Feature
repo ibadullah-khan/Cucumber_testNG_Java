@@ -72,7 +72,7 @@ Feature: Cart Feature File
     Then User Validates Product Name in Cart Page
     And User Validates "2" Quantity is Displayed on Quantity Text Field
 
- @C202 @Regression
+  @C202 @Regression
   Scenario: Verify Remove Some Item Functionality on Cart Page
 
     Given User Setups the Web Browser
@@ -92,7 +92,7 @@ Feature: Cart Feature File
     Then User Validates Cart Items Quantity "1" on Cart Page
     Then User Validates Price Between Product Item Section and Account Detail Section
 
- @C217 @Regression
+  @C217 @Regression
   Scenario: Verify Cart Total And Tax When Tax is Applied for Specific Areas and Customer Returns to Shopping Cart from Checkout
 
     Given User Setups the Web Browser
@@ -123,7 +123,7 @@ Feature: Cart Feature File
     Then User Clicks on Guest Checkout Button
     Then User Validates Tax Value from Checkout
 
- @C203 @Regression
+  @C203 @Regression
   Scenario: Verify Remove All Item Functionality from  Cart
 
     Given User Setups the Web Browser
@@ -141,7 +141,7 @@ Feature: Cart Feature File
     Then User Click on Remove Link on "shoebacca.second.bag.name" Product on Cart Page
     Then User Validates Your Cart is Empty Section Visibility "true"
 
- @C1655 @Regression
+  @C1655 @Regression
   Scenario: Verify Decimal Value Cannot be Added in Quantity Text Field
 
     Given User Setups the Web Browser
@@ -154,7 +154,7 @@ Feature: Cart Feature File
     And User Enters "0.5" on Quantity Text Field on Cart
     Then User Validates "5" Quantity is Displayed on Quantity Text Field
 
- @C238460 @Regression
+  @C238460 @Regression
   Scenario: Verify Shipping Method And their Prices
 
     Given User Setups the Web Browser
@@ -429,7 +429,7 @@ Feature: Cart Feature File
   Scenario: Verify the Text Color of Estimated Delivery Date on PDP,Cart and Checkout Page
 
     Given User Setups the Web Browser
-    Then User Navigates to "shoebacca.second.bag.pdt" Url
+    Then User Navigates to "shoebacca.first.bag.pdt" Url
     Then User Validates "estimated.date.color" Estimated Delivery Date Color on PDP
     Then User Clicks Add to Cart Button on PDP
     Then User Clicks on View Cart Button
@@ -442,7 +442,8 @@ Feature: Cart Feature File
   @C225263 @Regression
   Scenario: Verify the Standard Shipping Method is Selected by Default when Cart Page is Loaded
 
-    When User Navigates to "shoebacca.second.bag.pdt" Url
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
     Then User Clicks Add to Cart Button on PDP
     And User Validates Successful Triggered Mini Cart
     Then User Clicks on View Cart Button
@@ -468,9 +469,10 @@ Feature: Cart Feature File
   @C901 @Regression
   Scenario: Verify Estimated Delivery Date is Only Displayed Once on Mobile Devices
 
-    When User Navigates to "shoebacca.second.bag.pdt" Url
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
     Then User Validates Estimated Delivery Date Visibility on PDP "true" for Mobile
-    Then User Validates "estimated.date.color" Estimated Delivery Date Color on PDP
+    Then User Validates "estimated.date.color" Estimated Delivery Date Color on PDP for Mobile
     Then User Clicks Add to Cart Button on PDP for Mobile
     And User Validates Successful Triggered Mini Cart
     Then User Clicks on View Cart Button for Mobile
@@ -494,7 +496,7 @@ Feature: Cart Feature File
   Scenario: Verify Estimated Delivery Date is Calculated Properly Against Overnight Shipping Cutoff Rule at shopping cart page
 
     Given User Setups the Web Browser
-    When User Navigates to "shoebacca.second.bag.pdt" Url
+    When User Navigates to "shoebacca.first.bag.pdt" Url
     Then User Clicks Add to Cart Button on PDP
     And User Validates Successful Triggered Mini Cart
     Then User Clicks on View Cart Button
@@ -507,7 +509,7 @@ Feature: Cart Feature File
   Scenario: Delivery Time is Included on Cart as Per Selected Shipping Method
 
     Given User Setups the Web Browser
-    When User Navigates to "shoebacca.second.bag.pdt" Url
+    When User Navigates to "shoebacca.first.bag.pdt" Url
     Then User Clicks Add to Cart Button on PDP
     And User Validates Successful Triggered Mini Cart
     Then User Clicks on View Cart Button

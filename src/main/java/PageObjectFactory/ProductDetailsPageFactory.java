@@ -150,8 +150,33 @@ public class ProductDetailsPageFactory extends UtilFactory {
         }
     }
 
+    public void validateDateColorMobile(String expectedDateColor){
+        String dateLocator = ProductDetailsPageEnum.XPATH_ESTIMATED_DELIVERY_DATE_MOBILE.getValue();
+        String errorMsg = null;
+        try {
+            waitFactory.waitForElementToBeClickable(dateLocator);
+            String actualValue=getCSS(dateLocator,"color");
+            String hex = Color.fromString(actualValue).asHex();
+            if (hex.contains(expectedDateColor)) {
+                scenarioDef.log(Status.PASS, "Validated Date Color is " + expectedDateColor + " on PDP");
+            } else {
+                errorMsg = "Could not validate Date Color is: " + expectedDateColor + " on PDP, Actual Value is: " + actualValue;
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        }
+        catch (Exception e){
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Date Color PDP");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
+
     public void validateEstimatedDeliveryDateVisibility(Boolean expectedVisibility) {
-        String locator = ProductDetailsPageEnum.XPATH_ESTIMATED_DELIVERY_DATE.getValue();
+        String locator = ProductDetailsPageEnum.XPATH_ESTIMATED_DELIVERY_DATE_MOBILE.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
         try{
