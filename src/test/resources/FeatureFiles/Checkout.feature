@@ -1389,3 +1389,20 @@ Feature: Checkout Feature File
     Then User Clicks Save and Continue Button on Checkout Page
     Then User Validates Successful Loaded Checkout Page
     Then User Validates Stored Cards Visibility "false" on Checkout Page
+
+  @C324 @Regression
+  Scenario: Verify Logged In Customer Can Enter a New Credit Card Even There Are Saved Cards
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.home" Url
+    And User Clicks the Account Icon on Header
+    Then User Enters Valid Login Data Username on Account Menu
+    And User Enters Valid Login Password on Account Menu
+    Then User Clicks the Login Button on Account Menu
+    Then User Validates Successful Login on Account Menu
+    And User Clicks the Mini Cart Icon on Header
+    And User Clicks Checkout Button on Mini Cart View
+    Then User Clicks Save and Continue Button on Checkout Page
+    Then User Validates "stored.card.payment" Selected Payment Method "true" on Checkout Page
+    Then User Select "credit.card.payment" Payment Method
+    And User Validates Credit Card Section Visibility "true"
