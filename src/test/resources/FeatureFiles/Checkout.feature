@@ -1351,6 +1351,28 @@ Feature: Checkout Feature File
     And User Enters Four Digit CVV Number on Checkout Page
     Then User Validates Four CVV Number is Entered
 
+  @C3779 @Regression
+  Scenario: Verify Save Card for Next Time Option is Not Displayed for Guest Customers
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.first.bag.pdt" Url
+    And User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks Checkout Button on Mini Cart View
+    And User Clicks on Guest Checkout Button
+    Then User Should Redirect Toward "shopping.checkout" Page
+    And User Enters Valid Email Address on Checkout Page
+    And User Enters Valid First Name on Checkout Page
+    And User Enters Valid Last Name on Checkout Page
+    And User Enters Valid Address on Checkout Page
+    And User Enters Valid City on Checkout Page
+    And User Selects Valid State on Checkout Page
+    And User Enters Valid Zip Code on Checkout Page
+    And User Enters Valid Phone No on Checkout Page
+    Then User Clicks Save and Continue Button on Checkout Page
+    Then User Validates Credit Card Section Visibility "true"
+    Then User Validates Save Card for Next Time Checkbox Visibility "false"
+
   @C3781 @Regression
   Scenario: Verify Stored Card Option Not Displayed For Registered User If No Cards Saved Yet
 
