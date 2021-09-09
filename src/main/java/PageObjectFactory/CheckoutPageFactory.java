@@ -2738,7 +2738,7 @@ public class CheckoutPageFactory extends UtilFactory {
                 if (actualPaymentMethod.equalsIgnoreCase(expectedPaymentMethod)) {
                     scenarioDef.log(Status.PASS, "Validated " + expectedPaymentMethod + " Payment Method is Selected as Expected on Checkout Page");
                 } else {
-                    scenarioDef.log(Status.PASS, "Validated " + expectedPaymentMethod + " Payment Method is not Selected as Expected on Checkout Page");
+                    scenarioDef.log(Status.FAIL, "Validated " + expectedPaymentMethod + " Payment Method is not Selected as Expected on Checkout Page");
                     throw new NoSuchElementException("Actual and Expected Value Differs"); }
                 break;
             }
