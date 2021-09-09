@@ -196,7 +196,7 @@ Feature: Cart Feature File
     And User Fetches Product Name from PDP
     And User Fetches Product Price from PDP
     And User Fetches Product Size from PDP
-    And User Fetches Product Colour from PDP
+#    And User Fetches Product Colour from PDP
     And User Fetches Product Brand from PDP
     Then User Clicks Add to Cart Button on PDP
     And User Validates Successful Triggered Mini Cart
@@ -204,7 +204,7 @@ Feature: Cart Feature File
     Then User Validates Product Name in Cart Page
     Then User Validates Product Price in Cart
     Then User Validates Product Size in Cart
-    Then User Validates Product Colour in Cart
+#    Then User Validates Product Colour in Cart
     Then User Validates Product Brand in Cart
     Then User Validates Product Image Visibility on Cart "true"
     Then User Validates Expected Date Visibility on Cart "true"
