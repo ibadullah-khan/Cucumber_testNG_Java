@@ -1203,7 +1203,8 @@ public class CheckoutPageFactory extends UtilFactory {
                 scenarioDef.log(Status.FAIL, "Could not Click on Remove Promo Code Button on Checkout Page");
                 throw e;
             }
-        }public void validateErrorMsgText(String expectedErrorMsgText) {
+        }
+        public void validateErrorMsgText(String expectedErrorMsgText) {
         String locator = CheckoutPageEnum.XPATH_INVALID_COUPON_MESSAGE.getValue();
         String errorMsg = null;
         String actualText;
@@ -2083,7 +2084,7 @@ public class CheckoutPageFactory extends UtilFactory {
     public void validateStoredCardSectionVisibility(boolean expectedVisibility) {
         String locator = CheckoutPageEnum.XPATH_STORED_CARD_SELECTED_SECTION.getValue();
         String loader = CheckoutPageEnum.XPATH_PAYMENT_LOADER.getValue();
-        String locatorBtn= CheckoutPageEnum.XPATH_PLACE_ORDER_BUTTON.getValue();
+        String locatorBtn = CheckoutPageEnum.XPATH_PLACE_ORDER_BUTTON.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
         try {
@@ -2132,7 +2133,7 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
-    public void clickSetAsDefaultField(){
+    public void clickSetAsDefaultField() {
         String locator = CheckoutPageEnum.XPATH_SET_AS_DEFAULT_FIELD.getValue();
         try {
             waitFactory.waitForElementToBeClickable(locator);
@@ -2225,21 +2226,21 @@ public class CheckoutPageFactory extends UtilFactory {
         String locator = CheckoutPageEnum.XPATH_CREDIT_CARD_NO.getValue();
         String errorMsg = null;
         String actualText;
-        try{
+        try {
             waitFactory.waitForElementToBeClickable(locator);
             actualText = getText(locator).trim();
-            if (expectedCreditCardNo.contains(actualText)){
-                scenarioDef.log(Status.PASS,"Validated By Default Credit Card as Expected: "+expectedCreditCardNo);
-            }else {
-                errorMsg = "Could not Validate By Default Credit Card as Expected: "+expectedCreditCardNo+" , Actual Value: "+actualText;
+            if (expectedCreditCardNo.contains(actualText)) {
+                scenarioDef.log(Status.PASS, "Validated By Default Credit Card as Expected: " + expectedCreditCardNo);
+            } else {
+                errorMsg = "Could not Validate By Default Credit Card as Expected: " + expectedCreditCardNo + " , Actual Value: " + actualText;
                 throw new NoSuchContextException("Actual and Expected Value Differs");
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             failureException = e.toString();
-            if (errorMsg == null){
-                scenarioDef.log(Status.FAIL,"Unable to get the Credit Card Element on Mini Cart");
-            }else {
-                scenarioDef.log(Status.FAIL,errorMsg);
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get the Credit Card Element on Mini Cart");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
             }
             throw e;
         }
@@ -2251,20 +2252,18 @@ public class CheckoutPageFactory extends UtilFactory {
         String iframeLocator = CheckoutPageEnum.XPATH_CREDIT_CARD_NO_IFRAME.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
-        try{
+        try {
             waitFactory.waitForElementToBeInVisible(loader);
             switchToIframe(iframeLocator);
             actualVisibility = isVisible(locator);
             switchToDefaultContent();
-            if(actualVisibility){
+            if (actualVisibility) {
                 scenarioDef.log(Status.PASS, "Validated Credit Card Number Field is Empty");
-            }
-            else {
+            } else {
                 errorMsg = "Validated Credit Card Number Field is not Empty";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             }
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             failureException = e.toString();
             scenarioDef.log(Status.FAIL, errorMsg);
             throw e;
@@ -2276,19 +2275,17 @@ public class CheckoutPageFactory extends UtilFactory {
         String iframeLocator = CheckoutPageEnum.XPATH_CREDIT_CARD_EXP_IFRAME.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
-        try{
+        try {
             switchToIframe(iframeLocator);
             actualVisibility = isVisible(locator);
             switchToDefaultContent();
-            if(actualVisibility){
+            if (actualVisibility) {
                 scenarioDef.log(Status.PASS, "Validated Credit Card Expiry Date Field is Empty");
-            }
-            else {
+            } else {
                 errorMsg = "Validated Credit Card Expiry Date Field is not Empty";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             }
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             failureException = e.toString();
             scenarioDef.log(Status.FAIL, errorMsg);
             throw e;
@@ -2300,19 +2297,17 @@ public class CheckoutPageFactory extends UtilFactory {
         String iframeLocator = CheckoutPageEnum.XPATH_CREDIT_CARD_CVV_IFRAME.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
-        try{
+        try {
             switchToIframe(iframeLocator);
             actualVisibility = isVisible(locator);
             switchToDefaultContent();
-            if(actualVisibility){
+            if (actualVisibility) {
                 scenarioDef.log(Status.PASS, "Validated Credit Card CVV Number Field is Empty");
-            }
-            else {
+            } else {
                 errorMsg = "Validated Credit Card CVV Number Field is not Empty";
                 throw new NoSuchElementException("Element Visibility was Unexpected for Element: " + locator);
             }
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             failureException = e.toString();
             scenarioDef.log(Status.FAIL, errorMsg);
             throw e;
@@ -2422,6 +2417,31 @@ public class CheckoutPageFactory extends UtilFactory {
             } else {
                 scenarioDef.log(Status.FAIL, errorMsg);
             }
+            throw e;
+        }
+    }
+
+    public void validateShippingAddressField(boolean expectedSelection) {
+        String locator = CheckoutPageEnum.XPATH_USE_SHIPPING_ADDRESS_CHECK_BOX.getValue();
+        String errorMsg = null;
+        Boolean actualSelection;
+        try {
+            waitFactory.waitForElementToBeClickable(locator);
+            actualSelection = isSelected(locator);
+            if (actualSelection && expectedSelection) {
+                scenarioDef.log(Status.PASS, "Validated Shipping Address Checkbox is Selected on Checkout Page");
+            } else if (!actualSelection && !expectedSelection) {
+                scenarioDef.log(Status.PASS, "Validated Shipping Address Checkbox is not Selected on Checkout Page");
+            } else if (actualSelection && !expectedSelection) {
+                errorMsg = "Validated Shipping Address Checkbox Selection Unexpected on Checkout Page";
+                throw new NoSuchElementException("Element Selection was Unexpected for Element: " + locator);
+            } else if (!actualSelection && expectedSelection) {
+                errorMsg = "Validated Shipping Address Checkbox Selection Unexpectedly on Checkout Page";
+                throw new NoSuchElementException("Element Selection was Unexpected for Element: " + locator);
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, errorMsg);
             throw e;
         }
     }
@@ -2587,4 +2607,91 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
+    public void validateFourDigitCVVNotEntered() throws Exception {
+        String locator = CheckoutPageEnum.XPATH_CREDIT_CARD_CVV_FIELD.getValue();
+        String iframe = CheckoutPageEnum.XPATH_CREDIT_CARD_CVV_IFRAME.getValue();
+        String errorMsg = null;
+        String actualText;
+        try {
+            switchToIframe(iframe);
+            waitFactory.waitForElementToBeVisible(locator);
+            actualText = getAttribute(locator,"maxlength");
+            switchToDefaultContent();
+            if (actualText.contains("4")) {
+                errorMsg = "Could Not Validate as Four Digit CVV Number is Entered";
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+            else {
+                scenarioDef.log(Status.PASS, "Validated that Unable to Enter 4 Digit CVV");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get Credit Card CVV Field on Checkout Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
+
+    public void clearCreditCardNumber() throws Exception {
+        String locator = CheckoutPageEnum.XPATH_CREDIT_CARD_NUMBER_FIELD.getValue();
+        String iframe = CheckoutPageEnum.XPATH_CREDIT_CARD_NO_IFRAME.getValue();
+        try {
+            switchToIframe(iframe);
+            waitFactory.waitForElementToBeClickable(locator);
+            clearField(locator);
+            switchToDefaultContent();
+            scenarioDef.log(Status.PASS, "Credit Card Field is Clear on Checkout Page");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Clear Credit Card Field on Checkout Page");
+            throw e;
+        }
+    }
+
+    public void clearCreditCardCVVNumber() throws Exception {
+        String locator = CheckoutPageEnum.XPATH_CREDIT_CARD_CVV_FIELD.getValue();
+        String iframe = CheckoutPageEnum.XPATH_CREDIT_CARD_CVV_IFRAME.getValue();
+        try {
+            switchToIframe(iframe);
+            waitFactory.waitForElementToBeClickable(locator);
+            clearField(locator);
+            switchToDefaultContent();
+            scenarioDef.log(Status.PASS, "Credit Card CVV Field is Clear on Checkout Page");
+        } catch (Exception e) {
+            failureException = e.toString();
+            scenarioDef.log(Status.FAIL, "Could not Clear Credit Card CVV Field on Checkout Page");
+            throw e;
+        }
+    }
+
+    public void validateFourDigitCVVEntered() throws Exception {
+        String locator = CheckoutPageEnum.XPATH_CREDIT_CARD_CVV_FIELD.getValue();
+        String iframe = CheckoutPageEnum.XPATH_CREDIT_CARD_CVV_IFRAME.getValue();
+        String errorMsg = null;
+        String actualText;
+        try {
+            switchToIframe(iframe);
+            waitFactory.waitForElementToBeVisible(locator);
+            actualText = getAttribute(locator,"maxlength");
+            switchToDefaultContent();
+            if (actualText.contains("4")) {
+                scenarioDef.log(Status.PASS, "Validated that Four Digit CVV is Entered");
+            }
+            else {
+                errorMsg = "Could Not Validate as Four Digit CVV Number is Entered";
+                throw new NoSuchContextException("Actual and Expected Value Differs");
+            }
+        } catch (Exception e) {
+            failureException = e.toString();
+            if (errorMsg == null) {
+                scenarioDef.log(Status.FAIL, "Unable to get Credit Card CVV Field on Checkout Page");
+            } else {
+                scenarioDef.log(Status.FAIL, errorMsg);
+            }
+            throw e;
+        }
+    }
 }

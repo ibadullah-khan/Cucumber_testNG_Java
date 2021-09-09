@@ -227,6 +227,17 @@ public class UtilFactory {
         }
     }
 
+    protected Boolean isSelected(String locatorValue){
+        WebElement element =  elementFactory.getElement(locatorValue);
+        if (element.isSelected()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    }
+
     protected int getSize(String locatorValue){
         return elementFactory.getElementList(locatorValue);
     }
@@ -276,6 +287,7 @@ public class UtilFactory {
     protected void waitForPageLoad(){
         waitFactory.waitForPageToFinishLoading(BrowserFactory.getDriver());
     }
+
     protected void customWait(int waitTime){
         waitFactory.staticWait(waitTime);
     }
