@@ -39,7 +39,7 @@ public enum GlobalEnumVariables {
 			INVALID_LOGIN_PASSWORD.globalVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("invalid.password");
 			VALID_ALL_LOGIN_USERNAME.globalVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.all.username");
 			VALID_SOCIAL_MEDIA_USER_ID.globalVariables = new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.social.media.id");
-			VALID_LOGIN_VALID_NO_CARD_USERNAME_USERNAME.globalVariables= new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.no.stored.card.username");
+			VALID_LOGIN_VALID_NO_CARD_USERNAME.globalVariables= new PropertyLoaderFactory().getPropertyFile(userDataFile).getProperty("valid.no.stored.card.username");
 
 		} catch (Exception e) {
 
