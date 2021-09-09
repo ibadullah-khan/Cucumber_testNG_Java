@@ -1371,5 +1371,4 @@ Feature: Checkout Feature File
     And User Enters Valid Phone No on Checkout Page
     Then User Clicks Save and Continue Button on Checkout Page
     Then User Validates Credit Card Section Visibility "true"
-    Then User Validates Credit Card Number Field is Empty
     Then User Validates Save Card for Next Time Checkbox Visibility "false"

@@ -2697,9 +2697,13 @@ public class CheckoutPageFactory extends UtilFactory {
 
     public void validateSaveCardForNextPayVisibility(Boolean expectedVisibility) {
         String locator = CheckoutPageEnum.XPATH_SAVE_CARD_FOR_NEXT_PAY_CHECKBOX.getValue();
+        String loader = CheckoutPageEnum.XPATH_PAYMENT_LOADER.getValue();
+        String locatorBtn = CheckoutPageEnum.XPATH_PLACE_ORDER_BUTTON.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
         try {
+            waitFactory.waitForElementToBeInVisible(loader);
+            waitFactory.waitForElementToBeVisible(locatorBtn);
             actualVisibility = isVisible(locator);
             if (actualVisibility && expectedVisibility) {
                 scenarioDef.log(Status.PASS, "Validated Save Card For Next Payment Checkbox is Displayed as Expected on Checkout Page");
