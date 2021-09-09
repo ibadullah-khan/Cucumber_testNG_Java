@@ -1352,7 +1352,7 @@ Feature: Checkout Feature File
     Then User Validates Four CVV Number is Entered
 
   @C324 @Regression
-  Scenario: Verify Logged In Customer Can Enter a New Credit Card Even There Are Saved Cards.
+  Scenario: Verify Logged In Customer Can Enter a New Credit Card Even There Are Saved Cards
 
     Given User Setups the Web Browser
     When User Navigates to "shoebacca.home" Url
@@ -1364,8 +1364,6 @@ Feature: Checkout Feature File
     And User Clicks the Mini Cart Icon on Header
     And User Clicks Checkout Button on Mini Cart View
     Then User Clicks Save and Continue Button on Checkout Page
-    Then User Validates Default Selected Payment Method on Checkout Page
+    Then User Validates "stored.card.payment" Selected Payment Method on Checkout Page
     Then User Select "credit.card.payment" Payment Method
-    And User Enters Valid Credit Card Number on Checkout Page
-    And User Enters Valid Credit Card Expiry Date on Checkout Page
-    And User Enters Valid Credit Card CVV on Checkout Page
+    And User Validates Credit Card Section Visibility "true"

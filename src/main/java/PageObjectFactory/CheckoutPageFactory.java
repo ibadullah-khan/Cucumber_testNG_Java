@@ -2694,21 +2694,26 @@ public class CheckoutPageFactory extends UtilFactory {
             throw e;
         }
     }
-    public void validatePaymentSelected() {
+
+    public void validatePaymentSelected(String expectedPaymentMethod) {
         String locator = CheckoutPageEnum.XPATH_SELECTED_PAYMENT_FIELD.getValue();
         String errorMsg = null;
-        String paymentName = "";
+        String actualPaymentMethod = "";
         List<WebElement> radioButtons;
         try {
             waitFactory.waitForElementToBeClickable(locator);
             radioButtons = elementFactory.getElementsList(locator);
             for (WebElement radioButton : radioButtons) {
                 radioButton.isSelected();
-                paymentName = radioButton.getText();
-                scenarioDef.log(Status.PASS, "Validated " + paymentName + " Payment Method is Selected on Checkout Page");
+                actualPaymentMethod = radioButton.getText();
+                if (actualPaymentMethod.equalsIgnoreCase(expectedPaymentMethod)) {
+                    scenarioDef.log(Status.PASS, "Validated " + expectedPaymentMethod + " Payment Method is Selected as Expected on Checkout Page");
+                } else {
+                    scenarioDef.log(Status.PASS, "Validated " + expectedPaymentMethod + " Payment Method is not Selected as Expected on Checkout Page");
+                    throw new NoSuchElementException("Actual and Expected Value Differs"); }
                 break;
             }
-        }catch (Exception e) {
+        } catch (Exception e) {
             failureException = e.toString();
             if (errorMsg == null) {
                 scenarioDef.log(Status.FAIL, "Unable to get the Payment Method Element on Summary Section of Checkout Page");

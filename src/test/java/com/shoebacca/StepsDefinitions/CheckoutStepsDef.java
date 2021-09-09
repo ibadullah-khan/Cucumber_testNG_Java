@@ -909,8 +909,10 @@ public class CheckoutStepsDef extends HarnessVariables {
     public void userValidatesFourCVVNumberIsEntered() throws Exception {
         checkoutPage.validateFourDigitCVVEntered();
     }
-    @Then("User Validates Default Selected Payment Method on Checkout Page")
-    public void userValidatesPaymentMethodisSelected() {
-        checkoutPage.validatePaymentSelected();
+
+    @Then("User Validates {string} Selected Payment Method on Checkout Page")
+    public void userValidatesPaymentMethodIsSelected(String paymentMethod) throws Exception  {
+        String expectedPaymentMethod = new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(paymentMethod);
+        checkoutPage.validatePaymentSelected(expectedPaymentMethod);
     }
 }
