@@ -1379,7 +1379,7 @@ Feature: Checkout Feature File
     Given User Setups the Web Browser
     When User Navigates to "shoebacca.home" Url
     And User Clicks the Account Icon on Header
-    Then User Enters Valid Login Username on Account Menu
+    Then User Enters Valid Login No Cards Stored Username on Account Menu
     And User Enters Valid Login Password on Account Menu
     Then User Clicks the Login Button on Account Menu
     Then User Validates Successful Login on Account Menu
