@@ -12,7 +12,7 @@ public enum GlobalEnumVariables {
 	VALID_ALL_LOGIN_USERNAME(""),
 	INVALID_LOGIN_PASSWORD(""),
 	VALID_SOCIAL_MEDIA_USER_ID(""),
-	VALID_LOGIN_VALID_NO_CARD_USERNAME_USERNAME("");
+	VALID_LOGIN_VALID_NO_CARD_USERNAME("");
 
     private String globalVariables;
 
