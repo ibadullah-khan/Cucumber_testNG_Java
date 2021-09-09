@@ -909,4 +909,13 @@ public class CheckoutStepsDef extends HarnessVariables {
     public void userValidatesFourCVVNumberIsEntered() throws Exception {
         checkoutPage.validateFourDigitCVVEntered();
     }
+
+    @Then("User Validates Save Card for Next Time Checkbox Visibility {string}")
+    public void userValidatesSaveCardForNextTimeCheckboxVisibility(String expectedVisibility) {
+        if (expectedVisibility.equals("true")) {
+            checkoutPage.validateSaveCardForNextPayVisibility(true);
+        } else {
+            checkoutPage.validateSaveCardForNextPayVisibility(false);
+        }
+    }
 }
