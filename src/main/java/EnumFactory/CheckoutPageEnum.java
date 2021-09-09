@@ -119,7 +119,8 @@ public enum CheckoutPageEnum {
     XPATH_STATE_DROPDOWN_BILLING_OPTION_START("//select[@name='region']//option[text()='"),
     XPATH_STATE_DROPDOWN_BILLING_OPTION_END("']"),
     XPATH_PH_NO_BILLING_FIELD("//input[@field='phoneNumber']"),
-    XPATH_SELECTED_PAYMENT_FIELD("//*[contains(@class,'radio-root-XXV')]"),
+    XPATH_SELECTED_PAYMENT_FIELD_START("//*[@class='paymentMethods-radio_label-1gr' and text()='"),
+    XPATH_SELECTED_PAYMENT_FIELD_END("']//parent::*/*[@class='radio-input-IKa' and @checked]"),
     XPATH_ADDRESS_FROM_LIST("//div[@class='addressBook-content-34e']//span[text()='Default']"),
     XPATH_SAVE_CARD_FOR_NEXT_PAY_CHECKBOX("//*[@name='saveCardForNextPayment']");
 

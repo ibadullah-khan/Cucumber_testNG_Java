@@ -1386,6 +1386,6 @@ Feature: Checkout Feature File
     And User Clicks the Mini Cart Icon on Header
     And User Clicks Checkout Button on Mini Cart View
     Then User Clicks Save and Continue Button on Checkout Page
-    Then User Validates "stored.card.payment" Selected Payment Method on Checkout Page
+    Then User Validates "stored.card.payment" Selected Payment Method "true" on Checkout Page
     Then User Select "credit.card.payment" Payment Method
     And User Validates Credit Card Section Visibility "true"

@@ -2723,32 +2723,27 @@ public class CheckoutPageFactory extends UtilFactory {
         }
     }
 
-
-    public void validatePaymentSelected(String expectedPaymentMethod) {
-        String locator = CheckoutPageEnum.XPATH_SELECTED_PAYMENT_FIELD.getValue();
+    public void validatePaymentSelected(String expectedPaymentMethod, boolean expectedSelection) {
+        String locator = CheckoutPageEnum.XPATH_SELECTED_PAYMENT_FIELD_START.getValue() + expectedPaymentMethod + CheckoutPageEnum.XPATH_SELECTED_PAYMENT_FIELD_END.getValue();
         String errorMsg = null;
-        String actualPaymentMethod = "";
-        List<WebElement> radioButtons;
+        Boolean actualSelection;
         try {
             waitFactory.waitForElementToBeClickable(locator);
-            radioButtons = elementFactory.getElementsList(locator);
-            for (WebElement radioButton : radioButtons) {
-                radioButton.isSelected();
-                actualPaymentMethod = radioButton.getText();
-                if (actualPaymentMethod.equalsIgnoreCase(expectedPaymentMethod)) {
-                    scenarioDef.log(Status.PASS, "Validated " + expectedPaymentMethod + " Payment Method is Selected as Expected on Checkout Page");
-                } else {
-                    scenarioDef.log(Status.FAIL, "Validated " + expectedPaymentMethod + " Payment Method is not Selected as Expected on Checkout Page");
-                    throw new NoSuchElementException("Actual and Expected Value Differs"); }
-                break;
-            }
+            actualSelection = isSelected(locator);
+                if (actualSelection && expectedSelection) {
+                    scenarioDef.log(Status.PASS, "Validated " + expectedPaymentMethod + " Payment Method is Selected as Expected on Checkout Page"); }
+                else if (!actualSelection && !expectedSelection) {
+                    scenarioDef.log(Status.PASS, "Validated " + expectedPaymentMethod + " Payment Method is not Selected as Expected on Checkout Page"); }
+                else if (actualSelection && !expectedSelection) {
+                     errorMsg = "Validated " + expectedPaymentMethod + " Payment Method is Selected Unexpected on Checkout Page";
+                     throw new NoSuchElementException("Element Selection was Unexpected for Element: " + locator); }
+                else if (!actualSelection && expectedSelection) {
+                    errorMsg = "Validated " + expectedPaymentMethod + " Payment Method is not Selected Unexpectedly on Checkout Page";
+                    throw new NoSuchElementException("Element Selection was Unexpected for Element: " + locator);
+        }
         } catch (Exception e) {
             failureException = e.toString();
-            if (errorMsg == null) {
-                scenarioDef.log(Status.FAIL, "Unable to get the Payment Method Element on Summary Section of Checkout Page");
-            } else {
-                scenarioDef.log(Status.FAIL, errorMsg);
-            }
+            scenarioDef.log(Status.FAIL, errorMsg);
             throw e;
         }
     }
