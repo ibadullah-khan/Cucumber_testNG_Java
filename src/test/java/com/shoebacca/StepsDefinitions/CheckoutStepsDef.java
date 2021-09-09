@@ -910,6 +910,15 @@ public class CheckoutStepsDef extends HarnessVariables {
         checkoutPage.validateFourDigitCVVEntered();
     }
 
+    @Then("User Validates Save Card for Next Time Checkbox Visibility {string}")
+    public void userValidatesSaveCardForNextTimeCheckboxVisibility(String expectedVisibility) {
+        if (expectedVisibility.equals("true")) {
+            checkoutPage.validateSaveCardForNextPayVisibility(true);
+        } else {
+            checkoutPage.validateSaveCardForNextPayVisibility(false);
+        }
+    }
+
     @Then("User Validates {string} Selected Payment Method on Checkout Page")
     public void userValidatesPaymentMethodIsSelected(String paymentMethod) throws Exception  {
         String expectedPaymentMethod = new PropertyLoaderFactory().getPropertyFile(checkoutPropFile).getProperty(paymentMethod);
