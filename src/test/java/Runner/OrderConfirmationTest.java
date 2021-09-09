@@ -5,6 +5,7 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
         features ="src/test/resources/FeatureFiles/OrderConfirmation.feature",
+        tags = "not @Mobile",
         monochrome = true,
         plugin = {"json:target/cucumber.json", "pretty"},
         glue = {"com.shoebacca.StepsDefinitions",
