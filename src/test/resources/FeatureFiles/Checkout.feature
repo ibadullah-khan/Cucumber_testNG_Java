@@ -1428,6 +1428,7 @@ Feature: Checkout Feature File
     Then User Clicks Save and Continue Button on Checkout Page
     Then User Validates Payment Method Section is in "active" State
     Then User Validates Stored Cards Visibility "false" on Checkout Page
+
   @C320 @Regression
   Scenario: Validate Payment Methods are Shown as per Configuration
 

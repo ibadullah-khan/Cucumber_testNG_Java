@@ -2750,7 +2750,6 @@ public class CheckoutPageFactory extends UtilFactory {
 
     public void validatePaymentMethodOptionVisibility(String expectedPaymentMethod, boolean expectedVisibility) {
         String locator = CheckoutPageEnum.XPATH_START_PAYMENT_METHOD.getValue() + expectedPaymentMethod + CheckoutPageEnum.XPATH_END_PAYMENT_METHOD.getValue();
-        String loader = CheckoutPageEnum.XPATH_PAYMENT_LOADER.getValue();
         String errorMsg = null;
         Boolean actualVisibility;
         try {
