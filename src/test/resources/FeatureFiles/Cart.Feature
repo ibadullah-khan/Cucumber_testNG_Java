@@ -542,3 +542,26 @@ Feature: Cart Feature File
     Then User Enters Password on Facebook Page
     Then User Clicks on Login Button on Facebook Page
     Then User Should Redirect Toward "shoebacca.facebook.home" Page
+
+  @C419 @Regression
+  Scenario:Verify Customer Can Successfully Authorize And Login Using a Social Media
+
+    Given User Setups the Web Browser
+    When User Navigates to "shoebacca.gwp.pdt" Url
+    Then User Select First Available Product Size from PDP
+    Then User Clicks Add to Cart Button on PDP
+    And User Validates Successful Triggered Mini Cart
+    And User Clicks on View Cart Button
+    Then User Should Redirect Toward "shoebacca.cart" Page
+    Then User Validates Free Gift Link Visibility "false" on Cart Page
+    Then User Enter "valid.gwp.coupon" in Promo Code on Cart Page
+    Then User Clicks on Add Promo Code Button
+    Then User Validates Gift Items Pop Up Window Visibility "true"
+    Then User Clicks on Close Icon on Gift Items Pop Up Window
+    Then User Validates Free Gift Link Visibility "true" on Cart Page
+    Then User Clicks on Free Gift Link on Cart Page
+    Then User Validates Gift Items Pop Up Window Visibility "true"
+    Then User Select "gift.item" from Gift Items Pop Up Window
+    Then User Clicks Add to Cart Button on Gift Items Pop Up Window
+    Then User Validates Free Gift Link Visibility "false" on Cart Page
+    Then Validates that Selected "gift.item" Have Free Tag
