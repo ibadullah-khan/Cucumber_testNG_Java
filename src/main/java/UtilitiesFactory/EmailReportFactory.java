@@ -17,8 +17,8 @@ public class EmailReportFactory {
         try {
             Message message = new MimeMessage(
                     authenticate(
-                            "shoebaccaautomation@gmail.com",
-                            "shoebacca@987",
+                            "xxxxx@gmail.com",
+                            "xxxxxxxx",
                             setProperties(props)));
 
             Transport.send(setMessage(message));
@@ -53,8 +53,8 @@ public class EmailReportFactory {
     private Message setMessage(Message p_message){
 
         try {
-            p_message.setFrom(new InternetAddress("shoebaccaautomation@gmail.com"));
-            p_message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("ibadullah.khan@systemsltd.com,muhammad.jamshed@systemsltd.com"));
+            p_message.setFrom(new InternetAddress("xxxxxxxn@gmail.com"));
+            p_message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("xxxxxxx@xxxxx.com,xxxxxxxxx@xxxxxx.com"));
             p_message.setSubject("Shoebecca Test Execution");
             String messageString = "<head>\n" +
                     "<style>\n" +
